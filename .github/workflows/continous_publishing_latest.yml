@@ -3,7 +3,7 @@ name: Continous Publishing (latest)
 on:
    push:
      branches:
-       - master  
+       - main  
 
 jobs:
 # Cancel previous builds because only latest build is shown online  
