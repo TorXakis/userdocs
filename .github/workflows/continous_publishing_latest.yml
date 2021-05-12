@@ -65,10 +65,10 @@ jobs:
         GITHUB_PAGES_WEBSITE_URL="https://${REPOSITORY_OWNER}.github.io/${REPOSITORY_NAME}"
                     
         echo WEBSITE_SUBDIR=$WEBSITE_SUBDIR
-        echo "::set-env name=WEBSITE_SUBDIR::$WEBSITE_SUBDIR"     
+        echo "::set-env name=WEBSITE_SUBDIR::$WEBSITE_SUBDIR"  >> $GITHUB_ENV   
            
         echo GITHUB_PAGES_WEBSITE_URL=$GITHUB_PAGES_WEBSITE_URL
-        echo "::set-env name=GITHUB_PAGES_WEBSITE_URL::$GITHUB_PAGES_WEBSITE_URL"  
+        echo "::set-env name=GITHUB_PAGES_WEBSITE_URL::$GITHUB_PAGES_WEBSITE_URL"  >> $GITHUB_ENV
     - name: Commit build html documentation to gh-pages branch checkout in gh-pages subdir
       run: |
         # clone gh-pages branch into
