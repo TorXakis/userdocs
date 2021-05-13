@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Function¶ &mdash; TorXakis v0.9.0, Document version git-sha1-9e5e07b documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guard Operator¶" href="Guard_Operator.html" />
+    <link rel="prev" title="Function Defintions¶" href="FuncDefs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TorXakis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                version: v0.9.0<br/>latest docs: git-sha1-9e5e07b<br/><a style="color:white" href="https://github.com/harcokuppens/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-9e5e07b.pdf">pdf</a>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#why-torxakis">Why TorXakis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../trace-replay.html">Trace and replay functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/Adder/index.html">Adder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#models">Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adder-txs">Adder.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adderstaut-txs">AdderStAut.txs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Appendices</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Grammar</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CapsId.html">CapsId¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CapsId.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CapsId.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ChanDefs.html">Channel Definition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ChanDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChanDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChanDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Choice_Operator.html">Choice Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Choice_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Choice_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Choice_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CnectDefs.html">Connection Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#examples">Examples¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Comment.html">Comment¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Comment.html#single-line-comment">Single line comment¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Comment.html#multiple-lines-comment">Multiple lines comment¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Communications.html">Communications¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Communications.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Communications.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Communications.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-without-data">Communication without data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-fully-specified-data">Communication of fully specified data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-underspecified-data">Communication of underspecified data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-constrained-data">Communication of constrained data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-multiple-data-items">Communication of multiple data items¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Condition.html">Condition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Condition.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Condition.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Condition.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ConstDefs.html">Constant Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ConstDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Type.html">Data Type¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Type.html#predefined-data-types">Predefined Data Types¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Type.html#user-defined-data-types">User Defined Data Types¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Disable_Operator.html">Disable Operator¶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXIT.html">EXIT¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="EXIT.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EXIT.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Enable_Operator.html">Enable Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Enable_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enable_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enable_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FuncDefs.html">Function Defintions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FuncDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FuncDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FuncDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Function¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#predefined-functions">Predefined Functions¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bool">Bool¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#int">Int¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boutes-euclidean-definition">Boute’s Euclidean Definition¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string">String¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regex">Regex¶</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implicitly-defined-typedef-functions">Implicitly Defined TYPEDEF Functions¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example¶</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user-defined-functions">User Defined Functions¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Guard_Operator.html">Guard Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Guard_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guard_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guard_Operator.html#example">Example¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HIDE.html">HIDE¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#examples">Examples¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Interrupt_Operator.html">Interrupt Operator¶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IteValExpr.html">IF THEN ELSE Value Expression¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IteValExpr.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IteValExpr.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LET.html">LET Process Behaviour¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LET.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LET.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LET.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LET.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Language_Definition.html">Language Definition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Language_Definition.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Language_Definition.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LetValExpr.html">LET Value Expression¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LetValExpr.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LetValExpr.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LetValExpr.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LetValExpr.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModelDefs.html">Model Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModelDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModelDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModelDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Parallel_Operator.html">Parallel Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Parallel_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Parallel_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Parallel_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Planned-Releases.html">TorXakis Time Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ProcCall.html">Process Call¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ProcCall.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcCall.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ProcDefs.html">Proccess Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ProcDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ProcessBehaviour.html">ProcessBehaviour¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ProcessBehaviour.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcessBehaviour.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcessBehaviour.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PurpDefs.html">Test Purpose Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PurpDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PurpDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PurpDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="STOP.html">STOP¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="STOP.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="STOP.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Sequence_Operator.html">Sequence Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Sequence_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sequence_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sequence_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SmallId.html">SmallId¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SmallId.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SmallId.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="StautDef.html">State Automaton Definition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="StautDef.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StautDef.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StautDef.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Synchronized_Channels_Operator.html">Synchronized Channels Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Channels_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Channels_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Channels_Operator.html#example">Example¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Synchronized_Operator.html">Synchronized Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Operator.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Synchronized_Operator.html#communication">Communication¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Synchronized_Operator.html#constrained-communication">Constrained communication¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Synchronized_Operator.html#deadlock">Deadlock¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Synchronous_Operator.html">Synchronous Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Synchronous_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronous_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronous_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TypeDefs.html">Type Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="TypeDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TypeDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TypeDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ValExpr.html">Value Expression¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ValExpr.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ValExpr.html#semantics">Semantics¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ValExpr.html#reference-to-function">Reference to Function.¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="VarDecl.html">Variable Declaration¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VarDecl.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VarDecl.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VarDecl.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="specification.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification.html#semantics">Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TorXakis</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Grammar</a> &raquo;</li>
+        
+      <li>Function¶</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/harcokuppens/userdocs/blob/master/source/grammar/Function.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="Guard_Operator.html" class="btn btn-neutral float-right" title="Guard Operator¶" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="FuncDefs.html" class="btn btn-neutral float-left" title="Function Defintions¶" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="function">
+<h1>Function<a class="reference external" href="#Function">¶</a><a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h1>
+<p>TorXakis has predefined, implicitly defined <a class="reference external" href="TypeDefs">TYPEDEF</a>, and
+user defined functions.</p>
+<div class="section" id="predefined-functions">
+<h2>Predefined Functions<a class="reference external" href="#Predefined-Functions">¶</a><a class="headerlink" href="#predefined-functions" title="Permalink to this headline">¶</a></h2>
+<p>TorXakis has the following predefined functions; grouped by predefined
+data type to enhance readability.</p>
+<div class="section" id="bool">
+<h3>Bool<a class="reference external" href="#Bool">¶</a><a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h3>
+<table><tbody><tr><th><p>function</p>
+</th><th><p>description</p>
+</th></tr><tr><td><p>==(a,b :: Bool) ::= Bool</p>
+</td><td><p>Equals Infix operator</p>
+</td></tr><tr><td><p>&lt;&gt;(a,b :: Bool) ::= Bool</p>
+</td><td><p>Not Equals Infix operator</p>
+</td></tr><tr><td><p>toString(a :: Bool) ::= String</p>
+</td><td><p>Bool to String function</p>
+</td></tr><tr><td><p>fromString(s :: String) ::= Bool</p>
+</td><td><p>Bool from String function</p>
+</td></tr><tr><td><p>not(b :: Bool) :: Bool</p>
+</td><td><p>not function</p>
+</td></tr><tr><td><p>/(a,b :: Bool) :: Bool</p>
+</td><td><p>and Infix Operator</p>
+</td></tr><tr><td><p>/(a,b :: Bool) :: Bool</p>
+</td><td><p>or Infix Operator</p>
+</td></tr><tr><td><p>|/(a,b :: Bool) :: Bool</p>
+</td><td><p>xor Infix Operator</p>
+</td></tr><tr><td><p>=&gt;(a,b :: Bool) :: Bool</p>
+</td><td><p>implies Infix Operator</p>
+</td></tr></tbody></table></div>
+<div class="section" id="int">
+<h3>Int<a class="reference external" href="#Int">¶</a><a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h3>
+<table><tbody><tr><th><p>function</p>
+</th><th><p>description</p>
+</th></tr><tr><td><p>==(a,b :: Int) ::= Bool</p>
+</td><td><p>Equals Infix operator</p>
+</td></tr><tr><td><p>&lt;&gt;(a,b :: Int) ::= Bool</p>
+</td><td><p>Not Equals Infix operator</p>
+</td></tr><tr><td><p>toString(a :: Int) ::= String</p>
+</td><td><p>Int to String function</p>
+</td></tr><tr><td><p>fromString(s :: String) ::= Int</p>
+</td><td><p>Int from String function</p>
+</td></tr><tr><td><p>+(i :: Int) :: Int</p>
+</td><td><p>Prefix Operator +</p>
+</td></tr><tr><td><p>-(i :: Int) :: Int</p>
+</td><td><p>Prefix Operator -</p>
+</td></tr><tr><td><p>abs(i :: Int) :: Int</p>
+</td><td><p>Absolute value function</p>
+</td></tr><tr><td><p>+(a,b :: Int) ::= Int</p>
+</td><td><p>Addition Infix operator</p>
+</td></tr><tr><td><p>-(a,b :: Int) ::= Int</p>
+</td><td><p>Substraction Infix operator</p>
+</td></tr><tr><td><p>*(a,b :: Int) ::= Int</p>
+</td><td><p>Multiplication Infix operator</p>
+</td></tr><tr><td><p>/(a,b :: Int) ::= Int</p>
+</td><td><p>Division Infix operator according to Boute’s Euclidean definition.</p>
+</td></tr><tr><td><p>%(a,b :: Int) ::= Int</p>
+</td><td><p>Modulo Infix operator according to Boute’s Euclidean definition.</p>
+</td></tr><tr><td><p>&lt;(a,b :: Int) ::= Bool</p>
+</td><td><p>Less Then Infix operator</p>
+</td></tr><tr><td><p>&lt;=(a,b :: Int) ::= Bool</p>
+</td><td><p>Less Equal Infix operator</p>
+</td></tr><tr><td><blockquote>
+<div><p>=(a,b :: Int) ::= Bool</p>
+</div></blockquote>
+</td><td><p>Greater Equal Infix operator</p>
+</td></tr><tr><td><blockquote>
+<div><p>(a,b :: Int) ::= Bool</p>
+</div></blockquote>
+</td><td><p>Greater Then Infix operator</p>
+</td></tr></tbody></table></div>
+<div class="section" id="boutes-euclidean-definition">
+<h3>Boute’s Euclidean Definition<a class="reference external" href="#boutes-euclidean-definition">¶</a><a class="headerlink" href="#boutes-euclidean-definition" title="Permalink to this headline">¶</a></h3>
+<p>The definitions of div <code class="docutils literal notranslate"><span class="pre">/</span></code> and mod <code class="docutils literal notranslate"><span class="pre">%</span></code> are according to Boute’s
+Euclidean definition [1], that is, so as to satisfy the formula</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">for</span> <span class="nb">all</span> <span class="p">((</span><span class="n">m</span> <span class="n">Int</span><span class="p">)</span> <span class="p">(</span><span class="n">n</span> <span class="n">Int</span><span class="p">))</span>
+  <span class="p">(</span><span class="o">=&gt;</span> <span class="p">(</span><span class="n">distinct</span> <span class="n">n</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">(</span><span class="n">let</span> <span class="p">((</span><span class="n">q</span> <span class="p">(</span><span class="n">div</span> <span class="n">m</span> <span class="n">n</span><span class="p">))</span> <span class="p">(</span><span class="n">r</span> <span class="p">(</span><span class="n">mod</span> <span class="n">m</span> <span class="n">n</span><span class="p">)))</span>
+        <span class="p">(</span><span class="ow">and</span> <span class="p">(</span><span class="o">=</span> <span class="n">m</span> <span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="o">*</span> <span class="n">n</span> <span class="n">q</span><span class="p">)</span> <span class="n">r</span><span class="p">))</span>
+             <span class="p">(</span><span class="o">&lt;=</span> <span class="mi">0</span> <span class="n">r</span> <span class="p">(</span><span class="o">-</span> <span class="p">(</span><span class="nb">abs</span> <span class="n">n</span><span class="p">)</span> <span class="mi">1</span><span class="p">))))))</span>
+</pre></div>
+</div>
+<p>[1] Boute, Raymond T. (April 1992). The Euclidean definition of the
+functions div and mod. ACM Transactions on Programming Languages and
+Systems (TOPLAS) ACM Press. 14 (2): 127 - 144.
+doi:10.1145/128861.128862.</p>
+</div>
+<div class="section" id="string">
+<h3>String<a class="reference external" href="#String">¶</a><a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<table><tbody><tr><th><p>function</p>
+</th><th><p>description</p>
+</th></tr><tr><td><p>==(a,b :: String) ::= Bool</p>
+</td><td><p>Equals Infix operator</p>
+</td></tr><tr><td><p>&lt;&gt;(a,b :: String) ::= Bool</p>
+</td><td><p>Not Equals Infix operator</p>
+</td></tr><tr><td><p>++(a,b :: String) ::= String</p>
+</td><td><p>Concat Infix operator</p>
+</td></tr><tr><td><p>len(s ::String) :: Int</p>
+</td><td><p>Length of String function</p>
+</td></tr><tr><td><p>at(s :: String; i :: Int) :: String</p>
+</td><td><p>Character at position i of s.
+The index of position starts at 0. When the index is out of range
+(either i &lt; 0 or i &gt; len(s)) the empty string (“”) will be returned.</p>
+</td></tr></tbody></table></div>
+<div class="section" id="regex">
+<h3>Regex<a class="reference external" href="#Regex">¶</a><a class="headerlink" href="#regex" title="Permalink to this headline">¶</a></h3>
+<table><tbody><tr><th><p>function</p>
+</th><th><p>description</p>
+</th></tr><tr><td><p>strinre(s :: String; r :: Regex) :: Bool</p>
+</td><td><p>Adheres string to regex?</p>
+</td></tr></tbody></table></div>
+</div>
+<div class="section" id="implicitly-defined-typedef-functions">
+<h2>Implicitly Defined <a class="reference external" href="TypeDefs">TYPEDEF</a> Functions<a class="reference external" href="#Implicitly-Defined-TYPEDEF-Functions">¶</a><a class="headerlink" href="#implicitly-defined-typedef-functions" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">TorXakis will automatically generate equality, type checking, and
+accessors functions for the user defined data types.</div>
+<div class="line"><strong>Note</strong> accessor functions associated with a particular constructor
+are only defined for instances of that constructor.</div>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="reference external" href="#Example">¶</a><a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>When the user defines</p>
+<pre>TYPEDEF List_Int ::=
+      CNil_Int
+    | Cstr_Int { head :: Int; tail :: List_Int }
+ENDDEF
+</pre><p>TorXakis defines the equality operator</p>
+<pre>==(a,b :: List_Int) :: Bool
+</pre><p>the type checking functions (according to the pattern is)</p>
+<pre>isCNil_Int(x :: List_Int) :: Bool
+isCstr_Int(x :: List_Int) :: Bool
+</pre><p>and the accessor functions</p>
+<pre>head(x :: List_Int) :: Int
+tail(x :: List_Int) :: List_Int
+</pre><p>which satisfy</p>
+<pre>head(Cstr_Int(h,t)) == h
+tail(Cstr_Int(h,t)) == t
+</pre><div class="line-block">
+<div class="line">Note that these accessor functions are only defined for instances of
+the Cstr_Int constructor, i.e.,</div>
+<div class="line">instances of List_Int for which isCstr_Int(x) returns True.
+head(CNil_Int) and tail(CNil_Int) are thus not defined.</div>
+</div>
+<p>One should guard the usage of accessor functions with the constructor
+check, using <a class="reference external" href="IteValExpr">IF THEN ELSE FI</a> .</p>
+<pre>IF isCstr_Int(x) THEN head(x) == 5 ELSE False FI
+</pre></div>
+</div>
+<div class="section" id="user-defined-functions">
+<h2>User Defined Functions<a class="reference external" href="#User-Defined-Functions">¶</a><a class="headerlink" href="#user-defined-functions" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">In TorXakis, the user can define functions, including recursive
+functions, using</div>
+<div class="line"><a class="reference external" href="FuncDefs">FUNCDEF</a>.</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Guard_Operator.html" class="btn btn-neutral float-right" title="Guard Operator¶" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="FuncDefs.html" class="btn btn-neutral float-left" title="Function Defintions¶" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, TorXakis.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
