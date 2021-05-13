@@ -34,6 +34,7 @@ with open('TOOLVERSION.txt') as f:
     toolversion = f.readline()
 toolversion=toolversion.strip()    
 
+import os,sys
 import subprocess
 tag=subprocess.check_output(["git","tag", "--points-at","HEAD"],encoding="utf-8").strip()
 print("tag="+tag)
@@ -69,7 +70,10 @@ release= toolversion + ", " + pdf_docversion
 
 
 document_name = document_name_format.format(TOOLVERSION=toolversion,DOCVERSION=docversion)
-print("::set-env name=DOCUMENT_NAME::" + document_name)
+
+githubenv=os.environ.get('GITHUB_ENV')
+handle = open(target, 'w') if githubenv else sys.stdout
+handle.write("DOCUMENT_NAME=" + document_name + "\n")
 
 pdfdocumenturl="https://github.com/{0}/{1}/releases/download/{2}/{3}.pdf".format(github_user_or_organisation,
                 github_repo_name,release_name,document_name)
@@ -127,7 +131,8 @@ def slugify(value, allow_unicode=False):
 
 
 output_pdf="build/latex/" + slugify(project) + ".pdf"
-print("::set-env name=SPHINX_BUILD_PDF::" + output_pdf)
+handle.write("SPHINX_BUILD_PDF=" + output_pdf + "\n")
+
 
 
 
