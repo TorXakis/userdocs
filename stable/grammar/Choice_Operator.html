@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Choice Operator¶ &mdash; TorXakis v0.9.0, Document version v1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Connection Definitions¶" href="CnectDefs.html" />
+    <link rel="prev" title="Channel Definition¶" href="ChanDefs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TorXakis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                version: v0.9.0<br/>stable docs: v1<br/><a style="color:white" href="https://github.com/harcokuppens/userdocs/releases/download/v1/TorXakis-v0.9.0_Userguide-v1.pdf">pdf</a>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#why-torxakis">Why TorXakis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../trace-replay.html">Trace and replay functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/Adder/index.html">Adder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#models">Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adder-txs">Adder.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adderstaut-txs">AdderStAut.txs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Appendices</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Grammar</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CapsId.html">CapsId¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CapsId.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CapsId.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ChanDefs.html">Channel Definition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ChanDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChanDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ChanDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Choice Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CnectDefs.html">Connection Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#examples">Examples¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CnectDefs.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Comment.html">Comment¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Comment.html#single-line-comment">Single line comment¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Comment.html#multiple-lines-comment">Multiple lines comment¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Communications.html">Communications¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Communications.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Communications.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Communications.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-without-data">Communication without data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-fully-specified-data">Communication of fully specified data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-underspecified-data">Communication of underspecified data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-constrained-data">Communication of constrained data¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Communications.html#communication-of-multiple-data-items">Communication of multiple data items¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Condition.html">Condition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Condition.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Condition.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Condition.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ConstDefs.html">Constant Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ConstDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConstDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Type.html">Data Type¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Type.html#predefined-data-types">Predefined Data Types¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Type.html#user-defined-data-types">User Defined Data Types¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Disable_Operator.html">Disable Operator¶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXIT.html">EXIT¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="EXIT.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EXIT.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Enable_Operator.html">Enable Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Enable_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enable_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Enable_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FuncDefs.html">Function Defintions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FuncDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FuncDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FuncDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Function.html">Function¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Function.html#predefined-functions">Predefined Functions¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Function.html#bool">Bool¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Function.html#int">Int¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Function.html#boutes-euclidean-definition">Boute’s Euclidean Definition¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Function.html#string">String¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Function.html#regex">Regex¶</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Function.html#implicitly-defined-typedef-functions">Implicitly Defined TYPEDEF Functions¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Function.html#example">Example¶</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Function.html#user-defined-functions">User Defined Functions¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Guard_Operator.html">Guard Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Guard_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guard_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guard_Operator.html#example">Example¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HIDE.html">HIDE¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#examples">Examples¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HIDE.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Interrupt_Operator.html">Interrupt Operator¶</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IteValExpr.html">IF THEN ELSE Value Expression¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IteValExpr.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IteValExpr.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LET.html">LET Process Behaviour¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LET.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LET.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LET.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LET.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Language_Definition.html">Language Definition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Language_Definition.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Language_Definition.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="LetValExpr.html">LET Value Expression¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="LetValExpr.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LetValExpr.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LetValExpr.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LetValExpr.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ModelDefs.html">Model Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ModelDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModelDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ModelDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Parallel_Operator.html">Parallel Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Parallel_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Parallel_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Parallel_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Planned-Releases.html">TorXakis Time Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ProcCall.html">Process Call¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ProcCall.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcCall.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ProcDefs.html">Proccess Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ProcDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ProcessBehaviour.html">ProcessBehaviour¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ProcessBehaviour.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcessBehaviour.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProcessBehaviour.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PurpDefs.html">Test Purpose Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PurpDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PurpDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PurpDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="STOP.html">STOP¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="STOP.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="STOP.html#semantics">Semantics¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Sequence_Operator.html">Sequence Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Sequence_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sequence_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sequence_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SmallId.html">SmallId¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SmallId.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SmallId.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="StautDef.html">State Automaton Definition¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="StautDef.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StautDef.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StautDef.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Synchronized_Channels_Operator.html">Synchronized Channels Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Channels_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Channels_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Channels_Operator.html#example">Example¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Synchronized_Operator.html">Synchronized Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronized_Operator.html#examples">Examples¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Synchronized_Operator.html#communication">Communication¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Synchronized_Operator.html#constrained-communication">Constrained communication¶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Synchronized_Operator.html#deadlock">Deadlock¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Synchronous_Operator.html">Synchronous Operator¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Synchronous_Operator.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronous_Operator.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Synchronous_Operator.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TypeDefs.html">Type Definitions¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="TypeDefs.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TypeDefs.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TypeDefs.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ValExpr.html">Value Expression¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ValExpr.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ValExpr.html#semantics">Semantics¶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ValExpr.html#reference-to-function">Reference to Function.¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="VarDecl.html">Variable Declaration¶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VarDecl.html#syntax">Syntax¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VarDecl.html#semantics">Semantics¶</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VarDecl.html#examples">Examples¶</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="specification.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="specification.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="specification.html#semantics">Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TorXakis</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Grammar</a> &raquo;</li>
+        
+      <li>Choice Operator¶</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="CnectDefs.html" class="btn btn-neutral float-right" title="Connection Definitions¶" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="ChanDefs.html" class="btn btn-neutral float-left" title="Channel Definition¶" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choice-operator">
+<h1>Choice Operator<a class="reference external" href="#Choice-Operator">¶</a><a class="headerlink" href="#choice-operator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="syntax">
+<h2>Syntax<a class="reference external" href="#Syntax">¶</a><a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="ProcessBehaviour">processBehaviour</a> “##”
+<a class="reference external" href="ProcessBehaviour">processBehaviour</a></p>
+</div>
+<div class="section" id="semantics">
+<h2>Semantics<a class="reference external" href="#Semantics">¶</a><a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h2>
+<p>process1 ## process2</p>
+<p>Either process1 or process2 is executed, but never both.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="reference external" href="#Examples">¶</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The statement</p>
+<pre>    Channel1_Int ? x
+##
+    Channel2_Int ? y
+</pre><div class="line-block">
+<div class="line">describes the process that</div>
+<div class="line">either communicates the variable x over Channel1_Int</div>
+<div class="line">or communicates the variable y over Channel2_Int.</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="CnectDefs.html" class="btn btn-neutral float-right" title="Connection Definitions¶" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ChanDefs.html" class="btn btn-neutral float-left" title="Channel Definition¶" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, TorXakis.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
