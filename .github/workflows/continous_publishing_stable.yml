@@ -36,10 +36,10 @@ jobs:
 
         
         echo WEBSITE_SUBDIR=$WEBSITE_SUBDIR
-        echo "::set-env name=WEBSITE_SUBDIR::$WEBSITE_SUBDIR"     
+        echo "WEBSITE_SUBDIR=$WEBSITE_SUBDIR" >> $GITHUB_ENV    
            
         echo GITHUB_PAGES_WEBSITE_URL=$GITHUB_PAGES_WEBSITE_URL
-        echo "::set-env name=GITHUB_PAGES_WEBSITE_URL::$GITHUB_PAGES_WEBSITE_URL"                   
+        echo "GITHUB_PAGES_WEBSITE_URL=$GITHUB_PAGES_WEBSITE_URL"  >> $GITHUB_ENV             
     - name: Commit build html documentation to gh-pages branch checkout in gh-pages subdir
       run: |
         # clone gh-pages branch into
@@ -77,7 +77,7 @@ jobs:
         fi
 
         echo CREATE_RELEASE=$CREATE_RELEASE
-        echo "::set-env name=CREATE_RELEASE::$CREATE_RELEASE"
+        echo "CREATE_RELEASE=$CREATE_RELEASE" >> $GITHUB_ENV
     - name: Create Release
       if: env.CREATE_RELEASE == 'yes'
       # https://github.com/actions/create-release
