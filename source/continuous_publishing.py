@@ -5,7 +5,7 @@
 
 # -- manual configuration  -----------------------------------------------------
 
-github_user_or_organisation='harcokuppens'
+github_user_or_organisation='torxakis'
 github_repo_name="userdocs"
 
 # when publishing documentation as file assets on github use following filename:
