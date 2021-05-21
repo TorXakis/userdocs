@@ -17,6 +17,7 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
 
    intro
    installation
+   command-line
    trace-replay
    examples/index
 
