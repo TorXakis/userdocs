@@ -189,7 +189,7 @@ html_context = {
     "github_host": "github.com",
     "github_user": github_user_or_organisation,
     "github_repo": github_repo_name,
-    "github_version": "master",
+    "github_version": "main",
     "conf_py_path": "/source/",
     "source_suffix": '.rst',
 }
