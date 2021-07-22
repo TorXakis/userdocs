@@ -1,5 +1,4 @@
 
-exampleschapter
 
 .. _exampleschapter:
 
