@@ -1,13 +1,13 @@
-Synchronized Operator\ `¶ <#Synchronized-Operator>`__
+Synchronized Operator
 =====================================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-`processBehaviour <ProcessBehaviour>`__ “\|\|”
+`processBehaviour <ProcessBehaviour>`__ "||"
 `processBehaviour <ProcessBehaviour>`__
 
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 process1 \|\| process2
@@ -17,20 +17,19 @@ including `EXIT <EXIT>`__.
 
 When both processes have exited then the synchronized composition exits.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
-Communication\ `¶ <#Communication>`__
+Communication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>    Channel1_Int ? x 
+       Channel1_Int ? x 
    ||
        Channel1_Int ? y
-   </pre>
 
 | describes the process with two sub processes that are synchronized
   over all channels.
@@ -41,17 +40,16 @@ The statement
 | since both communications have exited, the synchronized composition
   exits.
 
-Constrained communication\ `¶ <#Constrained-communication>`__
+Constrained communication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>    Channel1_Int ? x [[ x >= 10 ]]
+       Channel1_Int ? x [[ x >= 10 ]]
    ||
        Channel1_Int ? y [[ y <= 20 ]]
-   </pre>
 
 | describes the process with two sub processes that are synchronized
   over all channels.
@@ -63,17 +61,16 @@ The statement
 | and, since both communications have exited, the synchronized
   composition exits.
 
-Deadlock\ `¶ <#Deadlock>`__
+Deadlock
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>    Channel1_Int ? x 
+       Channel1_Int ? x 
    ||
        Channel2_Int ? y
-   </pre>
 
 | describes the process with two sub processes that are synchronized
   over all channels.

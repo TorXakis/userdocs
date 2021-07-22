@@ -1,28 +1,28 @@
-Enable Operator\ `¶ <#Enable-Operator>`__
+Enable Operator
 =========================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
 | `processBehaviour <ProcessBehaviour>`__ >>>
   `processBehaviour <ProcessBehaviour>`__
-| `processBehaviour <ProcessBehaviour>`__ >>> “ACCEPT” (“?”
-  `varDecl <VarDecl>`__ \| “!” `valExpr <ValExpr>`__ )\* IN
+| `processBehaviour <ProcessBehaviour>`__ >>> "ACCEPT" ("?"
+  `varDecl <VarDecl>`__ \| "!" `valExpr <ValExpr>`__ )\* IN
   `processBehaviour <ProcessBehaviour>`__ NI
 
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 | Synchronize on EXIT of multiple processes.
 | When EXIT values are communicated, they must be ACCEPTed for further
   use.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
-.. raw:: html
+::
 
-   <pre>(
+   (
        A ? x :: Int >-> EXIT ! x ? y :: Int
    |||
        B ? y :: Int >-> EXIT ? x :: Int ! y
@@ -30,4 +30,3 @@ Examples\ `¶ <#Examples>`__
    >>> ACCEPT ? a ? b IN 
       C ! a + b
    NI
-   </pre>

@@ -1,103 +1,34 @@
-LET Process Behaviour\ `¶ <#LET-Process-Behaviour>`__
+LET Process Behaviour
 =====================================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+=================== ==================================================================================
+letProcessBehaviour "LET" assignment (";" assignment)\* "IN" :ref:`processBehaviour` "NI"
+assignment          :ref:`varDecl` "=" [valExpr](ValExpr)
+=================== ==================================================================================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-letProcessBehaviour
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-“LET” assignment (“;” assignment)\* “IN”
-`processBehaviour <ProcessBehaviour>`__ “NI”
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-assignment
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`varDecl <VarDecl>`__ “=” `valExpr <ValExpr>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 Introduce variables
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
-Simultaneously define multiple variables\ `¶ <#Simultaneously-define-multiple-variables>`__
+Simultaneously define multiple variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>LET a = 5; b = 3; c = 8 IN
+   LET a = 5; b = 3; c = 8 IN
       ...
       LET a = 1+b; b = 2+a; c = a*b IN ... NI
       ...
    NI
-   </pre>
 
 | defines two times three new variables (a, b, and c).
 | Inside the first LET IN NI block except the second LET IN NI block,

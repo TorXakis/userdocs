@@ -1,270 +1,36 @@
-Connection Definitions\ `¶ <#Connection-Definitions>`__
+Connection Definitions
 =======================================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-cnectDefs
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-“CNECTDEF” cnectDef (“;” cnectDef )\* “ENDDEF”
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-cnectDef
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-cnectName “::=” cnectType cnectItem\*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-cnectType
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-“CLIENTSOCK” \| “SERVERSOCK”
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-cnectItem
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-  “CHAN” “OUT” channelName “HOST” hostName “PORT” portNumber
-\| “CHAN” “IN” channelName “HOST” hostName “PORT” portNumber
-\| “ENCODE” channelName “?” `varDecl <VarDecl>`__ “->” “!”
-`valExpr <ValExpr>`__
-\| “DECODE” channelName “!” `valExpr <ValExpr>`__ “<-” “?”
-`varDecl <VarDecl>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-cnectName
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`CapsId <CapsId>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-channelName
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`CapsId <CapsId>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-hostName
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`String <Data_Type>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-portNumber
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`Int <Data_Type>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+=========== ===============================================================================================================================================================================================================================================================================
+cnectDefs   "CNECTDEF" cnectDef (";" cnectDef )\* "ENDDEF"
+cnectDef    cnectName "::=" cnectType cnectItem\*
+cnectType   "CLIENTSOCK" \| "SERVERSOCK"
+cnectItem     "CHAN" "OUT" channelName "HOST" hostName "PORT" portNumber \| "CHAN" "IN" channelName "HOST" hostName "PORT" portNumber \| "ENCODE" channelName "?" :ref:`varDecl` "->" "!" [valExpr](ValExpr) \| "DECODE" channelName "!" [valExpr](ValExpr) "<-" "?" [varDecl](VarDecl)
+cnectName   :ref:`CapsId`
+channelName :ref:`CapsId`
+hostName    :ref:`String`
+portNumber  :ref:`Int`
+=========== ===============================================================================================================================================================================================================================================================================
+
+Semantics
 -----------------------------
 
 Define connections with outside world, and the mapping from abstract
 TorXakis channels to the concrete outside-world connections. Currently,
 only socket connections (of type String) are supported. A socket has a
-hostname, such as “localhost”, and a portNumber.
+hostname, such as "localhost", and a portNumber.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>CNECTDEF  Sut
+   CNECTDEF  Sut
        ::=
            CLIENTSOCK
 
@@ -275,7 +41,6 @@ The statement
            DECODE     Result  ! fromString(s)   <-   ? s
 
    ENDDEF
-   </pre>
 
 specifies a socket connection, called ``Sut``, to the outside world
 where
@@ -303,9 +68,9 @@ where
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>CNECTDEF  Sim
+   CNECTDEF  Sim
        ::=
            SERVERSOCK
 
@@ -316,7 +81,6 @@ The statement
            ENCODE     Result  ? result           ->  ! toString(result)
 
    ENDDEF
-   </pre>
 
 specifies a socket connection, called ``Sim``, to the outside world,
 where
@@ -333,6 +97,5 @@ Technical Details
 
 -  Socket streams must have UTF-8 string encoding, without byte order
    mark.
--  The new line format must be Linux (:raw-latex:`\n`). When using the
-   Windows style (:raw-latex:`\r\n`) the
-   :raw-latex:`\r is considered part of the output string.`
+-  The new line format must be Linux (\n). When using the Windows style
+   (\r\n) the \\r is considered part of the output string.

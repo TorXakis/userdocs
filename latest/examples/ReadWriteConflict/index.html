@@ -1,0 +1,896 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Modelling Example - Shared Memory &mdash; TorXakis v0.9.0, Document version git-sha1-9c7cb1c documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Modelling Example: Stimulus Response" href="../StimulusResponse/index.html" />
+    <link rel="prev" title="Modelling Example: Echo" href="../Echo/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> TorXakis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                version: v0.9.0<br/>latest docs: git-sha1-9c7cb1c<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-9c7cb1c.pdf">pdf</a>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../trace-replay.html">Trace and replay functionality</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Adder/index.html">Adder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#models">Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adder-txs">Adder.txs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-model-and-sut-connection">1. Adder Model and Sut Connection</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#observe-the-behaviour-of-model">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-sut">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder3-model-and-sut3-connection">2. Adder3 Model and Sut3 Connection:</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id1">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-3-suts">Execute TorXakis against the actual 3 SUTs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderstaut-txs">AdderStAut.txs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#id2">Observe the behaviour of model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#id3">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ControlLoop/index.html">ControlLoop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#sgn">sgn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#processes">Processes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#correct">correct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#measure">measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#produce">produce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#control-loop">control loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#stepping-through-the-model">Stepping through the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CustomersOrders/index.html">CustomersOrders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#torxakis-specification">TorXakis specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#model-based-testing">Model Based Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Echo/index.html">Echo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#process">Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model-based-testing-stepping-through-the-model">Model Based Testing: Stepping through the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#simulator-definition">Simulator Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model-based-testing-testing-the-simulated-sut">Model Based Testing: Testing the Simulated SUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ReadWriteConflict</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-solution">Basic Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-solution">Advanced Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-test-purposes">Using Test Purposes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../StimulusResponse/index.html">StimulusResponse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#model-based-testing">Model Based Testing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#errorneous-sut">Errorneous SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#stimulus-response-loop">Stimulus Response - Loop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html">LuckyPeopleAssignment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-names">Lucky based on names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-birthday">Lucky based on birthday</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-sequence">Lucky based on sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#deliverables">Deliverables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html">LuckyPeopleSolution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#types">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#procedure">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isvalid-person">isValid_Person</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckyperson">isLuckyPerson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybygender">isLuckyByGender</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybyname">isLuckyByName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybybirthday">isLuckyByBirthday</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model-based-testing">Model Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__3_Testing-With-Predetermined-Input.html">LuckyPeopleTesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html">LuckyPeopleGender</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-process">The process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-test-purpose">The Test Purpose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Appendices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar/index.html">Grammar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/CapsId.html">CapsId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ChanDefs.html">Channel Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Choice_Operator.html">Choice Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/CnectDefs.html">Connection Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Comment.html">Comment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Comment.html#single-line-comment">Single line comment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Comment.html#multiple-lines-comment">Multiple lines comment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Communications.html">Communications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-without-data">Communication without data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-fully-specified-data">Communication of fully specified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-underspecified-data">Communication of underspecified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-constrained-data">Communication of constrained data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-multiple-data-items">Communication of multiple data items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Condition.html">Condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ConstDefs.html">Constant Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Data_Type.html">Data Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Data_Type.html#predefined-data-types">Predefined Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Data_Type.html#user-defined-data-types">User Defined Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Disable_Operator.html">Disable Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/EXIT.html">EXIT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/EXIT.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/EXIT.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Enable_Operator.html">Enable Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/FuncDefs.html">Function Defintions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Function.html">Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#predefined-functions">Predefined Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#bool">Bool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#int">Int</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#boute-s-euclidean-definition">Boute’s Euclidean Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#string">String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#regex">Regex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#implicitly-defined-typedef-functions">Implicitly Defined TYPEDEF Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#user-defined-functions">User Defined Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Guard_Operator.html">Guard Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/HIDE.html">HIDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Interrupt_Operator.html">Interrupt Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/IteValExpr.html">IF THEN ELSE Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/IteValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/IteValExpr.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/LET.html">LET Process Behaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/LET.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Language_Definition.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Language_Definition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Language_Definition.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/LetValExpr.html">LET Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/LetValExpr.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ModelDefs.html">Model Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Parallel_Operator.html">Parallel Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Planned-Releases.html">TorXakis Time Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcCall.html">Process Call</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcCall.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcCall.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcDefs.html">Proccess Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcessBehaviour.html">ProcessBehaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/PurpDefs.html">Test Purpose Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/STOP.html">STOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/STOP.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/STOP.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Sequence_Operator.html">Sequence Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/SmallId.html">SmallId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/SmallId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/SmallId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/StautDef.html">State Automaton Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html">Synchronized Channels Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronized_Operator.html">Synchronized Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#communication">Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#constrained-communication">Constrained communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#deadlock">Deadlock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronous_Operator.html">Synchronous Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/TypeDefs.html">Type Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ValExpr.html">Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ValExpr.html#semantics">Semantics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/ValExpr.html#reference-to-function">Reference to Function.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/VarDecl.html">Variable Declaration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/specification.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/specification.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/specification.html#semantics">Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TorXakis</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+        
+      <li>Modelling Example - Shared Memory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/torxakis/userdocs/blob/main/source/examples/ReadWriteConflict/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../StimulusResponse/index.html" class="btn btn-neutral float-right" title="Modelling Example: Stimulus Response" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="../Echo/index.html" class="btn btn-neutral float-left" title="Modelling Example: Echo" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modelling-example-shared-memory">
+<h1>Modelling Example - Shared Memory<a class="headerlink" href="#modelling-example-shared-memory" title="Permalink to this headline">¶</a></h1>
+<p>How can we model shared memory, i.e., a global variable, in
+[TorXakis][7]? For simplicity, we will assume that the shared memory
+stores a value of <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">Data
+Type</a> Int.</p>
+<div class="section" id="basic-solution">
+<h2>Basic Solution<a class="headerlink" href="#basic-solution" title="Permalink to this headline">¶</a></h2>
+<p>We define a process <em>memory</em> to manage the shared memory. In the basic
+solution, this <em>memory</em> process has two communication channels of <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">Data
+Type</a> Int: Read
+and Write. This <em>memory</em> process is a recursive process, with one
+parameter: the current memory value. The process</p>
+<ul class="simple">
+<li><p>either provides the current value over the Read channel,</p></li>
+<li><p>or receives a new value over the Write channel. Since reading a value
+from memory doesn’t change its value, after reading, the <em>memory</em>
+process is instantiated with the current memory value. Since writing
+a value to memory changes its value, after writing, the <em>memory</em>
+process is instantiated with the new value.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF memory [ Read, Write :: Int ] ( value :: Int ) ::=
+        Read  ! value     &gt;-&gt;  memory [Read, Write]( value )
+    ##
+        Write ? newValue  &gt;-&gt;  memory [Read, Write]( newValue )
+ENDDEF
+</pre></div>
+</div>
+<p>The <em>memory</em> process is used as follows, with initial value 0:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">usage</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
+        <span class="n">memory</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+    <span class="o">|</span><span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span><span class="o">|</span>
+        <span class="n">someProcesses</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">()</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+<p>where someProcesses contains read statements like</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Statement</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">?</span> <span class="pre">x</span></code></p></td>
+<td><p><em>Read the value in memory</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">!</span> <span class="pre">0</span></code></p></td>
+<td><p><em>Read the memory when the value is zero</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">?</span> <span class="pre">x</span> <span class="pre">[[</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">0</span> <span class="pre">]]</span></code></p></td>
+<td><p><em>Read the memory when the value is less then zero</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>and write statements like</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Statement</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Write</span> <span class="pre">!</span> <span class="pre">123</span></code></p></td>
+<td><p><em>Write 123 to memory</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Write</span> <span class="pre">?</span> <span class="pre">x</span></code></p></td>
+<td><p><em>Write an arbritrary value to memory</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Write</span> <span class="pre">?</span> <span class="pre">x</span> <span class="pre">[[</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">123</span> <span class="pre">]]</span></code></p></td>
+<td><p><em>Write a value larger than 123 to memory</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>See the example
+<a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/ReadWriteConflict">ReadWriteConflict</a>
+for more details.</p>
+</div>
+<div class="section" id="advanced-solution">
+<h2>Advanced Solution<a class="headerlink" href="#advanced-solution" title="Permalink to this headline">¶</a></h2>
+<p>In the advanced solution, the <em>memory</em> process has only one
+communication channel: Memory. This communication channel has as <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">Data
+Type</a>
+MemoryAccess which is defined as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">MemoryAccess</span> <span class="p">:</span><span class="o">:=</span> <span class="n">Read</span>  <span class="p">{</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span>
+                       <span class="o">|</span> <span class="n">Write</span> <span class="p">{</span> <span class="n">newValue</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+<p>The <em>memory</em> process is still a recursive process, with one parameter:
+the current memory value. The process</p>
+<ul class="simple">
+<li><p>either provides the Read constructor with the current value over the
+Memory channel,</p></li>
+<li><p>or receives a Write constructor with the new value over the Memory
+channel. Since reading a value from memory doesn’t change its value,
+after reading, the <em>memory</em> process is instantiated with the current
+memory value. Since writing a value to memory changes its value,
+after writing, the <em>memory</em> process is instantiated with the new
+value.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF memory [ Memory :: MemoryAccess ] ( value :: Int ) ::=
+        Memory ! Read ( value )     &gt;-&gt;  memory [Memory](value)
+    ##
+        Memory ? x [[ isWrite(x) ]] &gt;-&gt;  memory [Memory](newValue(x))
+ENDDEF
+</pre></div>
+</div>
+<p>The <em>memory</em> process is used as follows, with initial value 0:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">usage</span> <span class="p">[</span> <span class="n">Memory</span> <span class="p">::</span> <span class="n">MemoryAccess</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
+        <span class="n">memory</span> <span class="p">[</span> <span class="n">Memory</span> <span class="p">]</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+    <span class="o">|</span><span class="p">[</span> <span class="n">Memory</span> <span class="p">]</span><span class="o">|</span>
+        <span class="n">someProcesses</span> <span class="p">[</span> <span class="n">Memory</span> <span class="p">]</span> <span class="p">()</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+<p>where someProcesses contains read statements like</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Statement</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">?</span> <span class="pre">x</span> <span class="pre">[[</span> <span class="pre">isRead(x)</span> <span class="pre">]]</span></code></p></td>
+<td><p><em>Read the value in memory</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">!</span> <span class="pre">Read(0)</span></code></p></td>
+<td><p><em>Read the memory when the value is zero</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">?</span> <span class="pre">x</span> <span class="pre">[[</span> <span class="pre">isRead(x)</span> <span class="pre">/\</span> <span class="pre">(value(x)</span> <span class="pre">&lt;</span> <span class="pre">0)</span> <span class="pre">]]</span></code></p></td>
+<td><p><em>Read the memory when the value is less then zero</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>and write statements like</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Statement</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">!</span> <span class="pre">Write(123)</span></code></p></td>
+<td><p><em>Write 123 to memory</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">?</span> <span class="pre">x</span> <span class="pre">[[</span> <span class="pre">isWrite(x)</span> <span class="pre">]]</span></code></p></td>
+<td><p><em>Write an arbritrary value to memory</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">?</span> <span class="pre">x</span> <span class="pre">[[</span> <span class="pre">isWrite(x)</span> <span class="pre">/\</span> <span class="pre">(newValue(x)</span> <span class="pre">&gt;</span> <span class="pre">123)</span> <span class="pre">]]</span></code></p></td>
+<td><p><em>Write a value larger than 123 to memory</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="using-test-purposes">
+<h2>Using Test Purposes<a class="headerlink" href="#using-test-purposes" title="Permalink to this headline">¶</a></h2>
+<p>In order to be able to use Test Purposes for this case, we need to be
+able to identify end states. If we add a way to identify who accesses a
+memory cell at a certain point, then we can also use it to signal an end
+state. Let’s define MemoryAccess and the cell that is accessed
+separately:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TYPEDEF MemoryAccess ::= MemoryAccess { identity :: String; value :: Int }
+ENDDEF
+
+PROCDEF cell [ Read, Write :: MemoryAccess ] ( value :: Int ) ::=
+        Read ? ma [[ value (ma) == value]] &gt;-&gt; cell [Read, Write ] (value)
+    ##
+        Write ? ma &gt;-&gt;  cell [Read, Write] (value (ma))
+ENDDEF
+</pre></div>
+</div>
+<p>The <em>cell</em> process is used as follows, with initial value 0:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">usage</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">::</span> <span class="n">MemoryAccess</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
+        <span class="n">cell</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+    <span class="o">|</span><span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span><span class="o">|</span>
+        <span class="n">someProcess</span><span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+<p>where someProcesses is similar to ones in previous examples but also
+contains read statements that signals end states:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Statement</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">?</span> <span class="pre">ma</span> <span class="pre">[[</span> <span class="pre">identity</span> <span class="pre">(ma)</span> <span class="pre">==</span> <span class="pre">&quot;Final&quot;]]</span></code></p></td>
+<td><p><em>Read the value in memory by a process that is identified as “Final”</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s create a Model for this <code class="docutils literal notranslate"><span class="pre">usage</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CHANDEF Channels ::=
+    Read, Write, Dummy :: MemoryAccess
+ENDDEF
+
+MODELDEF Model ::=
+    CHAN IN Dummy
+    CHAN OUT  Read, Write
+
+    BEHAVIOUR
+              system [ Read, Write ] ( )
+ENDDEF
+
+CNECTDEF  Sut ::=
+    CLIENTSOCK
+
+    CHAN OUT Dummy                   HOST &quot;localhost&quot;  PORT 7776
+    ENCODE   Dummy ? s               -&gt; ! toString(s)
+    CHAN IN  Read                    HOST &quot;localhost&quot;  PORT 7777
+    DECODE   Read ! fromString(s)    &lt;- ? s
+    CHAN IN  Write                   HOST &quot;localhost&quot;  PORT 7778
+    DECODE   Write ! fromString(s)   &lt;- ? s
+ENDDEF
+
+CNECTDEF  Sim ::=
+    SERVERSOCK
+
+    CHAN IN   Dummy                   HOST &quot;localhost&quot;  PORT 7776
+    DECODE    Dummy ! fromString(s)   &lt;- ? s
+    CHAN OUT  Read                    HOST &quot;localhost&quot;  PORT 7777
+    ENCODE    Read ? b                -&gt;  ! toString(b)
+    CHAN OUT  Write                   HOST &quot;localhost&quot;  PORT 7778
+    ENCODE    Write ? b               -&gt;  ! toString(b)
+ENDDEF
+</pre></div>
+</div>
+<p>Both <code class="docutils literal notranslate"><span class="pre">Read</span></code> and <code class="docutils literal notranslate"><span class="pre">Write</span></code> channels are output channels but we also
+need a simulator in order to run Test Purposes, and simulator needs an
+input channel in order to run properly. Hence, the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> channel.</p>
+<p>Now we can write a Test Purpose that manipulates the inputs and observes
+the outputs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF output [Read, Write :: MemoryAccess](n :: Int) HIT ::=
+        Read ! MemoryAccess (&quot;Final&quot;,n) &gt;-&gt; HIT
+    ##
+        Read ? ma [[ (identity(ma) &lt;&gt; &quot;Final&quot;) \/ (value(ma) &lt;&gt; n)]] &gt;-&gt; output [Read, Write](n)
+    ##
+        Write ? ma &gt;-&gt; output [Read, Write](n)
+ENDDEF
+
+PURPDEF TestPurpose ::=
+    CHAN IN   Dummy
+    CHAN OUT  Read, Write
+
+    GOAL Hit1 ::= output [Read, Write] (1)
+    GOAL Hit2 ::= output [Read, Write] (2)
+    GOAL Hit3 ::= output [Read, Write] (3)
+ENDDEF
+</pre></div>
+</div>
+<p>This Test Purpose will run until <code class="docutils literal notranslate"><span class="pre">someProcess</span></code> process in the
+<code class="docutils literal notranslate"><span class="pre">usage</span></code> performs Read accesses with “Final” identity and each of the
+given values (1,2 and 3), or given number of steps are performed by
+<a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TorXakis">TorXakis</a>.</p>
+<p>A sample implementation can be found in the example
+<a class="reference external" href="ReadWriteTestPurposes.txs">ReadWriteTestPurposes</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../StimulusResponse/index.html" class="btn btn-neutral float-right" title="Modelling Example: Stimulus Response" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Echo/index.html" class="btn btn-neutral float-left" title="Modelling Example: Echo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, TorXakis.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

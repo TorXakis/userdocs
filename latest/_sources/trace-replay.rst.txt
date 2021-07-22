@@ -4,18 +4,23 @@ Trace and replay functionality
 ``TorXakis`` offers the possibility of writing the trace of a test, simulator,
 or stepper run to a file. This trace can be used subsequently to replay a test,
 which is useful in case a given error needs to be debugged. We illustrate this
-by means of the `Adder
-<https://github.com/TorXakis/TorXakis/blob/develop/examps/Adder/Adder.txs>`_
-example.
+by means of the :ref:`Adder example<adder_example>`.
 
-Start the `Adder SUT
-<https://github.com/TorXakis/TorXakis/tree/develop/examps/Adder>`_ and the run
-``TorXakis``:
 
-.. code-block:: text
-                
-  tester Adder SutConnection
-  test 10
+To execute TorXakis against the actual SUT, the SUT must first be running and listening on
+port 7890. Run in a terminal window  the  :ref:`Adder SUT <adderjava>`:
+
+.. code-block:: sh
+
+        $ java -cp Adder 7890
+
+Then in a different terminal window run ``TorXakis`` against the SUT:
+
+.. code-block:: sh
+
+        $ torxakis Adder.txs
+        TXS >> tester Adder SutConnection
+        TXS >> test 10
 
 This will produce an output similar to this:
 
@@ -55,8 +60,8 @@ Then save the trace and exit ``TorXakis``:
 
 .. code-block:: text
 
-  trace purp $> AdderPurpose.txs
-  exit
+  TXS >> trace purp $> AdderPurpose.txs
+  TXS >> exit
 
 The ``trace`` command will produce a ``TorXakis`` source file with the
 following contents:
@@ -111,14 +116,14 @@ commands in the ``TorXakis`` command-line:
 
 .. code-block:: text
 
-   tester Adder AdderReplay SutConnection
-   test 11
+   TXS >> tester Adder AdderReplay SutConnection
+   TXS >> test 11
 
 This will produce the following output:
 
 .. code-block:: text
   
-  TXS <<  test 11
+  TXS >>  test 11
   TXS >>  .....1: IN: Act { { ( Action, [ Plus(-7059,-2147474793) ] ) } }
   TXS >>  .....2: OUT: Act { { ( Result, [ -2147481852 ] ) } }
   TXS >>  .....3: IN: Act { { ( Action, [ Plus(2245,-2147477795) ] ) } }
