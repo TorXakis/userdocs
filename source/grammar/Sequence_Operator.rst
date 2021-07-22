@@ -1,27 +1,26 @@
-Sequence Operator\ `¶ <#Sequence-Operator>`__
+Sequence Operator
 =============================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-`communications <Communications>`__ “>->”
+`communications <Communications>`__ ">->"
 `processBehaviour <ProcessBehaviour>`__
 
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 After the communications have occurred (in a single step), the described
 process behaviour is exposed.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>Channel1_Int ? x >-> Channel2_Int ! x
-   </pre>
+   Channel1_Int ? x >-> Channel2_Int ! x
 
 describes the process that
 
@@ -31,10 +30,9 @@ describes the process that
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>Channel1_Int ? x | Channel2_Int ? y >-> P[Channel3_Int](x,y)
-   </pre>
+   Channel1_Int ? x | Channel2_Int ? y >-> P:ref:`Channel3_Int`
 
 describes the process that
 

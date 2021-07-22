@@ -1,66 +1,25 @@
-Condition\ `¶ <#Condition>`__
+Condition
 =============================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+========= ========================
+condition :ref:`[ [valExpr` ]]
+========= ========================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-condition
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-[[ `valExpr <ValExpr>`__ ]]
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 The type of the `valExpr <ValExpr>`__ is `Bool <Data_Type>`__.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
 The condition
 
-.. raw:: html
+::
 
-   <pre> [[x > 0]]
-   </pre>
+    [[x > 0]]
 
 is true when the value of variable x is larger than zero.

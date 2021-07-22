@@ -1,62 +1,14 @@
-Language Definition\ `¶ <#Language-Definition>`__
+Language Definition
 =================================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+============= =========================================================================================================================================================================================================
+specification ( :ref:`modelDefs` \| [cnectDefs](CnectDefs) \| [chanDefs](ChanDefs) \| [typeDefs](TypeDefs) \| [constDefs](ConstDefs) \| [funcDefs](FuncDefs) \| [procDefs](ProcDefs) \| [stautDef](StautDef) ) \*
+============= =========================================================================================================================================================================================================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-specification
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-( `modelDefs <ModelDefs>`__
-\| `cnectDefs <CnectDefs>`__
-\| `chanDefs <ChanDefs>`__
-\| `typeDefs <TypeDefs>`__
-\| `constDefs <ConstDefs>`__
-\| `funcDefs <FuncDefs>`__
-\| `procDefs <ProcDefs>`__
-\| `stautDef <StautDef>`__
-) \*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 | A specification contains zero or more definitions.

@@ -1,8 +1,10 @@
+.. _adder_example:
+
 =======================================================================
 TorXakis Adder Example
 =======================================================================
 
-The directory 'examps/adder' contains a TorXakis MBT example of a simple
+The directory ``examps/adder`` contains a TorXakis MBT example of a simple
 arithmetic adder. The adder adds and subtracts two integers.
 
 There are multiple specification files which present various approaches
@@ -18,7 +20,14 @@ for testing Adder:
 Communication between TorXakis and SUT (Adder) occurs via sockets, where
 the SUT acts as the server-side.
 
-Inputs: Plus Minus Output: <n+m> or , respectively
+Inputs:
+
+- Plus(<n>,<m>)
+- Minus(<n>,<m>)
+
+Output:
+
+- <n+m> or <n-m>, respectively
 
 Prerequisites
 =============
@@ -36,10 +45,25 @@ Adder.java
 Java SUT with a single adder, communicating as server via stream-mode
 socket, with as argument.
 
-usage: $ javac Adder.java # compile Adder $ java Adder # start Adder
-test $ telnet localhost Plus 25 17 42 ...
+Compile and execute SUT:
 
-NOTE: For Windows perhaps better with ``putty' instead of``\ telnet'.
+.. code-block:: sh
+
+  $ javac Adder.java              # compile Adder
+  $ java Adder <portnr>           # start Adder
+
+
+Test SUT from another terminal window:
+
+.. code-block:: sh
+
+  $ telnet localhost <portnr>
+  Plus(25,17)
+  42
+  ...
+
+
+NOTE: For Windows perhaps better with ``putty`` instead of ``telnet``.
 
 Models
 ======
@@ -49,77 +73,180 @@ Models
 Adder.txs
 ---------
 
-Includes two models (Adder and Adder3), two SUT representations (Sut and
-Sut3), and one simulator specification (Sim).
+Includes
 
-==> Adder Model and Sut Connection TorXakis model for a single Adder,
-communicating via <localhost,7890>.
+* two models
 
-usage: # To observe the behaviour of model, # you can use the stepper $
-torxakis Adder.txs TXS >> stepper Adder TXS >> step 10 TXS >> ...
+  #. Adder
+  #. Adder3
 
-::
+* two SUT representations
 
-       <start SUT in separate window>  # To execute TorXakis against the actual SUT,
-                                       # SUT must be running and listening on
-                                       # port 7890 before the 
-                                       # command 'tester Adder SutConnection'
-       $ java -cp Adder 7890
+  #. Sut
+  #. Sut3
 
-       $ torxakis Adder.txs
-       TXS >> tester Adder SutConnection
-       TXS >> test 10
-       TXS >> ...
-       TXS >> help              # TorXakis help for more possibilities
+* one simulator specification (Sim)
 
-==> Adder3 Model and Sut3 Connection: TorXakis model for three parallel
-Adders, communicating via <localhost,7890> <localhost,7891>
-<localhost,7892>.
+1. Adder Model and Sut Connection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-usage: # To observe the behaviour of model, # you can use the stepper $
-torxakis Adder.txs TXS >> stepper Adder3 TXS >> step 20 TXS >> ...
+TorXakis model for a single Adder, communicating via ``localhost:7890``.
 
-::
+Observe the behaviour of model
+""""""""""""""""""""""""""""""
 
-       <start 3 SUTs in 3 windows>     # To execute TorXakis against the actual SUT,
-                                       # SUTs must be running and
-                                       # listening on ports 7891,
-                                       # 7892, and 7893, before the
-                                       # command 'tester Adder3 Sut3'
-       $ java -cp Adder 7891
-       $ java -cp Adder 7892
-       $ java -cp Adder 7893
+To observe the behaviour of model, you can use the stepper
 
-       $ torxakis Adder.txs
-       TXS >> tester Adder3 Sut3
-       TXS >> test 20
-       TXS >> ...
-       TXS >> help              # TorXakis help for more possibilities
+.. code-block:: sh
 
-.. _adderstauttxs:
+
+        $ torxakis Adder.txs
+        TXS >> stepper Adder
+        TXS >> step 10
+        TXS >> ...
+
+
+Execute TorXakis against the actual SUT
+"""""""""""""""""""""""""""""""""""""""
+
+To execute TorXakis against the actual SUT, the SUT must first be running and listening on
+port 7890. Run in a terminal window:
+
+.. code-block:: sh
+
+        $ java -cp Adder 7890
+
+Then in a different terminal window run torxakis against the SUT:
+
+.. code-block:: sh
+
+        $ torxakis Adder.txs
+        TXS >> tester Adder SutConnection
+        TXS >> test 10
+        TXS >> ...
+        TXS >> help              # TorXakis help for more possibilities
+
+
+2. Adder3 Model and Sut3 Connection:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TorXakis model for three parallel Adders, communicating via <localhost,7890> <localhost,7891> <localhost,7892>.
+
+Observe the behaviour of model
+""""""""""""""""""""""""""""""
+
+To observe the behaviour of model, you can use the stepper
+
+.. code-block:: sh
+
+
+        $ torxakis Adder.txs
+        TXS >> stepper Adder3
+        TXS >> step 20
+        TXS >> ...
+
+
+Execute TorXakis against the actual 3 SUTs
+""""""""""""""""""""""""""""""""""""""""""
+
+
+Start the 3 SUTs by starting each SUT with its own specific port in a separate terminal window:
+
+.. code-block:: sh
+
+        # terminal window 1
+        $ java -cp Adder 7891
+
+        # terminal window 2
+        $ java -cp Adder 7892
+
+        # terminal window 3
+        $ java -cp Adder 7893
+
+Then in terminal window 4 run torxakis against the SUT:
+
+
+.. code-block:: sh
+
+        # terminal window 4
+        $ torxakis Adder.txs
+        TXS >> tester Adder3 Sut3
+        TXS >> test 20
+        TXS >> ...
+        TXS >> help              # TorXakis help for more possibilities
+
 
 AdderStAut.txs
 --------------
 
 This example defines same Adder model using State Automation instead of
-a Procedure. Sut and Sim are exactly same with Adder.txt.
+a Procedure. Sut and Sim are exactly same with Adder.txs.
 
-usage: # To observe the behaviour of model, # you can use the stepper $
-torxakis AdderStAut.txs TXS >> stepper Adder TXS >> step 10 TXS >> ...
+The  State Automation in the ``Adder.txs`` file is defined with the `STAUTDEF` declaration:
 
-::
+.. code-block:: haskell
 
-       <start SUT in separate window>  # To execute TorXakis against the actual SUT,
-                                       # SUT must be running and
-                                       # listening on port 7890
-                                       # before the command 'tester Adder Sut'
-       $ java -cp Adder 7890
+    STAUTDEF adder  [ Act :: Operation;  Res :: Int ] ( )
+    ::=
+      STATE  idle, calc
 
-       $ torxakis Adder.txs
-       TXS >> tester Adder Sut
-       TXS >> test 10
-       TXS >> ...
-       TXS >> help              # TorXakis help for more possibilities
+      VAR    statevar :: Int
+
+      INIT   idle   { statevar := 0 }
+
+      TRANS  idle  ->  Act ?opn [[ IF isPlus(opn) THEN    not (overflow (p1(opn)))
+                                                       /\ not (overflow (p2(opn)))
+                                                       /\ not (overflow (p1(opn)+p2(opn)))
+                                                  ELSE False FI  ]]  { statevar := p1(opn)+p2(opn) }  ->  calc
+             idle  ->  Act ?opn [[ IF isMinus(opn) THEN   not (overflow (m1(opn)))
+                                                       /\ not (overflow (m2(opn)))
+                                                       /\ not (overflow (m1(opn)-m2(opn)))
+                                                   ELSE False FI ]]  { statevar := m1(opn)-m2(opn) }  ->  calc
+             calc  ->  Res ! statevar   { }                                                           ->  idle
+
+    ENDDEF
+
+
+
+
+
+
+Observe the behaviour of model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To observe the behaviour of model, you can use the stepper
+
+.. code-block:: sh
+
+
+        $ torxakis AdderStAut.txs
+        TXS >> stepper Adder
+        TXS >> step 10
+        TXS >> ...
+
+
+Execute TorXakis against the actual SUT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To execute TorXakis against the actual SUT, the SUT must first be running and listening on
+port 7890. Run in a terminal window:
+
+.. code-block:: sh
+
+        $ java -cp Adder 7890
+
+Then in a different terminal window run torxakis against the SUT:
+
+.. code-block:: sh
+
+        $ torxakis AdderStAut.txs
+        TXS >> tester Adder SutConnection
+        TXS >> test 10
+        TXS >> ...
+        TXS >> help              # TorXakis help for more possibilities
+
+
+
 
 Test Purposes
 =============
@@ -133,13 +260,19 @@ This file includes 3 example Test Purpose definitions for manipulating
 inputs generated by TorXakis in order to achieve certain objectives
 during testing.
 
-Purp1: Test Purpose with 4 Goals Purp2: Test Purpose with operand
-constraints Purp3: Test Purpose to continuously add 2 after a random
-starting value
+:Purp1: Test Purpose with 4 Goals
+:Purp2: Test Purpose with operand constraints
+:Purp3: Test Purpose to continuously add 2 after a random starting value
 
-usage: # Load Test Purposes together with Model definitions $ torxakis
-Adder.txs AdderPurposes.txs TXS >> tester Adder Purp1 TXS >> test 5 TXS
->> ...
+Use the Test Purposes by loading them into torxakis together with the Model definition:
+
+.. code-block:: sh
+
+        $ torxakis Adder.txs AdderPurposes.txs
+        TXS >> tester Adder Purp1
+        TXS >> test 5
+        TXS >> ...
+
 
 .. _adderreplaytxs-and-replayproctxs:
 
@@ -148,11 +281,16 @@ AdderReplay.txs and ReplayProc.txs
 
 AdderReplay.txs includes a Test Purpose that replays a process of
 predefined input values in order to replay a certain scenario. The
-process has to be named as "replayProc". ReplayProc.txs includes such a
+process has to be named as ``replayProc``. ReplayProc.txs includes such a
 process with 100 steps.
 
-usage: # Load Test Purpose and replay record together with Model
-definitions $ torxakis Adder.txs AdderReplay.txs ReplayProc.txs TXS >>
-tester Adder AdderReplay TXS >> test 101 TXS >> ...
 
-=======================================================================
+Load Test Purpose and replay record together with Model definitions
+
+.. code-block:: sh
+
+  $ torxakis Adder.txs AdderReplay.txs ReplayProc.txs
+          TXS >> tester Adder AdderReplay
+          TXS >> test 101
+          TXS >> ...
+

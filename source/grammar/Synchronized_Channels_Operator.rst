@@ -1,83 +1,15 @@
-Synchronized Channels Operator\ `¶ <#Synchronized-Channels-Operator>`__
+Synchronized Channels Operator
 =======================================================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+============================= ===================================================================================================================
+processesSynchronizedChannels :ref:`processBehaviour` "|[" channelName ("," channelName)\* "]|" [processBehaviour](ProcessBehaviour)
+channelName                   :ref:`CapsId`
+============================= ===================================================================================================================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-processesSynchronizedChannels
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`processBehaviour <ProcessBehaviour>`__ “\|[" channelName (","
-channelName)\* "]\|” `processBehaviour <ProcessBehaviour>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-channelName
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`CapsId <CapsId>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 process1 \|[ ChanA, ChanB ]\| process2
@@ -90,15 +22,15 @@ process1 \|[ ChanA, ChanB ]\| process2
 Each channel name must refer to a channel defined in the scope of this
 operator.
 
-Example\ `¶ <#Example>`__
+Example
 -------------------------
 
 Describe the externally observable communication behaviour of the
 following instance of a synchronized channels operator.
 
-.. raw:: html
+::
 
-   <pre>    ChannelId2 ? x
+       ChannelId2 ? x
    |[ ChannelId1, ChannelId2 ]|
        (
            ChannelId1 ? k 
@@ -107,7 +39,6 @@ following instance of a synchronized channels operator.
        |||
            ChannelId3 ? m 
        )
-   </pre>
 
 -  No communication over ChannelId1 is possible, since only one of the
    two processes that are synchronized over ChannelId1 and ChannelId2

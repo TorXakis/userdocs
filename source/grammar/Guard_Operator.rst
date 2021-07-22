@@ -1,88 +1,21 @@
-Guard Operator\ `¶ <#Guard-Operator>`__
+Guard Operator
 =======================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+======================= ===============================================================
+guardedProcessBehaviour :ref:`condition` =>> [processBehaviour](ProcessBehaviour)
+:ref:`condition`  [[ [valExpr](ValExpr) ]]
+======================= ===============================================================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-guardedProcessBehaviour
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`condition <Condition>`__ =>> `processBehaviour <ProcessBehaviour>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-`condition <Condition>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-[[ `valExpr <ValExpr>`__ ]]
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 | Conditional execution: [[ expr ]] =>> next
 | Next is only executed when expr is true
 
-Example\ `¶ <#Example>`__
+Example
 -------------------------
 
 [[ not(isNil(buf)) ]] =>> Value !head(buf)

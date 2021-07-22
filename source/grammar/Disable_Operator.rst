@@ -1,4 +1,4 @@
-Disable Operator\ `¶ <#Disable-Operator>`__
+Disable Operator
 ===========================================
 
 [>>

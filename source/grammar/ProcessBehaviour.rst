@@ -1,73 +1,15 @@
-ProcessBehaviour\ `¶ <#ProcessBehaviour>`__
+ProcessBehaviour
 ===========================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+================ ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+processBehaviour   processBehaviour ":ref:`>>>`" processBehaviour \| processBehaviour "[>>>](Enable_Operator)" "ACCEPT" ("?" [varDecl](VarDecl) \| "!" [valExpr](ValExpr) )\* IN processBehaviour NI \| processBehaviour "[[>>](Disable_Operator)" processBehaviour \| processBehaviour "[[><](Interrupt_Operator)" processBehaviour \| processBehaviour "[||](Synchronized_Operator)" processBehaviour \| processBehaviour "[|||](Parallel_Operator)" processBehaviour \| [processBehavioursSynchronizedOnChannels](Synchronized_Channels_Operator) \| processBehaviour "[##](Choice_Operator)" processBehaviour \| [condition](Condition) "[=>>](Guard_Operator)" processBehaviour \| [communications](Communications) ("[>->](Sequence_Operator)" processBehaviour)? \| [STOP](STOP) \| [procCall](ProcCall) \| [letProcessBehaviour](LET) \| [hideChannelsInProcessBehaviour](HIDE) \| "(" processBehaviour ")"
+================ ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-processBehaviour
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-  processBehaviour “`>>> <Enable_Operator>`__” processBehaviour
-\| processBehaviour “`>>> <Enable_Operator>`__” “ACCEPT” (“?”
-`varDecl <VarDecl>`__ \| “!” `valExpr <ValExpr>`__ )\* IN
-processBehaviour NI
-\| processBehaviour “[`>> <Disable_Operator>`__” processBehaviour
-\| processBehaviour “[`>< <Interrupt_Operator>`__” processBehaviour
-\| processBehaviour “`\|\| <Synchronized_Operator>`__” processBehaviour
-\| processBehaviour “`\||\| <Parallel_Operator>`__” processBehaviour
-\|
-`processBehavioursSynchronizedOnChannels <Synchronized_Channels_Operator>`__
-\| processBehaviour “`## <Choice_Operator>`__” processBehaviour
-\| `condition <Condition>`__ “`=>> <Guard_Operator>`__” processBehaviour
-\| `communications <Communications>`__ (“`>-> <Sequence_Operator>`__”
-processBehaviour)?
-\| `STOP <STOP>`__
-\| `procCall <ProcCall>`__
-\| `letProcessBehaviour <LET>`__
-\| `hideChannelsInProcessBehaviour <HIDE>`__
-\| “(” processBehaviour “)”
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------

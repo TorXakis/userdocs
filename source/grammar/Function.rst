@@ -1,817 +1,60 @@
-Function\ `¶ <#Function>`__
+Function
 ===========================
 
 TorXakis has predefined, implicitly defined `TYPEDEF <TypeDefs>`__, and
 user defined functions.
 
-Predefined Functions\ `¶ <#Predefined-Functions>`__
+Predefined Functions
 ---------------------------------------------------
 
 TorXakis has the following predefined functions; grouped by predefined
 data type to enhance readability.
 
-Bool\ `¶ <#Bool>`__
+Bool
 ~~~~~~~~~~~~~~~~~~~
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-function
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-==(a,b :: Bool) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Equals Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-<>(a,b :: Bool) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Not Equals Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-toString(a :: Bool) ::= String
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Bool to String function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-fromString(s :: String) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Bool from String function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-not(b :: Bool) :: Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-not function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-/(a,b :: Bool) :: Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-and Infix Operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-/(a,b :: Bool) :: Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-or Infix Operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-\|/(a,b :: Bool) :: Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-xor Infix Operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-=>(a,b :: Bool) :: Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-implies Infix Operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Int\ `¶ <#Int>`__
+================================ =========================
+function                         description
+================================ =========================
+==(a,b :: Bool) ::= Bool         Equals Infix operator
+<>(a,b :: Bool) ::= Bool         Not Equals Infix operator
+toString(a :: Bool) ::= String   Bool to String function
+fromString(s :: String) ::= Bool Bool from String function
+not(b :: Bool) :: Bool           not function
+/\(a,b :: Bool) :: Bool          and Infix Operator
+\\/(a,b :: Bool) :: Bool         or Infix Operator
+\\|/(a,b :: Bool) :: Bool        xor Infix Operator
+=>(a,b :: Bool) :: Bool          implies Infix Operator
+================================ =========================
+
+Int
 ~~~~~~~~~~~~~~~~~
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-function
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-==(a,b :: Int) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Equals Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-<>(a,b :: Int) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Not Equals Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-toString(a :: Int) ::= String
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Int to String function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-fromString(s :: String) ::= Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Int from String function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-+(i :: Int) :: Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Prefix Operator +
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
--(i :: Int) :: Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Prefix Operator -
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-abs(i :: Int) :: Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Absolute value function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-+(a,b :: Int) ::= Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Addition Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
--(a,b :: Int) ::= Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Substraction Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-\*(a,b :: Int) ::= Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Multiplication Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-/(a,b :: Int) ::= Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Division Infix operator according to Boute’s Euclidean definition.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-%(a,b :: Int) ::= Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Modulo Infix operator according to Boute’s Euclidean definition.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-<(a,b :: Int) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Less Then Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-<=(a,b :: Int) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Less Equal Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-..
-
-   =(a,b :: Int) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Greater Equal Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-..
-
-   (a,b :: Int) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Greater Then Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Boute’s Euclidean Definition\ `¶ <#boutes-euclidean-definition>`__
+=============================== ==================================================================
+function                        description
+=============================== ==================================================================
+==(a,b :: Int) ::= Bool         Equals Infix operator
+<>(a,b :: Int) ::= Bool         Not Equals Infix operator
+toString(a :: Int) ::= String   Int to String function
+fromString(s :: String) ::= Int Int from String function
++(i :: Int) :: Int              Prefix Operator +
+-(i :: Int) :: Int              Prefix Operator -
+abs(i :: Int) :: Int            Absolute value function
++(a,b :: Int) ::= Int           Addition Infix operator
+-(a,b :: Int) ::= Int           Substraction Infix operator
+\*(a,b :: Int) ::= Int          Multiplication Infix operator
+/(a,b :: Int) ::= Int           Division Infix operator according to Boute's Euclidean definition.
+%(a,b :: Int) ::= Int           Modulo Infix operator according to Boute's Euclidean definition.
+<(a,b :: Int) ::= Bool          Less Then Infix operator
+<=(a,b :: Int) ::= Bool         Less Equal Infix operator
+>=(a,b :: Int) ::= Bool         Greater Equal Infix operator
+>(a,b :: Int) ::= Bool          Greater Then Infix operator
+=============================== ==================================================================
+
+Boute's Euclidean Definition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The definitions of div ``/`` and mod ``%`` are according to Boute’s
+The definitions of div ``/`` and mod ``%`` are according to Boute's
 Euclidean definition [1], that is, so as to satisfy the formula
 
 ::
@@ -827,271 +70,29 @@ functions div and mod. ACM Transactions on Programming Languages and
 Systems (TOPLAS) ACM Press. 14 (2): 127 - 144.
 doi:10.1145/128861.128862.
 
-String\ `¶ <#String>`__
+String
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-function
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-==(a,b :: String) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Equals Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-<>(a,b :: String) ::= Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Not Equals Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-++(a,b :: String) ::= String
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Concat Infix operator
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-len(s ::String) :: Int
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Length of String function
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-at(s :: String; i :: Int) :: String
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Character at position i of s.
-The index of position starts at 0. When the index is out of range
-(either i < 0 or i > len(s)) the empty string ("") will be returned.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Regex\ `¶ <#Regex>`__
+=================================== ====================================================================================================================================================================
+function                            description
+=================================== ====================================================================================================================================================================
+==(a,b :: String) ::= Bool          Equals Infix operator
+<>(a,b :: String) ::= Bool          Not Equals Infix operator
+++(a,b :: String) ::= String        Concat Infix operator
+len(s ::String) :: Int              Length of String function
+at(s :: String; i :: Int) :: String Character at position i of s. The index of position starts at 0. When the index is out of range (either i < 0 or i > len(s)) the empty string ("") will be returned.
+=================================== ====================================================================================================================================================================
+
+Regex
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. raw:: html
+========================================= ========================
+function                                  description
+========================================= ========================
+strinre(s :: String; r :: Regex) :: Bool Adheres string to regex?
+========================================= ========================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-function
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-strinre(s :: String; r :: Regex) :: Bool
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-Adheres string to regex?
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Implicitly Defined `TYPEDEF <TypeDefs>`__ Functions\ `¶ <#Implicitly-Defined-TYPEDEF-Functions>`__
+Implicitly Defined `TYPEDEF <TypeDefs>`__ Functions
 --------------------------------------------------------------------------------------------------
 
 | TorXakis will automatically generate equality, type checking, and
@@ -1099,49 +100,44 @@ Implicitly Defined `TYPEDEF <TypeDefs>`__ Functions\ `¶ <#Implicitly-Defined-TY
 | **Note** accessor functions associated with a particular constructor
   are only defined for instances of that constructor.
 
-Example\ `¶ <#Example>`__
+Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When the user defines
 
-.. raw:: html
+::
 
-   <pre>TYPEDEF List_Int ::=
+   TYPEDEF List_Int ::=
          CNil_Int
        | Cstr_Int { head :: Int; tail :: List_Int }
    ENDDEF
-   </pre>
 
 TorXakis defines the equality operator
 
-.. raw:: html
+::
 
-   <pre>==(a,b :: List_Int) :: Bool
-   </pre>
+   ==(a,b :: List_Int) :: Bool
 
 the type checking functions (according to the pattern is)
 
-.. raw:: html
+::
 
-   <pre>isCNil_Int(x :: List_Int) :: Bool
+   isCNil_Int(x :: List_Int) :: Bool
    isCstr_Int(x :: List_Int) :: Bool 
-   </pre>
 
 and the accessor functions
 
-.. raw:: html
+::
 
-   <pre>head(x :: List_Int) :: Int
+   head(x :: List_Int) :: Int
    tail(x :: List_Int) :: List_Int
-   </pre>
 
 which satisfy
 
-.. raw:: html
+::
 
-   <pre>head(Cstr_Int(h,t)) == h
+   head(Cstr_Int(h,t)) == h
    tail(Cstr_Int(h,t)) == t
-   </pre>
 
 | Note that these accessor functions are only defined for instances of
   the Cstr_Int constructor, i.e.,
@@ -1151,12 +147,11 @@ which satisfy
 One should guard the usage of accessor functions with the constructor
 check, using `IF THEN ELSE FI <IteValExpr>`__ .
 
-.. raw:: html
+::
 
-   <pre>IF isCstr_Int(x) THEN head(x) == 5 ELSE False FI
-   </pre>
+   IF isCstr_Int(x) THEN head(x) == 5 ELSE False FI
 
-User Defined Functions\ `¶ <#User-Defined-Functions>`__
+User Defined Functions
 -------------------------------------------------------
 
 | In TorXakis, the user can define functions, including recursive
