@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Assignment - Lucky People &mdash; TorXakis v0.9.0, Document version git-sha1-4c6db51 documentation</title>
+  <title>Assignment - Lucky People &mdash; TorXakis v0.9.0, Document version git-sha1-be9db9a documentation</title>
   
 
   
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Modelling Example - Lucky People" href="Modelling-Example-Lucky-People__2_Solution.html" />
-    <link rel="prev" title="Modelling Example: Wheel" href="../Wheel/index.html" /> 
+    <link rel="prev" title="Lucky People" href="../luckypeople.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-4c6db51<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-4c6db51.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-be9db9a<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-be9db9a.pdf">pdf</a>
               </div>
             
           
@@ -96,6 +96,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#benefits">Benefits</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
@@ -107,128 +114,137 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../trace-replay.html">Trace and replay functionality</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Adder/index.html">Adder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#suts">SUTs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adder-java">Adder.java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#starter-examples">Starter examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html">StimulusResponse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#model-based-testing">Model Based Testing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../StimulusResponse/index.html#errorneous-sut">Errorneous SUT</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#models">Models</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adder-txs">Adder.txs</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-model-and-sut-connection">1. Adder Model and Sut Connection</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#observe-the-behaviour-of-model">Observe the behaviour of model</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-sut">Execute TorXakis against the actual SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#stimulus-response-loop">Stimulus Response - Loop</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder3-model-and-sut3-connection">2. Adder3 Model and Sut3 Connection:</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id1">Observe the behaviour of model</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-3-suts">Execute TorXakis against the actual 3 SUTs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html">Echo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#process">Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#model-based-testing-stepping-through-the-model">Model Based Testing: Stepping through the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#simulator-definition">Simulator Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#model-based-testing-testing-the-simulated-sut">Model Based Testing: Testing the Simulated SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html">Adder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#models">Models</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-txs">Adder.txs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#adder-model-and-sut-connection">1. Adder Model and Sut Connection</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#observe-the-behaviour-of-model">Observe the behaviour of model</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-sut">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#adder3-model-and-sut3-connection">2. Adder3 Model and Sut3 Connection:</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#id1">Observe the behaviour of model</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-3-suts">Execute TorXakis against the actual 3 SUTs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderstaut-txs">AdderStAut.txs</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#id2">Observe the behaviour of model</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#id3">Execute TorXakis against the actual SUT</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adderstaut-txs">AdderStAut.txs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id2">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id3">Execute TorXakis against the actual SUT</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#test-purposes">Test Purposes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../ControlLoop/index.html">ControlLoop</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#data-types">Data Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#channels">Channels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#functions">Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#sgn">sgn</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#processes">Processes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#correct">correct</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#measure">measure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#produce">produce</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#control-loop">control loop</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html">ReadWriteConflict</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ReadWriteConflict/index.html#basic-solution">Basic Solution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ReadWriteConflict/index.html#advanced-solution">Advanced Solution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ReadWriteConflict/index.html#using-test-purposes">Using Test Purposes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#model">Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html#stepping-through-the-model">Stepping through the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html">ControlLoop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#functions">Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#sgn">sgn</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../CustomersOrders/index.html">CustomersOrders</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#system-under-test">System Under Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#torxakis-specification">TorXakis specification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#model-based-testing">Model Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#processes">Processes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#correct">correct</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#measure">measure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#produce">produce</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#control-loop">control loop</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../Echo/index.html">Echo</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#channels">Channels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#process">Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model">Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model-based-testing-stepping-through-the-model">Model Based Testing: Stepping through the Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#simulator-definition">Simulator Definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#sut-connection">SUT Connection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model-based-testing-testing-the-simulated-sut">Model Based Testing: Testing the Simulated SUT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#xml-based-communication">XML-Based communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#stepping-through-the-model">Stepping through the Model</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../ReadWriteConflict/index.html">ReadWriteConflict</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html#basic-solution">Basic Solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html#advanced-solution">Advanced Solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html#using-test-purposes">Using Test Purposes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html">CustomersOrders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#torxakis-specification">TorXakis specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#model-based-testing">Model Based Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../StimulusResponse/index.html">StimulusResponse</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#channels">Channels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#model">Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#sut-connection">SUT Connection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#model-based-testing">Model Based Testing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#errorneous-sut">Errorneous SUT</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../luckypeople.html">LuckyPeople</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Assignment</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#lucky-based-on-names">Lucky based on names</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#lucky-based-on-birthday">Lucky based on birthday</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#lucky-based-on-sequence">Lucky based on sequence</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#stimulus-response-loop">Stimulus Response - Loop</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#deliverables">Deliverables</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#solution">Solution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">LuckyPeopleAssignment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#lucky-based-on-names">Lucky based on names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lucky-based-on-birthday">Lucky based on birthday</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lucky-based-on-sequence">Lucky based on sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html">Solution</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#types">Types</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#channels">Channels</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#procedure">Procedure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#model">Model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#functions">Functions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isvalid-person">isValid_Person</a></li>
+<li class="toctree-l6"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckyperson">isLuckyPerson</a></li>
+<li class="toctree-l6"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckybygender">isLuckyByGender</a></li>
+<li class="toctree-l6"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckybyname">isLuckyByName</a></li>
+<li class="toctree-l6"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckybybirthday">isLuckyByBirthday</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#deliverables">Deliverables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#solution">Solution</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#model-based-testing">Model Based Testing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#xml-based-communication">XML-Based communication</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html">LuckyPeopleSolution</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#types">Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#channels">Channels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#procedure">Procedure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#model">Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#functions">Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isvalid-person">isValid_Person</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckyperson">isLuckyPerson</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckybygender">isLuckyByGender</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckybyname">isLuckyByName</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#isluckybybirthday">isLuckyByBirthday</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__3_Testing-With-Predetermined-Input.html">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html">Gender</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-process">The process</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-test-purpose">The Test Purpose</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#sut-connection">SUT Connection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#model-based-testing">Model Based Testing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__2_Solution.html#xml-based-communication">XML-Based communication</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Modelling-Example-Lucky-People__3_Testing-With-Predetermined-Input.html">LuckyPeopleTesting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html">LuckyPeopleGender</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-process">The process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-test-purpose">The Test Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
 </ul>
 </li>
 </ul>
@@ -533,6 +549,8 @@
         
           <li><a href="../index.html">Examples</a> &raquo;</li>
         
+          <li><a href="../luckypeople.html">Lucky People</a> &raquo;</li>
+        
       <li>Assignment - Lucky People</li>
     
     
@@ -554,7 +572,7 @@
         <a href="Modelling-Example-Lucky-People__2_Solution.html" class="btn btn-neutral float-right" title="Modelling Example - Lucky People" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="../Wheel/index.html" class="btn btn-neutral float-left" title="Modelling Example: Wheel" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../luckypeople.html" class="btn btn-neutral float-left" title="Lucky People" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -706,7 +724,7 @@ used to test the program.</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Modelling-Example-Lucky-People__2_Solution.html" class="btn btn-neutral float-right" title="Modelling Example - Lucky People" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../Wheel/index.html" class="btn btn-neutral float-left" title="Modelling Example: Wheel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../luckypeople.html" class="btn btn-neutral float-left" title="Lucky People" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
