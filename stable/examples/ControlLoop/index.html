@@ -1,0 +1,911 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version v0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Modelling Example - Customers Orders" href="../CustomersOrders/index.html" />
+    <link rel="prev" title="TorXakis Adder Example" href="../Adder/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> TorXakis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                version: v0.9.0<br/>stable docs: v0.1.0<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.0/TorXakis-v0.9.0_Userguide-v0.1.0.pdf">pdf</a>
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../trace-replay.html">Trace and replay functionality</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Adder/index.html">Adder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#models">Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adder-txs">Adder.txs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-model-and-sut-connection">1. Adder Model and Sut Connection</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#observe-the-behaviour-of-model">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-sut">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder3-model-and-sut3-connection">2. Adder3 Model and Sut3 Connection:</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id1">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-3-suts">Execute TorXakis against the actual 3 SUTs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderstaut-txs">AdderStAut.txs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#id2">Observe the behaviour of model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#id3">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ControlLoop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sgn">sgn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processes">Processes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#correct">correct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#measure">measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#produce">produce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#control-loop">control loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stepping-through-the-model">Stepping through the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../CustomersOrders/index.html">CustomersOrders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#torxakis-specification">TorXakis specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html#model-based-testing">Model Based Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Echo/index.html">Echo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#process">Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model-based-testing-stepping-through-the-model">Model Based Testing: Stepping through the Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#simulator-definition">Simulator Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#model-based-testing-testing-the-simulated-sut">Model Based Testing: Testing the Simulated SUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ReadWriteConflict/index.html">ReadWriteConflict</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html#basic-solution">Basic Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html#advanced-solution">Advanced Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html#using-test-purposes">Using Test Purposes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../StimulusResponse/index.html">StimulusResponse</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#model-based-testing">Model Based Testing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#errorneous-sut">Errorneous SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html#stimulus-response-loop">Stimulus Response - Loop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html">LuckyPeopleAssignment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-names">Lucky based on names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-birthday">Lucky based on birthday</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-sequence">Lucky based on sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#deliverables">Deliverables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html">LuckyPeopleSolution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#types">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#channels">Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#procedure">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isvalid-person">isValid_Person</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckyperson">isLuckyPerson</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybygender">isLuckyByGender</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybyname">isLuckyByName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybybirthday">isLuckyByBirthday</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model-based-testing">Model Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__3_Testing-With-Predetermined-Input.html">LuckyPeopleTesting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html">LuckyPeopleGender</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-process">The process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-test-purpose">The Test Purpose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Appendices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar/index.html">Grammar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/CapsId.html">CapsId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ChanDefs.html">Channel Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Choice_Operator.html">Choice Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/CnectDefs.html">Connection Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Comment.html">Comment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Comment.html#single-line-comment">Single line comment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Comment.html#multiple-lines-comment">Multiple lines comment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Communications.html">Communications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-without-data">Communication without data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-fully-specified-data">Communication of fully specified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-underspecified-data">Communication of underspecified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-constrained-data">Communication of constrained data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-multiple-data-items">Communication of multiple data items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Condition.html">Condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ConstDefs.html">Constant Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Data_Type.html">Data Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Data_Type.html#predefined-data-types">Predefined Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Data_Type.html#user-defined-data-types">User Defined Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Disable_Operator.html">Disable Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/EXIT.html">EXIT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/EXIT.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/EXIT.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Enable_Operator.html">Enable Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/FuncDefs.html">Function Defintions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Function.html">Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#predefined-functions">Predefined Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#bool">Bool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#int">Int</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#boute-s-euclidean-definition">Boute’s Euclidean Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#string">String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#regex">Regex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#implicitly-defined-typedef-functions">Implicitly Defined TYPEDEF Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#user-defined-functions">User Defined Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Guard_Operator.html">Guard Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/HIDE.html">HIDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Interrupt_Operator.html">Interrupt Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/IteValExpr.html">IF THEN ELSE Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/IteValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/IteValExpr.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/LET.html">LET Process Behaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/LET.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Language_Definition.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Language_Definition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Language_Definition.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/LetValExpr.html">LET Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/LetValExpr.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ModelDefs.html">Model Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Parallel_Operator.html">Parallel Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Planned-Releases.html">TorXakis Time Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcCall.html">Process Call</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcCall.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcCall.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcDefs.html">Proccess Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcessBehaviour.html">ProcessBehaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/PurpDefs.html">Test Purpose Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/STOP.html">STOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/STOP.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/STOP.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Sequence_Operator.html">Sequence Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/SmallId.html">SmallId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/SmallId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/SmallId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/StautDef.html">State Automaton Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html">Synchronized Channels Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronized_Operator.html">Synchronized Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#communication">Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#constrained-communication">Constrained communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#deadlock">Deadlock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronous_Operator.html">Synchronous Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/TypeDefs.html">Type Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ValExpr.html">Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ValExpr.html#semantics">Semantics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/ValExpr.html#reference-to-function">Reference to Function.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/VarDecl.html">Variable Declaration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/specification.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/specification.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/specification.html#semantics">Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TorXakis</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+        
+      <li>Modelling Example - Control Loop</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../CustomersOrders/index.html" class="btn btn-neutral float-right" title="Modelling Example - Customers Orders" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="../Adder/index.html" class="btn btn-neutral float-left" title="TorXakis Adder Example" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modelling-example-control-loop">
+<h1>Modelling Example - Control Loop<a class="headerlink" href="#modelling-example-control-loop" title="Permalink to this headline">¶</a></h1>
+<p>In this example, we model a control loop. The control loop consists out
+of three processes: produce, measure, and correct. Between these
+processes material and reports are exchanged. The three processes repeat
+the following steps:</p>
+<ul class="simple">
+<li><p>The produce process makes the material according to specification,</p></li>
+<li><p>The measure process measures the produced material, and</p></li>
+<li><p>The correct process determines corrections based on the differences
+between specification and measurement.</p></li>
+</ul>
+<p>After briefly introducing the data types and function that are used in
+this model, we will discuss these three processes in order of
+simplicity. We will end with the complete control loop model.</p>
+<p>All the files used in this example can be found at <a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/ControlLoop">the example
+folder</a>.</p>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<p>All <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data types</a>
+are Cartesian Products of two integers: id and value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">ProduceReport</span> <span class="p">:</span><span class="o">:=</span> <span class="n">ProduceReport</span> <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
+<span class="n">TYPEDEF</span> <span class="n">MeasureReport</span> <span class="p">:</span><span class="o">:=</span> <span class="n">MeasureReport</span> <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
+<span class="n">TYPEDEF</span> <span class="n">Correction</span>    <span class="p">:</span><span class="o">:=</span> <span class="n">Correction</span>    <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="channels">
+<h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
+<p>Once we have the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data
+types</a>,
+<a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">channels</a> needed
+for modelling this flow can be defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHANDEF</span> <span class="n">Chans</span> <span class="p">:</span><span class="o">:=</span>    <span class="n">In_Material</span>     <span class="p">::</span> <span class="n">Int</span>
+                   <span class="p">;</span> <span class="n">Correction</span>      <span class="p">::</span> <span class="n">Correction</span>
+                   <span class="p">;</span> <span class="n">ProduceReport</span>   <span class="p">::</span> <span class="n">ProduceReport</span>
+                   <span class="p">;</span> <span class="n">Material</span>        <span class="p">::</span> <span class="n">Int</span>
+                   <span class="p">;</span> <span class="n">MeasureReport</span>   <span class="p">::</span> <span class="n">MeasureReport</span>
+                   <span class="p">;</span> <span class="n">Out_Material</span>    <span class="p">::</span> <span class="n">Int</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sgn">
+<h3>sgn<a class="headerlink" href="#sgn" title="Permalink to this headline">¶</a></h3>
+<p>The sign
+<a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function</a>: zero
+for zero, +1 for all positive numbers, and -1 for all negative numbers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">sgn</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span>
+    <span class="n">IF</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">THEN</span> <span class="mi">1</span>
+        <span class="n">ELSE</span> <span class="n">IF</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                <span class="n">THEN</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="n">ELSE</span> <span class="mi">0</span>
+             <span class="n">FI</span>
+    <span class="n">FI</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="processes">
+<h2>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correct">
+<h3>correct<a class="headerlink" href="#correct" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Correction process" src="../../_images/correct.jpg" /></p>
+<p>Correct is a repeating process of corrections. All corrections need two
+inputs: a production report and a measurement report. These reports must
+of course refer to the same material. All corrections result in one
+output: a correction. A correction contains</p>
+<ul class="simple">
+<li><p>a reference to the material,</p></li>
+<li><p>a value.</p></li>
+</ul>
+<p>The correction value has a relation with the two inputs: the intended
+and measured values as reported in the production and measurement
+reports, respectively. This relation is expressed as a constraint
+between the correction, intended, and measured values.</p>
+<p>The behaviour of the correct process is captured in the following
+recursive TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
+Definition</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF correct [ In_ProduceReport      :: ProduceReport
+                ; In_MeasureReport      :: MeasureReport
+                ; Out_Correction        :: Correction
+                ] ( ) ::=
+        In_ProduceReport ? pr | In_MeasureReport ? mr [[ id(pr) == id(mr) ]]
+    &gt;-&gt; Out_Correction ? correction [[ ( id(correction) == id(mr) ) /\ ( sgn(value(correction)) == sgn( value(pr) - value(mr) ) )]]
+    &gt;-&gt; correct [ In_ProduceReport, In_MeasureReport, Out_Correction ] ( )
+ENDDEF
+</pre></div>
+</div>
+</div>
+<div class="section" id="measure">
+<h3>measure<a class="headerlink" href="#measure" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Measuring process" src="../../_images/measure.jpg" /></p>
+<p>Measure is a repeating process of measurements. All measurements need
+one input: the material to measure. All measurements result in two
+outputs: the measured material and a report containing the measurement
+results. The order of these two outputs is not constrained, i.e.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span>
+</pre></div>
+</div>
+<p>Measure is modelled without buffers for material. So the behaviour of
+measure with respect to material is the alternating sequence of material
+coming in and material going out, i.e.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Incoming material is associated with an identifier. This indentifier not
+only must be associated with the outgoing material but also be present
+in the generated report.</p>
+<p>The behaviour of the measure process is captured in the following
+recursive TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
+Definition</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF measure [ In_Material   :: Int
+                ; Out_Report    :: MeasureReport
+                ; Out_Material  :: Int
+                ]( ) ::=
+        In_Material ? id
+    &gt;-&gt; (
+                Out_Report ? mr [[ id(mr) == id ]]
+            |||
+                (
+                        Out_Material ! id
+                    &gt;-&gt; measure [ In_Material, Out_Report, Out_Material ] ()
+                )
+        )
+ENDDEF
+</pre></div>
+</div>
+</div>
+<div class="section" id="produce">
+<h3>produce<a class="headerlink" href="#produce" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Production process" src="../../_images/produce.jpg" /></p>
+<p>Produce is a repeating process of production steps. All production steps
+results in two outputs: material and report. The order of these two
+outputs is not constrained, i.e.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span>
+</pre></div>
+</div>
+<p>In the first production step, only material is needed as input. In all
+other production steps, both material and correction are needed as
+inputs. The order of these two inputs is not constrained, i.e.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In_Material</span> <span class="o">|||</span> <span class="n">In_Correction</span>
+</pre></div>
+</div>
+<p>All inputs are required to produce the output. So for all, but the first
+production step holds</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">In_Material</span> <span class="o">|||</span> <span class="n">In_Correction</span> <span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span> <span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Produce is modelled without buffers for material. So the behaviour of
+produce with respect to material is the alternating sequence of material
+coming in and material going out, i.e.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>A correction is only obtained after both the production report and the
+outgoing material are used. To be precise, to obtain a correction both a
+production report and a measure report are needed. The latter is
+obtained when the material is measured. This requirement on order can be
+express as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span> <span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">In_Correction</span>
+</pre></div>
+</div>
+<p>Incoming material is associated with an identifier. This indentifier not
+only must be associated with the outgoing material but also be present
+in the generated report and in the resulting correction.</p>
+<p>The behaviour of the produce process is captured in the following
+TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
+Definitions</a>.
+These two processes were needed to capture the difference between the
+first and all other production steps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF produce [ In_Material           :: Int
+                ; In_Correction         :: Correction
+                ; Out_Material          :: Int
+                ; Out_ProduceReport     :: ProduceReport
+                ]( ) ::=
+        In_Material ? id
+    &gt;-&gt; produceLoop [In_Material, In_Correction, Out_Material, Out_ProduceReport] (id)
+ENDDEF
+
+PROCDEF produceLoop [ In_Material           :: Int
+                    ; In_Correction         :: Correction
+                    ; Out_Material          :: Int
+                    ; Out_ProduceReport     :: ProduceReport
+                    ]( id :: Int ) ::=
+    (
+            Out_Material ! id
+        &gt;-&gt; In_Material ? nextId
+        &gt;-&gt; EXIT ! nextId
+    )
+    |[ Out_Material ]|
+    (
+        (
+                ( Out_Material ! id &gt;-&gt; EXIT )
+            |||
+                ( Out_ProduceReport ? pr [[ id(pr) == id ]] &gt;-&gt; EXIT )
+        ) &gt;&gt;&gt;
+            ( In_Correction ? correction [[ id (correction) == id ]] &gt;-&gt; EXIT ? nextId :: Int )
+    )
+    &gt;&gt;&gt; ACCEPT ? nextId :: Int IN
+        produceLoop [In_Material, In_Correction, Out_Material, Out_ProduceReport] (nextId)
+    NI
+ENDDEF
+</pre></div>
+</div>
+</div>
+<div class="section" id="control-loop">
+<h3>control loop<a class="headerlink" href="#control-loop" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Control loop" src="../../_images/controlloop.jpg" /></p>
+<p>The behaviour of the control loop process is captured in the following
+TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
+Definitions</a>. The
+three earlier described processes are linked together using their
+communication channels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">model</span> <span class="p">[</span> <span class="n">In_Material</span>                 <span class="p">::</span> <span class="n">Int</span>
+              <span class="p">;</span> <span class="n">Correction</span>                  <span class="p">::</span> <span class="n">Correction</span>
+              <span class="p">;</span> <span class="n">ProduceReport</span>               <span class="p">::</span> <span class="n">ProduceReport</span>
+              <span class="p">;</span> <span class="n">Material</span>                    <span class="p">::</span> <span class="n">Int</span>
+              <span class="p">;</span> <span class="n">MeasureReport</span>               <span class="p">::</span> <span class="n">MeasureReport</span>
+              <span class="p">;</span> <span class="n">Out_Material</span>                <span class="p">::</span> <span class="n">Int</span>
+              <span class="p">](</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
+        <span class="p">(</span>
+                <span class="n">produce</span> <span class="p">[</span> <span class="n">In_Material</span><span class="p">,</span> <span class="n">Correction</span><span class="p">,</span> <span class="n">Material</span><span class="p">,</span> <span class="n">ProduceReport</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+            <span class="o">|</span><span class="p">[</span> <span class="n">Material</span><span class="p">]</span><span class="o">|</span>
+                <span class="n">measure</span> <span class="p">[</span> <span class="n">Material</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Out_Material</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="o">|</span><span class="p">[</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Correction</span> <span class="p">]</span><span class="o">|</span>
+        <span class="n">correct</span> <span class="p">[</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Correction</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<p>Since the above Control Loop process (model) puts everything together,
+now we can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">define our
+model</a> as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODELDEF</span> <span class="n">Model</span> <span class="p">:</span><span class="o">:=</span>
+    <span class="n">CHAN</span> <span class="n">IN</span>
+    <span class="n">CHAN</span> <span class="n">OUT</span>    <span class="n">In_Material</span>
+    <span class="p">,</span>           <span class="n">Correction</span>
+    <span class="p">,</span>           <span class="n">ProduceReport</span>
+    <span class="p">,</span>           <span class="n">Material</span>
+    <span class="p">,</span>           <span class="n">MeasureReport</span>
+    <span class="p">,</span>           <span class="n">Out_Material</span>
+
+    <span class="n">SYNC</span>        <span class="p">{</span><span class="n">In_Material</span><span class="p">}</span>
+    <span class="p">,</span>           <span class="p">{</span><span class="n">Correction</span><span class="p">}</span>
+    <span class="p">,</span>           <span class="p">{</span><span class="n">ProduceReport</span><span class="p">}</span>
+    <span class="p">,</span>           <span class="p">{</span><span class="n">Material</span><span class="p">}</span>
+    <span class="p">,</span>           <span class="p">{</span><span class="n">MeasureReport</span><span class="p">}</span>
+    <span class="p">,</span>           <span class="p">{</span><span class="n">Out_Material</span><span class="p">}</span>
+    <span class="p">,</span>           <span class="p">{</span><span class="n">ProduceReport</span> <span class="o">|</span> <span class="n">MeasureReport</span><span class="p">}</span>
+
+    <span class="n">BEHAVIOUR</span>
+        <span class="n">model</span> <span class="p">[</span><span class="n">In_Material</span><span class="p">,</span> <span class="n">Correction</span><span class="p">,</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="n">Material</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Out_Material</span><span class="p">]()</span>
+<span class="n">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stepping-through-the-model">
+<h2>Stepping through the Model<a class="headerlink" href="#stepping-through-the-model" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Start TorXakis: run
+<a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TorXakis">TorXakis</a>
+with the Control Loop model describe above in a command window.</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">$&gt;</span> <span class="pre">torxakis</span> <span class="pre">ControlLoopModel.txs</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Set the Model for stepping: In TorXakis type the following commands:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">stepper</span> <span class="pre">Model</span></code></p>
+<ol class="arabic simple" start="3">
+<li><p>Step through the Model: In TorXakis type the following command:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">10</span></code></p>
+<p>TorXakis will perform the actions at each step, as long as the Model
+behaves as expected or the number of steps are reached, then finally
+conclude:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In_Material</span><span class="p">,</span> <span class="p">[</span> <span class="mi">18</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Material</span><span class="p">,</span> <span class="p">[</span> <span class="mi">18</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In_Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">79</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out_Material</span><span class="p">,</span> <span class="p">[</span> <span class="mi">18</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">MeasureReport</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mi">37</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">(</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">ProduceReport</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mi">73</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Correction</span><span class="p">,</span> <span class="p">[</span> <span class="n">Correction</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mi">80</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">79</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In_Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">41</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">MeasureReport</span><span class="p">(</span><span class="o">-</span><span class="mi">79</span><span class="p">,</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">(</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">ProduceReport</span><span class="p">(</span><span class="o">-</span><span class="mi">79</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out_Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">79</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../CustomersOrders/index.html" class="btn btn-neutral float-right" title="Modelling Example - Customers Orders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Adder/index.html" class="btn btn-neutral float-left" title="TorXakis Adder Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, TorXakis.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

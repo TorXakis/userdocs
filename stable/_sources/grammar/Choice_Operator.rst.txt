@@ -1,30 +1,29 @@
-Choice Operator\ `¶ <#Choice-Operator>`__
+Choice Operator
 =========================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-`processBehaviour <ProcessBehaviour>`__ “##”
+`processBehaviour <ProcessBehaviour>`__ "##"
 `processBehaviour <ProcessBehaviour>`__
 
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 process1 ## process2
 
 Either process1 or process2 is executed, but never both.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>    Channel1_Int ? x 
+       Channel1_Int ? x 
    ##
        Channel2_Int ? y
-   </pre>
 
 | describes the process that
 | either communicates the variable x over Channel1_Int

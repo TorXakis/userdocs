@@ -4,26 +4,16 @@ Test Purpose Definitions
 Syntax
 ------
 
-+-----------------------------------+-----------------------------------+
-| Term                              | Explanation                       |
-+===================================+===================================+
-| purpDef                           | “PURPDEF” purpName “::=” “CHAN”   |
-|                                   | “IN” neChannelNameList? “CHAN”    |
-|                                   | “OUT” neChannelNameList? neGoals  |
-|                                   | “ENDDEF”                          |
-+-----------------------------------+-----------------------------------+
-| neChannelNameList                 | channelName (“,” channelName)\*   |
-+-----------------------------------+-----------------------------------+
-| modelName                         | `CapsId <CapsId>`__               |
-+-----------------------------------+-----------------------------------+
-| channelName                       | `CapsId <CapsId>`__               |
-+-----------------------------------+-----------------------------------+
-| neGoals                           | goal (, goal)\*                   |
-+-----------------------------------+-----------------------------------+
-| goal                              | “GOAL” goalName “::=”             |
-|                                   | `processBehaviour <ProcessBehavio |
-|                                   | ur>`__                            |
-+-----------------------------------+-----------------------------------+
+================= ========================================================================================================
+Term              Explanation
+================= ========================================================================================================
+purpDef           "PURPDEF" purpName "::=" "CHAN" "IN" neChannelNameList? "CHAN" "OUT" neChannelNameList? neGoals "ENDDEF"
+neChannelNameList channelName ("," channelName)\*
+modelName         `CapsId <CapsId>`__
+channelName       `CapsId <CapsId>`__
+neGoals           goal (, goal)\*
+goal              "GOAL" goalName "::=" `processBehaviour <ProcessBehaviour>`__
+================= ========================================================================================================
 
 Semantics
 ---------
@@ -49,7 +39,7 @@ A test purpose for a `Model Definition <ModelDefs>`__ like:
        CHAN OUT   Out
 
        BEHAVIOUR  
-           modelBehaviour[In, Out]()
+           modelBehaviour:ref:`In, Out`
    ENDDEF
 
 can be:

@@ -1,12 +1,12 @@
-STOP\ `¶ <#STOP>`__
+STOP
 ===================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
 STOP
 
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 | STOP is the inactive process.

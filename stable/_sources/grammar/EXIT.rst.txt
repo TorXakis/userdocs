@@ -1,12 +1,12 @@
-EXIT\ `¶ <#EXIT>`__
+EXIT
 ===================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-“EXIT” (“?” `varDecl <VarDecl>`__ \| “!” `valExpr <ValExpr>`__)\*
+"EXIT" ("?" `varDecl <VarDecl>`__ \| "!" `valExpr <ValExpr>`__)\*
 
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 | EXIT is a process that just successfully terminates.

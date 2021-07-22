@@ -1,111 +1,16 @@
-Communications\ `¶ <#Communications>`__
+Communications
 =======================================
 
-Syntax\ `¶ <#Syntax>`__
+Syntax
 -----------------------
 
-.. raw:: html
+============== =====================================================================================
+communications communication (":ref:`|`" communication)\* ([condition](Condition))?
+communication  channelName ("!" :ref:`valExpr` \| "?" [varDecl](VarDecl) )\*
+channelName    :ref:`CapsId`
+============== =====================================================================================
 
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-communications
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-communication (“`\| <Synchronous_Operator>`__” communication)\*
-(`condition <Condition>`__)?
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-communication
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-channelName (“!” `valExpr <ValExpr>`__ \| “?” `varDecl <VarDecl>`__ )\*
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-channelName
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-`CapsId <CapsId>`__
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </tbody>
-
-.. raw:: html
-
-   </table>
-
-Semantics\ `¶ <#Semantics>`__
+Semantics
 -----------------------------
 
 | Specify communication.
@@ -125,20 +30,19 @@ Semantics\ `¶ <#Semantics>`__
 | Communication over the predefined channel `EXIT <EXIT>`__ might
   include exit values.
 
-Examples\ `¶ <#Examples>`__
+Examples
 ---------------------------
 
-Communication without data\ `¶ <#Communication-without-data>`__
+Communication without data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Let Channel be a channel over which can be communicated without any
   data.
 | The statement
 
-.. raw:: html
+::
 
-   <pre>Channel
-   </pre>
+   Channel
 
 specifies that the process wants to communicate.
 
@@ -146,17 +50,16 @@ specifies that the process wants to communicate.
 | this construct can also be used to obtain simpler models by
   abstracting away the actual data that is communicated.
 
-Communication of fully specified data\ `¶ <#Communication-of-fully-specified-data>`__
+Communication of fully specified data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Let Channel_Int be a channel over which one integer at a time can be
   communicated.
 | The statement
 
-.. raw:: html
+::
 
-   <pre>Channel_Int ! 3
-   </pre>
+   Channel_Int ! 3
 
 | specifies that the process wants to communicate the integer value 3.
 | **Note** The same statement can be used to both send and receive the
@@ -164,26 +67,24 @@ Communication of fully specified data\ `¶ <#Communication-of-fully-specified-da
 
 The statement
 
-.. raw:: html
+::
 
-   <pre>Channel_Int ! id
-   </pre>
+   Channel_Int ! id
 
 | specifies that the process wants to communicate the integer value of
   variable id .
 | **Note** No new variable is introduced for id.
 
-Communication of underspecified data\ `¶ <#Communication-of-underspecified-data>`__
+Communication of underspecified data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Let Channel_Int be a channel over which one integer at a time can be
   communicated.
 | The statement
 
-.. raw:: html
+::
 
-   <pre>Channel_Int ? x
-   </pre>
+   Channel_Int ? x
 
 | specifies that the process wants to communicate an integer value.
 | After communication, the value will be stored in the newly introduced
@@ -193,34 +94,30 @@ Communication of underspecified data\ `¶ <#Communication-of-underspecified-data
 
 The actual communication might be
 
-.. raw:: html
+::
 
-   <pre>Channel_Int ! 3
-   </pre>
+   Channel_Int ! 3
 
-.. raw:: html
+::
 
-   <pre>Channel_Int ! -3
-   </pre>
+   Channel_Int ! -3
 
 or
 
-.. raw:: html
+::
 
-   <pre>Channel_Int ! -12345678901234567890
-   </pre>
+   Channel_Int ! -12345678901234567890
 
-Communication of constrained data\ `¶ <#Communication-of-constrained-data>`__
+Communication of constrained data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Let Channel_Int be a channel over which one integer at a time can be
   communicated.
 | The statement
 
-.. raw:: html
+::
 
-   <pre>Channel ? x [[ x >= 0 ]]
-   </pre>
+   Channel ? x [[ x >= 0 ]]
 
 | specifies that the process wants to communicate a constrained integer
   value.
@@ -229,29 +126,26 @@ Communication of constrained data\ `¶ <#Communication-of-constrained-data>`__
 
 The actual communication might be
 
-.. raw:: html
+::
 
-   <pre>Channel ! 3
-   </pre>
+   Channel ! 3
 
 but NOT a negative value like
 
-.. raw:: html
+::
 
-   <pre>Channel ! -3
-   </pre>
+   Channel ! -3
 
-Communication of multiple data items\ `¶ <#Communication-of-multiple-data-items>`__
+Communication of multiple data items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Let Channel_Int_List be a channel over which one integer and one list
   at a time can be communicated.
 | The statement
 
-.. raw:: html
+::
 
-   <pre>Channel_Int_List ! id ? list [[ isCstr_Int(list) ]]
-   </pre>
+   Channel_Int_List ! id ? list [[ isCstr_Int(list) ]]
 
 specifies that the process wants to communicate the following two data:
 the value of the variable id and a non-empty list.

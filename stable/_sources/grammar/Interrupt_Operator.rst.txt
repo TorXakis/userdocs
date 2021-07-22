@@ -1,2 +1,2 @@
-Interrupt Operator\ `¶ <#Interrupt-Operator>`__
+Interrupt Operator
 ===============================================
