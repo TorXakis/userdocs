@@ -25,7 +25,8 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
    :caption: Contents
 
    intro
-   installation
+   Installation
+   getting-started
    command-line
    trace-replay
    examples/index
