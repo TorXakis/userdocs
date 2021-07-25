@@ -5,8 +5,8 @@ Syntax
 -----------------------
 
 ======================= ===============================================================
-guardedProcessBehaviour :ref:`condition` =>> [processBehaviour](ProcessBehaviour)
-:ref:`condition`  [[ [valExpr](ValExpr) ]]
+guardedProcessBehaviour :ref:`condition` =>> :ref:`processBehaviour`
+:ref:`condition`  :ref:`[ [valExpr` ]]
 ======================= ===============================================================
 
 Semantics

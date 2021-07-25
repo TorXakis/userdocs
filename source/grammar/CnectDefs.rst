@@ -8,7 +8,7 @@ Syntax
 cnectDefs   "CNECTDEF" cnectDef (";" cnectDef )\* "ENDDEF"
 cnectDef    cnectName "::=" cnectType cnectItem\*
 cnectType   "CLIENTSOCK" \| "SERVERSOCK"
-cnectItem     "CHAN" "OUT" channelName "HOST" hostName "PORT" portNumber \| "CHAN" "IN" channelName "HOST" hostName "PORT" portNumber \| "ENCODE" channelName "?" :ref:`varDecl` "->" "!" [valExpr](ValExpr) \| "DECODE" channelName "!" [valExpr](ValExpr) "<-" "?" [varDecl](VarDecl)
+cnectItem     "CHAN" "OUT" channelName "HOST" hostName "PORT" portNumber \| "CHAN" "IN" channelName "HOST" hostName "PORT" portNumber \| "ENCODE" channelName "?" :ref:`varDecl` "->" "!" :ref:`valExpr` \| "DECODE" channelName "!" :ref:`valExpr` "<-" "?" :ref:`varDecl`
 cnectName   :ref:`CapsId`
 channelName :ref:`CapsId`
 hostName    :ref:`String`

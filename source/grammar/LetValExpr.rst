@@ -6,7 +6,7 @@ Syntax
 
 ========== ================================================================
 letValExpr "LET" assignment (";" assignment)\* "IN" :ref:`valExpr` "NI"
-assignment :ref:`varDecl` "=" [valExpr](ValExpr)
+assignment :ref:`varDecl` "=" :ref:`valExpr`
 ========== ================================================================
 
 Semantics
