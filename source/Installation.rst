@@ -48,7 +48,7 @@ project's `releases page`_ and then run the following commands:
    apt-get update
    apt-get install ./torxakis_0.9.0-ubuntu_18.04-amd64.deb -y
 
-The ``deb`` package was tested on Ubuntu version ``16.04``, ``17.10``, ``18.04`,
+The ``deb`` package was tested on Ubuntu version ``16.04``, ``17.10``, ``18.04``,
 and ``20.04``.
 
 
