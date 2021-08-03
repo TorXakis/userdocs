@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-2297b23 documentation</title>
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-b7d71ae documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-2297b23<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-2297b23.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-b7d71ae<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-b7d71ae.pdf">pdf</a>
               </div>
             
           
@@ -100,7 +100,11 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-debian-based-systems">For debian based systems</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#macos">MacOS</a></li>
 </ul>
 </li>
@@ -587,6 +591,26 @@
 </div>
 <div class="section" id="linux">
 <h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for-all-distributions-and-recent-releases">
+<h3>For all distributions and (recent) releases<a class="headerlink" href="#for-all-distributions-and-recent-releases" title="Permalink to this headline">¶</a></h3>
+<p>We provide  <cite>TorXakis</cite> packaged as an AppImage which is a portable package format which works on al
+linux distributions and releases. Every AppImage contains an app and all the files the app needs to run.
+In other words, each AppImage has no dependencies other than what is included in the targeted base operating system(s).
+The  <cite>TorXakis</cite> Appimage also contains <cite>cvc4</cite> and <cite>z3</cite>.</p>
+<p>To run the AppImage, simply download it from the github’s release page, make it executable
+and then just run it:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/TorXakis/TorXakis/releases/download/v0.9.0/TorXakis-0.9.0.x86_64.AppImage
+$ chmod a+x TorXakis-0.9.0.x86_64.AppImage
+$ ./TorXakis-0.9.0.x86_64.AppImage
+</pre></div>
+</div>
+<p>Note: Most Docker installations do not permit the use FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">APPIMAGE_EXTRACT_AND_RUN</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-debian-based-systems">
+<h3>For debian based systems<a class="headerlink" href="#for-debian-based-systems" title="Permalink to this headline">¶</a></h3>
 <p>We provide a <code class="docutils literal notranslate"><span class="pre">deb</span></code> package for Debian based systems (Debian, Ubuntu, etc).
 Below we give instructions on how to install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> on Ubuntu 18.04.</p>
 <p>Download the latest deb package for TorXakis from the TorXakis github
@@ -595,8 +619,9 @@ project’s <a class="reference external" href="https://github.com/TorXakis/TorX
 apt-get install ./torxakis_0.9.0-ubuntu_18.04-amd64.deb -y
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">deb</span></code> package was tested on Ubuntu version <code class="docutils literal notranslate"><span class="pre">16.04</span></code>, <code class="docutils literal notranslate"><span class="pre">17.10</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">18.04</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">deb</span></code> package was tested on Ubuntu version <code class="docutils literal notranslate"><span class="pre">16.04</span></code>, <code class="docutils literal notranslate"><span class="pre">17.10</span></code>, <code class="docutils literal notranslate"><span class="pre">18.04`,</span>
+<span class="pre">and</span> <span class="pre">``20.04</span></code>.</p>
+</div>
 </div>
 <div class="section" id="macos">
 <h2>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
