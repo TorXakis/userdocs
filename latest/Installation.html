@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-1b044e2 documentation</title>
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-9ef464f documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-1b044e2<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-1b044e2.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-9ef464f<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-9ef464f.pdf">pdf</a>
               </div>
             
           
@@ -651,7 +651,7 @@ $ sudo apt install appimagelauncher
 <div class="section" id="running-within-a-docker-container">
 <h4>Running within a Docker Container<a class="headerlink" href="#running-within-a-docker-container" title="Permalink to this headline">¶</a></h4>
 <p>When the AppImage is run, then by its <a class="reference external" href="https://docs.appimage.org/reference/architecture.html">architecture</a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
-<p>However <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages">most Docker installations do not permit the use of FUSE</a>  inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE. To run the AppImage within a Docker container, without using FUSE, you must set the following environment variable:</p>
+<p>However most Docker installations do not permit the use of FUSE inside containers for security reasons. Instead, you can <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages">extract and run an AppImage</a> without using FUSE. To run the AppImage within a Docker container, without using FUSE, you must set the following environment variable:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">APPIMAGE_EXTRACT_AND_RUN</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
