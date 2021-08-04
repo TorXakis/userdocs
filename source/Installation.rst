@@ -18,14 +18,13 @@ In other words, each AppImage has no dependencies other than what is included in
 The  `TorXakis` Appimage also contains `cvc4` and `z3`.
 
 To run the AppImage, simply download it from the github's release page, make it executable 
-and then just run it:
+and we then can just run it:
 
 .. code:: sh
 
-    $ wget https://github.com/TorXakis/TorXakis/releases/download/v0.9.0/TorXakis-0.9.0.x86_64.AppImage
-    $ chmod a+x TorXakis-0.9.0.x86_64.AppImage
-    $ ./TorXakis-0.9.0.x86_64.AppImage
-
+    $ wget https://github.com/TorXakis/TorXakis/releases/download/v0.9.0/torxakis-0.9.0.x86_64.AppImage
+    $ chmod a+x torxakis-0.9.0.x86_64.AppImage
+    $ ./torxakis-0.9.0.x86_64.AppImage
 
 Note: Most Docker installations do not permit the use FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable: 
 
@@ -33,6 +32,47 @@ Note: Most Docker installations do not permit the use FUSE inside containers for
 
    export APPIMAGE_EXTRACT_AND_RUN=1
 
+Commandline integration of AppImage
++++++++++++++++++++++++++++++++++++
+
+By convention AppImages are placed in ``~/Applications`` which is also added to ``$PATH`` environment variable to allow the AppImage applications to be easily launched from the commandline: 
+
+.. code:: sh
+
+   $ mkdir -p ~/Applications 
+   $ mv torxakis-0.9.0.x86_64.AppImage ~/Applications
+   $ echo 'export PATH=~/Applications/$PATH' >> ~/.bashrc
+   $ source ~/.bashrc
+
+Now you can start ``TorXakis`` from any path in your terminal by typing ``torxakis<TAB><ENTER>`` which completes the name automatically:
+
+.. code:: sh
+
+   $ torxakis-0.9.0.x86_64.AppImage
+   
+    TXS >>  TorXakis :: Model-Based Testing
+
+    TXS >>  txsserver starting: "::ffff:127.0.0.1" : 41975
+    TXS >>  Solver "z3" initialized : Z3 [4.8.5]
+    TXS >>  TxsCore initialized
+    TXS >>  LPEOps version 2019.07.05.02
+    TXS >>  input files parsed:
+    TXS >>  []
+    TXS >> 
+
+Desktop integration of AppImage
++++++++++++++++++++++++++++++++
+
+You can even launch the AppImage from the Desktop Environment by integrating AppImages To Application Menu Using `AppImageLauncher`_. 
+The following instructions installs `AppImageLauncher`_ on an Ubuntu linux installation:
+
+.. code:: sh
+
+    $ sudo add-apt-repository ppa:appimagelauncher-team/stable
+    $ sudo apt update
+    $ sudo apt install appimagelauncher
+
+Now you can launch ``TorXakis`` from the desktop's application menu.
 
 For debian based systems
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,3 +107,4 @@ For more detailed instructions see the `Homebrew tap for TorXakis`_.
 
 .. _Homebrew tap for TorXakis: https://github.com/TorXakis/homebrew-TorXakis
 .. _releases page: https://github.com/TorXakis/TorXakis/releases
+.. _AppImageLauncher: 
