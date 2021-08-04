@@ -38,7 +38,7 @@ Note: most Docker installations do not permit the use FUSE inside containers for
 Commandline integration of AppImage
 +++++++++++++++++++++++++++++++++++
 
-By convention AppImages are placed in ``~/Applications`` which is also added to ``$PATH`` environment variable to allow the AppImage applications to be easily launched from the commandline: 
+By convention AppImages are placed in ``~/Applications`` which is also added to ``$PATH`` environment variable to allow the AppImage applications to be easily launched from the commandline. We also add a simpler name for the commandline by soft linking the AppImage to that name:
 
 .. code:: sh
 
@@ -46,12 +46,13 @@ By convention AppImages are placed in ``~/Applications`` which is also added to 
    $ mv torxakis-0.9.0.x86_64.AppImage ~/Applications
    $ echo 'export PATH=~/Applications/:$PATH' >> ~/.bashrc
    $ source ~/.bashrc
+   $ ln -s torxakis-0.9.0.x86_64.AppImage ~/Applications/torxakis
 
-Now you can start ``TorXakis`` from any path in your terminal by typing ``torxakis<TAB><ENTER>`` which completes the name automatically:
+Now you can start ``TorXakis`` from any path in your terminal just by typing ``torxakis``:
 
 .. code:: sh
 
-   $ torxakis-0.9.0.x86_64.AppImage
+   $ torxakis
    
     TXS >>  TorXakis :: Model-Based Testing
 

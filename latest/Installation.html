@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-a4f3fc4 documentation</title>
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-f2bf8ea documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-a4f3fc4<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-a4f3fc4.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-f2bf8ea<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-f2bf8ea.pdf">pdf</a>
               </div>
             
           
@@ -618,15 +618,16 @@ $ ./torxakis-0.9.0.x86_64.AppImage
 </div>
 <div class="section" id="commandline-integration-of-appimage">
 <h4>Commandline integration of AppImage<a class="headerlink" href="#commandline-integration-of-appimage" title="Permalink to this headline">¶</a></h4>
-<p>By convention AppImages are placed in <code class="docutils literal notranslate"><span class="pre">~/Applications</span></code> which is also added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> environment variable to allow the AppImage applications to be easily launched from the commandline:</p>
+<p>By convention AppImages are placed in <code class="docutils literal notranslate"><span class="pre">~/Applications</span></code> which is also added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> environment variable to allow the AppImage applications to be easily launched from the commandline. We also add a simpler name for the commandline by soft linking the AppImage to that name:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir -p ~/Applications
 $ mv torxakis-0.9.0.x86_64.AppImage ~/Applications
 $ <span class="nb">echo</span> <span class="s1">&#39;export PATH=~/Applications/:$PATH&#39;</span> &gt;&gt; ~/.bashrc
 $ <span class="nb">source</span> ~/.bashrc
+$ ln -s torxakis-0.9.0.x86_64.AppImage ~/Applications/torxakis
 </pre></div>
 </div>
-<p>Now you can start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from any path in your terminal by typing <code class="docutils literal notranslate"><span class="pre">torxakis&lt;TAB&gt;&lt;ENTER&gt;</span></code> which completes the name automatically:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis-0.9.0.x86_64.AppImage
+<p>Now you can start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from any path in your terminal just by typing <code class="docutils literal notranslate"><span class="pre">torxakis</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis
 
  TXS &gt;&gt;  TorXakis :: Model-Based Testing
 
