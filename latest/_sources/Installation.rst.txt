@@ -41,7 +41,7 @@ By convention AppImages are placed in ``~/Applications`` which is also added to 
 
    $ mkdir -p ~/Applications 
    $ mv torxakis-0.9.0.x86_64.AppImage ~/Applications
-   $ echo 'export PATH=~/Applications/$PATH' >> ~/.bashrc
+   $ echo 'export PATH=~/Applications/:$PATH' >> ~/.bashrc
    $ source ~/.bashrc
 
 Now you can start ``TorXakis`` from any path in your terminal by typing ``torxakis<TAB><ENTER>`` which completes the name automatically:
