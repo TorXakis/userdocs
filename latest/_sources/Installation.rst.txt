@@ -12,6 +12,9 @@ Linux
 For all distributions and (recent) releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+TorXakis's AppImage
++++++++++++++++++++
+
 We provide  `TorXakis` packaged as an AppImage which is a portable package format which works on al 
 linux distributions and releases. Every AppImage contains an app and all the files the app needs to run. 
 In other words, each AppImage has no dependencies other than what is included in the targeted base operating system(s). 
