@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-f2bf8ea documentation</title>
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-b0c4089 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-f2bf8ea<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-f2bf8ea.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-b0c4089<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-b0c4089.pdf">pdf</a>
               </div>
             
           
@@ -600,7 +600,7 @@
 <h3>For all distributions and (recent) releases<a class="headerlink" href="#for-all-distributions-and-recent-releases" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="torxakis-s-appimage">
 <h4>TorXakis’s AppImage<a class="headerlink" href="#torxakis-s-appimage" title="Permalink to this headline">¶</a></h4>
-<p>We provide  <cite>TorXakis</cite> packaged as an AppImage which is a portable package format which works on al
+<p>We provide  <cite>TorXakis</cite> packaged as an <a class="reference external" href="https://appimage.org">AppImage</a> which is a portable package format which works on al
 linux distributions and releases. Every AppImage contains an app and all the files the app needs to run.
 In other words, each AppImage has no dependencies other than what is included in the targeted base operating system(s).
 The  <cite>TorXakis</cite> Appimage also contains <cite>cvc4</cite> and <cite>z3</cite>.</p>
@@ -611,6 +611,7 @@ $ chmod a+x torxakis-0.9.0.x86_64.AppImage
 $ ./torxakis-0.9.0.x86_64.AppImage
 </pre></div>
 </div>
+<p>When the AppImage is run, then by its <a class="reference external" href="https://docs.appimage.org/reference/architecture.html">architecture</a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
 <p>Note: most Docker installations do not permit the use FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">APPIMAGE_EXTRACT_AND_RUN</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
@@ -643,8 +644,8 @@ $ ln -s torxakis-0.9.0.x86_64.AppImage ~/Applications/torxakis
 </div>
 <div class="section" id="desktop-integration-of-appimage">
 <h4>Desktop integration of AppImage<a class="headerlink" href="#desktop-integration-of-appimage" title="Permalink to this headline">¶</a></h4>
-<p>You can even launch the AppImage from the Desktop Environment by integrating AppImages To Application Menu Using <a class="reference internal" href="#appimagelauncher">AppImageLauncher</a>.
-The following instructions installs <a class="reference internal" href="#appimagelauncher">AppImageLauncher</a> on an Ubuntu linux installation:</p>
+<p>You can even launch the AppImage from the Desktop Environment by integrating AppImages To Application Menu Using <a class="reference external" href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a>.
+The following instructions installs <a class="reference external" href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a> on an Ubuntu linux installation:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:appimagelauncher-team/stable
 $ sudo apt update
 $ sudo apt install appimagelauncher
