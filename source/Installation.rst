@@ -15,7 +15,7 @@ For all distributions and (recent) releases
 TorXakis's AppImage
 +++++++++++++++++++
 
-We provide  `TorXakis` packaged as an AppImage which is a portable package format which works on al 
+We provide  `TorXakis` packaged as an `AppImage`_ which is a portable package format which works on al 
 linux distributions and releases. Every AppImage contains an app and all the files the app needs to run. 
 In other words, each AppImage has no dependencies other than what is included in the targeted base operating system(s). 
 The  `TorXakis` Appimage also contains `cvc4` and `z3`.
@@ -28,6 +28,8 @@ and we then can just run it:
     $ wget https://github.com/TorXakis/TorXakis/releases/download/v0.9.0/torxakis-0.9.0.x86_64.AppImage
     $ chmod a+x torxakis-0.9.0.x86_64.AppImage
     $ ./torxakis-0.9.0.x86_64.AppImage
+
+When the AppImage is run, then by its `architecture <AppImageArch_>`_, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.
 
 Note: most Docker installations do not permit the use FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable: 
 
@@ -111,4 +113,7 @@ For more detailed instructions see the `Homebrew tap for TorXakis`_.
 
 .. _Homebrew tap for TorXakis: https://github.com/TorXakis/homebrew-TorXakis
 .. _releases page: https://github.com/TorXakis/TorXakis/releases
-.. _AppImageLauncher: 
+.. _AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
+.. _AppImage: https://appimage.org
+.. _AppImageArch: https://docs.appimage.org/reference/architecture.html
+
