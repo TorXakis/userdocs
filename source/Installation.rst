@@ -16,7 +16,7 @@ TorXakis's AppImage
 +++++++++++++++++++
 
 We provide  `TorXakis` packaged as an `AppImage`_ which is a portable package format which works on all 
-linux distributions and (recent) releases. The  `TorXakis` Appimage is a software bundle which container everything to run `TorXakis`. It therefore also contains the specific versions of `cvc4` and `z3` tools which `TorXakis` requires when running.
+linux distributions and (recent) releases. The  `TorXakis` Appimage is a software bundle which contains everything to run `TorXakis`. It therefore also contains the specific versions of `cvc4` and `z3` tools which `TorXakis` requires when running.
 
 To run the AppImage, simply download it from the github's release page, make it executable 
 and we then can just run it:
@@ -27,14 +27,6 @@ and we then can just run it:
     $ chmod a+x torxakis-0.9.0.x86_64.AppImage
     $ ./torxakis-0.9.0.x86_64.AppImage
 
-
-When the AppImage is run, then by its `architecture <AppImageArch_>`_, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.
-
-Note: most Docker installations do not permit the use of FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable: 
-
-.. code:: sh
-
-   export APPIMAGE_EXTRACT_AND_RUN=1
 
 Commandline integration of AppImage
 +++++++++++++++++++++++++++++++++++
@@ -80,6 +72,18 @@ The following instructions installs `AppImageLauncher`_ on an Ubuntu linux insta
 Now you can launch ``TorXakis`` from the desktop's application menu.
 
 Note: for AppImage's which are GUI applications you get on first launch the integrate option into the desktop, however for AppImage's which are  commandline applications this doesn't happen and you must put the application in ``~/Applications/`` yourself. The reason for not automatically integrating commandline applications is that some commandline applications need arguments to run. So running them from the desktop's application menu without arguments makes then no sense. Such commandline applications can better be placed in ``~/bin/`` instead of ``~/Applications/``. Making them available on the commandline, but not on the desktop's application menu.
+
+Running within a Docker Container
++++++++++++++++++++++++++++++++++
+
+When the AppImage is run, then by its `architecture <AppImageArch_>`_, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.
+
+However most Docker installations do not permit the use of FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE. To run the AppImage within a Docker container, without using FUSE, you must set the following environment variable: 
+
+.. code:: sh
+
+   export APPIMAGE_EXTRACT_AND_RUN=1
+
 
 For debian based systems
 ^^^^^^^^^^^^^^^^^^^^^^^^
