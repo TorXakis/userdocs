@@ -15,8 +15,8 @@ For all distributions and (recent) releases
 TorXakis's AppImage
 +++++++++++++++++++
 
-We provide  `TorXakis` packaged as an `AppImage`_ which is a portable package format which works on al 
-linux distributions and releases. Every AppImage contains an app and all the files the app needs to run. 
+We provide  `TorXakis` packaged as an `AppImage`_ which is a portable package format which works on all 
+linux distributions and (recent) releases. Every AppImage contains an app and all the files the app needs to run. 
 In other words, each AppImage has no dependencies other than what is included in the targeted base operating system(s). 
 The  `TorXakis` Appimage also contains `cvc4` and `z3`.
 
