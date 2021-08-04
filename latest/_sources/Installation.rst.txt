@@ -83,7 +83,7 @@ For debian based systems
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 We provide a ``deb`` package for Debian based systems (Debian, Ubuntu, etc).
-Below we give instructions on how to install ``TorXakis`` on Ubuntu 18.04.
+Below we give instructions on how to install ``TorXakis`` on Ubuntu 20.04.
 
 Download the latest deb package for TorXakis from the TorXakis github
 project's `releases page`_ and then run the following commands:
@@ -91,8 +91,9 @@ project's `releases page`_ and then run the following commands:
 .. code:: sh
 
    apt-get update
-   apt-get install ./torxakis_0.9.0-ubuntu_18.04-amd64.deb -y
+   apt-get install ./torxakis_0.9.0-ubuntu_20.04-amd64.deb -y
 
+Now you can launch ``TorXakis`` from the commandline with the command ``torxakis``.
 
 MacOS
 ~~~~~
