@@ -26,7 +26,7 @@ and we then can just run it:
     $ chmod a+x torxakis-0.9.0.x86_64.AppImage
     $ ./torxakis-0.9.0.x86_64.AppImage
 
-Note: Most Docker installations do not permit the use FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable: 
+Note: most Docker installations do not permit the use FUSE inside containers for security reasons. Instead, you can extract and run an AppImage without using FUSE by setting the following environment variable: 
 
 .. code:: sh
 
@@ -73,6 +73,8 @@ The following instructions installs `AppImageLauncher`_ on an Ubuntu linux insta
     $ sudo apt install appimagelauncher
 
 Now you can launch ``TorXakis`` from the desktop's application menu.
+
+Note: for AppImage's which are GUI applications you get on first launch the integrate option into the desktop, howevever for AppImage's which are  commandline applications this doesn't happen and you must put the application in ``~/Applications/`` yourself.
 
 For debian based systems
 ^^^^^^^^^^^^^^^^^^^^^^^^
