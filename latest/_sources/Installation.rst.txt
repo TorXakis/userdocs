@@ -77,7 +77,7 @@ The following instructions installs `AppImageLauncher`_ on an Ubuntu linux insta
 
 Now you can launch ``TorXakis`` from the desktop's application menu.
 
-Note: for AppImage's which are GUI applications you get on first launch the integrate option into the desktop, however for AppImage's which are  commandline applications this doesn't happen and you must put the application in ``~/Applications/`` yourself. The reason for not automatically integrating commandline applications is because that some commandline applications need arguments to run, so running them from the desktop's application menu without arguments makes then no sense.
+Note: for AppImage's which are GUI applications you get on first launch the integrate option into the desktop, however for AppImage's which are  commandline applications this doesn't happen and you must put the application in ``~/Applications/`` yourself. The reason for not automatically integrating commandline applications is because that some commandline applications need arguments to run, so running them from the desktop's application menu without arguments makes then no sense. Such a commandline application can better be placed in ``~/bin/`` instead of ``~/Applications/`` making it available on the commandline, but not on the desktop's application menu.
 
 For debian based systems
 ^^^^^^^^^^^^^^^^^^^^^^^^
