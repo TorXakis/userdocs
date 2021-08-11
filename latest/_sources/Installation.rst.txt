@@ -39,9 +39,10 @@ and we then can just run it:
 Install the AppImage in a directory in your shell's PATH with the convenient ``torxakis`` alias:
 
 .. code:: sh
-$ BINDIR=/usr/local/bin    # an alternative is ~/bin in your home directory
-$ mv torxakis-0.9.0.x86_64.AppImage $BINDIR
-$ ln -s torxakis-0.9.0.x86_64.AppImage $BINDIR/torxakis
+
+    $ BINDIR=/usr/local/bin    # an alternative is ~/bin in your home directory
+    $ mv torxakis-0.9.0.x86_64.AppImage $BINDIR
+    $ ln -s torxakis-0.9.0.x86_64.AppImage $BINDIR/torxakis
 
 By using a softlink for ``torxakis`` we can easily switch to a different version of the AppImage.
 
@@ -62,8 +63,8 @@ Now you can start ``TorXakis`` from any path in your terminal just by typing ``t
     TXS >> 
 
 
-Running without FUSE support (eg. a Docker Container)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Running the AppImage without FUSE support (eg. in a Docker Container)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 When the AppImage is run, then by its `architecture <AppImageArch_>`_, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.
 
@@ -73,7 +74,7 @@ However some linux distributions do no support FUSE directly out of the box. You
 
    export APPIMAGE_EXTRACT_AND_RUN=1
    
-Most Docker installations do not permit the use of FUSE inside containers for security reasons.  To run the AppImage within a Docker container, without using FUSE, you must set the above environment variable in the Docker container. 
+Most Docker installations do not permit the use of FUSE inside containers for security reasons. So running without FUSE is something you need to run an AppImage in a Docker container.  So just by setting the  above environment variable in the Docker container lets Docker still run the AppImage. 
    
 
 
