@@ -41,7 +41,7 @@ Install the AppImage in a directory in your shell's PATH with the convenient ``t
 .. code:: sh
 
     $ BINDIR=/usr/local/bin    # an alternative is ~/bin in your home directory
-    $ mv torxakis-0.9.0.x86_64.AppImage $BINDIR
+    $ mv torxakis-0.9.0.x86_64.AppImage $BINDIR/
     $ ln -s torxakis-0.9.0.x86_64.AppImage $BINDIR/torxakis
 
 By using a softlink for ``torxakis`` we can easily switch to a different version of the AppImage.
