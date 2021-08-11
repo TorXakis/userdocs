@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-9ef464f documentation</title>
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-984d551 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-9ef464f<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-9ef464f.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-984d551<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-984d551.pdf">pdf</a>
               </div>
             
           
@@ -100,18 +100,11 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#torxakis-s-appimage">TorXakis’s AppImage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#commandline-integration-of-appimage">Commandline integration of AppImage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#desktop-integration-of-appimage">Desktop integration of AppImage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-within-a-docker-container">Running within a Docker Container</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#for-debian-based-systems">For debian based systems</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#macos">MacOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-without-fuse-support-eg-a-docker-container">Running without FUSE support (eg. a Docker Container)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
@@ -595,12 +588,18 @@
 <h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
 <p>For Windows systems an installer is provided in the TorXakis github project’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/releases">releases page</a>.</p>
 </div>
+<div class="section" id="macos">
+<h2>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+<p>For macOS systems we provide a homebrew package. To install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
+run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>brew tap torxakis/torxakis
+brew install torxakis
+</pre></div>
+</div>
+<p>For more detailed instructions see the <a class="reference external" href="https://github.com/TorXakis/homebrew-TorXakis">Homebrew tap for TorXakis</a>.</p>
+</div>
 <div class="section" id="linux">
 <h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="for-all-distributions-and-recent-releases">
-<h3>For all distributions and (recent) releases<a class="headerlink" href="#for-all-distributions-and-recent-releases" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="torxakis-s-appimage">
-<h4>TorXakis’s AppImage<a class="headerlink" href="#torxakis-s-appimage" title="Permalink to this headline">¶</a></h4>
 <p>We provide  <cite>TorXakis</cite> packaged as an <a class="reference external" href="https://appimage.org">AppImage</a> which is a portable package format which works on all
 linux distributions and (recent) releases. The  <cite>TorXakis</cite> Appimage is a software bundle which contains everything to run <cite>TorXakis</cite>. It therefore also contains the specific versions of <cite>cvc4</cite> and <cite>z3</cite> tools which <cite>TorXakis</cite> requires when running.</p>
 <p>To run the AppImage, simply download it from the github’s release page, make it executable
@@ -610,17 +609,11 @@ $ chmod a+x torxakis-0.9.0.x86_64.AppImage
 $ ./torxakis-0.9.0.x86_64.AppImage
 </pre></div>
 </div>
-</div>
-<div class="section" id="commandline-integration-of-appimage">
-<h4>Commandline integration of AppImage<a class="headerlink" href="#commandline-integration-of-appimage" title="Permalink to this headline">¶</a></h4>
-<p>By convention AppImages are placed in <code class="docutils literal notranslate"><span class="pre">~/Applications</span></code> which is also added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> environment variable to allow the AppImage applications to be easily launched from the commandline. We also add a simpler name for the commandline by soft linking the AppImage to that name:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir -p ~/Applications
-$ mv torxakis-0.9.0.x86_64.AppImage ~/Applications
-$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=~/Applications/:$PATH&#39;</span> &gt;&gt; ~/.bashrc
-$ <span class="nb">source</span> ~/.bashrc
-$ ln -s torxakis-0.9.0.x86_64.AppImage ~/Applications/torxakis
-</pre></div>
-</div>
+<p>Install the AppImage in a directory in your shell’s PATH with the convenient <code class="docutils literal notranslate"><span class="pre">torxakis</span></code> alias:</p>
+<p>$ BINDIR=/usr/local/bin    # an alternative is ~/bin in your home directory
+$ mv torxakis-0.9.0.x86_64.AppImage $BINDIR
+$ ln -s torxakis-0.9.0.x86_64.AppImage $BINDIR/torxakis</p>
+<p>By using a softlink for <code class="docutils literal notranslate"><span class="pre">torxakis</span></code> we can easily switch to a different version of the AppImage.</p>
 <p>Now you can start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from any path in your terminal just by typing <code class="docutils literal notranslate"><span class="pre">torxakis</span></code>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis
 
@@ -635,50 +628,15 @@ $ ln -s torxakis-0.9.0.x86_64.AppImage ~/Applications/torxakis
  TXS &gt;&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="desktop-integration-of-appimage">
-<h4>Desktop integration of AppImage<a class="headerlink" href="#desktop-integration-of-appimage" title="Permalink to this headline">¶</a></h4>
-<p>You can even launch the AppImage from the Desktop Environment by integrating AppImages To Application Menu Using <a class="reference external" href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a>.
-The following instructions installs <a class="reference external" href="https://github.com/TheAssassin/AppImageLauncher">AppImageLauncher</a> on an Ubuntu linux installation:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:appimagelauncher-team/stable
-$ sudo apt update
-$ sudo apt install appimagelauncher
-</pre></div>
-</div>
-<p>Now you can launch <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from the desktop’s application menu.</p>
-<p>Note: for AppImage’s which are GUI applications you get on first launch the integrate option into the desktop, however for AppImage’s which are  commandline applications this doesn’t happen and you must put the application in <code class="docutils literal notranslate"><span class="pre">~/Applications/</span></code> yourself. The reason for not automatically integrating commandline applications is that some commandline applications need arguments to run. So running them from the desktop’s application menu without arguments makes then no sense. Such commandline applications can better be placed in <code class="docutils literal notranslate"><span class="pre">~/bin/</span></code> instead of <code class="docutils literal notranslate"><span class="pre">~/Applications/</span></code>. Making them available on the commandline, but not on the desktop’s application menu.</p>
-</div>
-<div class="section" id="running-within-a-docker-container">
-<h4>Running within a Docker Container<a class="headerlink" href="#running-within-a-docker-container" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="running-without-fuse-support-eg-a-docker-container">
+<h3>Running without FUSE support (eg. a Docker Container)<a class="headerlink" href="#running-without-fuse-support-eg-a-docker-container" title="Permalink to this headline">¶</a></h3>
 <p>When the AppImage is run, then by its <a class="reference external" href="https://docs.appimage.org/reference/architecture.html">architecture</a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
-<p>However most Docker installations do not permit the use of FUSE inside containers for security reasons. Instead, you can <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages">extract and run an AppImage</a> without using FUSE. To run the AppImage within a Docker container, without using FUSE, you must set the following environment variable:</p>
+<p>However some linux distributions do no support FUSE directly out of the box. You can either <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#how-to-install-fuse">install FUSE</a>  or you can <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages">extract and run an AppImage</a> without using FUSE. You can easily run the AppImage, without using FUSE, by just setting the following environment variable:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">APPIMAGE_EXTRACT_AND_RUN</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
+<p>Most Docker installations do not permit the use of FUSE inside containers for security reasons.  To run the AppImage within a Docker container, without using FUSE, you must set the above environment variable in the Docker container.</p>
 </div>
-</div>
-<div class="section" id="for-debian-based-systems">
-<h3>For debian based systems<a class="headerlink" href="#for-debian-based-systems" title="Permalink to this headline">¶</a></h3>
-<p>We provide a <code class="docutils literal notranslate"><span class="pre">deb</span></code> package for Debian based systems (Debian, Ubuntu, etc).
-Below we give instructions on how to install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> on Ubuntu 20.04.</p>
-<p>Download the latest deb package for TorXakis from the TorXakis github
-project’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/releases">releases page</a> and then run the following commands:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update
-apt-get install ./torxakis_0.9.0-ubuntu_20.04-amd64.deb -y
-</pre></div>
-</div>
-<p>Now you can launch <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from the commandline with the command <code class="docutils literal notranslate"><span class="pre">torxakis</span></code>.</p>
-</div>
-</div>
-<div class="section" id="macos">
-<h2>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
-<p>For macOS systems we provide a homebrew package. To install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
-run:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>brew tap torxakis/torxakis
-brew install torxakis
-</pre></div>
-</div>
-<p>For more detailed instructions see the <a class="reference external" href="https://github.com/TorXakis/homebrew-TorXakis">Homebrew tap for TorXakis</a>.</p>
 </div>
 </div>
 
