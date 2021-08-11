@@ -74,7 +74,7 @@ However some linux distributions do no support FUSE directly out of the box. You
 
    export APPIMAGE_EXTRACT_AND_RUN=1
    
-Most Docker installations do not permit the use of FUSE inside containers for security reasons. So running without FUSE is something you need to run an AppImage in a Docker container.  So just by setting the  above environment variable in the Docker container lets Docker still run the AppImage. 
+Most Docker installations do not permit the use of FUSE inside containers for security reasons. So running without FUSE is required to run an AppImage in a Docker container.  So just by setting the  above environment variable in the Docker container lets Docker still run the AppImage. 
    
 
 
