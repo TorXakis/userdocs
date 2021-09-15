@@ -41,9 +41,20 @@ author = 'TorXakis'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autosectionlabel'
-]
+# extensions = [
+#     'sphinx.ext.autosectionlabel'
+# ]
+
+import sys,os
+sys.path.append(os.path.abspath('tools/extensions'))
+
+extensions = [ 'sphinx.ext.autosectionlabel' ]
+               # 'sphinx.ext.coverage', 'sphinx.ext.doctest',
+               # 'pyspecific', 'c_annotations', 'escape4chm']
+
+# By default, highlight as Python 3.
+#highlight_language = 'python3'
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -65,6 +76,7 @@ rst_epilog="""
 .. include:: hyperlinks.rst
 """
 
+numfig = True
 
 # -- Options for HTML output -------------------------------------------------
 

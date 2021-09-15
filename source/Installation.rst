@@ -1,8 +1,11 @@
+
+.. _installationchapter:
+
 Installation
-------------
+============
 
 Binary Install
-^^^^^^^^^^^^^^
+--------------
 
 Windows
 ~~~~~~~
@@ -25,6 +28,28 @@ For more detailed instructions see the `Homebrew tap for TorXakis`_.
 
 Linux
 ~~~~~
+
+For debian based systems
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+We provide a ``deb`` package for Debian based systems (Debian, Ubuntu, etc).
+Below we give instructions on how to install ``TorXakis`` on Ubuntu 20.04.
+
+Download the latest deb package for TorXakis from the TorXakis github
+project's `releases page`_ and then run the following commands:
+
+.. code:: sh
+
+   apt-get update
+   apt-get install ./torxakis_0.9.0-ubuntu_20.04-amd64.deb -y
+
+Now you can launch ``TorXakis`` from the commandline with the command ``torxakis``.
+
+The deb package also installs the specific versions of `cvc4` and `z3` tools which `TorXakis` requires when running.
+
+For all distributions and (recent) releases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 We provide  `TorXakis` packaged as an `AppImage`_ which is a portable package format which works on all 
 linux distributions and (recent) releases. The  `TorXakis` Appimage is a software bundle which contains everything to run `TorXakis`.
@@ -50,25 +75,11 @@ Install the AppImage in a directory in your shell's PATH with the convenient ``t
 
 By using a softlink for ``torxakis`` we can easily switch to a different version of the AppImage.
 
-Now you can start ``TorXakis`` from any path in your terminal just by typing ``torxakis``:
-
-.. code:: sh
-
-   $ torxakis
-   
-    TXS >>  TorXakis :: Model-Based Testing
-
-    TXS >>  txsserver starting: "::ffff:127.0.0.1" : 41975
-    TXS >>  Solver "z3" initialized : Z3 [4.8.5]
-    TXS >>  TxsCore initialized
-    TXS >>  LPEOps version 2019.07.05.02
-    TXS >>  input files parsed:
-    TXS >>  []
-    TXS >> 
+Now you can start ``TorXakis`` from any path in your terminal just by typing ``torxakis``.
 
 
-Running the AppImage without FUSE support (eg. in a Docker Container)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Running the AppImage without FUSE support
++++++++++++++++++++++++++++++++++++++++++
 
 When the AppImage is run, then by its `architecture <AppImageArch_>`_, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.
 
@@ -78,13 +89,10 @@ However some linux distributions do no support FUSE directly out of the box. You
 
    export APPIMAGE_EXTRACT_AND_RUN=1
    
-Most Docker installations do not permit the use of FUSE inside containers for security reasons. So running without FUSE is required to run an AppImage in a Docker container.  So just by setting the  above environment variable in the Docker container lets Docker still run the AppImage. 
-   
-
 
 
 Source build
-^^^^^^^^^^^^
+------------
 
 One can also build torxakis from source yourself. The latest stable source
 is provided in the TorXakis github project's `releases page`_. The latest development
@@ -95,3 +103,7 @@ documentation for `the build instructions`_.
 .. _Homebrew tap for TorXakis: https://github.com/TorXakis/homebrew-TorXakis
 .. _releases page: https://github.com/TorXakis/TorXakis/releases
 .. _the build instructions: https://torxakis.org/develdocs/stable/building.html
+.. _AppImage: https://appimage.org
+.. _AppImageArch: https://docs.appimage.org/reference/architecture.html
+.. _install FUSE: https://docs.appimage.org/user-guide/troubleshooting/fuse.html#how-to-install-fuse
+.. _extract and run an AppImage: https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages

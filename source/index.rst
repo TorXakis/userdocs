@@ -39,11 +39,11 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
 
 
    grammar/index
-   grammar
-   grammarv3
    torxakis-help
    glossary
    bibliography
    genindex 
 
-
+..
+   grammar
+   grammarv3
