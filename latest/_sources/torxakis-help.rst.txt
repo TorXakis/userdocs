@@ -1,4 +1,6 @@
 
+.. _torxakishelp:
+
 Torxakis help
 =============
 

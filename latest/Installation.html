@@ -1,10 +1,11 @@
+   
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-5479c9a documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-aec3c16 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,7 +19,11 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting started" href="getting-started.html" />
-    <link rel="prev" title="Introduction TorXakis" href="intro.html" /> 
+    <link rel="prev" title="Introduction TorXakis" href="intro.html" />
+<link rel="stylesheet" type="text/css"
+     href="_static/custom.css" />
+
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -29,7 +34,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-5479c9a<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-5479c9a.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-aec3c16<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-aec3c16.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,7 +56,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-appimage-without-fuse-support-eg-in-a-docker-container">Running the AppImage without FUSE support (eg. in a Docker Container)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -369,7 +378,6 @@
 <li class="toctree-l3"><a class="reference internal" href="grammar/Parallel_Operator.html#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="grammar/Planned-Releases.html">TorXakis Time Line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="grammar/ProcCall.html">Process Call</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="grammar/ProcCall.html#syntax">Syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grammar/ProcCall.html#semantics">Semantics</a></li>
@@ -465,8 +473,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="grammarv3.html">Grammarv3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -501,7 +507,7 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<span id="installationchapter"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <section id="binary-install">
 <h2>Binary Install<a class="headerlink" href="#binary-install" title="Permalink to this headline">¶</a></h2>
 <section id="windows">
@@ -520,7 +526,22 @@ brew install torxakis
 </section>
 <section id="linux">
 <h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
-<p>We provide  <cite>TorXakis</cite> packaged as an <a href="#id2"><span class="problematic" id="id3">`AppImage`_</span></a> which is a portable package format which works on all
+<section id="for-debian-based-systems">
+<h4>For debian based systems<a class="headerlink" href="#for-debian-based-systems" title="Permalink to this headline">¶</a></h4>
+<p>We provide a <code class="docutils literal notranslate"><span class="pre">deb</span></code> package for Debian based systems (Debian, Ubuntu, etc).
+Below we give instructions on how to install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> on Ubuntu 20.04.</p>
+<p>Download the latest deb package for TorXakis from the TorXakis github
+project’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/releases">releases page</a> and then run the following commands:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update
+apt-get install ./torxakis_0.9.0-ubuntu_20.04-amd64.deb -y
+</pre></div>
+</div>
+<p>Now you can launch <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from the commandline with the command <code class="docutils literal notranslate"><span class="pre">torxakis</span></code>.</p>
+<p>The deb package also installs the specific versions of <cite>cvc4</cite> and <cite>z3</cite> tools which <cite>TorXakis</cite> requires when running.</p>
+</section>
+<section id="for-all-distributions-and-recent-releases">
+<h4>For all distributions and (recent) releases<a class="headerlink" href="#for-all-distributions-and-recent-releases" title="Permalink to this headline">¶</a></h4>
+<p>We provide  <cite>TorXakis</cite> packaged as an <a class="reference external" href="https://appimage.org">AppImage</a> which is a portable package format which works on all
 linux distributions and (recent) releases. The  <cite>TorXakis</cite> Appimage is a software bundle which contains everything to run <cite>TorXakis</cite>.
 It therefore also contains the specific versions of <cite>cvc4</cite> and <cite>z3</cite> tools which <cite>TorXakis</cite> requires when running.</p>
 <p>To run the AppImage, simply download it from the github’s release page, make it executable
@@ -537,28 +558,15 @@ $ ln -s torxakis-0.9.0.x86_64.AppImage <span class="nv">$BINDIR</span>/torxakis
 </pre></div>
 </div>
 <p>By using a softlink for <code class="docutils literal notranslate"><span class="pre">torxakis</span></code> we can easily switch to a different version of the AppImage.</p>
-<p>Now you can start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from any path in your terminal just by typing <code class="docutils literal notranslate"><span class="pre">torxakis</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis
-
- TXS &gt;&gt;  TorXakis :: Model-Based Testing
-
- TXS &gt;&gt;  txsserver starting: <span class="s2">&quot;::ffff:127.0.0.1&quot;</span> : <span class="m">41975</span>
- TXS &gt;&gt;  Solver <span class="s2">&quot;z3&quot;</span> initialized : Z3 <span class="o">[</span><span class="m">4</span>.8.5<span class="o">]</span>
- TXS &gt;&gt;  TxsCore initialized
- TXS &gt;&gt;  LPEOps version <span class="m">2019</span>.07.05.02
- TXS &gt;&gt;  input files parsed:
- TXS &gt;&gt;  <span class="o">[]</span>
- TXS &gt;&gt;
-</pre></div>
-</div>
-<section id="running-the-appimage-without-fuse-support-eg-in-a-docker-container">
-<h4>Running the AppImage without FUSE support (eg. in a Docker Container)<a class="headerlink" href="#running-the-appimage-without-fuse-support-eg-in-a-docker-container" title="Permalink to this headline">¶</a></h4>
-<p>When the AppImage is run, then by its <a href="#id4"><span class="problematic" id="id5">`architecture &lt;AppImageArch_&gt;`_</span></a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
-<p>However some linux distributions do no support FUSE directly out of the box. You can either <a href="#id6"><span class="problematic" id="id7">`install FUSE`_</span></a>  or you can <a href="#id8"><span class="problematic" id="id9">`extract and run an AppImage`_</span></a> without using FUSE. You can easily run the AppImage, without using FUSE, by just setting the following environment variable:</p>
+<p>Now you can start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from any path in your terminal just by typing <code class="docutils literal notranslate"><span class="pre">torxakis</span></code>.</p>
+<section id="running-the-appimage-without-fuse-support">
+<h5>Running the AppImage without FUSE support<a class="headerlink" href="#running-the-appimage-without-fuse-support" title="Permalink to this headline">¶</a></h5>
+<p>When the AppImage is run, then by its <a class="reference external" href="https://docs.appimage.org/reference/architecture.html">architecture</a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
+<p>However some linux distributions do no support FUSE directly out of the box. You can either <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#how-to-install-fuse">install FUSE</a>  or you can <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages">extract and run an AppImage</a> without using FUSE. You can easily run the AppImage, without using FUSE, by just setting the following environment variable:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">APPIMAGE_EXTRACT_AND_RUN</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
-<p>Most Docker installations do not permit the use of FUSE inside containers for security reasons. So running without FUSE is required to run an AppImage in a Docker container.  So just by setting the  above environment variable in the Docker container lets Docker still run the AppImage.</p>
+</section>
 </section>
 </section>
 </section>

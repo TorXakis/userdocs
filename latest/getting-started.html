@@ -1,10 +1,11 @@
+   
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-5479c9a documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-aec3c16 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,7 +19,11 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Command Line Interface" href="command-line.html" />
-    <link rel="prev" title="Installation" href="Installation.html" /> 
+    <link rel="prev" title="Installation" href="Installation.html" />
+<link rel="stylesheet" type="text/css"
+     href="_static/custom.css" />
+
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -29,7 +34,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-5479c9a<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-5479c9a.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-aec3c16<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-aec3c16.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,7 +56,11 @@
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#windows">Windows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#macos">MacOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#linux">Linux</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Installation.html#running-the-appimage-without-fuse-support-eg-in-a-docker-container">Running the AppImage without FUSE support (eg. in a Docker Container)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -369,7 +378,6 @@
 <li class="toctree-l3"><a class="reference internal" href="grammar/Parallel_Operator.html#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="grammar/Planned-Releases.html">TorXakis Time Line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="grammar/ProcCall.html">Process Call</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="grammar/ProcCall.html#syntax">Syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="grammar/ProcCall.html#semantics">Semantics</a></li>
@@ -465,8 +473,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="grammarv3.html">Grammarv3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -502,80 +508,87 @@
              
   <section id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<p>TorXakis is a tool for Model-Based Testing (MBT). This section gives step-by-step instructions
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a tool for Model-Based Testing (MBT). This section gives step-by-step instructions
 for installation, for executing your first model-based test, and for detecting your first bug
-with TorXakis. As an example, we use an integer queue.</p>
-<p>For model-based testing you first need the tool TorXakis, second, a System under Test (sut)
-that is a Java program implementing the queue, third, a model specifying the behaviour
-of the queue, fourth, a connection between the test tool and the sut, and then you can start
-running model-based tests.</p>
+with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>. As an example, we use an <em>integer queue</em>.</p>
+<p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, second, a <a class="reference internal" href="glossary.html#term-system-under-test-sut"><span class="xref std std-term">System under Test (SUT)</span></a>
+that is a Java program implementing the <em>queue</em>, third, a model specifying the behaviour
+of the queue, fourth, a connection between the test tool and the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>.
+When having all these ingredients, depicted
+in <a class="reference internal" href="#figtestarchitecture"><span class="std std-numref">Image of Test architecture (Fig. 1)</span></a>  , then you can start running model-based tests.</p>
+<figure class="align-center" id="id2">
+<span id="figtestarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <section id="torxakis-installation">
 <h2>TorXakis Installation<a class="headerlink" href="#torxakis-installation" title="Permalink to this headline">¶</a></h2>
-<p>You can download and install TorXakis for your favourite operation system from the Downloads-page on the TorXakis website: <a class="reference external" href="https://torxakis.org">https://torxakis.org</a>. After installation you can run TorXakis in a terminal window, with</p>
+<p>Download and install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> for your favourite operation system using the instructions at the  <a class="reference internal" href="Installation.html#installationchapter"><span class="std std-ref">Installation chapter</span></a>. After installation you can run <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> in a terminal window, with</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis
 </pre></div>
 </div>
-<p>You should get the TorXakis prompt:</p>
+<p>You should get the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> prompt:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;
 </pre></div>
 </div>
-<p>after which you can use various TorXakis commands; try h(elp) to get an overview of possible commands, q(uit) to quit TorXakis, and try evaluating an expression, to check whether everything was successfully installed:</p>
+<p>after which you can use various <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> commands; try
+<a class="reference internal" href="torxakis-help.html#torxakishelp"><span class="std std-ref">h(elp)</span></a>  to get an overview of
+possible commands, q(uit) to quit <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, and try evaluating an expression,
+to check whether everything was successfully installed:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt; <span class="nb">eval</span> <span class="m">42</span>-17
 </pre></div>
 </div>
 </section>
 <section id="system-under-test">
 <h2>System Under Test<a class="headerlink" href="#system-under-test" title="Permalink to this headline">¶</a></h2>
-<p>The second thing you need for MBT is an sut. A couple of examples for TorXakis usage
-can be found on the Examples-page via the Documentation-tab on the TorXakis
-website https: //torxakis.org.</p>
-<p>One of the examples is the Queue, which has various models and suts.
-There is a Java implementation of the Queue in sut0/QueueServer0.java,
-which will be our sut in these instructions.
-The program is a Queue-implementation that offers its service via a plain old socket interface.
-It accepts input Enq(x) (Enqueue) to put integer value x in the queue, and it
-accepts input Deq (Dequeue) and then provides the first value from the queue as output.
-See figure 1.</p>
-<figure class="align-default" id="id3">
-<img alt="A Queue of integers" src="_images/figure1.png" />
-<figcaption>
-<p><span class="caption-text">Figure 1: A Queue of integers</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p>The second thing you need for MBT is an <code class="docutils literal notranslate"><span class="pre">SUT</span></code>. A couple of examples for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> usage
+can be found on the <a class="reference internal" href="examples/index.html#exampleschapter"><span class="std std-ref">Examples chapter</span></a>.</p>
+<p>One of the examples is the <em>Queue</em>, which has various models and <code class="docutils literal notranslate"><span class="pre">SUTs</span></code>.
+There is a Java implementation of the <em>Queue</em> in <code class="docutils literal notranslate"><span class="pre">sut0/QueueServer0.java</span></code>,
+which will be our <code class="docutils literal notranslate"><span class="pre">SUT</span></code> in these instructions.
+The program is a <em>Queue</em>-implementation that offers its service via a plain old socket interface.
+It accepts input <code class="docutils literal notranslate"><span class="pre">Enq(x)</span></code> (Enqueue) to put integer value <code class="docutils literal notranslate"><span class="pre">x</span></code> in the queue, and it
+accepts input <code class="docutils literal notranslate"><span class="pre">Deq</span></code> (Dequeue) and then provides the first value from the queue as output.
+See <a class="reference internal" href="#figqueueofints"><span class="std std-numref">Fig. 2</span></a>.</p>
+<figure class="align-center" id="id3">
+<span id="figqueueofints"></span><img alt="A Queue of integers" src="_images/queue.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">A Queue of integers</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>To experiment with the sut, compile it and run it, or use the precompiled version, and use the portnumber 7890.
-To use the Queue we need to connect to it via the plain old socket interface using an application that
-can communicate via sockets, e.g., telnet, nc ((netcat), or putty. Start the Java-Queue in one window and
-telnet, etc. in another, and connect them by choosing the same port number.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>           SUT Window                        User Window
-----------------------------------     --------------------------
-$ java -jar QueueServer0.jar <span class="m">7890</span>      $ telnet localhost <span class="m">7890</span>
-Waiting <span class="k">for</span> tester                     Trying <span class="m">127</span>.0.0.1...
-Tester connected.                      Connected to localhost.
-<span class="o">[]</span>                                     Escape character is ’ˆ<span class="o">]</span>’.
-<span class="o">[</span> <span class="m">42</span> <span class="o">]</span>                                 Enq<span class="o">(</span><span class="m">42</span><span class="o">)</span>
-<span class="o">[</span> <span class="m">42</span>, -17 <span class="o">]</span>                            Enq<span class="o">(</span>-17<span class="o">)</span>
-<span class="o">[</span> -17 <span class="o">]</span>                                Deq
-                                       <span class="m">42</span>
+<p>To experiment with the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, compile it and run it, or use the precompiled version, and use the portnumber <code class="docutils literal notranslate"><span class="pre">7890</span></code>.
+To use the <em>Queue</em> we need to connect to it via the plain old socket interface using an application that
+can communicate via sockets, e.g., <code class="docutils literal notranslate"><span class="pre">telnet</span></code>, <code class="docutils literal notranslate"><span class="pre">nc</span></code> (<code class="docutils literal notranslate"><span class="pre">netcat</span></code>), or <code class="docutils literal notranslate"><span class="pre">putty</span></code>. Start the Java-<em>Queue</em> in one window and
+<code class="docutils literal notranslate"><span class="pre">telnet</span></code>, etc. in another, and connect them by choosing the same port number.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>           SUT Window                                  User Window
+----------------------------------               --------------------------
+$ java -jar QueueServer0.jar 7890                $ telnet localhost 7890
+Waiting for tester                               Trying 127.0.0.1...
+Tester connected.                                Connected to localhost.
+[]                                               Escape character is ’ˆ]’.
+[ 42 ]                                           Enq(42)
+[ 42, -17 ]                                      Enq(-17)
+[ -17 ]                                          Deq
+                                                 42
 </pre></div>
 </div>
 </section>
 <section id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
-<p>In the Queue-example, there are also a couple of TorXakis models, written in the TorXakis modelling language Txs.
-One of them is Queue.txs, You can view and edit the model in your favourite plain editor.
-The model specifies an unbounded, first-in-first-out Queue of integers.
-There are some comments in the file explaining the model; comments in Txs are either between {- and -}, or after –.
-The state-automaton model of the queue model is graphically represented in Fig. 2.</p>
-<figure class="align-default" id="id4">
-<img alt="State automaton for the Queue." src="_images/figure2.png" />
-<figcaption>
-<p><span class="caption-text">Figure 2: State automaton for the Queue.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p>In the <em>Queue</em>-example, there are also a couple of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> models, written in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.
+One of them is <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code>. You can view and edit the model in your favourite plain editor.
+The model specifies an unbounded, first-in-first-out <em>Queue</em> of integers.
+There are some comments in the file explaining the model; comments in <code class="docutils literal notranslate"><span class="pre">Txs</span></code> are either between <code class="docutils literal notranslate"><span class="pre">{-</span></code> and <code class="docutils literal notranslate"><span class="pre">-}</span></code>, or after <code class="docutils literal notranslate"><span class="pre">--</span></code> until end-of- line.
+The state-transition system of the <em>queue</em> model is graphically represented as a <code class="docutils literal notranslate"><span class="pre">Txs</span></code> state automaton,
+called <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code>, in <a class="reference internal" href="#figqstaut"><span class="std std-numref">Fig. 3</span></a>. In such a representation, the <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> declaration is textually described and the transitions are visualized as a graph.</p>
+<figure class="align-center" id="id4" style="width: 70%">
+<span id="figqstaut"></span><img alt="State automaton for the Queue." src="_images/qstaut.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">State automaton for the Queue.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>You can copy the file Queue.txs to a new directory; also copy the file .torxakis.yaml that contains some TorXakis
+<p>You can copy the file <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code> to a new directory; also copy the file <code class="docutils literal notranslate"><span class="pre">.torxakis.yaml</span></code> that contains some <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
 configuration information, to be modified later.
-Now you can use TorXakis to step through the model, i.e., use the stepper-command on the TorXakis-prompt,
-followed by the step &lt;n&gt; command to specify how many steps you wish to make through the transitions of the
+Now you can use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to step through the model, i.e., use the stepper-command on the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>-prompt,
+followed by the <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">&lt;n&gt;</span></code> command to specify how many steps you wish to make through the transitions of the
 state-automaton. This will show a trace of possible of behaviour, i.e., a sequence of transitons,
 as it is described in the model. The result looks like below; ’looks like’ because the sequence of actions
 and the integer values are randomly chosen, so your result might differ a bit.</p>
@@ -605,13 +618,13 @@ TXS &gt;&gt;
 </section>
 <section id="model-based-testing-of-the-queue">
 <h2>Model-Based Testing of the Queue<a class="headerlink" href="#model-based-testing-of-the-queue" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have a sut– QueueServer0.java – and a model specifying the required behaviour of the sut– Queue.txs –,
-we can start testing the sut against its model. To test the Queue, run the sut in one window and start TorXakis
-with the model as input, in another window. When TorXakis gives its prompt, start testing with tester Queue Sut,
-that is, the tester-command with Queue as model, i.e., the MODELDEF in the model file Queue.txs, and Sut as proxy
-to the sut, i.e., the CNECTDEF in the model file. Upon tester Queue Sut TorXakis will connect directly to the sut,
-so you do not need telnet, etc. Then the command test 7 specifies how many test steps will be taken; you can
-easily try bigger numbers, e.g., test 7777. Now you have executed your first successful test with TorXakis!</p>
+<p>Now that we have a <code class="docutils literal notranslate"><span class="pre">SUT</span></code> - <code class="docutils literal notranslate"><span class="pre">QueueServer0.java</span></code> – and a model specifying the required behaviour of the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> – <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code> –,
+we can start testing the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> against its model. To test the Queue, run the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> in one window and start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
+with the model as input, in another window. When <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> gives its prompt, start testing with <code class="docutils literal notranslate"><span class="pre">tester</span> <span class="pre">Queue</span> <span class="pre">Sut</span></code>,
+that is, the tester-command with Queue as model, i.e., the <code class="docutils literal notranslate"><span class="pre">MODELDEF</span></code> in the model file <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code>, and <code class="docutils literal notranslate"><span class="pre">Sut</span></code> as proxy
+to the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, i.e., the <code class="docutils literal notranslate"><span class="pre">CNECTDEF</span></code> in the model file. Upon <code class="docutils literal notranslate"><span class="pre">tester</span> <span class="pre">Queue</span> <span class="pre">Sut</span></code> <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> will connect directly to the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>,
+so you do not need <code class="docutils literal notranslate"><span class="pre">telnet</span></code>, etc. Then the command <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">7</span></code> specifies how many test steps will be taken; you can
+easily try bigger numbers, e.g., <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">7777</span></code>. Now you have executed your first successful test with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>!</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis Queue0.txs
 
 TXS &gt;&gt; TorXakis :: Model-Based Testing
@@ -638,54 +651,55 @@ TXS &gt;&gt;
 </section>
 <section id="a-queue-mutant">
 <h2>A Queue Mutant<a class="headerlink" href="#a-queue-mutant" title="Permalink to this headline">¶</a></h2>
-<p>You have now tested the sutQueueServer0.java against its model, but QueueServer0.java does not
+<p>You have now tested the <code class="docutils literal notranslate"><span class="pre">sutQueueServer0.java</span></code> against its model, but <code class="docutils literal notranslate"><span class="pre">QueueServer0.java</span></code> does not
 contain bugs (at least, as far as we know, but … “testing can only show the presence of errors,
-never their absence” [24]). Detecting bugs is probably more rewarding for testers, so we added in the
-Queue-example three Queue mutants, small modifications in the Java program that may make the sut buggy.
-These mutants are sut1, sut2, and sut3. You can test these sut’s with the same model to see whether
+never their absence” <a class="reference internal" href="bibliography.html#ewd69" id="id1"><span>[EWD69]</span></a>). Detecting bugs is probably more rewarding for testers, so we added in the
+<em>Queue</em>-example three Queue mutants, small modifications in the Java program that may make the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> buggy.
+These mutants are <code class="docutils literal notranslate"><span class="pre">sut1</span></code>, <code class="docutils literal notranslate"><span class="pre">sut2</span></code>, and <code class="docutils literal notranslate"><span class="pre">sut3</span></code>. You can test these <code class="docutils literal notranslate"><span class="pre">SUT</span></code>’s with the same model to see whether
 you can detect (and explain?) the bugs.</p>
 </section>
 <section id="utilities">
 <h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
 <section id="notepad-and-txs">
 <h3>Notepad++ and Txs<a class="headerlink" href="#notepad-and-txs" title="Permalink to this headline">¶</a></h3>
-<p>Notepad++ is a free editor running in the MS Windows environment: <a class="reference external" href="https://notepad-plus-plus">https://notepad-plus-plus</a>. org.
-Syntax high-lighting for Txs is available for Notepad++.
+<p><em>Notepad++</em> is a free editor running in the MS Windows environment: <a class="reference external" href="https://notepad-plus-plus.org">https://notepad-plus-plus.org</a>.
+Syntax high-lighting for <code class="docutils literal notranslate"><span class="pre">Txs</span></code> is available for <em>Notepad++</em>.
 Follow the installation instructions on: <a class="reference external" href="https://github.com/TorXakis/SupportNotepadPlusPlus">https://github.com/TorXakis/SupportNotepadPlusPlus</a> to
-install the Notepad++-plugin for Txs.</p>
+install the <em>Notepad++</em>-plugin for <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.</p>
 </section>
 <section id="yed-and-txs">
 <h3>yEd and Txs<a class="headerlink" href="#yed-and-txs" title="Permalink to this headline">¶</a></h3>
-<p>Models represent state-transition systems, which can intuitively be visualized as graphs. yEd is a pow- erfull, freely available graph editor that can be used to edit and (automatically) layout graphs, and that runs on Windows, Unix/Linux, and macOS: <a class="reference external" href="https://www.yworks.com/products/yed">https://www.yworks.com/products/yed</a>. A trans- lation from yEd to Txs is available. Follow the installation instructions on: <a class="reference external" href="https://github.com/">https://github.com/</a> TorXakis/yed2stautdef to install the application yed2stautdef that translates yEd-output to a state-automaton definition STAUTDEF in Txs.
-For the Queue-example, a graph representing its state-transition system, is available in Qstaut.graphml; actually, it is the graph of Fig. 2. This graph has three nodes and four edges. The edges represent the transitions in the state-transition system. Two nodes represent states and one node gives the declaration of the STAUTDEF. The labels in the nodes representing states are the state names; the labels on the transitions specify actions in Txs syntax. The declaration node gives the name of the state automaton, its channels message types between [ and ], and optionally some parameters between ( and ). Moreover, there is the list of all states, the local variables with their types, and the initial state with initial values for the local variables. Nodes and edges can be formatted (colour, shape, lining, shadow, …) as wished; it does not matter for the transformation to Txs.
-The graph edited in yEd shall be saved in Trivial Graph Format TGF (<a href="#id1"><span class="problematic" id="id2">*</span></a>.tgf). The application yed2stautdef transforms a file in TGF-format to a Txs-file:</p>
+<p>Models represent state-transition systems, which can intuitively be visualized as graphs. <a class="reference external" href="https://www.yworks.com/products/yed">yEd</a> is a powerfull, freely available graph editor that can be used to edit and (automatically) layout graphs, and that runs on Windows, Unix/Linux, and macOS. A translation from <em>yEd</em> to <code class="docutils literal notranslate"><span class="pre">Txs</span></code> is available. Follow the installation instructions on: <a class="reference external" href="https://github.com/TorXakis/yed2stautdef">https://github.com/TorXakis/yed2stautdef</a> to install the application <code class="docutils literal notranslate"><span class="pre">yed2stautdef</span></code> that translates <em>yEd</em>-output to a state-automaton definition <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> in <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.</p>
+<p>For the <em>Queue</em>-example, a graph representing its state-transition system, is available in <code class="docutils literal notranslate"><span class="pre">Qstaut.graphml</span></code>; actually, it is the graph of Fig. 2. This graph has three nodes and four edges. The edges represent the transitions in the state-transition system. Two nodes represent states and one node gives the declaration of the <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code>. The labels in the nodes representing states are the state names; the labels on the transitions specify actions in <code class="docutils literal notranslate"><span class="pre">Txs</span></code> syntax. The declaration node gives the name of the state automaton, its channels message types between <code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>, and optionally some parameters between <code class="docutils literal notranslate"><span class="pre">(</span></code> and <code class="docutils literal notranslate"><span class="pre">)</span></code>. Moreover, there is the list of all states, the local variables with their types, and the initial state with initial values for the local variables. Nodes and edges can be formatted (colour, shape, lining, shadow, …) as wished; it does not matter for the transformation to <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.</p>
+<p>The graph edited in <em>yEd</em> shall be saved in <em>Trivial Graph Format</em> <code class="docutils literal notranslate"><span class="pre">TGF</span></code> (<code class="docutils literal notranslate"><span class="pre">*.tgf</span></code>). The application <code class="docutils literal notranslate"><span class="pre">yed2stautdef</span></code> transforms a file in <code class="docutils literal notranslate"><span class="pre">TGF</span></code>-format to a <code class="docutils literal notranslate"><span class="pre">Txs</span></code>-file:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ yed2stautdef QueueGraph.tgf
 </pre></div>
 </div>
-<p>The result is a STAUTDEF – a State Automaton Definition in the language Txs:</p>
+<p>The result is a <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> – a State Automaton Definition in the language <code class="docutils literal notranslate"><span class="pre">Txs</span></code>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>STAUTDEF queueStaut <span class="o">[</span> Inp :: QueueOp<span class="p">;</span> Outp :: Int <span class="o">]</span> <span class="o">(</span> <span class="o">)</span>
-    ::<span class="o">=</span>
-        STATE
-           qstate, qout
-        VAR
-           buf :: IntList
-INIT
-    qstate <span class="o">{</span> buf :<span class="o">=</span> Nil <span class="o">}</span>
-TRANS
-    qstate -&gt; Inp ? qop <span class="o">[[</span> isDeq<span class="o">(</span>qop<span class="o">)</span> /<span class="se">\ </span>not<span class="o">(</span>isNil<span class="o">(</span>buf<span class="o">))</span> <span class="o">]]</span> -&gt; qout
-    qout -&gt; Outp ! hd<span class="o">(</span>buf<span class="o">)</span> <span class="o">{</span> buf :<span class="o">=</span> tl<span class="o">(</span>buf<span class="o">)</span> <span class="o">}</span> -&gt; qstate
-    qstate -&gt; Inp ? qop <span class="o">[[</span> isEnq<span class="o">(</span>qop<span class="o">)</span> <span class="o">]]</span> <span class="o">{</span> buf :<span class="o">=</span> add<span class="o">(</span>val<span class="o">(</span>qop<span class="o">)</span>,buf<span class="o">)</span> <span class="o">}</span> -&gt; qstate qstate -&gt; Inp ? qop <span class="o">[[</span> isDeq<span class="o">(</span>qop<span class="o">)</span> /<span class="se">\ </span>isNil<span class="o">(</span>buf<span class="o">)</span> <span class="o">]]</span> -&gt; qstate
+::<span class="o">=</span>
+    STATE
+       qstate, qout
+    VAR
+       buf :: IntList
+    INIT
+        qstate <span class="o">{</span> buf :<span class="o">=</span> Nil <span class="o">}</span>
+    TRANS
+        qstate -&gt; Inp ? qop <span class="o">[[</span> isDeq<span class="o">(</span>qop<span class="o">)</span> /<span class="se">\ </span>not<span class="o">(</span>isNil<span class="o">(</span>buf<span class="o">))</span> <span class="o">]]</span> -&gt; qout
+        qout -&gt; Outp ! hd<span class="o">(</span>buf<span class="o">)</span> <span class="o">{</span> buf :<span class="o">=</span> tl<span class="o">(</span>buf<span class="o">)</span> <span class="o">}</span> -&gt; qstate
+        qstate -&gt; Inp ? qop <span class="o">[[</span> isEnq<span class="o">(</span>qop<span class="o">)</span> <span class="o">]]</span> <span class="o">{</span> buf :<span class="o">=</span> add<span class="o">(</span>val<span class="o">(</span>qop<span class="o">)</span>,buf<span class="o">)</span> <span class="o">}</span> -&gt; qstate
+        qstate -&gt; Inp ? qop <span class="o">[[</span> isDeq<span class="o">(</span>qop<span class="o">)</span> /<span class="se">\ </span>isNil<span class="o">(</span>buf<span class="o">)</span> <span class="o">]]</span> -&gt; qstate
 ENDDEF
 </pre></div>
 </div>
-<p>A STAUTDEF can be included in a .txs-file, or the file can be used as additional input file for TorXakis; TorXakis
-allows multiple .txs input files. In Txs, a STAUTDEF can used anywhere where a process, defined in a PROCDEF, can be used.
-Note that the graph should also be save in the standard GRAPHML format (.graphml), because the TGF-format,
+<p>A <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> can be included in a <code class="docutils literal notranslate"><span class="pre">.txs</span></code>-file, or the file can be used as additional input file for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>; <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
+allows multiple <code class="docutils literal notranslate"><span class="pre">.txs</span></code> input files. In <code class="docutils literal notranslate"><span class="pre">Txs</span></code>, a <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> can used anywhere where a <em>process</em>, defined in a <code class="docutils literal notranslate"><span class="pre">PROCDEF</span></code>, can be used.
+Note that the graph should <em>also</em> be saved in the standard <code class="docutils literal notranslate"><span class="pre">GRAPHML</span></code> format (<code class="docutils literal notranslate"><span class="pre">.graphml</span></code>), because the <code class="docutils literal notranslate"><span class="pre">TGF</span></code>-format,
 as the name suggests, is a very trivial format, which does not preserve graph layout and formatting.
-So, next time when you continue editing use the .graphml-file.</p>
-<p>The application yed2stautdef just transforms the .tgf-file and does not check any syntax or static semantics.
-Checking is only done on the .txs-file, where error messages might appear. Finding the corresponding error spot in
-the .graphml-file is, for the moment, left to the user.</p>
+So, next time when you continue editing with <em>yEd</em> use the <code class="docutils literal notranslate"><span class="pre">.graphml</span></code>-file and not the <code class="docutils literal notranslate"><span class="pre">.tgf</span></code>-file.</p>
+<p>The application <code class="docutils literal notranslate"><span class="pre">yed2stautdef</span></code> just transforms the <code class="docutils literal notranslate"><span class="pre">.tgf</span></code>-file and does not check any syntax or static semantics.
+Checking is only done on the <code class="docutils literal notranslate"><span class="pre">.txs</span></code>-file, where error messages might appear. Finding the corresponding error spot in
+the <code class="docutils literal notranslate"><span class="pre">.graphml</span></code>-file is, for the moment, left to the user.</p>
 </section>
 </section>
 </section>
