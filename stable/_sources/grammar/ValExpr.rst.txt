@@ -5,9 +5,9 @@ Syntax
 -----------------------
 
 ============= =====================================================================================================================================================================================================================================================================================================================================================
-valExpr         :ref:`letValExpr` \| [iteValExpr](IteValExpr) \| [valExpr](ValExpr)? operator [valExpr](ValExpr) \| [valExpr](ValExpr) "::" typeName \| constName \| varName \| funcName "(" neValExprList? ")" \| constructorName ("(" neValExprList ")")? \| Integer \| String \| "REGEX" "(" RegexVal ")" \| "(" [valExpr](ValExpr) ")" \| "ERROR" String
+valExpr         :ref:`letValExpr` \| :ref:`iteValExpr` \| :ref:`valExpr`? operator :ref:`valExpr` \| :ref:`valExpr` "::" typeName \| constName \| varName \| funcName "(" neValExprList? ")" \| constructorName ("(" neValExprList ")")? \| Integer \| String \| "REGEX" "(" RegexVal ")" \| "(" :ref:`valExpr` ")" \| "ERROR" String
 operator      todo
-neValExprList :ref:`valExpr` ("," [valExpr](ValExpr))\*
+neValExprList :ref:`valExpr` ("," :ref:`valExpr`)\*
 typeName      :ref:`CapsId`
 constName     :ref:`SmallId`
 varName       :ref:`SmallId`

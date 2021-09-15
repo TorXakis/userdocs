@@ -51,6 +51,6 @@ But also, the following TorXakis specific benefits:
 - The formal sematics of TorXakis will ensure unambiguous test results; and
 
 - Test effort is reduced. Instead of building and maintaining a collection of test cases, one only needs to build and
-  maintain a model, from which TorXakis will automatically generate test cases.
+  maintain a model, from which TorXakis will automatically generate :index:`test cases`.
 
 

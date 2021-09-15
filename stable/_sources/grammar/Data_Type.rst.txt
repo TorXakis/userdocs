@@ -14,7 +14,7 @@ data type name description
 Bool           Boolean value: True and False
 Int            Unbounded Integer values
 String         “Sequence of ASCII characters”
-Regex          :ref:`‘W3C XSD Regular Expression String’` Note: The regular expressions are also translate to [POSIX](https://en.wikibooks.org/wiki/Regular_Expressions/POSIX-Extended_Regular_Expressions) Some limitations of POSIX are not solved. Consequence: regular expression like (a{0}) and [a-\]] will fail. Of course, they can be rewritten to a POSIX valid regular expression.
+Regex          :ref:`‘W3C XSD Regular Expression String’` Note: The regular expressions are also translate to :ref:`POSIX` Some limitations of POSIX are not solved. Consequence: regular expression like (a{0}) and [a-\]] will fail. Of course, they can be rewritten to a POSIX valid regular expression.
 ============== =====================================================================================================================================================================================================================================================================================================================================================================================================================
 
 User Defined Data Types
