@@ -212,6 +212,7 @@ latex_elements = {
 %% option for hyperref package to number bookmarks in pdf:
 \hypersetup{bookmarksnumbered}
 
+
 %%https://en.wikibooks.org/wiki/LaTeX/Colors
 \usepackage{xcolor}
 %% https://docutils.sourceforge.io/docs/user/latex.html#custom-interpreted-text-roles

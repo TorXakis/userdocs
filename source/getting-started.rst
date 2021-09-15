@@ -15,7 +15,7 @@ in :numref:`Image of Test architecture (Fig. %s) <figtestarchitecture>`  , then 
 
 
 .. _figtestarchitecture:
-.. figure:: images/testarchitecture.svg
+.. figure:: images/testarchitecture.*
    :alt: Test architecture
    :align: center
 
@@ -62,7 +62,7 @@ accepts input ``Deq`` (Dequeue) and then provides the first value from the queue
 See :numref:`figqueueofints`.
 
 .. _figqueueofints:
-.. figure:: images/queue.svg
+.. figure:: images/queue.*
    :alt: A Queue of integers
    :align: center
 
@@ -102,7 +102,7 @@ called ``STAUTDEF``, in :numref:`figqstaut`. In such a representation, the ``STA
 
 
 .. _figqstaut:
-.. figure:: images/qstaut.svg
+.. figure:: images/qstaut.*
    :alt: State automaton for the Queue.
    :figwidth: 70%
    :align: center
