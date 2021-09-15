@@ -72,8 +72,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The trick to have target definitions hold for all rst files in the sphinx project is to include to each
 # rst file the target definitions. We do this by adding an include directive for including hyperlinks.rst
 # to the rst_epilog, so that hyperlinks.rst is then automatically include to rst file.
+#
+#rst_epilog="""
+#.. include:: hyperlinks.rst
+#"""
 rst_epilog="""
-.. include:: hyperlinks.rst
 """
 
 numfig = True
