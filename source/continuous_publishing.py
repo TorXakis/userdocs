@@ -201,15 +201,97 @@ html_context = {
 
 # higher toc depth in latex bookmarks
 #  see: https://www.sphinx-doc.org/en/master/latex.html#latex-elements-confval
-#  use tocdepth to increase depth of bookmarks in pdf, see: https://github.com/sphinx-doc/sphinx/issues/2547
 latex_elements = {
  'papersize': 'a4paper',
  'preamble': r'''
+
+%% use tocdepth to increase depth of bookmarks in pdf, see: https://github.com/sphinx-doc/sphinx/issues/2547
 \setcounter{tocdepth}{9}
+
+%% src: https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+%% option for hyperref package to number bookmarks in pdf:
+\hypersetup{bookmarksnumbered}
+
+%%https://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage{xcolor}
+%% https://docutils.sourceforge.io/docs/user/latex.html#custom-interpreted-text-roles
+%% https://en.wikibooks.org/wiki/LaTeX/Colors#Predefined_colors
+%%      black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow
+\newcommand{\DUroleblack}{\textcolor{black}}
+\newcommand{\DUroleblue}{\textcolor{blue}}
+\newcommand{\DUrolebrown}{\textcolor{brown}}
+\newcommand{\DUrolecyan}{\textcolor{cyan}}
+\newcommand{\DUroledarkgray}{\textcolor{darkgray}}
+\newcommand{\DUrolegray}{\textcolor{gray}}
+\newcommand{\DUrolegreen}{\textcolor{green}}
+\newcommand{\DUrolelightgray}{\textcolor{lightgray}}
+\newcommand{\DUrolelime}{\textcolor{lime}}
+\newcommand{\DUrolemagenta}{\textcolor{magenta}}
+\newcommand{\DUroleolive}{\textcolor{olive}}
+\newcommand{\DUroleorange}{\textcolor{orange}}
+\newcommand{\DUrolepink}{\textcolor{pink}}
+\newcommand{\DUrolepurple}{\textcolor{purple}}
+\newcommand{\DUrolered}{\textcolor{red}}
+\newcommand{\DUroleteal}{\textcolor{teal}}
+\newcommand{\DUroleviolet}{\textcolor{violet}}
+\newcommand{\DUrolewhite}{\textcolor{white}}
+\newcommand{\DUroleyellow}{\textcolor{yellow}}
+
 '''
 }
 
+# for adding color roles in html output do : https://stackoverflow.com/questions/32033158/create-a-role-font-color-in-sphinx-that-works-with-make-latexpdf#answer-32038624
+#
 
 
+# https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html#cmdoption-sphinx-quickstart-dot
+#  Inside the root directory, two more directories will be created; “_templates” for custom HTML templates and “_static” for custom stylesheets and other static files. 
+
+#https://www.sphinx-doc.org/en/master/usage/configuration.html
+# # Add any paths that contain templates here, relative to this directory.
+# templates_path = ['_templates']
+# 
+# # Add any paths that contain custom static files (such as style sheets) here,
+# # relative to this directory. They are copied after the builtin static files,
+# # so a file named "default.css" will overwrite the builtin "default.css".
+# html_static_path = ['_static']
+
+# https://stackoverflow.com/questions/32033158/create-a-role-font-color-in-sphinx-that-works-with-make-latexpdf#answer-32038624
+#
+
+css_filepath="_static/custom.css"
+css_template="""   
+@import url("default.css");
+
+.red {
+  color: red;
+}
+"""
+
+html_filepath='_templates/layout.html'
+html_template="""   
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css"
+     href="{{ pathto('_static/custom.css', 1) }}" />
+
+{% endblock %}
+"""
+
+
+# script running at PWD=source/
+print(os.getcwd())
+#for directory in ["source/_static","source/_templates"]:
+for directory in ["_static","_templates"]:
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+
+with open(html_filepath,"w") as f:
+   f.write(html_template)
+
+with open(css_filepath,"w") as f:
+   f.write(css_template)
 
 
