@@ -5,12 +5,6 @@
 
 
 
-.. number bookmarks in pdf: 
-.. raw:: latex
-
-   \hypersetup{bookmarksnumbered}
-
-
 =======================================================
 TorXakis User Documentation
 =======================================================
@@ -23,6 +17,7 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
 
 .. toctree::
    :caption: Contents
+   :maxdepth: 1
 
    intro
    Installation
@@ -40,9 +35,12 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
 
 .. toctree::
    :caption: Appendices
-   :hidden:
+   :maxdepth: 1
+
 
    grammar/index
+   grammar
+   grammarv3
    torxakis-help
    glossary
    bibliography

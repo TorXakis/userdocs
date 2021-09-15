@@ -1,6 +1,9 @@
 Installation
 ------------
 
+Binary Install
+^^^^^^^^^^^^^^
+
 Windows
 ~~~~~~~
 
@@ -8,8 +11,6 @@ For Windows systems an installer is provided in the TorXakis github project's `r
 
 Linux
 ~~~~~
-
-
 
 We provide a ``deb`` package for Debian based systems (Debian, Ubuntu, etc).
 Below we give instructions on how to install ``TorXakis`` on Ubuntu 18.04.
@@ -39,5 +40,16 @@ run:
 
 For more detailed instructions see the `Homebrew tap for TorXakis`_.
 
+
+Source build
+^^^^^^^^^^^^
+
+One can also build torxakis from source yourself. The latest stable source
+is provided in the TorXakis github project's `releases page`_. The latest development
+source code can fetch from the ``develop`` branch on the ``TorXakis`` github project
+site at https://github.com/TorXakis/TorXakis/. Look at the developers
+documentation for `the build instructions`_.
+
 .. _Homebrew tap for TorXakis: https://github.com/TorXakis/homebrew-TorXakis
 .. _releases page: https://github.com/TorXakis/TorXakis/releases
+.. _the build instructions: https://torxakis.org/develdocs/stable/building.html
