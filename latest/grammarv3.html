@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; TorXakis v0.9.0, Document version git-sha1-b4257b9 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Grammarv3 &mdash; TorXakis v0.9.0, Document version git-sha1-5479c9a documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Torxakis help" href="torxakis-help.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="grammar.html" /> 
+    <link rel="prev" title="Grammar" href="grammar.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -29,7 +29,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-b4257b9<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-b4257b9.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-5479c9a<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-5479c9a.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -220,7 +220,7 @@
 </li>
 </ul>
 <p><span class="caption-text">Appendices</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="grammar/index.html">Grammar</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="grammar/CapsId.html">CapsId</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="grammar/CapsId.html#semantics">Semantics</a></li>
@@ -465,6 +465,8 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Grammarv3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -485,12 +487,12 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>&lt;no title&gt;</li>
+      <li>Grammarv3</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/torxakis/userdocs/blob/main/source/grammarv3.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="grammar.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grammar.html" class="btn btn-neutral float-left" title="Grammar" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="torxakis-help.html" class="btn btn-neutral float-right" title="Torxakis help" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -498,12 +500,512 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="grammarv3">
+<h1>Grammarv3<a class="headerlink" href="#grammarv3" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-antlr notranslate"><div class="highlight"><pre><span></span><span class="k">grammar</span><span class="w"> </span><span class="nc">TorXakisDsl</span><span class="p">;</span><span class="w"></span>
+
+<span class="nl">Model</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"></span>
+<span class="w">        </span><span class="no">TypeDefs</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">FuncDefs</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">ConstDefs</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">ProcDefs</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">StautDefs</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">ChannelDefs</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">ModelDef</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">PurpDef</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">MapperDef</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">   </span><span class="no">CnectDef</span><span class="w"></span>
+<span class="w">    </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">TypeDefs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;TYPEDEF&#39;</span><span class="w"> </span><span class="no">TypeDef</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">TypeDef</span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">TypeDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">TypeName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"> </span><span class="no">NeConstructorList</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">FuncDefs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;FUNCDEF&#39;</span><span class="w"> </span><span class="no">FuncDef</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">FuncDef</span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">FuncDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">FuncName</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeVarsDeclarationList</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="s2">&quot;::&quot;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"> </span><span class="s2">&quot;::=&quot;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConstDefs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;CONSTDEF&#39;</span><span class="w"> </span><span class="no">ConstDef</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">ConstDef</span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConstDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ConstName</span><span class="w"> </span><span class="s2">&quot;::&quot;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"> </span><span class="s2">&quot;::=&quot;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcDefs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;PROCDEF&#39;</span><span class="w"> </span><span class="no">ProcDef</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">ProcDef</span><span class="w"> </span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ProcName</span><span class="w"> </span><span class="s1">&#39;[&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelsDeclList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">NeVarDeclList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">ExitDecl</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"> </span><span class="no">ProcessBehaviour</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">StautDefs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;STAUTDEF&#39;</span><span class="w"> </span><span class="no">StautDef</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">StautDef</span><span class="w"> </span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">StautDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">StautName</span><span class="w"> </span><span class="s1">&#39;[&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelsDeclList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">NeVarDeclList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">ExitDecl</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"> </span><span class="no">StautItems</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ChannelDefs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;CHANDEF&#39;</span><span class="w"> </span><span class="no">ChannelDef</span><span class="w"></span>
+<span class="w">    </span><span class="c">// (&#39;;&#39; ChannelDef )*</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ChannelDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ChannelDefName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"> </span><span class="no">NeChannelsDeclList</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ModelDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;MODELDEF&#39;</span><span class="w"> </span><span class="no">ModelName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w">  </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelNameList</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;OUT&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelNameList</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;BEHAVIOUR&#39;</span><span class="w"> </span><span class="no">ProcessBehaviour</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">PurpDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;PURPDEF&#39;</span><span class="w"> </span><span class="no">PurpName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w">  </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelNameList</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;OUT&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelNameList</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="w">        </span><span class="no">NeTestGoals</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">MapperDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;MAPPERDEF&#39;</span><span class="w"> </span><span class="no">MapperName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w">  </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelsDeclList</span><span class="o">)?</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;OUT&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeChannelsDeclList</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;BEHAVIOUR&#39;</span><span class="w"> </span><span class="no">ProcessBehaviour</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">CnectDef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;CNECTDEF&#39;</span><span class="w"> </span><span class="no">CnectName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;CLIENTSOCK&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;SERVERSOCK&#39;</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">        </span><span class="no">ConnectionItem</span><span class="o">*</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ENDDEF&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">StautItems</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"></span>
+<span class="w">             </span><span class="no">StateItem</span><span class="w"></span>
+<span class="w">        </span><span class="o">|</span><span class="w">    </span><span class="no">VarItem</span><span class="w"></span>
+<span class="w">        </span><span class="o">|</span><span class="w">    </span><span class="no">InitItem</span><span class="w"></span>
+<span class="w">        </span><span class="o">|</span><span class="w">    </span><span class="no">TransItem</span><span class="w"></span>
+<span class="w">    </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">StateItem</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;STATE&#39;</span><span class="w"> </span><span class="no">NeIdNameList</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">VarItem</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;VAR&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">NeVarsDeclarationList</span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">InitItem</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;INIT&#39;</span><span class="w"> </span><span class="no">IdName</span><span class="w"> </span><span class="o">(</span><span class="no">UpdateList</span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">TransItem</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;TRANS&#39;</span><span class="w"> </span><span class="no">Transition</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">Transition</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Transition</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">IdName</span><span class="w"> </span><span class="s1">&#39;-&gt;&#39;</span><span class="w"> </span><span class="no">ConditionalCommunications</span><span class="w"> </span><span class="o">(</span><span class="no">UpdateList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;-&gt;&#39;</span><span class="w"> </span><span class="no">IdName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">UpdateList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;{&#39;</span><span class="w"> </span><span class="no">Update</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">Update</span><span class="w"> </span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;}&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Update</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">VarName</span><span class="w"> </span><span class="s1">&#39;:=&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">PurpName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">MapperName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeConstructorList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">Constructor</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="no">Constructor</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Constructor</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ConstructorName</span><span class="w">  </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;{&#39;</span><span class="w"> </span><span class="no">NeFieldList</span><span class="w"> </span><span class="s1">&#39;}&#39;</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeFieldList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">Fields</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">Fields</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Fields</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">NeFieldNameList</span><span class="w"> </span><span class="s1">&#39;::&#39;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeFieldNameList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">FieldName</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="no">FieldName</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">FieldName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ExitDecl</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;EXIT&#39;</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;::&#39;</span><span class="w"> </span><span class="no">NeTypeNameList</span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+
+<span class="nl">ModelName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeTestGoals</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">TestGoal</span><span class="w"> </span><span class="o">(</span><span class="nv">testGoals</span><span class="o">+=</span><span class="no">TestGoal</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">TestGoal</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;GOAL&#39;</span><span class="w"> </span><span class="no">IdName</span><span class="w"> </span><span class="s1">&#39;::=&#39;</span><span class="w"> </span><span class="no">ProcessBehaviour</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConnectionItem</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"></span>
+<span class="w">             </span><span class="no">ConnectionOut</span><span class="w"></span>
+<span class="w">        </span><span class="o">|</span><span class="w">    </span><span class="no">ConnectionIn</span><span class="w"></span>
+<span class="w">        </span><span class="o">|</span><span class="w">    </span><span class="no">Encoding</span><span class="w"></span>
+<span class="w">        </span><span class="o">|</span><span class="w">    </span><span class="no">Decoding</span><span class="w"></span>
+<span class="w">    </span><span class="o">)</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConnectionOut</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;OUT&#39;</span><span class="w"> </span><span class="no">ChannelsDecl</span><span class="w"> </span><span class="s1">&#39;HOST&#39;</span><span class="w"> </span><span class="no">HostName</span><span class="w"> </span><span class="s1">&#39;PORT&#39;</span><span class="w"> </span><span class="no">PortNumber</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConnectionIn</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;CHAN&#39;</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w"> </span><span class="no">ChannelsDecl</span><span class="w"> </span><span class="s1">&#39;HOST&#39;</span><span class="w"> </span><span class="no">HostName</span><span class="w"> </span><span class="s1">&#39;PORT&#39;</span><span class="w"> </span><span class="no">PortNumber</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Encoding</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ENCODE&#39;</span><span class="w"> </span><span class="no">Communication</span><span class="w"> </span><span class="s1">&#39;-&gt;&#39;</span><span class="w"> </span><span class="no">ChannelOffer</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Decoding</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;DECODE&#39;</span><span class="w"> </span><span class="no">Communication</span><span class="w"> </span><span class="s1">&#39;&lt;-&#39;</span><span class="w"> </span><span class="no">ChannelOffer</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">PortNumber</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">INT</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">HostName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">STRING</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">StautName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ChannelDefName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">CnectName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeVarsDeclarationList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">VarsDeclaration</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;;&quot;</span><span class="w"> </span><span class="no">VarsDeclaration</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">VarsDeclaration</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">NeVarNameList</span><span class="w"> </span><span class="s2">&quot;::&quot;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeVarDeclList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">VarsDecl</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;;&quot;</span><span class="w"> </span><span class="no">VarsDecl</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">VarsDecl</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">NeVarNameList</span><span class="w"> </span><span class="s2">&quot;::&quot;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeChannelsDeclList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ChannelsDecl</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">ChannelsDecl</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ChannelsDecl</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">NeChannelNameList</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;::&#39;</span><span class="w"> </span><span class="no">NeTypeNameList</span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeTypeNameList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">TypeName</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;#&quot;</span><span class="w"> </span><span class="no">TypeName</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">TypeName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeChannelNameList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ChannelName</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="no">ChannelName</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeIdNameList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">IdName</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="no">IdName</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">IdName</span><span class="p">:</span><span class="w"></span>
+<span class="w">         </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ChannelName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeVarNameList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">VarName</span><span class="w"> </span><span class="o">(</span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="no">VarName</span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">VarName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviour</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ProcessBehaviourLevel1</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourLevel1</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ProcessBehaviourLevel2</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;&gt;&gt;&gt;&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel2</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;&gt;&gt;&gt;&#39;</span><span class="w"> </span><span class="s1">&#39;ACCEPT&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;?&#39;</span><span class="w"> </span><span class="o">(</span><span class="nv">varDecls</span><span class="o">+=</span><span class="no">VarDecl</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">VarName</span><span class="o">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;!&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"> </span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel2</span><span class="w"> </span><span class="s1">&#39;NI&#39;</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;[&gt;&gt;&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel2</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;[&gt;&lt;&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel2</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourLevel2</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ProcessBehaviourLevel3</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;||&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel3</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;|||&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel3</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="no">SynchronizedChannels</span><span class="w"> </span><span class="no">ProcessBehaviourLevel3</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourLevel3</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ProcessBehaviourLevel4</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;##&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel4</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourLevel4</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="no">ProcessBehaviourGuarded</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ProcessBehaviourStop</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ProcessBehaviourSequence</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ProcCall</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ProcessBehaviourLet</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ProcessBehaviourHide</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ProcessBehaviourBracket</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcCall</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ProcName</span><span class="w"> </span><span class="s1">&#39;[&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">NeChannelNameList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">NeValExprList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">NeValExprList</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ValExpr</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourBracket</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel1</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourHide</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;HIDE&#39;</span><span class="w"> </span><span class="s1">&#39;[&#39;</span><span class="w"> </span><span class="o">(</span><span class="no">NeChannelsDeclList</span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel1</span><span class="w"> </span><span class="s1">&#39;NI&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourLet</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;LET&#39;</span><span class="w"> </span><span class="no">Assignment</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">Assignment</span><span class="w"> </span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel1</span><span class="w"> </span><span class="s1">&#39;NI&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourSequence</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ConditionalCommunications</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;&gt;-&gt;&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel4</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ProcessBehaviourGuarded</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">Condition</span><span class="w"> </span><span class="s1">&#39;=&gt;&gt;&#39;</span><span class="w"> </span><span class="no">ProcessBehaviourLevel4</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+
+<span class="nl">ProcessBehaviourStop</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;STOP&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">SynchronizedChannels</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;|[&#39;</span><span class="w"> </span><span class="no">NeChannelNameList</span><span class="w"> </span><span class="s1">&#39;]|&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+
+<span class="nl">ConditionalCommunications</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">Communications</span><span class="w"> </span><span class="o">(</span><span class="no">Condition</span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Communications</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">Communication</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="no">Communication</span><span class="w"> </span><span class="o">)*</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Communication</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"> </span><span class="o">(</span><span class="no">ChannelName</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;EXIT&#39;</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="no">ChannelOffer</span><span class="o">*</span><span class="w"></span>
+<span class="w">    </span><span class="o">)</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ChannelOffer</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;!&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;?&#39;</span><span class="w"> </span><span class="o">(</span><span class="nv">varDecls</span><span class="o">+=</span><span class="no">VarDecl</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">VarName</span><span class="o">)</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Condition</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;[[&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"> </span><span class="s1">&#39;]]&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">Assignment</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"> </span><span class="no">VarDecl</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">VarName</span><span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="s1">&#39;=&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">VarDecl</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">VarName</span><span class="w"> </span><span class="s1">&#39;::&#39;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExpr</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ValExpr1</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExpr1</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ValExpr2</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="no">OPERATOR</span><span class="w"> </span><span class="no">ValExpr2</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="o">(</span><span class="w">  </span><span class="s1">&#39;::&#39;</span><span class="w"> </span><span class="no">TypeName</span><span class="w"> </span><span class="o">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">)*</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ValExprLet</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">ValExprIte</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+
+<span class="nl">ValExpr2</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="no">SmallIdName</span><span class="w"> </span><span class="c">// Temporarily solution for the conflict in the next two</span><span class="w"></span>
+<span class="c">//        ValExprConst</span><span class="w"></span>
+<span class="c">//    |    ValExprVar</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">ValExprUnaryOperator</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">ValExprFunctionCall</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">     </span><span class="no">ValExprContructorCall</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">ValExprInteger</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">ValExprString</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">     </span><span class="no">ValExprRegex</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">ValExprBracket</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w">    </span><span class="no">ValExprError</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprUnaryOperator</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">OPERATOR</span><span class="w"> </span><span class="no">ValExpr2</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">SmallIdName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprError</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;ERROR&#39;</span><span class="w"> </span><span class="no">STRING</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprIte</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;IF&#39;</span><span class="w"> </span><span class="no">ValExpr1</span><span class="w"> </span><span class="s1">&#39;THEN&#39;</span><span class="w"> </span><span class="no">ValExpr1</span><span class="w"> </span><span class="s1">&#39;ELSE&#39;</span><span class="w"> </span><span class="no">ValExpr1</span><span class="w"> </span><span class="s1">&#39;FI&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprLet</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;LET&#39;</span><span class="w"> </span><span class="no">Assignment</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;;&#39;</span><span class="w"> </span><span class="no">Assignment</span><span class="o">)*</span><span class="w"> </span><span class="s1">&#39;IN&#39;</span><span class="w"> </span><span class="no">ValExpr1</span><span class="w"> </span><span class="s1">&#39;NI&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprBracket</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="no">ValExpr</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprRegex</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;REGEX&#39;</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="no">STRING</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprString</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">STRING</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprInteger</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">BIG_INT</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprContructorCall</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ConstructorName</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="no">NeValExprList</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="o">)?</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprFunctionCall</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">FuncName</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="no">NeValExprList</span><span class="w"> </span><span class="o">)?</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+
+<span class="nl">ValExprVar</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">VarName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ValExprConst</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">ConstName</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConstructorName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">CAPSID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">FuncName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">ConstName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">SMALLID</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+
+<span class="nl">OPERATOR</span><span class="w">       </span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;=&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;^&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;\\&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;@&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;|&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;&amp;&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="o">)+</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="nl">CAPSID</span><span class="w">         </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="o">..</span><span class="s1">&#39;Z&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="o">..</span><span class="s1">&#39;Z&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="o">..</span><span class="s1">&#39;z&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="o">..</span><span class="s1">&#39;9&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="o">)*</span><span class="p">;</span><span class="w"></span>
+<span class="nl">SMALLID</span><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="o">..</span><span class="s1">&#39;z&#39;</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="o">..</span><span class="s1">&#39;Z&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="o">..</span><span class="s1">&#39;z&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="o">..</span><span class="s1">&#39;9&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="o">)*</span><span class="p">;</span><span class="w"></span>
+<span class="nl">SL_COMMENT</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;--&#39;</span><span class="w"> </span><span class="o">!(</span><span class="s1">&#39;\n&#39;</span><span class="o">|</span><span class="s1">&#39;\r&#39;</span><span class="o">)*</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;\r&#39;</span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="o">)?</span><span class="p">;</span><span class="w"></span>
+<span class="nl">ML_COMMENT</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{-&#39;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;-}&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="nl">BIG_INT</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="no">INT</span><span class="w"></span>
+<span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="grammar.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="grammar.html" class="btn btn-neutral float-left" title="Grammar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="torxakis-help.html" class="btn btn-neutral float-right" title="Torxakis help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
