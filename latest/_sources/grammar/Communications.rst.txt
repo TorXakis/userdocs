@@ -5,8 +5,8 @@ Syntax
 -----------------------
 
 ============== =====================================================================================
-communications communication (":ref:`|`" communication)\* ([condition](Condition))?
-communication  channelName ("!" :ref:`valExpr` \| "?" [varDecl](VarDecl) )\*
+communications communication (":ref:`|`" communication)\* (:ref:`condition`)?
+communication  channelName ("!" :ref:`valExpr` \| "?" :ref:`varDecl` )\*
 channelName    :ref:`CapsId`
 ============== =====================================================================================
 

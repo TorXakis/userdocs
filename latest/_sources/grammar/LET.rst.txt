@@ -6,7 +6,7 @@ Syntax
 
 =================== ==================================================================================
 letProcessBehaviour "LET" assignment (";" assignment)\* "IN" :ref:`processBehaviour` "NI"
-assignment          :ref:`varDecl` "=" [valExpr](ValExpr)
+assignment          :ref:`varDecl` "=" :ref:`valExpr`
 =================== ==================================================================================
 
 Semantics

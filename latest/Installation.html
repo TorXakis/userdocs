@@ -1,77 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-41b717e documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
+  <title>Installation &mdash; TorXakis v0.9.0, Document version git-sha1-b4257b9 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting started" href="getting-started.html" />
     <link rel="prev" title="Introduction TorXakis" href="intro.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> TorXakis
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-41b717e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-41b717e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-b4257b9<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-b4257b9.pdf">pdf</a>
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,19 +38,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction TorXakis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#why-torxakis">Why TorXakis</a></li>
@@ -99,15 +47,31 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#macos">MacOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#running-the-appimage-without-fuse-support-eg-in-a-docker-container">Running the AppImage without FUSE support (eg. in a Docker Container)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-appimage-without-fuse-support-eg-in-a-docker-container">Running the AppImage without FUSE support (eg. in a Docker Container)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-build">Source build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#torxakis-installation">TorXakis Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#utilities">Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#notepad-and-txs">Notepad++ and Txs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#yed-and-txs">yEd and Txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="command-line.html">Command Line Interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="command-line.html#command-history">Command history</a></li>
 <li class="toctree-l2"><a class="reference internal" href="command-line.html#configuration-file">Configuration file</a><ul>
@@ -255,7 +219,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Appendices</span></p>
+<p><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="grammar/index.html">Grammar</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="grammar/CapsId.html">CapsId</a><ul>
@@ -504,92 +468,46 @@
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">TorXakis</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Installation</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/torxakis/userdocs/blob/main/source/Installation.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="intro.html" class="btn btn-neutral float-left" title="Introduction TorXakis" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="installation">
+             
+  <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<section id="binary-install">
+<h2>Binary Install<a class="headerlink" href="#binary-install" title="Permalink to this headline">¶</a></h2>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
 <p>For Windows systems an installer is provided in the TorXakis github project’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/releases">releases page</a>.</p>
-</div>
-<div class="section" id="macos">
-<h2>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="macos">
+<h3>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
 <p>For macOS systems we provide a homebrew package. To install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
 run:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>brew tap torxakis/torxakis
@@ -597,11 +515,12 @@ brew install torxakis
 </pre></div>
 </div>
 <p>For more detailed instructions see the <a class="reference external" href="https://github.com/TorXakis/homebrew-TorXakis">Homebrew tap for TorXakis</a>.</p>
-</div>
-<div class="section" id="linux">
-<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
-<p>We provide  <cite>TorXakis</cite> packaged as an <a class="reference external" href="https://appimage.org">AppImage</a> which is a portable package format which works on all
-linux distributions and (recent) releases. The  <cite>TorXakis</cite> Appimage is a software bundle which contains everything to run <cite>TorXakis</cite>. It therefore also contains the specific versions of <cite>cvc4</cite> and <cite>z3</cite> tools which <cite>TorXakis</cite> requires when running.</p>
+</section>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>We provide  <cite>TorXakis</cite> packaged as an <a href="#id2"><span class="problematic" id="id3">`AppImage`_</span></a> which is a portable package format which works on all
+linux distributions and (recent) releases. The  <cite>TorXakis</cite> Appimage is a software bundle which contains everything to run <cite>TorXakis</cite>.
+It therefore also contains the specific versions of <cite>cvc4</cite> and <cite>z3</cite> tools which <cite>TorXakis</cite> requires when running.</p>
 <p>To run the AppImage, simply download it from the github’s release page, make it executable
 and we then can just run it:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/TorXakis/TorXakis/releases/download/v0.9.0/torxakis-0.9.0.x86_64.AppImage
@@ -630,64 +549,56 @@ $ ln -s torxakis-0.9.0.x86_64.AppImage <span class="nv">$BINDIR</span>/torxakis
  TXS &gt;&gt;
 </pre></div>
 </div>
-<div class="section" id="running-the-appimage-without-fuse-support-eg-in-a-docker-container">
-<h3>Running the AppImage without FUSE support (eg. in a Docker Container)<a class="headerlink" href="#running-the-appimage-without-fuse-support-eg-in-a-docker-container" title="Permalink to this headline">¶</a></h3>
-<p>When the AppImage is run, then by its <a class="reference external" href="https://docs.appimage.org/reference/architecture.html">architecture</a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
-<p>However some linux distributions do no support FUSE directly out of the box. You can either <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#how-to-install-fuse">install FUSE</a>  or you can <a class="reference external" href="https://docs.appimage.org/user-guide/troubleshooting/fuse.html#extract-and-run-type-2-appimages">extract and run an AppImage</a> without using FUSE. You can easily run the AppImage, without using FUSE, by just setting the following environment variable:</p>
+<section id="running-the-appimage-without-fuse-support-eg-in-a-docker-container">
+<h4>Running the AppImage without FUSE support (eg. in a Docker Container)<a class="headerlink" href="#running-the-appimage-without-fuse-support-eg-in-a-docker-container" title="Permalink to this headline">¶</a></h4>
+<p>When the AppImage is run, then by its <a href="#id4"><span class="problematic" id="id5">`architecture &lt;AppImageArch_&gt;`_</span></a>, its runtime part is executed which mounts its diskimage part using FUSE readonly. Then it runs the application on the mounted image using all libraries and depending utilities within the image. Only libraries which are always available on every linux system are not included in the AppImage. In this way the AppImage can guarantee it will run on every (recent) release of any linux distribution.</p>
+<p>However some linux distributions do no support FUSE directly out of the box. You can either <a href="#id6"><span class="problematic" id="id7">`install FUSE`_</span></a>  or you can <a href="#id8"><span class="problematic" id="id9">`extract and run an AppImage`_</span></a> without using FUSE. You can easily run the AppImage, without using FUSE, by just setting the following environment variable:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">APPIMAGE_EXTRACT_AND_RUN</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
 <p>Most Docker installations do not permit the use of FUSE inside containers for security reasons. So running without FUSE is required to run an AppImage in a Docker container.  So just by setting the  above environment variable in the Docker container lets Docker still run the AppImage.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+<section id="source-build">
+<h2>Source build<a class="headerlink" href="#source-build" title="Permalink to this headline">¶</a></h2>
+<p>One can also build torxakis from source yourself. The latest stable source
+is provided in the TorXakis github project’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/releases">releases page</a>. The latest development
+source code can fetch from the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch on the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> github project
+site at <a class="reference external" href="https://github.com/TorXakis/TorXakis/">https://github.com/TorXakis/TorXakis/</a>. Look at the developers
+documentation for <a class="reference external" href="https://torxakis.org/develdocs/stable/building.html">the build instructions</a>.</p>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="intro.html" class="btn btn-neutral float-left" title="Introduction TorXakis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, TorXakis.
-
-    </p>
+    <p>&#169; Copyright 2020, TorXakis.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -31,5 +31,5 @@ The following model synchronizes using the `Synchronized Operator
          CHAN IN    A, B
          CHAN OUT   C, D 
          BEHAVIOUR 
-            specification:ref:`A,B,C,D` || sequence[A,B,C,D]()
+            specification:ref:`A,B,C,D` || sequence:ref:`A,B,C,D`
    ENDDEF

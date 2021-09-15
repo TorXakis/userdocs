@@ -7,7 +7,7 @@ Syntax
 ================= ==========================================================
 procCall          procName "[" neChannelNameList? "]" "(" neValExprList? ")"
 neChannelNameList channelName ("," channelName)\*
-neValExprList     :ref:`valExpr` ("," [valExpr](ValExpr))\*
+neValExprList     :ref:`valExpr` ("," :ref:`valExpr`)\*
 procName          :ref:`SmallId`
 channelName       :ref:`CapsId`
 ================= ==========================================================

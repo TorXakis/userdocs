@@ -1,77 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version git-sha1-41b717e documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-
-  
-  
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
+  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version git-sha1-b4257b9 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Modelling Example - Customers Orders" href="../CustomersOrders/index.html" />
     <link rel="prev" title="Modelling Example - Shared Memory" href="../ReadWriteConflict/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> TorXakis
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-41b717e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-41b717e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-b4257b9<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-b4257b9.pdf">pdf</a>
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,19 +38,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction TorXakis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -99,15 +47,31 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#windows">Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#macos">MacOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#linux">Linux</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#running-the-appimage-without-fuse-support-eg-in-a-docker-container">Running the AppImage without FUSE support (eg. in a Docker Container)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#running-the-appimage-without-fuse-support-eg-in-a-docker-container">Running the AppImage without FUSE support (eg. in a Docker Container)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#source-build">Source build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#torxakis-installation">TorXakis Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#model">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#utilities">Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#notepad-and-txs">Notepad++ and Txs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#yed-and-txs">yEd and Txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
@@ -255,7 +219,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Appendices</span></p>
+<p><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../grammar/index.html">Grammar</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../grammar/CapsId.html">CapsId</a><ul>
@@ -504,87 +468,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">TorXakis</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">Examples</a> &raquo;</li>
-        
       <li>Modelling Example - Control Loop</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/torxakis/userdocs/blob/main/source/examples/ControlLoop/index.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="../CustomersOrders/index.html" class="btn btn-neutral float-right" title="Modelling Example - Customers Orders" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="../ReadWriteConflict/index.html" class="btn btn-neutral float-left" title="Modelling Example - Shared Memory" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
+        <a href="../CustomersOrders/index.html" class="btn btn-neutral float-right" title="Modelling Example - Customers Orders" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="modelling-example-control-loop">
+             
+  <section id="modelling-example-control-loop">
 <h1>Modelling Example - Control Loop<a class="headerlink" href="#modelling-example-control-loop" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we model a control loop. The control loop consists out
 of three processes: produce, measure, and correct. Between these
@@ -601,7 +516,7 @@ this model, we will discuss these three processes in order of
 simplicity. We will end with the complete control loop model.</p>
 <p>All the files used in this example can be found at <a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/ControlLoop">the example
 folder</a>.</p>
-<div class="section" id="data-types">
+<section id="data-types">
 <h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p>All <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data types</a>
 are Cartesian Products of two integers: id and value.</p>
@@ -610,8 +525,8 @@ are Cartesian Products of two integers: id and value.</p>
 <span class="n">TYPEDEF</span> <span class="n">Correction</span>    <span class="p">:</span><span class="o">:=</span> <span class="n">Correction</span>    <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="channels">
+</section>
+<section id="channels">
 <h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
 <p>Once we have the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data
 types</a>,
@@ -626,10 +541,10 @@ for modelling this flow can be defined as:</p>
 <span class="n">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="functions">
+</section>
+<section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="sgn">
+<section id="sgn">
 <h3>sgn<a class="headerlink" href="#sgn" title="Permalink to this headline">¶</a></h3>
 <p>The sign
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function</a>: zero
@@ -645,11 +560,11 @@ for zero, +1 for all positive numbers, and -1 for all negative numbers.</p>
 <span class="n">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="processes">
+</section>
+</section>
+<section id="processes">
 <h2>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="correct">
+<section id="correct">
 <h3>correct<a class="headerlink" href="#correct" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Correction process" src="../../_images/correct.jpg" /></p>
 <p>Correct is a repeating process of corrections. All corrections need two
@@ -677,8 +592,8 @@ Definition</a>:</p>
 ENDDEF
 </pre></div>
 </div>
-</div>
-<div class="section" id="measure">
+</section>
+<section id="measure">
 <h3>measure<a class="headerlink" href="#measure" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Measuring process" src="../../_images/measure.jpg" /></p>
 <p>Measure is a repeating process of measurements. All measurements need
@@ -716,8 +631,8 @@ Definition</a>:</p>
 ENDDEF
 </pre></div>
 </div>
-</div>
-<div class="section" id="produce">
+</section>
+<section id="produce">
 <h3>produce<a class="headerlink" href="#produce" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Production process" src="../../_images/produce.jpg" /></p>
 <p>Produce is a repeating process of production steps. All production steps
@@ -793,8 +708,8 @@ PROCDEF produceLoop [ In_Material           :: Int
 ENDDEF
 </pre></div>
 </div>
-</div>
-<div class="section" id="control-loop">
+</section>
+<section id="control-loop">
 <h3>control loop<a class="headerlink" href="#control-loop" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Control loop" src="../../_images/controlloop.jpg" /></p>
 <p>The behaviour of the control loop process is captured in the following
@@ -819,9 +734,9 @@ communication channels.</p>
 <span class="n">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="model">
+</section>
+</section>
+<section id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>Since the above Control Loop process (model) puts everything together,
 now we can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">define our
@@ -849,8 +764,8 @@ follows:</p>
 <span class="n">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="stepping-through-the-model">
+</section>
+<section id="stepping-through-the-model">
 <h2>Stepping through the Model<a class="headerlink" href="#stepping-through-the-model" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Start TorXakis: run
@@ -882,55 +797,38 @@ conclude:</p>
 <span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../CustomersOrders/index.html" class="btn btn-neutral float-right" title="Modelling Example - Customers Orders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../ReadWriteConflict/index.html" class="btn btn-neutral float-left" title="Modelling Example - Shared Memory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../CustomersOrders/index.html" class="btn btn-neutral float-right" title="Modelling Example - Customers Orders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, TorXakis.
-
-    </p>
+    <p>&#169; Copyright 2020, TorXakis.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

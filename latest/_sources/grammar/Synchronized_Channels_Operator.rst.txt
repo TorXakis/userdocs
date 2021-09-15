@@ -5,7 +5,7 @@ Syntax
 -----------------------
 
 ============================= ===================================================================================================================
-processesSynchronizedChannels :ref:`processBehaviour` "|[" channelName ("," channelName)\* "]|" [processBehaviour](ProcessBehaviour)
+processesSynchronizedChannels :ref:`processBehaviour` "|[" channelName ("," channelName)\* "]|" :ref:`processBehaviour`
 channelName                   :ref:`CapsId`
 ============================= ===================================================================================================================
 
