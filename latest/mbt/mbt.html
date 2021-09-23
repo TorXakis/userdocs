@@ -1,0 +1,927 @@
+   
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Model-Based Testing &mdash; TorXakis v0.9.0, Document version git-sha1-0eb28e6 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model-Based Testing with Labelled Transition Systems" href="mbt_with_lts.html" />
+    <link rel="prev" title="Model-Based Testing" href="index.html" />
+<link rel="stylesheet" type="text/css"
+     href="../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> TorXakis
+          </a>
+              <div class="version">
+                version: v0.9.0<br/>latest docs: git-sha1-0eb28e6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-0eb28e6.pdf">pdf</a>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#why-torxakis">Why TorXakis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#get-torxakis-running">Get TorXakis running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#testing-a-queue">Testing a Queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html#utilities">Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#notepad-and-txs">Notepad++ and Txs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started.html#yed-and-txs">yEd and Txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Model-Based Testing</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to Model-Based Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-testing">Software Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#benefits-of-model-based-testing">Benefits of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorts-of-model-based-testing">Sorts of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#theory-for-model-based-testing">Theory for model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-based-testing-challenges">Model-based testing challenges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-based-testing-tools">Model-based testing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#future-developments">Future developments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mbt_with_lts.html">Model-Based Testing with Labelled Transition Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#labelled-transition-systems">Labelled transition systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#testing-equivalences">Testing equivalences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#test-generation">Test generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#inputs-and-outputs">Inputs and outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#implementation-relation-ioco">Implementation relation ioco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt_with_lts.html#torxakis">TorXakis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../torxakis_mbt.html">TorXakis: A Model-Based Testing Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../torxakis_mbt.html#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#modelling">Modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#implementation">Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#innovation">Innovation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../torxakis_mbt.html#usage-overview">Usage overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#system-under-test">System under test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#adapter">Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../torxakis_mbt.html#other-features">Other features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usage/trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#starter-examples">Starter examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/HelloWorld/index.html">HelloWorld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/HelloWorld/index.html#sut">SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/HelloWorld/index.html#adapter">Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/HelloWorld/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/HelloWorld/index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/StimulusResponse/index.html">StimulusResponse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/StimulusResponse/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/StimulusResponse/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/StimulusResponse/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/StimulusResponse/index.html#model-based-testing">Model Based Testing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/StimulusResponse/index.html#errorneous-sut">Errorneous SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/StimulusResponse/index.html#stimulus-response-loop">Stimulus Response - Loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Echo/index.html">Echo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#process">Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#model-based-testing-stepping-through-the-model">Model Based Testing: Stepping through the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#simulator-definition">Simulator Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#model-based-testing-testing-the-simulated-sut">Model Based Testing: Testing the Simulated SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Echo/index.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Adder/index.html">Adder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#models">Models</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/Adder/index.html#adder-txs">Adder.txs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../examples/Adder/index.html#adder-model-and-sut-connection">1. Adder Model and Sut Connection</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../examples/Adder/index.html#observe-the-behaviour-of-model">Observe the behaviour of model</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../examples/Adder/index.html#execute-torxakis-against-the-actual-sut">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/Adder/index.html#adder3-model-and-sut3-connection">2. Adder3 Model and Sut3 Connection:</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../examples/Adder/index.html#id1">Observe the behaviour of model</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../examples/Adder/index.html#execute-torxakis-against-the-actual-3-suts">Execute TorXakis against the actual 3 SUTs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/Adder/index.html#adderstaut-txs">AdderStAut.txs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../examples/Adder/index.html#id2">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/Adder/index.html#id3">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html#advanced-examples">Advanced examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/ReadWriteConflict/index.html">ReadWriteConflict</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ReadWriteConflict/index.html#basic-solution">Basic Solution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ReadWriteConflict/index.html#advanced-solution">Advanced Solution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ReadWriteConflict/index.html#using-test-purposes">Using Test Purposes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/ControlLoop/index.html">ControlLoop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ControlLoop/index.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ControlLoop/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ControlLoop/index.html#functions">Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/ControlLoop/index.html#sgn">sgn</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ControlLoop/index.html#processes">Processes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/ControlLoop/index.html#correct">correct</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/ControlLoop/index.html#measure">measure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/ControlLoop/index.html#produce">produce</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/ControlLoop/index.html#control-loop">control loop</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ControlLoop/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/ControlLoop/index.html#stepping-through-the-model">Stepping through the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/CustomersOrders/index.html">CustomersOrders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/CustomersOrders/index.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/CustomersOrders/index.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/CustomersOrders/index.html#torxakis-specification">TorXakis specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/CustomersOrders/index.html#model-based-testing">Model Based Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/luckypeople.html">LuckyPeople</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html">Assignment</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#requirements">Requirements</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#examples">Examples</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-names">Lucky based on names</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-birthday">Lucky based on birthday</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-sequence">Lucky based on sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#deliverables">Deliverables</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html">Solution</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#types">Types</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#channels">Channels</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#procedure">Procedure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model">Model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#functions">Functions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isvalid-person">isValid_Person</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckyperson">isLuckyPerson</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybygender">isLuckyByGender</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybyname">isLuckyByName</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybybirthday">isLuckyByBirthday</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model-based-testing">Model Based Testing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__3_Testing-With-Predetermined-Input.html">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html">Gender</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-process">The process</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../examples/LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-test-purpose">The Test Purpose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Wheel/index.html">Wheel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span class="caption-text">Appendices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Installation.html#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Installation.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Installation.html#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Installation.html#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Installation.html#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Installation.html#source-build">Source build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar/index.html">Grammar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/CapsId.html">CapsId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/CapsId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/CapsId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ChanDefs.html">Channel Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ChanDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ChanDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ChanDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Choice_Operator.html">Choice Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Choice_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Choice_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Choice_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/CnectDefs.html">Connection Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/CnectDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/CnectDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/CnectDefs.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/CnectDefs.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Comment.html">Comment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Comment.html#single-line-comment">Single line comment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Comment.html#multiple-lines-comment">Multiple lines comment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Communications.html">Communications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Communications.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Communications.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Communications.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Communications.html#communication-without-data">Communication without data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Communications.html#communication-of-fully-specified-data">Communication of fully specified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Communications.html#communication-of-underspecified-data">Communication of underspecified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Communications.html#communication-of-constrained-data">Communication of constrained data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Communications.html#communication-of-multiple-data-items">Communication of multiple data items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Condition.html">Condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Condition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Condition.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Condition.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ConstDefs.html">Constant Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ConstDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ConstDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ConstDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Data_Type.html">Data Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Data_Type.html#predefined-data-types">Predefined Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Data_Type.html#user-defined-data-types">User Defined Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Disable_Operator.html">Disable Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/EXIT.html">EXIT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/EXIT.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/EXIT.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Enable_Operator.html">Enable Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Enable_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Enable_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Enable_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/FuncDefs.html">Function Defintions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/FuncDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/FuncDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/FuncDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Function.html">Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Function.html#predefined-functions">Predefined Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Function.html#bool">Bool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Function.html#int">Int</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Function.html#boute-s-euclidean-definition">Boute’s Euclidean Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Function.html#string">String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Function.html#regex">Regex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Function.html#implicitly-defined-typedef-functions">Implicitly Defined TYPEDEF Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Function.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Function.html#user-defined-functions">User Defined Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Guard_Operator.html">Guard Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Guard_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Guard_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Guard_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/HIDE.html">HIDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/HIDE.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/HIDE.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/HIDE.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/HIDE.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Interrupt_Operator.html">Interrupt Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/IteValExpr.html">IF THEN ELSE Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/IteValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/IteValExpr.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/LET.html">LET Process Behaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/LET.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/LET.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/LET.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/LET.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Language_Definition.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Language_Definition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Language_Definition.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/LetValExpr.html">LET Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/LetValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/LetValExpr.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/LetValExpr.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/LetValExpr.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ModelDefs.html">Model Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ModelDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ModelDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ModelDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Parallel_Operator.html">Parallel Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Parallel_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Parallel_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Parallel_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ProcCall.html">Process Call</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcCall.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcCall.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ProcDefs.html">Proccess Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ProcessBehaviour.html">ProcessBehaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcessBehaviour.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcessBehaviour.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ProcessBehaviour.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/PurpDefs.html">Test Purpose Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/PurpDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/PurpDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/PurpDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/STOP.html">STOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/STOP.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/STOP.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Sequence_Operator.html">Sequence Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Sequence_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Sequence_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Sequence_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/SmallId.html">SmallId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/SmallId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/SmallId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/StautDef.html">State Automaton Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/StautDef.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/StautDef.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/StautDef.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Synchronized_Channels_Operator.html">Synchronized Channels Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronized_Channels_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronized_Channels_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronized_Channels_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Synchronized_Operator.html">Synchronized Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronized_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronized_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronized_Operator.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Synchronized_Operator.html#communication">Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Synchronized_Operator.html#constrained-communication">Constrained communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/Synchronized_Operator.html#deadlock">Deadlock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/Synchronous_Operator.html">Synchronous Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronous_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronous_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/Synchronous_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/TypeDefs.html">Type Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/TypeDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/TypeDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/TypeDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/ValExpr.html">Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/ValExpr.html#semantics">Semantics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../grammar/ValExpr.html#reference-to-function">Reference to Function.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/VarDecl.html">Variable Declaration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/VarDecl.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/VarDecl.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/VarDecl.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammar/specification.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/specification.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grammar/specification.html#semantics">Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammar.html">Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grammarv3.html">Grammarv3</a></li>
+</ul>
+<p><span class="caption-text">Backmatter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TorXakis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Model-Based Testing</a> &raquo;</li>
+      <li>Introduction to Model-Based Testing</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/torxakis/userdocs/blob/main/source/mbt/mbt.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Model-Based Testing" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mbt_with_lts.html" class="btn btn-neutral float-right" title="Model-Based Testing with Labelled Transition Systems" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction-to-model-based-testing">
+<h1>Introduction to Model-Based Testing<a class="headerlink" href="#introduction-to-model-based-testing" title="Permalink to this headline">¶</a></h1>
+<section id="software-testing">
+<h2>Software Testing<a class="headerlink" href="#software-testing" title="Permalink to this headline">¶</a></h2>
+<p>Software quality is a matter of increasing
+importance and growing concern. Systematic testing plays an important
+role in the quest for improved quality and reliability of software
+systems. Software testing, however, is often an error-prone, expensive,
+and time-consuming process. Estimates are that testing consumes 30-50%
+of the total software development costs. The tendency is that the effort
+spent on testing is still increasing due to the continuing quest for
+better software quality, and the ever growing size and complexity of
+systems. The situation is aggravated by the fact that the complexity of
+testing tends to grow faster than the complexity of the systems being
+tested, in the worst case even exponentially. Whereas development and
+construction methods for software allow the building of ever larger and
+more complex systems, there is a real danger that testing methods cannot
+keep pace with these construction and development methods, so that these
+new systems cannot sufficiently fast and thoroughly be tested anymore.
+This may seriously hamper the development and testing of future
+generations of software systems.</p>
+</section>
+<section id="model-based-testing">
+<h2>Model-Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline">¶</a></h2>
+<p>Model-Based Testing (MBT) is one of the
+technologies to meet the challenges imposed on software testing. With
+MBT a System Under Test (<code class="docutils literal notranslate"><span class="pre">sut</span></code>) is tested against an abstract model of
+its required behaviour. This model serves as the system specification
+and is the starting point for testing. It prescribes what the
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> should, and what it should not do, that is, the behaviour of
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code> shall conform to the behaviour prescribed in the model. The
+model itself is assumed to be correct and valid; it is not the direct
+subject of testing or validation.</p>
+<p>The main virtue of MBT is that the model is a perfect basis for the
+generation of test cases, allowing test automation that goes well beyond
+the mere automatic execution of manually crafted test cases. MBT allows
+for the algorithmic generation of large amounts of test cases, including
+test oracles for the expected results, completely automatically, from
+the model of required behaviour. Moreover, if this model is valid, i.e.,
+expresses precisely what the system under test should do, all these
+generated tests are provably valid, too.</p>
+<p>From an industrial perspective, model-based testing is a promising
+approach to detect more bugs faster and cheaper. The current state of
+practice is that test automation mainly concentrates on the automatic
+execution of tests, but that the problem of test generation is not
+addressed. Model-based testing aims at automatically generating
+high-quality test suites from models, thus complementing automatic test
+execution.</p>
+<p>From an academic perspective, model-based testing is a formal-methods
+approach to testing that complements formal verification and model
+checking. Formal verification and model checking intend to show that a
+system has specified properties by proving that a model of that system
+satisfies these properties. Thus, any verification is only as good as
+the validity of the model on which it is based. Model-based testing, on
+the other hand, starts with a (verified) model, and then aims at showing
+that the real, physical implementation of the system behaves in
+compliance with this model. Due to the inherent limitations of testing,
+such as the limited number of tests that can be performed in a
+reasonable time, testing can never be complete: ”testing can only show
+the presence of errors, not their absence”  <a class="reference internal" href="../bibliography.html#r24" id="id1"><span>[R24]</span></a>.</p>
+</section>
+<section id="benefits-of-model-based-testing">
+<h2>Benefits of model-based testing<a class="headerlink" href="#benefits-of-model-based-testing" title="Permalink to this headline">¶</a></h2>
+<p>Model-based testing makes it
+possible to generate test cases automatically, enabling the next step in
+test automation. It makes it possible to generate more, longer, and more
+diversified test cases with less effort, whereas, being based on sound
+algorithms, these test cases are provably valid. Since a model specifies
+both the possibe stimuli (inputs) to the <code class="docutils literal notranslate"><span class="pre">sut</span></code> and the allowed
+responses (outputs), the generated test cases contain inputs to be
+provided to the <code class="docutils literal notranslate"><span class="pre">sut</span></code> as well as outputs expected from the <code class="docutils literal notranslate"><span class="pre">sut</span></code>,
+which leads to better test oracles and less misinterpretation of test
+results.</p>
+<p>Creating models for MBT usually already leads to better understanding of
+system behaviour and requirements and to early detection of
+specification and design errors. Moreover, constructing models for MBT
+paves the way for other model-based methods, such as model-based
+analysis, model checking, and simulation, and it forms the natural
+connection to model-based system development that is becoming an
+important driving force in the software industry.</p>
+<p>Test suite maintenance, i.e., continuously adapting test cases when
+systems are modified, is an important challenge of any testing process.
+In MBT, maintenance of a multitude of test cases is replaced by
+maintenance of a model. Also diagnosis, i.e., localizing the fault when
+a failure is detected, is facilated through model-based diagnostic
+analysis. Finally, various notions of (model-) coverage can be
+automatically computed, expressing the level of completeness of testing,
+and allowing better selection of test cases.</p>
+<p>Altogether, MBT is a promising approach to detect more bugs faster and
+cheaper, and thus to improve the quality and reliability of the system
+under test.</p>
+</section>
+<section id="sorts-of-model-based-testing">
+<h2>Sorts of model-based testing<a class="headerlink" href="#sorts-of-model-based-testing" title="Permalink to this headline">¶</a></h2>
+<p>There are different kinds of testing,
+and thus of model-based testing, depending on the kind of models being
+used, the quality characteristics being tested, the level of formality
+involved, the degree of accessibility and observability of the system
+being tested, and the kind of system being tested. Here, we consider
+model-based testing as <em>formal</em>, <em>specification-based</em>, <em>active</em>,
+<em>black-box</em>, <em>functionality testing</em> of <em>reactive systems</em>.</p>
+<p>It is <em>testing</em>, because it involves checking some properties of the
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> by systematically performing experiments on the real, running
+<code class="docutils literal notranslate"><span class="pre">sut</span></code>. as opposed to, e.g., formal verification, where properties are
+checked on a model of the system. The kind of properties being checked
+are concerned with <em>functionality</em>, i.e., testing whether the system
+correctly does what it should do in terms of correct responses to given
+stimuli. as opposed to, e.g., performance, usability, reliability, or
+maintainability properties. Such classes of properties are often
+referred to as <em>quality characteristics</em>  <a class="reference internal" href="../bibliography.html#r41" id="id2"><span>[R41]</span></a>.</p>
+<p>We do <em>specification-based</em>, <em>black-box</em> testing. The <code class="docutils literal notranslate"><span class="pre">sut</span></code> is seen
+as a black box without internal detail, which can only be accessed and
+observed through its external interfaces, as opposed to white-box
+testing, where the internal structure of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, i.e., the code, is
+the basis for testing. The externally observable behaviour of the system
+is compared with what has been specified in the model.</p>
+<p>The testing is <em>active</em>, in the sense that the tester controls and
+observes the <code class="docutils literal notranslate"><span class="pre">sut</span></code> in an active way by giving stimuli and triggers to
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, and observing its responses, as opposed to passive testing,
+or monitoring. Our <code class="docutils literal notranslate"><span class="pre">sut</span></code> s are <em>dynamic, data-intensive, reactive
+systems</em>. Reactive systems react to external events (stimuli, triggers,
+inputs) with output events (responses, actions, outputs). In dynamic
+systems, outputs depend on inputs as well as on the system state.
+Data-intensive means that instances of complex data structures are
+communicated in inputs and outputs, and that state transitions may
+involve complex computations and constraints.</p>
+<p>Finally, we deal with <em>formal testing</em>: the model, which serves as
+specification prescribing the desired behaviour is written in some
+formal language with precisely defined syntax and semantics. Moreover,
+there is a formal, well-defined theory underpinning these models,
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> s, tests, and their relations, in particular, the correctness
+(conformance) of <code class="docutils literal notranslate"><span class="pre">sut</span></code> s with respect to models, and the validity of
+tests with respect to models. This enables formal reasoning about
+<em>soundness</em> and <em>exhaustiveness</em> of test generation algorithms and the
+generated test suites, i.e., that tests exactly test what they should
+test.</p>
+<p>In another form of model-based testing, called <em>statistical model-based
+testing</em>, models do not prescribe required behaviour of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, but
+they describe how users use a system. Such models are called
+<em>statistical usage profiles</em>, operational profiles, or customer
+profiles. The idea is that tests are selected based on the expected
+usage of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, so that behaviours that are more often used, are
+more thoroughly tested  <a class="reference internal" href="../bibliography.html#r55" id="id3"><span>[R55]</span></a>. Such models are derived from usage
+information such as usage logs. Statistical model-based testing enables
+the comprehensive field of statistics to be used with the goal of
+assessing the reliability of systems.</p>
+</section>
+<section id="theory-for-model-based-testing">
+<h2>Theory for model-based testing<a class="headerlink" href="#theory-for-model-based-testing" title="Permalink to this headline">¶</a></h2>
+<p>A theory for model-based testing
+must, naturally, first of all define the models that are considered. The
+modelling formalism determines the kind of properties that can be
+specified, and, consequently, the kind of properties for which test
+cases can be generated. Secondly, it must be precisely defined what it
+means for an <code class="docutils literal notranslate"><span class="pre">sut</span></code> to conform to a model. Conformance can be
+expressed using an <em>implementation relation</em>, also called <em>conformance
+relation</em>  <a class="reference internal" href="../bibliography.html#r17" id="id4"><span>[R17]</span></a>. Since the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is considered as a black box, its
+behaviour is unknown and we cannot construct a model that precisely
+describes the behaviour of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, yet, we do assume that such a
+model, though unknown, exists in a domain of implementation models. This
+assumption is commonly referred to as the <em>testability hypothesis</em>, or
+<em>test assumption</em>  <a class="reference internal" href="../bibliography.html#r31" id="id5"><span>[R31]</span></a>. The testability hypothesis allows reasoning
+about <code class="docutils literal notranslate"><span class="pre">sut</span></code> s as if they were formal models, and it makes it possible
+to define the implementation relation as a formal relation between the
+domain of specification models and the domain of implementation models.
+Soundness of test suites, i.e., do all correct <code class="docutils literal notranslate"><span class="pre">sut</span></code> s pass, and
+exhaustiveness, i.e., do all incorrect <code class="docutils literal notranslate"><span class="pre">sut</span></code> s fail, are defined with
+respect to an implementation relation.</p>
+<p>In the domain of testing reactive systems there are two prevailing
+‘schools’ of formal model-based testing. The oldest one uses
+Mealy-machines, also called finite-state machines (FSM); see <a class="reference internal" href="../bibliography.html#r18" id="id6"><span>[R18]</span></a>  <a class="reference internal" href="../bibliography.html#r47" id="id7"><span>[R47]</span></a>,
+51]. Here, we concentrate on the other one that uses <em>labelled
+transition systems</em> (LTS) for modelling. A labelled transition system is
+a structure consisting of states with transitions, labelled with
+actions, between them. The states model the system states; the labelled
+transitions model the actions that a system can perform. There is a rich
+and well-understood theory for MBT with LTS, which is elaborated in
+Sect. 3. Other approaches to MBT for non-reactive systems include
+abstract-data-type based testing  <a class="reference internal" href="../bibliography.html#r7" id="id8"><span>[R7]</span></a> and <em>property-based testing</em>, of
+which the tool <code class="docutils literal notranslate"><span class="pre">QuickCheck</span></code> is the prime example  <a class="reference internal" href="../bibliography.html#r19" id="id9"><span>[R19]</span></a>. Originally
+developed for <code class="docutils literal notranslate"><span class="pre">Haskell</span></code>, property-based testing is now applied for
+many languages.</p>
+<p>Labelled transition systems form a well-defined semantic basis for
+modelling and model-based testing, but they are not suitable for writing
+down models explicitly. Typically, realistic systems have more states
+than there are atoms on earth (which is approximately 10 <sup>50</sup>) so
+an explicit representation of states is impossible. What is needed is a
+language to represent large labelled transition systems. <em>Process
+algebras</em> have semantics in terms of labeled transition systems, they
+support different ways of composition such as choice, parallelism,
+sequencing, etc., and they were heavily investigated in the eighties
+<a class="reference internal" href="../bibliography.html#r50" id="id10"><span>[R50]</span></a> <a class="reference internal" href="../bibliography.html#r39" id="id11"><span>[R39]</span></a> <a class="reference internal" href="../bibliography.html#r42" id="id12"><span>[R42]</span></a>. They are a good candidate to serve as a notation for LTS
+models.</p>
+</section>
+<section id="model-based-testing-challenges">
+<h2>Model-based testing challenges<a class="headerlink" href="#model-based-testing-challenges" title="Permalink to this headline">¶</a></h2>
+<p>Software is anywhere, and ever more
+systems depend on software: software controls, connects, and monitors
+almost every aspect of systems, be it a car, an airplane, a pacemaker,
+or a refrigerator. Consequently, overall system quality and reliability
+are more and more determined by the quality of the embedded software.
+Typically, such software consists of several million lines of code, with
+complex behavioural control-flow as well as intricate data structures,
+with distribution and a lot of parallelism, having complex and
+heterogeneous interfaces, and controlling diverse, multidisciplinary
+processes. Moreover, this software often comes in many variants with
+different options and for different platforms. It is continuously
+evolving and being modified to adapt to different environments and new
+user requirements, while increasing in size, complexity, connectivity,
+and variability. Software is composed into larger systems and
+systems-of-systems, whereas system components increasingly originate
+from heterogeneous sources: there can be legacy, third-party,
+out-sourced, off-the-shelf, open source, or newly developed components.</p>
+<p>For model-based testing, these trends lead to several challenges. First,
+the size of the systems implies that making complete models is often
+infeasible so that MBT must deal with partial and under-specified models
+and abstraction, and that partial knowledge and uncertainty cannot be
+avoided. Secondly, the combination of complicated state-behaviour and
+intricate input and output-data structures, and their dependencies, must
+be supported in modelling. Thirdly, distribution and parallelism imply
+that MBT must deal with concurrency in models, which introduces
+additional uncertainty and non-determinism. In the fourth place, since
+complex systems are built from sub-systems and components, and systems
+themselves are more and more combined into systems-of-systems, MBT must
+support compositionality, i.e., building complex models by combining
+simpler models. Lastly, since complexity leads to an astronomical number
+of potential test cases, test selection, i.e., how to select those tests
+from all potential test cases that can catch most, and most important
+failures, within constraints of testing time and budget, is a key issue
+in model-based testing.</p>
+<p>In short, to be applicable to testing of modern software systems, MBT
+shall support partial models, underspecification, abstraction,
+uncertainty, state &amp; data, concurrency, non-determinism,
+compositionality, and test selection. Though several academic and
+commercial MBT tools exist, there are not that many tools that support
+all of these aspects.</p>
+</section>
+<section id="model-based-testing-tools">
+<h2>Model-based testing tools<a class="headerlink" href="#model-based-testing-tools" title="Permalink to this headline">¶</a></h2>
+<p>Model-based testing activities are too
+laborious to be performed completely manually, so, for MBT to be
+effective and efficient, tool support is necessary. A large number of
+MBT tools exist, as a Web-search will immediately show. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is
+one of these MBT tools.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a proof-of-concept, research tool that is being
+developed by the Radboud University Nijmegen, the University of Twente,
+and ESI (TNO) in the Netherlands. It is an on-line (on-the-fly) MBT tool
+for formal, specification-based, active, black-box, functionality
+testing of reactive systems, rooted in the <strong>ioco</strong>-testing theory for
+labelled-transition systems <a class="reference internal" href="../bibliography.html#r61" id="id13"><span>[R61]</span></a> <a class="reference internal" href="../bibliography.html#r62" id="id14"><span>[R62]</span></a>. It implements the <strong>ioco</strong>-test
+generation algorithm for symbolic transition systems  <a class="reference internal" href="../bibliography.html#r30" id="id15"><span>[R30]</span></a>, and it uses a
+process-algebraic modelling language <code class="docutils literal notranslate"><span class="pre">Txs</span></code> inspired by the language
+LOTOS <a class="reference internal" href="../bibliography.html#r11" id="id16"><span>[R11]</span></a> <a class="reference internal" href="../bibliography.html#r42" id="id17"><span>[R42]</span></a>, which is supplemented with an algebraic data-type
+specification formalism, for which rewriting and SMT solvers are used
+for calculation and manipulation  <a class="reference internal" href="../bibliography.html#r22" id="id18"><span>[R22]</span></a>. Moreover, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> deals
+with most of the challenges posed in the previous paragraph: it supports
+modelling of state-based control flow together with complex data, it
+deals with non-determinism, abstraction, partial models and
+under-specification, concurrency, and composition of complex models from
+simpler models. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> supports state &amp; data but no
+probabilities, real-time, or hybrid systems. Test selection is primarily
+random, but guidance can be provided using <em>test purposes</em>.
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is an experimental MBT tool, used in (applied) research,
+education, and industrial case studies and experiments.
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> currently misses good usability, scalability does not
+always match the requirements of complex systems-of-systems, and more
+sophisticated test selection strategies are necessary but these are
+being investigated  <a class="reference internal" href="../bibliography.html#r14" id="id19"><span>[R14]</span></a>.</p>
+</section>
+<section id="future-developments">
+<h2>Future developments<a class="headerlink" href="#future-developments" title="Permalink to this headline">¶</a></h2>
+<p>Current MBT algorithms and tools can
+potentially generate many more tests from a model than can ever be
+executed. Consequently, <em>test selection</em> is one of the major research
+issues in model-based testing. Test selection concerns the problem of
+finding criteria for selecting from the astronomical number of potential
+test cases those tests that have the largest chance of detecting most,
+and the most important bugs, with the least effort. Random approaches,
+which are often used for small systems, do not suffice for large and
+complex systems: the probability of completely randomly selecting an
+important test case within the space of all possible behaviours
+converges to zero. At the other end from random there is the explicit
+specification of test purposes, i.e., a tester specifies explicitly what
+she wishes to test, but that requires a lot of manual effort, and,
+moreover, how should the tester know what to test. Different approaches
+have been identified for determining what the “most important
+behaviours” are, such as testing based on system requirements, code
+coverage, model coverage, risk analysis, error-impact analysis, or
+expected user behaviour (statistical usage profiles, or operational
+profiles).</p>
+<p>Related to apriori test selection, is aposteriori coverage, quality, and
+confidence in the tested system. Since exhaustive testing is practically
+impossible, the question pops up what has been achieved after testing:
+can the coverage of testing, the quality of the tested <code class="docutils literal notranslate"><span class="pre">sut</span></code>, or the
+confidence in correct functioning of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, somehow be formalized
+and quantified? It is not to be expected that these fundamental research
+questions will soon be completely solved.</p>
+<p>MBT is an interesting technique once a model of the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
+available. Availability of behavioural models, however, is one of the
+issues that currently prohibits the widespread application of MBT. In
+the first place, there is the question of making and investing in
+models: there is reluctance against investing in making models, being
+considered as yet another software artifact. Secondly, mastering the art
+of behavioural modeling requires education and experience that is not
+always available. Thirdly, the information necessary to construct a
+model, in particular for legacy, third-party, or out-sourced systems or
+components, is not always (easily) available.</p>
+<p>These issues lead to the question whether models can be generated
+automatically, e.g., for use in regression testing or testing systems
+after refactoring. Model generation from an <code class="docutils literal notranslate"><span class="pre">sut</span></code>, a kind of black-box
+reverse engineering, (re)constructs a model by observing the behaviour
+of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, either passively from system logs, or actively by
+performing special tests. This activity is called <em>model learning</em>, also
+known as testbased modeling, automata learning, or grammatical
+inference, and it is currently a popular research topic <a class="reference internal" href="../bibliography.html#r65" id="id20"><span>[R65]</span></a>.</p>
+<p>New software testing methodologies are needed if testing shall keep up
+with software development and meet the challenges imposed on it,
+otherwise we may not be able to test future generations of systems.
+systems. Model-based testing may be one of them.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Model-Based Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mbt_with_lts.html" class="btn btn-neutral float-right" title="Model-Based Testing with Labelled Transition Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, TorXakis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

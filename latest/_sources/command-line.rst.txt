@@ -53,6 +53,7 @@ solver being used, which we can create using the following commands:
 
    echo 'selected-solver: "cvc4" ' > ~/.torxakis.yaml
 
+
 From now on ``TorXakis`` will use
 `CVC4 <http://cvc4.cs.stanford.edu/>`__ instead of
 `Z3 <https://github.com/Z3Prover/z3>`__.
