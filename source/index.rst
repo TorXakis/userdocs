@@ -20,10 +20,10 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
    :maxdepth: 1
 
    intro
-   Installation
    getting-started
-   command-line
-   trace-replay
+   mbt/index
+   torxakis_mbt
+   usage/index
    examples/index
 
 
@@ -37,13 +37,22 @@ For other versions see the `documentation overview webpage <DOCUMENT_OVERVIEW_UR
    :caption: Appendices
    :maxdepth: 1
 
-
+   Installation
    grammar/index
+   command-line
    torxakis-help
-   glossary
-   bibliography
-   genindex 
-
-..
    grammar
    grammarv3
+
+
+
+
+\backmatter
+
+.. toctree::
+   :caption: Backmatter
+   :maxdepth: 1
+
+   glossary
+   bibliography
+   genindex

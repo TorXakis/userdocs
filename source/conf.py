@@ -65,19 +65,34 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
+# internal linking  :ref:linkname
 # using :ref: we can use sphinx cross referencing in a sphinx document (between possible different rst files in sphinx project)
-# however :ref: is only used for internal linking, for external linking you must use the standard restructured text
+# however :ref: is only used for internal linking,
+#
+# external linking   linkname_
+# for external linking you must use the standard restructured text
 # syntax using a role with an ending _ character. You can even separate the link and the target definition.
 # However the  target definition from standard restructured text only holds for the current rst file.
+#                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # The trick to have target definitions hold for all rst files in the sphinx project is to include to each
 # rst file the target definitions. We do this by adding an include directive for including hyperlinks.rst
 # to the rst_epilog, so that hyperlinks.rst is then automatically include to rst file.
 #
-#rst_epilog="""
-#.. include:: hyperlinks.rst
-#"""
 rst_epilog="""
+.. include:: /epilog.rst
 """
+# note: officially include directive only supports a relative file argument
+#      https://docutils.sourceforge.io/docs/ref/rst/directives.html#including-an-external-document-fragment
+#        The "include" directive reads a text file. The directive argument is the path to the file to be included,
+#        relative to the document containing the directive.Unless the options literal, code, or parser are given,
+#        the file is parsed in the current document's context at the point of the directive.
+# however https://stackoverflow.com/questions/44563794/how-to-correctly-include-other-rest-files-in-a-sphinx-project
+#      said an absolute path ( root is source/ dir) works also and I verified it!
+
+
+# rst_prolog="""
+# .. include:: /prolog.rst
+# """
 
 numfig = True
 

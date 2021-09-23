@@ -1,3 +1,7 @@
+
+
+.. _chp_getting_started:
+
 Getting started
 ===============
 
@@ -5,25 +9,11 @@ Getting started
 for installation, for executing your first model-based test, and for detecting your first bug
 with ``TorXakis``. As an example, we use an *integer queue*.
 
-For model-based testing you first need the tool ``TorXakis``, second, a :term:`System under Test (SUT)`
-that is a Java program implementing the *queue*, third, a model specifying the behaviour
-of the queue, fourth, a connection between the test tool and the ``SUT``.
-When having all these ingredients, depicted
-in :numref:`Image of Test architecture (Fig. %s) <figtestarchitecture>`  , then you can start running model-based tests.
 
-
-
-
-.. _figtestarchitecture:
-.. figure:: images/testarchitecture.*
-   :alt: Test architecture
-   :align: center
-
-   Test architecture
-
-
-TorXakis Installation
+Get TorXakis running
 ---------------------
+
+For model-based testing you first need the tool ``TorXakis``.
 Download and install ``TorXakis`` for your favourite operation system using the instructions at the  :ref:`Installation chapter <installationchapter>`. After installation you can run ``TorXakis`` in a terminal window, with
 
 .. code:: sh
@@ -45,15 +35,49 @@ to check whether everything was successfully installed:
 
     TXS >> eval 42-17
 
+.. _sec_testing_a_queue:
 
-System Under Test
------------------
+Testing a Queue
+----------------
+
+``code:``  https://github.com/TorXakis/examples/tree/main/Queue
 
 
-The second thing you need for MBT is an ``SUT``. A couple of examples for ``TorXakis`` usage
+A couple of examples for ``TorXakis`` usage
 can be found on the :ref:`Examples chapter <exampleschapter>`.
 
-One of the examples is the *Queue*, which has various models and ``SUTs``.
+One of the examples is the *Queue*, which we will now use to demonstrate the usage of ``TorXakis`` in this *getting
+started* chapter.
+
+Test architecture
+~~~~~~~~~~~~~~~~~
+
+For model-based testing you first need the tool ``TorXakis``, second, a :term:`System under Test (SUT)`
+that is a Java program implementing the *queue*, third, a model specifying the behaviour
+of the queue, fourth, a connection between the test tool and the ``SUT``.
+When having all these ingredients, depicted
+in :numref:`Image of Test architecture (Fig. %s) <figtestarchitecture>`  , then you can start running model-based tests.
+
+
+.. _figtestarchitecture:
+.. figure:: images/testarchitecture.*
+   :alt: Test architecture
+   :align: center
+
+   Test architecture
+
+
+The first thing needed for MBT is a  Model-Based Testing Tool, which in our case is ``TorXakis``.
+The second thing you need for MBT is an ``SUT``, and third thing  a ``Model``.
+
+System Under Test
+~~~~~~~~~~~~~~~~~~~
+
+
+``SUT`` is an abbreviation for *System under Test*, which
+refers to a system that is being tested for correct operation
+
+The *Queue* example has various models and ``SUTs``.
 There is a Java implementation of the *Queue* in ``sut0/QueueServer0.java``,
 which will be our ``SUT`` in these instructions.
 The program is a *Queue*-implementation that offers its service via a plain old socket interface.
@@ -69,35 +93,80 @@ See :numref:`figqueueofints`.
    A Queue of integers
 
 
+
 To experiment with the ``SUT``, compile it and run it, or use the precompiled version, and use the portnumber ``7890``.
 To use the *Queue* we need to connect to it via the plain old socket interface using an application that
 can communicate via sockets, e.g., ``telnet``, ``nc`` (``netcat``), or ``putty``. Start the Java-*Queue* in one window and
-``telnet``, etc. in another, and connect them by choosing the same port number.
+``telnet``, etc. in another, and connect them by choosing the same port number. |nl|
 
-.. code::
 
-                       SUT Window                                  User Window
-            ----------------------------------               --------------------------
-            $ java -jar QueueServer0.jar 7890                $ telnet localhost 7890
-            Waiting for tester                               Trying 127.0.0.1...
-            Tester connected.                                Connected to localhost.
-            []                                               Escape character is ’ˆ]’.
-            [ 42 ]                                           Enq(42)
-            [ 42, -17 ]                                      Enq(-17)
-            [ -17 ]                                          Deq
-                                                             42
+    .. parsed-literal::
 
+                *User Window*                         *SUT Window*
+
+           $ telnet localhost 7890             $ java -jar QueueServer0.jar 7890
+           Trying 127.0.0.1...                 Waiting for tester
+           Connected to localhost.             Tester connected.
+           Escape character is ’ˆ]’.
+                                               [ ]
+           Enq(42)                             [ 42 ]
+           Enq(-17)                            [ 42, -17 ]
+           Deq                                 [ -17 ]
+           42
+
+
+.. https://docutils.sourceforge.io/docs/ref/rst/directives.html#table
+
+ .. table::
+    :align: center
+
+    ==========================       ==================================
+    User Window                      SUT Window
+    ==========================       ==================================
+    $ telnet localhost 7890          $ java -jar QueueServer0.jar 7890
+    Trying 127.0.0.1...              Waiting for tester
+    Connected to localhost.          Tester connected.
+    Escape character is ’ˆ]’.
+                                     [ ]
+    Enq(42)                          [ 42 ]
+    Enq(-17)                         [ 42, -17 ]
+    Deq                              [ -17 ]
+    42
+    ==========================       ==================================
+
+
+
+
+..   .. parsed-literal::
+..
+..               *User Window*                         *SUT Window*
+..          --------------------------          ----------------------------------
+..          $ telnet localhost 7890             $ java -jar QueueServer0.jar 7890
+..          Trying 127.0.0.1...                 Waiting for tester
+..          Connected to localhost.             Tester connected.
+..          Escape character is ’ˆ]’.
+..                                              [ ]
+..          Enq(42)                             [ 42 ]
+..          Enq(-17)                            [ 42, -17 ]
+..          Deq                                 [ -17 ]
+..          42
+..
 
 
 Model
------
+~~~~~
 
 In the *Queue*-example, there are also a couple of ``TorXakis`` models, written in the ``TorXakis`` modelling language ``Txs``.
-One of them is ``Queue.txs``. You can view and edit the model in your favourite plain editor.
+One of them is `Queue.txs <https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Queue.txs>`_.
+
+You can view and edit the model in your favourite plain editor.
 The model specifies an unbounded, first-in-first-out *Queue* of integers.
-There are some comments in the file explaining the model; comments in ``Txs`` are either between ``{-`` and ``-}``, or after ``--`` until end-of- line.
+There are some comments in the file explaining the model; comments in ``Txs`` are either between ``{-`` and ``-}``, or
+after ``--`` until end-of- line.
+
 The state-transition system of the *queue* model is graphically represented as a ``Txs`` state automaton,
-called ``STAUTDEF``, in :numref:`figqstaut`. In such a representation, the ``STAUTDEF`` declaration is textually described and the transitions are visualized as a graph.
+called ``STAUTDEF``, in :numref:`figqstaut`. In such a representation, the ``STAUTDEF`` declaration
+is textually described and the transitions are visualized as a graph.
 
 
 
@@ -107,7 +176,7 @@ called ``STAUTDEF``, in :numref:`figqstaut`. In such a representation, the ``STA
    :figwidth: 70%
    :align: center
 
-   State automaton for the Queue.
+   State automaton for the Queue. (`Qstaut.graphml <https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Qstaut.graphml>`_)
 
 
 You can copy the file ``Queue.txs`` to a new directory; also copy the file ``.torxakis.yaml`` that contains some ``TorXakis``
@@ -144,7 +213,7 @@ and the integer values are randomly chosen, so your result might differ a bit.
 
 
 Model-Based Testing of the Queue
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that we have a ``SUT`` - ``QueueServer0.java`` – and a model specifying the required behaviour of the ``SUT`` – ``Queue.txs`` –,
 we can start testing the ``SUT`` against its model. To test the Queue, run the ``SUT`` in one window and start ``TorXakis``
@@ -179,11 +248,11 @@ easily try bigger numbers, e.g., ``test 7777``. Now you have executed your first
     TXS >>
 
 A Queue Mutant
----------------
+~~~~~~~~~~~~~~~
 
 You have now tested the ``sutQueueServer0.java`` against its model, but ``QueueServer0.java`` does not
 contain bugs (at least, as far as we know, but ... “testing can only show the presence of errors,
-never their absence” [EWD69]_). Detecting bugs is probably more rewarding for testers, so we added in the
+never their absence” [R24]_). Detecting bugs is probably more rewarding for testers, so we added in the
 *Queue*-example three Queue mutants, small modifications in the Java program that may make the ``SUT`` buggy.
 These mutants are ``sut1``, ``sut2``, and ``sut3``. You can test these ``SUT``’s with the same model to see whether
 you can detect (and explain?) the bugs.
