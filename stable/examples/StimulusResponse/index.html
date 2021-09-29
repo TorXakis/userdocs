@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version v0.1.2 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version v0.1.3 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -15,11 +15,12 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Modelling Example: Echo" href="../Echo/index.html" />
-    <link rel="prev" title="Examples" href="../index.html" />
+    <link rel="prev" title="TorXakis Queue Example" href="../Queue/index.html" />
 <link rel="stylesheet" type="text/css"
      href="../../_static/custom.css" />
 
@@ -34,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>stable docs: v0.1.2<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.2/TorXakis-v0.9.0_Userguide-v0.1.2.pdf">pdf</a>
+                version: v0.9.0<br/>stable docs: v0.1.3<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.3/TorXakis-v0.9.0_Userguide-v0.1.3.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -46,34 +47,21 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#benefits">Benefits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#windows">Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#macos">MacOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#linux">Linux</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#for-debian-based-systems">For debian based systems</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#source-build">Source build</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#torxakis-installation">TorXakis Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#system-under-test">System Under Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#model">Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#get-torxakis-running">Get TorXakis running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#testing-a-queue">Testing a Queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#notepad-and-txs">Notepad++ and Txs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#yed-and-txs">yEd and Txs</a></li>
@@ -81,18 +69,63 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../command-line.html#example">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mbt/index.html">Model-Based Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../mbt/mbt.html">Introduction to Model-Based Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#software-testing">Software Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#benefits-of-model-based-testing">Benefits of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#sorts-of-model-based-testing">Sorts of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#theory-for-model-based-testing">Theory for model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#model-based-testing-challenges">Model-based testing challenges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#model-based-testing-tools">Model-based testing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#future-developments">Future developments</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#logs">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mbt/mbt_with_lts.html">Model-Based Testing with Labelled Transition Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#labelled-transition-systems">Labelled transition systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#testing-equivalences">Testing equivalences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#test-generation">Test generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#inputs-and-outputs">Inputs and outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#implementation-relation-ioco">Implementation relation ioco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#torxakis">TorXakis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../torxakis_mbt.html">TorXakis: A Model-Based Testing Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../torxakis_mbt.html#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#modelling">Modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#implementation">Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#innovation">Innovation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../torxakis_mbt.html#usage-overview">Usage overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#system-under-test">System under test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#adapter">Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#other-features">Other features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage/trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#starter-examples">Starter examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../HelloWorld/index.html">HelloWorld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#sut">SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#adapter">Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Queue/index.html">Queue</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">StimulusResponse</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#channels">Channels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#model">Model</a></li>
@@ -230,6 +263,23 @@
 </ul>
 <p><span class="caption-text">Appendices</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#source-build">Source build</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../grammar/index.html">Grammar</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../grammar/CapsId.html">CapsId</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#semantics">Semantics</a></li>
@@ -473,7 +523,21 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#logs">Logs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar.html">Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammarv3.html">Grammarv3</a></li>
+</ul>
+<p><span class="caption-text">Backmatter</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
@@ -498,7 +562,7 @@
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Examples" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Queue/index.html" class="btn btn-neutral float-left" title="TorXakis Queue Example" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Echo/index.html" class="btn btn-neutral float-right" title="Modelling Example: Echo" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -730,7 +794,7 @@ every Stimulus as expected, it will finally conclude:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Queue/index.html" class="btn btn-neutral float-left" title="TorXakis Queue Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Echo/index.html" class="btn btn-neutral float-right" title="Modelling Example: Echo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

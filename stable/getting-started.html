@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting started &mdash; TorXakis v0.9.0, Document version v0.1.2 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Getting started &mdash; TorXakis v0.9.0, Document version v0.1.3 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -15,11 +15,12 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Command Line Interface" href="command-line.html" />
-    <link rel="prev" title="Installation" href="Installation.html" />
+    <link rel="next" title="Model-Based Testing" href="mbt/index.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
 <link rel="stylesheet" type="text/css"
      href="_static/custom.css" />
 
@@ -34,7 +35,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>stable docs: v0.1.2<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.2/TorXakis-v0.9.0_Userguide-v0.1.2.pdf">pdf</a>
+                version: v0.9.0<br/>stable docs: v0.1.3<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.3/TorXakis-v0.9.0_Userguide-v0.1.3.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,34 +47,21 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#why-torxakis">Why TorXakis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#benefits">Benefits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#binary-install">Binary Install</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#windows">Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#macos">MacOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#linux">Linux</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-debian-based-systems">For debian based systems</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#source-build">Source build</a></li>
-</ul>
-</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#torxakis-installation">TorXakis Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system-under-test">System Under Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model">Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-queue-mutant">A Queue Mutant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-torxakis-running">Get TorXakis running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-a-queue">Testing a Queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-queue-mutant">A Queue Mutant</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#notepad-and-txs">Notepad++ and Txs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#yed-and-txs">yEd and Txs</a></li>
@@ -81,18 +69,63 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="command-line.html">Command Line Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="command-line.html#command-history">Command history</a></li>
-<li class="toctree-l2"><a class="reference internal" href="command-line.html#configuration-file">Configuration file</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="command-line.html#example">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mbt/index.html">Model-Based Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mbt/mbt.html">Introduction to Model-Based Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#software-testing">Software Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#benefits-of-model-based-testing">Benefits of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#sorts-of-model-based-testing">Sorts of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#theory-for-model-based-testing">Theory for model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#model-based-testing-challenges">Model-based testing challenges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#model-based-testing-tools">Model-based testing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#future-developments">Future developments</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="command-line.html#logs">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mbt/mbt_with_lts.html">Model-Based Testing with Labelled Transition Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#labelled-transition-systems">Labelled transition systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#testing-equivalences">Testing equivalences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#test-generation">Test generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#inputs-and-outputs">Inputs and outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#implementation-relation-ioco">Implementation relation ioco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#torxakis">TorXakis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="torxakis_mbt.html">TorXakis: A Model-Based Testing Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torxakis_mbt.html#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#modelling">Modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#implementation">Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#innovation">Innovation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="torxakis_mbt.html#usage-overview">Usage overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#system-under-test">System under test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#adapter">Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="torxakis_mbt.html#other-features">Other features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/index.html#starter-examples">Starter examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/HelloWorld/index.html">HelloWorld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#sut">SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#adapter">Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Queue/index.html">Queue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/StimulusResponse/index.html">StimulusResponse</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="examples/StimulusResponse/index.html#channels">Channels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="examples/StimulusResponse/index.html#model">Model</a></li>
@@ -230,6 +263,23 @@
 </ul>
 <p><span class="caption-text">Appendices</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#source-build">Source build</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="grammar/index.html">Grammar</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="grammar/CapsId.html">CapsId</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="grammar/CapsId.html#semantics">Semantics</a></li>
@@ -473,7 +523,21 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="command-line.html#logs">Logs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammarv3.html">Grammarv3</a></li>
+</ul>
+<p><span class="caption-text">Backmatter</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
@@ -497,8 +561,8 @@
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="Installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="command-line.html" class="btn btn-neutral float-right" title="Command Line Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mbt/index.html" class="btn btn-neutral float-right" title="Model-Based Testing" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -506,23 +570,14 @@
            <div itemprop="articleBody">
              
   <section id="getting-started">
-<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<span id="chp-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a tool for Model-Based Testing (MBT). This section gives step-by-step instructions
 for installation, for executing your first model-based test, and for detecting your first bug
 with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>. As an example, we use an <em>integer queue</em>.</p>
-<p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, second, a <a class="reference internal" href="glossary.html#term-system-under-test-sut"><span class="xref std std-term">System under Test (SUT)</span></a>
-that is a Java program implementing the <em>queue</em>, third, a model specifying the behaviour
-of the queue, fourth, a connection between the test tool and the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>.
-When having all these ingredients, depicted
-in <a class="reference internal" href="#figtestarchitecture"><span class="std std-numref">Image of Test architecture (Fig. 1)</span></a>  , then you can start running model-based tests.</p>
-<figure class="align-center" id="id2">
-<span id="figtestarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture.svg" /><figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<section id="torxakis-installation">
-<h2>TorXakis Installation<a class="headerlink" href="#torxakis-installation" title="Permalink to this headline">¶</a></h2>
-<p>Download and install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> for your favourite operation system using the instructions at the  <a class="reference internal" href="Installation.html#installationchapter"><span class="std std-ref">Installation chapter</span></a>. After installation you can run <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> in a terminal window, with</p>
+<section id="get-torxakis-running">
+<h2>Get TorXakis running<a class="headerlink" href="#get-torxakis-running" title="Permalink to this headline">¶</a></h2>
+<p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>.
+Download and install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> for your favourite operation system using the instructions at the  <a class="reference internal" href="Installation.html#installationchapter"><span class="std std-ref">Installation chapter</span></a>. After installation you can run <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> in a terminal window, with</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis
 </pre></div>
 </div>
@@ -538,11 +593,33 @@ to check whether everything was successfully installed:</p>
 </pre></div>
 </div>
 </section>
-<section id="system-under-test">
-<h2>System Under Test<a class="headerlink" href="#system-under-test" title="Permalink to this headline">¶</a></h2>
-<p>The second thing you need for MBT is an <code class="docutils literal notranslate"><span class="pre">SUT</span></code>. A couple of examples for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> usage
+<section id="testing-a-queue">
+<span id="sec-testing-a-queue"></span><h2>Testing a Queue<a class="headerlink" href="#testing-a-queue" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">code:</span></code>  <a class="reference external" href="https://github.com/TorXakis/examples/tree/main/Queue">https://github.com/TorXakis/examples/tree/main/Queue</a></p>
+<p>A couple of examples for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> usage
 can be found on the <a class="reference internal" href="examples/index.html#exampleschapter"><span class="std std-ref">Examples chapter</span></a>.</p>
-<p>One of the examples is the <em>Queue</em>, which has various models and <code class="docutils literal notranslate"><span class="pre">SUTs</span></code>.
+<p>One of the examples is the <em>Queue</em>, which we will now use to demonstrate the usage of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> in this <em>getting
+started</em> chapter.</p>
+<section id="test-architecture">
+<h3>Test architecture<a class="headerlink" href="#test-architecture" title="Permalink to this headline">¶</a></h3>
+<p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, second, a <a class="reference internal" href="glossary.html#term-system-under-test-sut"><span class="xref std std-term">System under Test (SUT)</span></a>
+that is a Java program implementing the <em>queue</em>, third, a model specifying the behaviour
+of the queue, fourth, a connection between the test tool and the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>.
+When having all these ingredients, depicted
+in <a class="reference internal" href="#figtestarchitecture"><span class="std std-numref">Image of Test architecture (Fig. 1)</span></a>  , then you can start running model-based tests.</p>
+<figure class="align-center" id="id2">
+<span id="figtestarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The first thing needed for MBT is a  Model-Based Testing Tool, which in our case is <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>.
+The second thing you need for MBT is an <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, and third thing  a <code class="docutils literal notranslate"><span class="pre">Model</span></code>.</p>
+</section>
+<section id="system-under-test">
+<h3>System Under Test<a class="headerlink" href="#system-under-test" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SUT</span></code> is an abbreviation for <em>System under Test</em>, which
+refers to a system that is being tested for correct operation</p>
+<p>The <em>Queue</em> example has various models and <code class="docutils literal notranslate"><span class="pre">SUTs</span></code>.
 There is a Java implementation of the <em>Queue</em> in <code class="docutils literal notranslate"><span class="pre">sut0/QueueServer0.java</span></code>,
 which will be our <code class="docutils literal notranslate"><span class="pre">SUT</span></code> in these instructions.
 The program is a <em>Queue</em>-implementation that offers its service via a plain old socket interface.
@@ -557,31 +634,35 @@ See <a class="reference internal" href="#figqueueofints"><span class="std std-nu
 <p>To experiment with the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, compile it and run it, or use the precompiled version, and use the portnumber <code class="docutils literal notranslate"><span class="pre">7890</span></code>.
 To use the <em>Queue</em> we need to connect to it via the plain old socket interface using an application that
 can communicate via sockets, e.g., <code class="docutils literal notranslate"><span class="pre">telnet</span></code>, <code class="docutils literal notranslate"><span class="pre">nc</span></code> (<code class="docutils literal notranslate"><span class="pre">netcat</span></code>), or <code class="docutils literal notranslate"><span class="pre">putty</span></code>. Start the Java-<em>Queue</em> in one window and
-<code class="docutils literal notranslate"><span class="pre">telnet</span></code>, etc. in another, and connect them by choosing the same port number.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>           SUT Window                                  User Window
-----------------------------------               --------------------------
-$ java -jar QueueServer0.jar 7890                $ telnet localhost 7890
-Waiting for tester                               Trying 127.0.0.1...
-Tester connected.                                Connected to localhost.
-[]                                               Escape character is ’ˆ]’.
-[ 42 ]                                           Enq(42)
-[ 42, -17 ]                                      Enq(-17)
-[ -17 ]                                          Deq
-                                                 42
-</pre></div>
-</div>
+<code class="docutils literal notranslate"><span class="pre">telnet</span></code>, etc. in another, and connect them by choosing the same port number. <span class="html"><br/></span></p>
+<blockquote>
+<div><pre class="literal-block">     <em>User Window</em>                         <em>SUT Window</em>
+
+$ telnet localhost 7890             $ java -jar QueueServer0.jar 7890
+Trying 127.0.0.1...                 Waiting for tester
+Connected to localhost.             Tester connected.
+Escape character is ’ˆ]’.
+                                    [ ]
+Enq(42)                             [ 42 ]
+Enq(-17)                            [ 42, -17 ]
+Deq                                 [ -17 ]
+42</pre>
+</div></blockquote>
 </section>
 <section id="model">
-<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
 <p>In the <em>Queue</em>-example, there are also a couple of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> models, written in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.
-One of them is <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code>. You can view and edit the model in your favourite plain editor.
+One of them is <a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Queue.txs">Queue.txs</a>.</p>
+<p>You can view and edit the model in your favourite plain editor.
 The model specifies an unbounded, first-in-first-out <em>Queue</em> of integers.
-There are some comments in the file explaining the model; comments in <code class="docutils literal notranslate"><span class="pre">Txs</span></code> are either between <code class="docutils literal notranslate"><span class="pre">{-</span></code> and <code class="docutils literal notranslate"><span class="pre">-}</span></code>, or after <code class="docutils literal notranslate"><span class="pre">--</span></code> until end-of- line.
-The state-transition system of the <em>queue</em> model is graphically represented as a <code class="docutils literal notranslate"><span class="pre">Txs</span></code> state automaton,
-called <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code>, in <a class="reference internal" href="#figqstaut"><span class="std std-numref">Fig. 3</span></a>. In such a representation, the <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> declaration is textually described and the transitions are visualized as a graph.</p>
+There are some comments in the file explaining the model; comments in <code class="docutils literal notranslate"><span class="pre">Txs</span></code> are either between <code class="docutils literal notranslate"><span class="pre">{-</span></code> and <code class="docutils literal notranslate"><span class="pre">-}</span></code>, or
+after <code class="docutils literal notranslate"><span class="pre">--</span></code> until end-of- line.</p>
+<p>The state-transition system of the <em>queue</em> model is graphically represented as a <code class="docutils literal notranslate"><span class="pre">Txs</span></code> state automaton,
+called <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code>, in <a class="reference internal" href="#figqstaut"><span class="std std-numref">Fig. 3</span></a>. In such a representation, the <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> declaration
+is textually described and the transitions are visualized as a graph.</p>
 <figure class="align-center" id="id4" style="width: 70%">
 <span id="figqstaut"></span><img alt="State automaton for the Queue." src="_images/qstaut.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">State automaton for the Queue.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">State automaton for the Queue. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Qstaut.graphml">Qstaut.graphml</a>)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>You can copy the file <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code> to a new directory; also copy the file <code class="docutils literal notranslate"><span class="pre">.torxakis.yaml</span></code> that contains some <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
@@ -616,7 +697,7 @@ TXS &gt;&gt;
 </div>
 </section>
 <section id="model-based-testing-of-the-queue">
-<h2>Model-Based Testing of the Queue<a class="headerlink" href="#model-based-testing-of-the-queue" title="Permalink to this headline">¶</a></h2>
+<h3>Model-Based Testing of the Queue<a class="headerlink" href="#model-based-testing-of-the-queue" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have a <code class="docutils literal notranslate"><span class="pre">SUT</span></code> - <code class="docutils literal notranslate"><span class="pre">QueueServer0.java</span></code> – and a model specifying the required behaviour of the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> – <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code> –,
 we can start testing the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> against its model. To test the Queue, run the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> in one window and start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
 with the model as input, in another window. When <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> gives its prompt, start testing with <code class="docutils literal notranslate"><span class="pre">tester</span> <span class="pre">Queue</span> <span class="pre">Sut</span></code>,
@@ -649,13 +730,14 @@ TXS &gt;&gt;
 </div>
 </section>
 <section id="a-queue-mutant">
-<h2>A Queue Mutant<a class="headerlink" href="#a-queue-mutant" title="Permalink to this headline">¶</a></h2>
+<h3>A Queue Mutant<a class="headerlink" href="#a-queue-mutant" title="Permalink to this headline">¶</a></h3>
 <p>You have now tested the <code class="docutils literal notranslate"><span class="pre">sutQueueServer0.java</span></code> against its model, but <code class="docutils literal notranslate"><span class="pre">QueueServer0.java</span></code> does not
 contain bugs (at least, as far as we know, but … “testing can only show the presence of errors,
-never their absence” <a class="reference internal" href="bibliography.html#ewd69" id="id1"><span>[EWD69]</span></a>). Detecting bugs is probably more rewarding for testers, so we added in the
+never their absence” <a class="reference internal" href="bibliography.html#r24" id="id1"><span>[R24]</span></a>). Detecting bugs is probably more rewarding for testers, so we added in the
 <em>Queue</em>-example three Queue mutants, small modifications in the Java program that may make the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> buggy.
 These mutants are <code class="docutils literal notranslate"><span class="pre">sut1</span></code>, <code class="docutils literal notranslate"><span class="pre">sut2</span></code>, and <code class="docutils literal notranslate"><span class="pre">sut3</span></code>. You can test these <code class="docutils literal notranslate"><span class="pre">SUT</span></code>’s with the same model to see whether
 you can detect (and explain?) the bugs.</p>
+</section>
 </section>
 <section id="utilities">
 <h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
@@ -707,8 +789,8 @@ the <code class="docutils literal notranslate"><span class="pre">.graphml</span>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="command-line.html" class="btn btn-neutral float-right" title="Command Line Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mbt/index.html" class="btn btn-neutral float-right" title="Model-Based Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

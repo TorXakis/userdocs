@@ -1,7 +1,6 @@
 
-Introduction TorXakis
-==================================
-
+Introduction
+=============
 
 High-tech embedded systems are characterized by many components interacting closely with each other. These complex
 systems are extensively tested to ensure quality and performance. Although some testing activities have been automated,

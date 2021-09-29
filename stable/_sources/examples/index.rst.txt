@@ -18,9 +18,12 @@ Starter examples
 .. toctree::
     :maxdepth: 1
 
+    HelloWorld <HelloWorld/index.rst>
+    Queue <Queue/index.rst>
     StimulusResponse <StimulusResponse/index.rst>
     Echo <Echo/index.rst>
     Adder <Adder/index.rst>
+
 
 Advanced examples
 ~~~~~~~~~~~~~~~~~

@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trace and replay functionality &mdash; TorXakis v0.9.0, Document version v0.1.2 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>TorXakis: A Model-Based Testing Tool &mdash; TorXakis v0.9.0, Document version v0.1.3 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -15,11 +15,12 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Examples" href="examples/index.html" />
-    <link rel="prev" title="Command Line Interface" href="command-line.html" />
+    <link rel="next" title="Usage" href="usage/index.html" />
+    <link rel="prev" title="Model-Based Testing with Labelled Transition Systems" href="mbt/mbt_with_lts.html" />
 <link rel="stylesheet" type="text/css"
      href="_static/custom.css" />
 
@@ -34,7 +35,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>stable docs: v0.1.2<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.2/TorXakis-v0.9.0_Userguide-v0.1.2.pdf">pdf</a>
+                version: v0.9.0<br/>stable docs: v0.1.3<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/v0.1.3/TorXakis-v0.9.0_Userguide-v0.1.3.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,34 +47,21 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction TorXakis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#why-torxakis">Why TorXakis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#benefits">Benefits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#binary-install">Binary Install</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#windows">Windows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#macos">MacOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#linux">Linux</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-debian-based-systems">For debian based systems</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#source-build">Source build</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#torxakis-installation">TorXakis Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#system-under-test">System Under Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#model">Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#get-torxakis-running">Get TorXakis running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#testing-a-queue">Testing a Queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="getting-started.html#utilities">Utilities</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="getting-started.html#notepad-and-txs">Notepad++ and Txs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="getting-started.html#yed-and-txs">yEd and Txs</a></li>
@@ -81,18 +69,63 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="command-line.html">Command Line Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="command-line.html#command-history">Command history</a></li>
-<li class="toctree-l2"><a class="reference internal" href="command-line.html#configuration-file">Configuration file</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="command-line.html#example">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mbt/index.html">Model-Based Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mbt/mbt.html">Introduction to Model-Based Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#software-testing">Software Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#benefits-of-model-based-testing">Benefits of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#sorts-of-model-based-testing">Sorts of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#theory-for-model-based-testing">Theory for model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#model-based-testing-challenges">Model-based testing challenges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#model-based-testing-tools">Model-based testing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt.html#future-developments">Future developments</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="command-line.html#logs">Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mbt/mbt_with_lts.html">Model-Based Testing with Labelled Transition Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#labelled-transition-systems">Labelled transition systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#testing-equivalences">Testing equivalences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#test-generation">Test generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#inputs-and-outputs">Inputs and outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#implementation-relation-ioco">Implementation relation ioco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mbt/mbt_with_lts.html#torxakis">TorXakis</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Trace and replay functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TorXakis: A Model-Based Testing Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelling">Modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#innovation">Innovation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-overview">Usage overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-under-test">System under test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adapter">Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-features">Other features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples/index.html#starter-examples">Starter examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples/HelloWorld/index.html">HelloWorld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#sut">SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#adapter">Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/HelloWorld/index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Queue/index.html">Queue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/StimulusResponse/index.html">StimulusResponse</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="examples/StimulusResponse/index.html#channels">Channels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="examples/StimulusResponse/index.html#model">Model</a></li>
@@ -230,6 +263,23 @@
 </ul>
 <p><span class="caption-text">Appendices</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#source-build">Source build</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="grammar/index.html">Grammar</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="grammar/CapsId.html">CapsId</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="grammar/CapsId.html#semantics">Semantics</a></li>
@@ -473,7 +523,21 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="command-line.html#logs">Logs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grammarv3.html">Grammarv3</a></li>
+</ul>
+<p><span class="caption-text">Backmatter</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
@@ -493,146 +557,256 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Trace and replay functionality</li>
+      <li>TorXakis: A Model-Based Testing Tool</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="command-line.html" class="btn btn-neutral float-left" title="Command Line Interface" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="examples/index.html" class="btn btn-neutral float-right" title="Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mbt/mbt_with_lts.html" class="btn btn-neutral float-left" title="Model-Based Testing with Labelled Transition Systems" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage/index.html" class="btn btn-neutral float-right" title="Usage" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="trace-and-replay-functionality">
-<h1>Trace and replay functionality<a class="headerlink" href="#trace-and-replay-functionality" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> offers the possibility of writing the trace of a test, simulator,
-or stepper run to a file. This trace can be used subsequently to replay a test,
-which is useful in case a given error needs to be debugged. We illustrate this
-by means of the <a class="reference internal" href="examples/Adder/index.html#adder-example"><span class="std std-ref">Adder example</span></a>.</p>
-<p>To execute TorXakis against the actual SUT, the SUT must first be running and listening on
-port 7890. Run in a terminal window  the  <a class="reference internal" href="examples/Adder/index.html#adderjava"><span class="std std-ref">Adder SUT</span></a>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ java -cp Adder <span class="m">7890</span>
-</pre></div>
-</div>
-<p>Then in a different terminal window run <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> against the SUT:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis Adder.txs
-TXS &gt;&gt; tester Adder SutConnection
-TXS &gt;&gt; <span class="nb">test</span> <span class="m">10</span>
-</pre></div>
-</div>
-<p>This will produce an output similar to this:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( Action, [ Plus(-7059,-2147474793) ] ) } }
-TXS &gt;&gt;  .....2: OUT: Act { { ( Result, [ -2147481852 ] ) } }
-TXS &gt;&gt;  .....3: IN: Act { { ( Action, [ Plus(2245,-2147477795) ] ) } }
-TXS &gt;&gt;  .....4: OUT: Act { { ( Result, [ -2147475550 ] ) } }
-TXS &gt;&gt;  .....5: IN: Act { { ( Action, [ Plus(-2662,-2147474703) ] ) } }
-TXS &gt;&gt;  .....6: OUT: Act { { ( Result, [ -2147477365 ] ) } }
-TXS &gt;&gt;  .....7: IN: Act { { ( Action, [ Minus(-2147477744,-2147481994) ] ) } }
-TXS &gt;&gt;  .....8: OUT: Act { { ( Result, [ 4250 ] ) } }
-TXS &gt;&gt;  .....9: IN: Act { { ( Action, [ Plus(-2147473923,-7450) ] ) } }
-TXS &gt;&gt;  ....10: OUT: Act { { ( Result, [ -2147481373 ] ) } }
-TXS &gt;&gt;  PASS
-</pre></div>
-</div>
-<p>Which corresponds with the output observed at the SUT:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting 1 adders.
-Starting an adder listening on port 7890
-Adders on port 7890 received input: Plus(-7059,-2147474793)
--2147481852
-Adders on port 7890 received input: Plus(2245,-2147477795)
--2147475550
-Adders on port 7890 received input: Plus(-2662,-2147474703)
--2147477365
-Adders on port 7890 received input: Minus(-2147477744,-2147481994)
-4250
-Adders on port 7890 received input: Plus(-2147473923,-7450)
--2147481373
-</pre></div>
-</div>
-<p>Then save the trace and exit <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt; trace purp $&gt; AdderPurpose.txs
-TXS &gt;&gt; exit
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">trace</span></code> command will produce a <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> source file with the
-following contents:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PROCDEF replayProc [Action :: Operation; Result :: Int]() HIT
-::=
-Action ! Plus(-7059,-2147474793)
-&gt;-&gt; Result ! -2147481852
-&gt;-&gt; Action ! Plus(2245,-2147477795)
-&gt;-&gt; Result ! -2147475550
-&gt;-&gt; Action ! Plus(-2662,-2147474703)
-&gt;-&gt; Result ! -2147477365
-&gt;-&gt; Action ! Minus(-2147477744,-2147481994)
-&gt;-&gt; Result ! 4250
-&gt;-&gt; Action ! Plus(-2147473923,-7450)
-&gt;-&gt; Result ! -2147481373
-&gt;-&gt; HIT
-ENDDEF
-</pre></div>
-</div>
-<p>Here we see that the actions on the <code class="docutils literal notranslate"><span class="pre">replayProc</span></code> process correspond with the
-output we observed when running the tests.</p>
-<p>Using the trace (in the form a process) generated by <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, together
-with an <a class="reference external" href="https://github.com/TorXakis/TorXakis/blob/develop/examps/Adder/AdderReplay.txs">AdderReplay</a>
-purpose definition:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-- | Adder model that uses the trace generated as test purpose.
-PURPDEF AdderReplay ::=
-    CHAN IN    Action
-    CHAN OUT   Result
-    -- Process `replayProc` will be generated by running TorXakis with the
-    -- `Adder` model and the SUT, as follows:
-    --
-    -- &gt; tester Adder Sut
-    -- &gt; test 10
-    -- &gt; trace purp $&gt; AdderPurpose.txs
-    -- &gt; exit
-    --
-    -- Therefore this file should be loaded together with the generated purpose
-    -- above (`AdderPurpose.txs`).
-    GOAL replayAdd ::= replayProc [ Action, Result ] ( )
-ENDDEF
-</pre></div>
-</div>
-<p>we can replay this test by restarting the SUT and executing the following
-commands in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> command-line:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt; tester Adder AdderReplay SutConnection
-TXS &gt;&gt; test 11
-</pre></div>
-</div>
-<p>This will produce the following output:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  test 11
-TXS &gt;&gt;  .....1: IN: Act { { ( Action, [ Plus(-7059,-2147474793) ] ) } }
-TXS &gt;&gt;  .....2: OUT: Act { { ( Result, [ -2147481852 ] ) } }
-TXS &gt;&gt;  .....3: IN: Act { { ( Action, [ Plus(2245,-2147477795) ] ) } }
-TXS &gt;&gt;  .....4: OUT: Act { { ( Result, [ -2147475550 ] ) } }
-TXS &gt;&gt;  .....5: IN: Act { { ( Action, [ Plus(-2662,-2147474703) ] ) } }
-TXS &gt;&gt;  .....6: OUT: Act { { ( Result, [ -2147477365 ] ) } }
-TXS &gt;&gt;  .....7: IN: Act { { ( Action, [ Minus(-2147477744,-2147481994) ] ) } }
-TXS &gt;&gt;  .....8: OUT: Act { { ( Result, [ 4250 ] ) } }
-TXS &gt;&gt;  .....9: IN: Act { { ( Action, [ Plus(-2147473923,-7450) ] ) } }
-TXS &gt;&gt;  ....10: OUT: Act { { ( Result, [ -2147481373 ] ) } }
-TXS &gt;&gt;  ....11: OUT: No Output (Quiescence)
-TXS &gt;&gt;  Goal replayAdd: Hit
-TXS &gt;&gt;  PASS
-</pre></div>
-</div>
-<p>Since we ran the <code class="docutils literal notranslate"><span class="pre">Adder</span></code> model with an <code class="docutils literal notranslate"><span class="pre">AdderReplay</span></code> purpose the possible
-actions of the model are constrained by the latter, allowing us to replay the
-behavior observed when running the tests. Note <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> still does one
-extra check, so we specified one extra step (<code class="docutils literal notranslate"><span class="pre">11</span></code> instead of <code class="docutils literal notranslate"><span class="pre">10</span></code>) to
-account for this check.</p>
+  <section id="torxakis-a-model-based-testing-tool">
+<h1>TorXakis: A Model-Based Testing Tool<a class="headerlink" href="#torxakis-a-model-based-testing-tool" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a tool for model-based testing. This section gives a
+high-level overview of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>. The next sections will illustrate
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> with a couple of examples. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is open source
+software and is freely available under a BSD3 license  <a class="reference internal" href="bibliography.html#r58" id="id1"><span>[R58]</span></a>.</p>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> implements the <strong>ioco</strong>-testing theory for
+labelled transition systems. More specifically, it implements test
+generation for symbolic transition systems (STS) following the
+on-the-fly <strong>sioco</strong> test generation algorithm described in  <a class="reference internal" href="bibliography.html#r29" id="id2"><span>[R29]</span></a>. This
+means that conformance in <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is precisely defined by the
+<strong>ioco</strong>-implementation relation, the testability hypothesis is that
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> s behave as inputenabled labelled transition systems, and test
+generation is sound and, in the limit, exhaustive. Being based on the
+<strong>ioco</strong>-theory, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> supports uncertainty and abstraction
+through non-determinism, and partial and under-specification.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> emphasizes <em>formal</em>, <em>specification-based</em>, <em>active</em>,
+<em>black-box</em> model-based testing of <em>functionality</em> of <em>dynamic,
+data-intensive, reactive systems</em>. Reactive systems react to external
+events (stimuli, triggers, inputs) with output events (responses,
+actions, outputs)  <a class="reference internal" href="bibliography.html#r54" id="id3"><span>[R54]</span></a>. In dynamic systems, outputs depend on inputs as
+well as on the system state. Data-intensive means that instances of
+complex data structures are communicated in inputs and outputs, and that
+state transitions may involve complex computations and constraints.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is an on-the-fly (on-line) MBT tool which means that it
+combines test generation and test execution: generated test steps are
+immediately executed on the <code class="docutils literal notranslate"><span class="pre">sut</span></code> and responses from the <code class="docutils literal notranslate"><span class="pre">sut</span></code> are
+immediately checked and used when calculating the next step in test
+generation.</p>
+<p>Currently, only random test selection is supported, i.e.,
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> chooses a random action among the possible inputs to the
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> in the current state. This involves choosing among the
+transitions of the STS and choosing a value from the (infinite,
+constrained) data items attached to the transition. The latter involves
+constraint solving. To direct and set goals for testing, the selection
+can be restricted using user-specified <em>test purposes</em>  <a class="reference internal" href="bibliography.html#r67" id="id4"><span>[R67]</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is an experimental MBT tool, used in research, education,
+and some case studies and experiments in industry.
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> currently misses good usability, scalability does not
+always match the requirements of complex systems, and test selection is
+still mainly random, but more sophisticated selection strategies are
+being investigated <a class="reference internal" href="bibliography.html#r12" id="id5"><span>[R12]</span></a> <a class="reference internal" href="bibliography.html#r13" id="id6"><span>[R13]</span></a>. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> does not support
+probabilities, real-time, or hybrid properties in system models.</p>
+</section>
+<section id="modelling">
+<h3>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h3>
+<p>Labelled transition systems or symbolic transition
+systems form a well-defined semantic basis for modelling and model-based
+testing, but they are not directly suitable for writing down models
+explicitly. Typically, realistic systems have more states than there are
+atoms on earth (which is estimated to be approximately 10 <sup>50</sup>) so
+an explicit representation of states is impossible. What is needed is a
+language to represent large labelled transition systems. <em>Process
+algebras</em> have semantics in terms of labeled transition systems, they
+support different ways of composition, such as choice, parallelism,
+concurrency, sequencing, etc., and they were heavily investigated in the
+eighties  <a class="reference internal" href="bibliography.html#r50" id="id7"><span>[R50]</span></a> <a class="reference internal" href="bibliography.html#r39" id="id8"><span>[R39]</span></a> <a class="reference internal" href="bibliography.html#r42" id="id9"><span>[R42]</span></a>. They are a good candidate to serve as a notation
+for LTS models.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> uses its own process-algebraic language
+<code class="docutils literal notranslate"><span class="pre">Txs</span></code> (pronounced <em>t`ex`es</em>) to express models. The language is
+strongly inspired by the process-algebraic language <code class="docutils literal notranslate"><span class="pre">Lotos</span></code> <a class="reference internal" href="bibliography.html#r11" id="id10"><span>[R11]</span></a> <a class="reference internal" href="bibliography.html#r42" id="id11"><span>[R42]</span></a>,
+and incorporates ideas from <code class="docutils literal notranslate"><span class="pre">Extended</span> <span class="pre">Lotos</span></code>  <a class="reference internal" href="bibliography.html#r16" id="id12"><span>[R16]</span></a> and mCRL2  <a class="reference internal" href="bibliography.html#r34" id="id13"><span>[R34]</span></a>,
+combined with plain state-transition systems. The semantics is based on
+STS, which in turn has semantics in LTS. Having its roots in process
+algebra, the language is compositional. It has several operators to
+combine transition systems: sequencing, choice, parallel composition
+with and without communication, interrupt, disable, and abstraction
+(hiding). Communication between processes can be multi-way, and actions
+can be built using multiple labels.</p>
+<p>Since symbolic transition systems (STS) combine state-based control flow
+with possibly infinite, complex data structures  <a class="reference internal" href="bibliography.html#r30" id="id14"><span>[R30]</span></a>, the
+process-algebraic part is complemented with a data specification
+language based on algebraic data types (ADT) and functions like in
+functional languages. In addition to user-defined ADTs, predefined data
+types such as booleans, unbounded integers, and strings are provided.</p>
+</section>
+<section id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is based on the model-based testing
+tools <code class="docutils literal notranslate"><span class="pre">TorX</span></code>  <a class="reference internal" href="bibliography.html#r6" id="id15"><span>[R6]</span></a> and <code class="docutils literal notranslate"><span class="pre">JTorX</span></code>  <a class="reference internal" href="bibliography.html#r5" id="id16"><span>[R5]</span></a>. The main additions are data
+specification and manipulation with algebraic data types, and its own,
+welldefined modelling language. Like <code class="docutils literal notranslate"><span class="pre">TorX</span></code> and <code class="docutils literal notranslate"><span class="pre">JTorX</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> generates tests by first unfolding the process expressions
+from the model into a <em>behaviour tree</em>, on which primitives are defined
+for generating test cases. Unlike <code class="docutils literal notranslate"><span class="pre">TorX</span></code> and <code class="docutils literal notranslate"><span class="pre">JTorX</span></code>,
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> does not unfold data into all possible concrete data
+values, but it keeps data symbolically. Unfolding of process expressions
+is similar to the LOTOS simulators HIPPO <a class="reference internal" href="bibliography.html#r27" id="id17"><span>[R27]</span></a> <a class="reference internal" href="bibliography.html#r59" id="id18"><span>[R59]</span></a> and SMILE  <a class="reference internal" href="bibliography.html#r26" id="id19"><span>[R26]</span></a>.</p>
+<p>In order to manipulate symbolic data and solve constraints for test-data
+generation, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> uses SMT solvers (Satisfaction Modulo
+Theories)  <a class="reference internal" href="bibliography.html#r22" id="id20"><span>[R22]</span></a>. Currently, Z3 and CVC4 are used via the SMT-LIBv2.5
+standard interface  <a class="reference internal" href="bibliography.html#r21" id="id21"><span>[R21]</span></a>  <a class="reference internal" href="bibliography.html#r4" id="id22"><span>[R4]</span></a> <a class="reference internal" href="bibliography.html#r20" id="id23"><span>[R20]</span></a>. Term rewriting is used to evaluate data
+expressions and functions.</p>
+<p>The well-defined process-algebraic basis with <strong>ioco</strong> semantics makes
+it possible to perform optimizations and reductions based on equational
+reasoning with testing equivalence, which implies <strong>ioco</strong>-semantics.</p>
+<p>The core of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is implemented in the functional language
+Haskell  <a class="reference internal" href="bibliography.html#r36" id="id24"><span>[R36]</span></a>, while parts of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> itself have been tested with
+the Haskell MBT tool QuickCheck  <a class="reference internal" href="bibliography.html#r19" id="id25"><span>[R19]</span></a>.</p>
+</section>
+<section id="innovation">
+<h3>Innovation<a class="headerlink" href="#innovation" title="Permalink to this headline">¶</a></h3>
+<p>Compared to other model-based testing tools
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> deals with some of the important challenges posed in Sect.
+2: it offers support for test generation from non-deterministic models,
+it deals with abstraction, partial models and under-specification, it
+supports concurrency and parallelism, it enables composition of complex
+models from simpler models, and it combines constructive modelling in
+transition systems with property-oriented specification via data
+constraints.</p>
+</section>
+</section>
+<section id="usage-overview">
+<h2>Usage overview<a class="headerlink" href="#usage-overview" title="Permalink to this headline">¶</a></h2>
+<p>In this section we give  an overview of the general usage of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>.
+In later chapters we discuss its usage in more details, and in the Examples
+chapter we discuss the usage of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to learn a specific example in detail.</p>
+<section id="test-architecture">
+<h3>Test architecture<a class="headerlink" href="#test-architecture" title="Permalink to this headline">¶</a></h3>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, we need a <em>System Under Test</em> (<code class="docutils literal notranslate"><span class="pre">sut</span></code>), a
+<em>model</em> specifying the required and allowed behaviour of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>,
+and an <em>adapter</em> (also called test harness, wrapper, testing glue, or
+test scaffolding) to connect the actual <code class="docutils literal notranslate"><span class="pre">sut</span></code> to the test tool
+<code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>; see in <a class="reference internal" href="#fig-usage-testarchitecture"><span class="std std-numref">Image of Test architecture (Fig. 4)</span></a>.</p>
+<figure class="align-center" id="id28">
+<span id="fig-usage-testarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="system-under-test">
+<h3>System under test<a class="headerlink" href="#system-under-test" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">sut</span></code> is the actual program, compoenent,
+or system that we wish to test. The <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> view of an <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
+a black-box communicating with messages on its interfaces. Interfaces
+can be distinguished as either an input interface, where the environment
+takes the initiative and the system always accepts the action
+(input-enabledness; black arrows going into the <code class="docutils literal notranslate"><span class="pre">sut</span></code> in Fig. 4), or
+an output interface, where the system takes the initiative and the
+environment always accepts (input-enabledness of the environment for the
+output actions of the system; black arrows going out of the <code class="docutils literal notranslate"><span class="pre">sut</span></code> in
+Fig. 4). Interfaces are modelled as <em>channels</em> in <code class="docutils literal notranslate"><span class="pre">Txs</span></code>. So, an input
+is a message sent by the tester to the <code class="docutils literal notranslate"><span class="pre">sut</span></code> on an input channel; an
+output is the observation by the tester of a message from the
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> on an output channel.</p>
+<p>An instance of behaviour of the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is a possible sequence of input
+and output actions. The goal of testing is to compare the actual
+behaviour that the <code class="docutils literal notranslate"><span class="pre">sut</span></code> exhibits with the behaviour specified in the
+model.</p>
+<p>Figure 4: Test architecture.</p>
+<p>Technically, channels are implemented as plain old sockets where
+messages are line-based strings, or string-encodings of some typed data.
+So, technically, the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> view of an <code class="docutils literal notranslate"><span class="pre">sut</span></code> is a black-box
+communicating with strings on a couple of sockets.</p>
+</section>
+<section id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<p>The model is written in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language
+<code class="docutils literal notranslate"><span class="pre">Txs</span></code>. A model consists of a collection of definitions. There are
+channel, data-type, function, constant, process, and state-automaton
+definitions, which are contained in one or multiple files. In addition,
+there are some testing-specific definition: connections and
+en/decodings. A connection definition defines how <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> will
+connect to the <code class="docutils literal notranslate"><span class="pre">sut</span></code> for test execution. It can been as a proxy for
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code>: it specifies the binding of abstract channels in the model
+to concrete sockets. En/decodings specify the mapping of abstract
+messages (ADTs) to strings and vice versa. The next sections will
+explain the details of modelling using some examples.</p>
+<p>The model shall specify the allowed behaviour of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, i.e., the
+allowed sequences of input and output actions exchanged on its channels.
+The basic structure to describe the allowed sequences is a
+state-transition system with data, called <em>state-automaton</em> in <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.
+These state-transition systems can be composed using combinators
+(process-algebraic operators), so that complex state-transition systems
+can be constructed from simple ones. Combinators include sequencing of
+transition systems, choice, guards, parallelism, synchronization,
+communication, interrupt, disable, and abstraction (hiding of actions).</p>
+<p>The data items used in these state-transition systems are either of
+standard data types such as integer, boolean, or string, or they are
+user-defined algebraic data-type definitions. Also functions and
+constants over data can be defined.</p>
+</section>
+<section id="adapter">
+<h3>Adapter<a class="headerlink" href="#adapter" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> communicates with the <code class="docutils literal notranslate"><span class="pre">sut</span></code> via sockets,
+so either the <code class="docutils literal notranslate"><span class="pre">sut</span></code> must offer a socket interface – which a lot of
+real-life <code class="docutils literal notranslate"><span class="pre">sut</span></code> s don’t do – or the <code class="docutils literal notranslate"><span class="pre">sut</span></code> must be connected via an
+adapter, wrapper, test harness, or glueing software, that interfaces the
+<code class="docutils literal notranslate"><span class="pre">sut</span></code> to <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, and that transforms the native communication
+of the <code class="docutils literal notranslate"><span class="pre">sut</span></code> to the socket communication that <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> requires.
+Usually, such an adapter must be manually developed. Sometimes it is
+simple, e.g., transforming standard I/O into socket communication using
+standard (Unix) tools like <code class="docutils literal notranslate"><span class="pre">netcat</span></code> or <code class="docutils literal notranslate"><span class="pre">socat</span></code>. Sometimes, building
+an adapter can be quite cumbersome, e.g., when the <code class="docutils literal notranslate"><span class="pre">sut</span></code> provides a
+GUI. In this case tools like <code class="docutils literal notranslate"><span class="pre">Selenium</span></code>  <a class="reference internal" href="bibliography.html#r56" id="id26"><span>[R56]</span></a> or <code class="docutils literal notranslate"><span class="pre">Sikuli</span></code>  <a class="reference internal" href="bibliography.html#r57" id="id27"><span>[R57]</span></a> may
+be used to adapt a GUI or a web interface to socket communication. An
+adapter is not specific for MBT but is required for any form of
+automated test execution. If traditional test automation is in place
+then this infrastructure can quite often be reused as adapter for MBT.</p>
+<p>Even when a <code class="docutils literal notranslate"><span class="pre">sut</span></code> communicates over sockets, there is still a caveat:
+sockets have asynchronous communication whereas models and test
+generation assume synchronous communication. This may lead to race
+conditions if a model offers the choice between an input and an output.
+If this occurs the asynchronous communication of the sockets must be
+explicitly modelled, e.g., as queues in the model.</p>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Once we have an <code class="docutils literal notranslate"><span class="pre">sut</span></code>, a model, and an adapter, we can
+use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to run tests. The tool performs on-the-fly testing of
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code> by automatically generating test steps from the model and
+immediately executing these test steps on the <code class="docutils literal notranslate"><span class="pre">sut</span></code>, while observing
+and checking the responses from the <code class="docutils literal notranslate"><span class="pre">sut</span></code>. A test case may consist of
+thousands of such test steps, which makes it also suitable for
+reliability testing, and it will eventually lead to a verdict for the
+test case.</p>
+</section>
+<section id="other-features">
+<h3>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h3>
+<p>Other functionality of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> includes
+calculation of data values, constraint solving for data variables,
+exploration of a model without connecting to an <code class="docutils literal notranslate"><span class="pre">sut</span></code> (closed
+simulation), and simulation of a model in an environment, i.e.,
+simulation while connected to the outside world (open simulation).</p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="command-line.html" class="btn btn-neutral float-left" title="Command Line Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="examples/index.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mbt/mbt_with_lts.html" class="btn btn-neutral float-left" title="Model-Based Testing with Labelled Transition Systems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage/index.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
