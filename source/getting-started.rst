@@ -115,10 +115,23 @@ can communicate via sockets, e.g., ``telnet``, ``nc`` (``netcat``), or ``putty``
            42
 
 
+
+
+.. figure:: images/test/table.*
+   :alt: table from pdf
+   :align: center
+
+   table from pdf
+
+
+
 .. https://docutils.sourceforge.io/docs/ref/rst/directives.html#table
 
- .. table::
+.. .. tabularcolumns:: ll
+
+.. table::
     :align: center
+    :class: noborder
 
     ==========================       ==================================
     User Window                      SUT Window
@@ -284,7 +297,7 @@ The graph edited in *yEd* shall be saved in *Trivial Graph Format* ``TGF`` (``*.
 
 The result is a ``STAUTDEF`` – a State Automaton Definition in the language ``Txs``:
 
-.. code:: sh
+.. code:: torxakis
 
     STAUTDEF queueStaut [ Inp :: QueueOp; Outp :: Int ] ( )
     ::=

@@ -14,3 +14,27 @@
 
 .. |~| unicode:: 0xA0
    :trim:
+
+
+
+
+
+.. role:: black
+.. role:: blue
+.. role:: brown
+.. role:: cyan
+.. role:: darkgray
+.. role:: gray
+.. role:: green
+.. role:: lightgray
+.. role:: lime
+.. role:: magenta
+.. role:: olive
+.. role:: orange
+.. role:: pink
+.. role:: purple
+.. role:: red
+.. role:: teal
+.. role:: violet
+.. role:: white
+.. role:: yellow

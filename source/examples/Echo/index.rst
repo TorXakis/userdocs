@@ -18,7 +18,7 @@ simplicity, let's limit the inputs to only be integers. We can `define
 the channels <https://github.com/TorXakis/TorXakis/wiki/ChanDefs>`__
 needed for modelling this behaviour as:
 
-::
+.. code-block:: txs
 
    CHANDEF  Chans ::=  In, Out :: Int
    ENDDEF
@@ -30,7 +30,7 @@ We need to define the process of receiving the input and communicating
 it to the output channel. Here is our `process
 definition <https://github.com/TorXakis/TorXakis/wiki/ProcDefs>`__:
 
-::
+.. code-block:: txs
 
    PROCDEF  proc  [ In, Out :: Int ]  ( ) ::=
            In ? x
@@ -48,7 +48,7 @@ process that is defined above. The `Model
 Definition <https://github.com/TorXakis/TorXakis/wiki/ModelDefs>`__ of
 this system in TorXakis is as follows:
 
-::
+.. code-block:: txs
 
    MODELDEF  Model ::=
            CHAN IN     In
@@ -105,7 +105,7 @@ just have to `define the
 connection <https://github.com/TorXakis/TorXakis/wiki/CnectDefs>`__ to
 be used by the Simulator:
 
-::
+.. code-block:: txs
 
    CNECTDEF  Sim ::=
            SERVERSOCK
@@ -139,7 +139,7 @@ lines i.e. strings terminated by a line feed, over a socket at port
 `SUT connection <https://github.com/TorXakis/TorXakis/wiki/CnectDefs>`__
 can be defined in TorXakis as follows:
 
-::
+.. code-block:: txs
 
    CNECTDEF  Sut ::=
            CLIENTSOCK
@@ -267,7 +267,7 @@ them as well. Let's `define another SUT
 connection <https://github.com/TorXakis/TorXakis/wiki/CnectDefs>`__ and
 a simulator, both of which use XML-based communication.
 
-::
+.. code-block:: txs
 
    CNECTDEF  Xut ::=
            CLIENTSOCK

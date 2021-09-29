@@ -184,7 +184,7 @@ a Procedure. Sut and Sim are exactly same with Adder.txs.
 
 The  State Automation in the ``Adder.txs`` file is defined with the `STAUTDEF` declaration:
 
-.. code-block:: haskell
+.. code-block:: txs
 
     STAUTDEF adder  [ Act :: Operation;  Res :: Int ] ( )
     ::=

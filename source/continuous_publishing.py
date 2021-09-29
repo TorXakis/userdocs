@@ -353,25 +353,46 @@ latex_elements = {
 %% https://docutils.sourceforge.io/docs/user/latex.html#custom-interpreted-text-roles
 %% https://en.wikibooks.org/wiki/LaTeX/Colors#Predefined_colors
 %%      black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow
-\newcommand{\DUroleblack}{\textcolor{black}}
-\newcommand{\DUroleblue}{\textcolor{blue}}
-\newcommand{\DUrolebrown}{\textcolor{brown}}
-\newcommand{\DUrolecyan}{\textcolor{cyan}}
-\newcommand{\DUroledarkgray}{\textcolor{darkgray}}
-\newcommand{\DUrolegray}{\textcolor{gray}}
-\newcommand{\DUrolegreen}{\textcolor{green}}
-\newcommand{\DUrolelightgray}{\textcolor{lightgray}}
-\newcommand{\DUrolelime}{\textcolor{lime}}
-\newcommand{\DUrolemagenta}{\textcolor{magenta}}
-\newcommand{\DUroleolive}{\textcolor{olive}}
-\newcommand{\DUroleorange}{\textcolor{orange}}
-\newcommand{\DUrolepink}{\textcolor{pink}}
-\newcommand{\DUrolepurple}{\textcolor{purple}}
-\newcommand{\DUrolered}{\textcolor{red}}
-\newcommand{\DUroleteal}{\textcolor{teal}}
-\newcommand{\DUroleviolet}{\textcolor{violet}}
-\newcommand{\DUrolewhite}{\textcolor{white}}
-\newcommand{\DUroleyellow}{\textcolor{yellow}}
+
+% \newcommand{\DUrolered}{\textcolor{red}}
+% \newcommand{\DUrolered}[1]{\textcolor{red}{#1}}   => similar to previous line, \DUrole macro does some magic, Prefer this line, because clearer what happens!
+
+
+\newcommand{\DUroleblack}[1]{\textcolor{black}{#1}}
+\newcommand{\DUroleblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\DUrolebrown}[1]{\textcolor{brown}{#1}}
+\newcommand{\DUrolecyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\DUroledarkgray}[1]{\textcolor{darkgray}{#1}}
+\newcommand{\DUrolegray}[1]{\textcolor{gray}{#1}}
+\newcommand{\DUrolegreen}[1]{\textcolor{green}{#1}}
+\newcommand{\DUrolelightgray}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\DUrolelime}[1]{\textcolor{lime}{#1}}
+\newcommand{\DUrolemagenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\DUroleolive}[1]{\textcolor{olive}{#1}}
+\newcommand{\DUroleorange}[1]{\textcolor{orange}{#1}}
+\newcommand{\DUrolepink}[1]{\textcolor{pink}{#1}}
+\newcommand{\DUrolepurple}[1]{\textcolor{purple}{#1}}
+\newcommand{\DUrolered}[1]{\textcolor{red}{#1}}
+\newcommand{\DUroleteal}[1]{\textcolor{teal}{#1}}
+\newcommand{\DUroleviolet}[1]{\textcolor{violet}{#1}}
+\newcommand{\DUrolewhite}[1]{\textcolor{white}{#1}}
+\newcommand{\DUroleyellow}[1]{\textcolor{yellow}{#1}}
+
+
+
+
+%% \newcommand{\DUrolesubred}[1]{\textcolor{red}{#1}}
+\newcommand{\DUrolesubred}[1]{\textcolor{red}{$_{\text{#1}}$}}
+
+
+%% use nesting ; works better then \bfseries command ; see https://texfaq.org/FAQ-2letterfontcmd
+\newcommand{\DUrolebotalic}[1]{\textit{\textbf{#1}}}
+
+%% alias
+\newcommand{\DUroleboit}{\DUrolebotalic}
+
+
+\newcommand{\DUrolemonospace}[1]{ {\fontfamily{pcr}\selectfont #1 } }
 
 '''
 }
