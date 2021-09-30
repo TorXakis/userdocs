@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis Hello World Example &mdash; TorXakis v0.9.0, Document version git-sha1-af2022b documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>TorXakis Hello World Example &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-af2022b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-af2022b.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -677,44 +677,44 @@ parameters, states, state variables, initial state, and the initial
 values of the state variables,</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-helloworld">
 <div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Txs model of <em>Hello World!</em> (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/HelloWorld/modelH/HelloWorld.txs">HelloWorld.txs</a>)</span><a class="headerlink" href="#fig-txs-helloworld" title="Permalink to this code">¶</a></div>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> STAUTDEF helloWorld [ Inp, Outp :: String ] ( )
- ::=
-     STATE
-         init, noname, named
-     VAR
-         name :: String
-     INIT
-         init { name := &quot;&quot; }
-     TRANS
-         init        -&gt; Outp ! &quot;Hello World!&quot;        -&gt; noname
-         noname -&gt; Inp ? n [[ strinre(n, REGEX(’[A-Z][a-z]+’)) ]] { name := n } -&gt; named
-         named       -&gt; Outp ! &quot;Hello &quot; ++ name ++ &quot;!&quot;       -&gt; noname
- ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">STAUTDEF</span> <span class="nc">helloWorld</span> <span class="p">[</span> <span class="nv">Inp</span><span class="p">,</span> <span class="nv">Outp</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+ <span class="s">::=</span>
+     <span class="k">STATE</span>
+         <span class="nc">init</span><span class="p">,</span> <span class="nc">noname</span><span class="p">,</span> <span class="nc">named</span>
+     <span class="k">VAR</span>
+         <span class="nc">name</span> <span class="s">::</span> <span class="nv">String</span>
+     <span class="k">INIT</span>
+         <span class="nc">init</span> <span class="p">{</span> <span class="nc">name</span> :<span class="o">=</span> <span class="p">&quot;&quot;</span> <span class="p">}</span>
+     <span class="k">TRANS</span>
+         <span class="nc">init</span>        <span class="s">-&gt;</span> <span class="nv">Outp</span> <span class="p">!</span> <span class="p">&quot;</span><span class="nv">Hello</span> <span class="nv">World</span><span class="p">!&quot;</span>        <span class="s">-&gt;</span> <span class="nc">noname</span>
+         <span class="nc">noname</span> <span class="s">-&gt;</span> <span class="nv">Inp</span> <span class="p">?</span> <span class="nc">n</span> <span class="s">[[</span> <span class="nc">strinre</span><span class="p">(</span><span class="nc">n</span><span class="p">,</span> <span class="nv">REGEX</span><span class="p">(</span>’<span class="p">[</span><span class="nv">A</span><span class="o">-</span><span class="nv">Z</span><span class="p">][</span><span class="nc">a</span><span class="o">-</span><span class="nc">z</span><span class="p">]</span><span class="o">+</span>’<span class="p">))</span> <span class="s">]]</span> <span class="p">{</span> <span class="nc">name</span> :<span class="o">=</span> <span class="nc">n</span> <span class="p">}</span> <span class="s">-&gt;</span> <span class="nc">named</span>
+         <span class="nc">named</span>       <span class="s">-&gt;</span> <span class="nv">Outp</span> <span class="p">!</span> <span class="p">&quot;</span><span class="nv">Hello</span> <span class="p">&quot;</span> <span class="o">++</span> <span class="nc">name</span> <span class="o">++</span> <span class="p">&quot;!&quot;</span>       <span class="s">-&gt;</span> <span class="nc">noname</span>
+ <span class="k">ENDDEF</span>
 
- CHANDEF Chans
- ::=
-     Input :: String ;
-     Output :: String
- ENDDEF
+ <span class="k">CHANDEF</span> <span class="nv">Chans</span>
+ <span class="s">::=</span>
+     <span class="nv">Input</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">;</span>
+     <span class="nv">Output</span> <span class="s">::</span> <span class="nv">String</span>
+ <span class="k">ENDDEF</span>
 
- MODELDEF Hello
- ::=
-     CHAN IN Input
-     CHAN OUT Output
-     BEHAVIOUR
-         helloWorld [Input, Output] ()
- ENDDEF
+ <span class="k">MODELDEF</span> <span class="nv">Hello</span>
+ <span class="s">::=</span>
+     <span class="k">CHAN</span> <span class="k">IN</span> <span class="nv">Input</span>
+     <span class="k">CHAN</span> <span class="k">OUT</span> <span class="nv">Output</span>
+     <span class="k">BEHAVIOUR</span>
+         <span class="nc">helloWorld</span> <span class="p">[</span><span class="nv">Input</span><span class="p">,</span> <span class="nv">Output</span><span class="p">]</span> <span class="p">()</span>
+ <span class="k">ENDDEF</span>
 
- CNECTDEF Sut
- ::=
-     CLIENTSOCK
+ <span class="k">CNECTDEF</span> <span class="nv">Sut</span>
+ <span class="s">::=</span>
+     <span class="k">CLIENTSOCK</span>
 
-     CHAN OUT Input  HOST &quot;localhost&quot; PORT 7890
-     ENCODE  Input   ? s -&gt; ! s
+     <span class="k">CHAN</span> <span class="k">OUT</span> <span class="nv">Input</span>  <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="m">7890</span>
+     <span class="k">ENCODE</span>  <span class="nv">Input</span>   <span class="p">?</span> <span class="nc">s</span> <span class="s">-&gt;</span> <span class="p">!</span> <span class="nc">s</span>
 
-     CHAN IN Output HOST &quot;localhost&quot; PORT 7890
-     DECODE  Output ! s &lt;- ? s
- ENDDEF
+     <span class="k">CHAN</span> <span class="k">IN</span> <span class="nv">Output</span> <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="m">7890</span>
+     <span class="k">DECODE</span>  <span class="nv">Output</span> <span class="p">!</span> <span class="nc">s</span> <span class="o">&lt;-</span> <span class="p">?</span> <span class="nc">s</span>
+ <span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </div>

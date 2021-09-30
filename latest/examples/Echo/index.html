@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-af2022b documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-af2022b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-af2022b.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -586,8 +586,8 @@ folder</a>.</p>
 simplicity, let’s limit the inputs to only be integers. We can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define
 the channels</a>
 needed for modelling this behaviour as:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CHANDEF  Chans ::=  In, Out :: Int
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CHANDEF</span>  <span class="nv">Chans</span> <span class="s">::=</span>  <span class="nv">In</span><span class="p">,</span> <span class="nv">Out</span> <span class="s">::</span> <span class="nv">Int</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -596,11 +596,11 @@ ENDDEF
 <p>We need to define the process of receiving the input and communicating
 it to the output channel. Here is our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">process
 definition</a>:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>PROCDEF  proc  [ In, Out :: Int ]  ( ) ::=
-        In ? x
-    &gt;-&gt; Out ! x
-    &gt;-&gt; proc [ In, Out ] ()
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">PROCDEF</span>  <span class="nc">proc</span>  <span class="p">[</span> <span class="nv">In</span><span class="p">,</span> <span class="nv">Out</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">]</span>  <span class="p">(</span> <span class="p">)</span> <span class="s">::=</span>
+        <span class="nv">In</span> <span class="p">?</span> <span class="nc">x</span>
+    <span class="s">&gt;-&gt;</span> <span class="nv">Out</span> <span class="p">!</span> <span class="nc">x</span>
+    <span class="s">&gt;-&gt;</span> <span class="nc">proc</span> <span class="p">[</span> <span class="nv">In</span><span class="p">,</span> <span class="nv">Out</span> <span class="p">]</span> <span class="p">()</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -612,12 +612,12 @@ output are communicated. The behaviour of the model should be the
 process that is defined above. The <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">Model
 Definition</a> of
 this system in TorXakis is as follows:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>MODELDEF  Model ::=
-        CHAN IN     In
-        CHAN OUT    Out
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">MODELDEF</span>  <span class="nv">Model</span> <span class="s">::=</span>
+        <span class="k">CHAN</span> <span class="k">IN</span>     <span class="nv">In</span>
+        <span class="k">CHAN</span> <span class="k">OUT</span>    <span class="nv">Out</span>
 
-        BEHAVIOUR   proc [ In, Out ] ( )
-ENDDEF
+        <span class="k">BEHAVIOUR</span>   <span class="nc">proc</span> <span class="p">[</span> <span class="nv">In</span><span class="p">,</span> <span class="nv">Out</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -664,15 +664,15 @@ TorXakis is capable of simulating the SUT based on the defined model. We
 just have to <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">define the
 connection</a> to
 be used by the Simulator:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sim ::=
-        SERVERSOCK
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sim</span> <span class="s">::=</span>
+        <span class="k">SERVERSOCK</span>
 
-        CHAN IN   In                        HOST &quot;localhost&quot;  PORT 9999
-        DECODE    In ! fromString(s)        &lt;-  ? s
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">DECODE</span>    <span class="nv">In</span> <span class="p">!</span> <span class="nc">fromString</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>        <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
 
-        CHAN OUT  Out                       HOST &quot;localhost&quot;  PORT 9999
-        ENCODE    Out ? i                   -&gt;  ! toString(i)
-ENDDEF
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">ENCODE</span>    <span class="nv">Out</span> <span class="p">?</span> <span class="nc">i</span>                   <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toString</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Important points:</p>
@@ -695,15 +695,15 @@ lines i.e. strings terminated by a line feed, over a socket at port
 9999. When TorXakis and the SUT run on the same machine (localhost) the
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">SUT connection</a>
 can be defined in TorXakis as follows:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sut ::=
-        CLIENTSOCK
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sut</span> <span class="s">::=</span>
+        <span class="k">CLIENTSOCK</span>
 
-        CHAN OUT  In                        HOST &quot;localhost&quot;  PORT 9999
-        ENCODE    In ? i                    -&gt;  ! toString(i)
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">ENCODE</span>    <span class="nv">In</span> <span class="p">?</span> <span class="nc">i</span>                    <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toString</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
 
-        CHAN IN   Out                       HOST &quot;localhost&quot;  PORT 9999
-        DECODE    Out ! fromString(s)       &lt;-  ? s
-ENDDEF
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">DECODE</span>    <span class="nv">Out</span> <span class="p">!</span> <span class="nc">fromString</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>       <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Important points:</p>
@@ -814,25 +814,25 @@ steps are reached, TorXakis will conclude:</p>
 them as well. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">define another SUT
 connection</a> and
 a simulator, both of which use XML-based communication.</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Xut ::=
-        CLIENTSOCK
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Xut</span> <span class="s">::=</span>
+        <span class="k">CLIENTSOCK</span>
 
-        CHAN OUT  In                        HOST &quot;localhost&quot;  PORT 9999
-        ENCODE    In ? i                    -&gt;  ! toXml(i)
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">ENCODE</span>    <span class="nv">In</span> <span class="p">?</span> <span class="nc">i</span>                    <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toXml</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
 
-        CHAN IN   Out                       HOST &quot;localhost&quot;  PORT 9999
-        DECODE    Out ! fromXml(s)          &lt;-  ? s
-ENDDEF
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">DECODE</span>    <span class="nv">Out</span> <span class="p">!</span> <span class="nc">fromXml</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>          <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
+<span class="k">ENDDEF</span>
 
-CNECTDEF  Xim ::=
-        SERVERSOCK
+<span class="k">CNECTDEF</span>  <span class="nv">Xim</span> <span class="s">::=</span>
+        <span class="k">SERVERSOCK</span>
 
-        CHAN IN   In                        HOST &quot;localhost&quot;  PORT 9999
-        DECODE    In ! fromXml(s)           &lt;-  ? s
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">DECODE</span>    <span class="nv">In</span> <span class="p">!</span> <span class="nc">fromXml</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>           <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
 
-        CHAN OUT  Out                       HOST &quot;localhost&quot;  PORT 9999
-        ENCODE    Out ? i                   -&gt;  ! toXml(i)
-ENDDEF
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">ENCODE</span>    <span class="nv">Out</span> <span class="p">?</span> <span class="nc">i</span>                   <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toXml</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Now we can simulate and test our proposed system as if it uses XML-Based

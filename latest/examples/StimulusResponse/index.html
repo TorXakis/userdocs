@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version git-sha1-af2022b documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-af2022b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-af2022b.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -585,8 +585,8 @@ folder</a>.</p>
 responds to it. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define the
 channels</a> needed
 for modelling this behaviour:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CHANDEF  Chans ::=  Stimulus; Response
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CHANDEF</span>  <span class="nv">Chans</span> <span class="s">::=</span>  <span class="nv">Stimulus</span><span class="p">;</span> <span class="nv">Response</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -598,13 +598,13 @@ specify that first a stimulus and then a response are communicated. The
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">Model
 Definition</a> of
 this system in TorXakis is as follows:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>MODELDEF Model ::=
-    CHAN IN    Stimulus
-    CHAN OUT   Response
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">MODELDEF</span> <span class="nv">Model</span> <span class="s">::=</span>
+    <span class="k">CHAN</span> <span class="k">IN</span>    <span class="nv">Stimulus</span>
+    <span class="k">CHAN</span> <span class="k">OUT</span>   <span class="nv">Response</span>
 
-    BEHAVIOUR
-        Stimulus &gt;-&gt; Response
-ENDDEF
+    <span class="k">BEHAVIOUR</span>
+        <span class="nv">Stimulus</span> <span class="s">&gt;-&gt;</span> <span class="nv">Response</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -615,15 +615,15 @@ lines i.e. strings terminated by a line feed, over a socket at port
 7890. When TorXakis and the SUT run on the same machine (localhost) the
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">SUT connection</a>
 can be defined in TorXakis as follows:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sut ::=
-    CLIENTSOCK
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sut</span> <span class="s">::=</span>
+    <span class="k">CLIENTSOCK</span>
 
-    CHAN  OUT  Stimulus            HOST &quot;localhost&quot;  PORT 7890
-    ENCODE     Stimulus            -&gt;  ! &quot;&quot;
+    <span class="k">CHAN</span>  <span class="k">OUT</span>  <span class="nv">Stimulus</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">ENCODE</span>     <span class="nv">Stimulus</span>            <span class="s">-&gt;</span>  <span class="p">!</span> <span class="p">&quot;&quot;</span>
 
-    CHAN  IN   Response            HOST &quot;localhost&quot;  PORT 7890
-    DECODE     Response            &lt;-   ? s
-ENDDEF
+    <span class="k">CHAN</span>  <span class="k">IN</span>   <span class="nv">Response</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">DECODE</span>     <span class="nv">Response</span>            <span class="o">&lt;-</span>   <span class="p">?</span> <span class="nc">s</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -706,22 +706,22 @@ updated Java code.</p>
 <p>Our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">channel
 definitions</a>
 don’t change:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CHANDEF Model ::=   Stimulus, Response
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CHANDEF</span> <span class="nv">Model</span> <span class="s">::=</span>   <span class="nv">Stimulus</span><span class="p">,</span> <span class="nv">Response</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">SUT
 connection</a>
 stays the same, too:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sut ::=
-    CLIENTSOCK
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sut</span> <span class="s">::=</span>
+    <span class="k">CLIENTSOCK</span>
 
-    CHAN  OUT  Stimulus            HOST &quot;localhost&quot;  PORT 7890
-    ENCODE     Stimulus            -&gt;  ! &quot;&quot;
+    <span class="k">CHAN</span>  <span class="k">OUT</span>  <span class="nv">Stimulus</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">ENCODE</span>     <span class="nv">Stimulus</span>            <span class="s">-&gt;</span>  <span class="p">!</span> <span class="p">&quot;&quot;</span>
 
-    CHAN  IN   Response            HOST &quot;localhost&quot;  PORT 7890
-    DECODE     Response            &lt;-   ? s
-ENDDEF
+    <span class="k">CHAN</span>  <span class="k">IN</span>   <span class="nv">Response</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">DECODE</span>     <span class="nv">Response</span>            <span class="o">&lt;-</span>   <span class="p">?</span> <span class="nc">s</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>In our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">model
@@ -730,22 +730,22 @@ need a way to define the looping behaviour. We can make use of a
 recursive <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">procedure
 definition</a> for
 this:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>PROCDEF stimResp [ Stimulus, Response ] ()
-    ::=
-        Stimulus  &gt;-&gt;  Response  &gt;-&gt;  stimResp [Stimulus,Response] ()
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">PROCDEF</span> <span class="nc">stimResp</span> <span class="p">[</span> <span class="nv">Stimulus</span><span class="p">,</span> <span class="nv">Response</span> <span class="p">]</span> <span class="p">()</span>
+    <span class="s">::=</span>
+        <span class="nv">Stimulus</span>  <span class="s">&gt;-&gt;</span>  <span class="nv">Response</span>  <span class="s">&gt;-&gt;</span>  <span class="nc">stimResp</span> <span class="p">[</span><span class="nv">Stimulus</span><span class="p">,</span><span class="nv">Response</span><span class="p">]</span> <span class="p">()</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Now we can use this <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">procedure
 definition</a> in
 our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">Model</a>:</p>
-<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>MODELDEF Model ::=
-    CHAN IN    Stimulus
-    CHAN OUT   Response
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">MODELDEF</span> <span class="nv">Model</span> <span class="s">::=</span>
+    <span class="k">CHAN</span> <span class="k">IN</span>    <span class="nv">Stimulus</span>
+    <span class="k">CHAN</span> <span class="k">OUT</span>   <span class="nv">Response</span>
 
-    BEHAVIOUR
-        stimResp [Stimulus,Response] ()
-ENDDEF
+    <span class="k">BEHAVIOUR</span>
+        <span class="nc">stimResp</span> <span class="p">[</span><span class="nv">Stimulus</span><span class="p">,</span><span class="nv">Response</span><span class="p">]</span> <span class="p">()</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Now we can run model based tests on test our new SUT:</p>
