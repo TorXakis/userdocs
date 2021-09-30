@@ -116,40 +116,40 @@ can communicate via sockets, e.g., ``telnet``, ``nc`` (``netcat``), or ``putty``
 
 
 
+.. commentblock
+    .. figure:: images/test/table.*
+       :alt: table from pdf
+       :align: center
 
-.. figure:: images/test/table.*
-   :alt: table from pdf
-   :align: center
-
-   table from pdf
+       table from pdf
 
 
 
 .. https://docutils.sourceforge.io/docs/ref/rst/directives.html#table
 
 .. .. tabularcolumns:: ll
+.. commentblock
+    .. table::
+        :align: center
+        :class: noborder
 
-.. table::
-    :align: center
-    :class: noborder
-
-    ==========================       ==================================
-    User Window                      SUT Window
-    ==========================       ==================================
-    $ telnet localhost 7890          $ java -jar QueueServer0.jar 7890
-    Trying 127.0.0.1...              Waiting for tester
-    Connected to localhost.          Tester connected.
-    Escape character is ’ˆ]’.
-                                     [ ]
-    Enq(42)                          [ 42 ]
-    Enq(-17)                         [ 42, -17 ]
-    Deq                              [ -17 ]
-    42
-    ==========================       ==================================
-
-
+        ==========================       ==================================
+        User Window                      SUT Window
+        ==========================       ==================================
+        $ telnet localhost 7890          $ java -jar QueueServer0.jar 7890
+        Trying 127.0.0.1...              Waiting for tester
+        Connected to localhost.          Tester connected.
+        Escape character is ’ˆ]’.
+                                         [ ]
+        Enq(42)                          [ 42 ]
+        Enq(-17)                         [ 42, -17 ]
+        Deq                              [ -17 ]
+        42
+        ==========================       ==================================
 
 
+
+.. commentblock
 ..   .. parsed-literal::
 ..
 ..               *User Window*                         *SUT Window*
