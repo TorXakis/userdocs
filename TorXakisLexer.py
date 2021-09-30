@@ -12,7 +12,7 @@ __all__ = ['TorXakisLexer']
 
 class TorXakisLexer(RegexLexer):
     name = 'TorXakis'
-    aliases = ['torxakis']
+    aliases = ['torxakis','txs']
     filenames = ['*.txs']
 
     keywords=('CNECTDEF', 'SERVERSOCK' , 'CLIENTSOCK' , 'DECODE' , 'ENCODE' , 'MODELDEF', 'CHANDEF', 'STAUTDEF','STATE','VAR','INIT','TRANS', 'TYPEDEF','FUNCDEF','CONSTDEF','PROCDEF','SPECDEF','ADAPDEF','SUTDEF','ENDDEF','SUT','CHAN','MAP','SOCK','IN','OUT','HOST','PORT','BEHAVIOUR','STOP','EXIT','ACCEPT','HIDE','LET','NI','BEGIN','END','IF','THEN','ELSE','FI','ISTEP','ERROR')
