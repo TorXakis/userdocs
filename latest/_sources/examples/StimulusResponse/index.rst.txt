@@ -16,7 +16,7 @@ responds to it. Let's `define the
 channels <https://github.com/TorXakis/TorXakis/wiki/ChanDefs>`__ needed
 for modelling this behaviour:
 
-::
+.. code-block:: txs
 
    CHANDEF  Chans ::=  Stimulus; Response
    ENDDEF
@@ -31,7 +31,7 @@ specify that first a stimulus and then a response are communicated. The
 Definition <https://github.com/TorXakis/TorXakis/wiki/ModelDefs>`__ of
 this system in TorXakis is as follows:
 
-::
+.. code-block:: txs
 
    MODELDEF Model ::=
        CHAN IN    Stimulus
@@ -50,7 +50,7 @@ lines i.e. strings terminated by a line feed, over a socket at port
 `SUT connection <https://github.com/TorXakis/TorXakis/wiki/CnectDefs>`__
 can be defined in TorXakis as follows:
 
-::
+.. code-block:: txs
 
    CNECTDEF  Sut ::=
        CLIENTSOCK
@@ -148,7 +148,7 @@ Our `channel
 definitions <https://github.com/TorXakis/TorXakis/wiki/ChanDefs>`__
 don't change:
 
-::
+.. code-block:: txs
 
    CHANDEF Model ::=   Stimulus, Response
    ENDDEF
@@ -157,7 +157,7 @@ Our `SUT
 connection <https://github.com/TorXakis/TorXakis/wiki/CnectDefs>`__
 stays the same, too:
 
-::
+.. code-block:: txs
 
    CNECTDEF  Sut ::=
        CLIENTSOCK
@@ -176,7 +176,7 @@ recursive `procedure
 definition <https://github.com/TorXakis/TorXakis/wiki/ProcDefs>`__ for
 this:
 
-::
+.. code-block:: txs
 
    PROCDEF stimResp [ Stimulus, Response ] ()
        ::=
@@ -187,7 +187,7 @@ Now we can use this `procedure
 definition <https://github.com/TorXakis/TorXakis/wiki/ProcDefs>`__ in
 our `Model <https://github.com/TorXakis/TorXakis/wiki/ModelDefs>`__:
 
-::
+.. code-block:: txs
 
    MODELDEF Model ::=
        CHAN IN    Stimulus

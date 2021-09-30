@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis Adder Example &mdash; TorXakis v0.9.0, Document version git-sha1-0eb28e6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>TorXakis Adder Example &mdash; TorXakis v0.9.0, Document version git-sha1-e33597b documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-0eb28e6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-0eb28e6.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-e33597b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-e33597b.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -714,25 +714,25 @@ TXS &gt;&gt; <span class="nb">help</span>              <span class="c1"># TorXak
 <p>This example defines same Adder model using State Automation instead of
 a Procedure. Sut and Sim are exactly same with Adder.txs.</p>
 <p>The  State Automation in the <code class="docutils literal notranslate"><span class="pre">Adder.txs</span></code> file is defined with the <cite>STAUTDEF</cite> declaration:</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">STAUTDEF</span> <span class="n">adder</span>  <span class="p">[</span> <span class="kt">Act</span> <span class="ow">::</span> <span class="kt">Operation</span><span class="p">;</span>  <span class="kt">Res</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
-<span class="kt">::=</span>
-  <span class="kt">STATE</span>  <span class="n">idle</span><span class="p">,</span> <span class="n">calc</span>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>STAUTDEF adder  [ Act :: Operation;  Res :: Int ] ( )
+::=
+  STATE  idle, calc
 
-  <span class="kt">VAR</span>    <span class="n">statevar</span> <span class="ow">::</span> <span class="kt">Int</span>
+  VAR    statevar :: Int
 
-  <span class="kt">INIT</span>   <span class="n">idle</span>   <span class="p">{</span> <span class="n">statevar</span> <span class="kt">:=</span> <span class="mi">0</span> <span class="p">}</span>
+  INIT   idle   { statevar := 0 }
 
-  <span class="kt">TRANS</span>  <span class="n">idle</span>  <span class="ow">-&gt;</span>  <span class="kt">Act</span> <span class="o">?</span><span class="n">opn</span> <span class="p">[[</span> <span class="kt">IF</span> <span class="n">isPlus</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span> <span class="kt">THEN</span>    <span class="n">not</span> <span class="p">(</span><span class="n">overflow</span> <span class="p">(</span><span class="n">p1</span><span class="p">(</span><span class="n">opn</span><span class="p">)))</span>
-                                                   <span class="o">/\</span> <span class="n">not</span> <span class="p">(</span><span class="n">overflow</span> <span class="p">(</span><span class="n">p2</span><span class="p">(</span><span class="n">opn</span><span class="p">)))</span>
-                                                   <span class="o">/\</span> <span class="n">not</span> <span class="p">(</span><span class="n">overflow</span> <span class="p">(</span><span class="n">p1</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span><span class="o">+</span><span class="n">p2</span><span class="p">(</span><span class="n">opn</span><span class="p">)))</span>
-                                              <span class="kt">ELSE</span> <span class="kt">False</span> <span class="kt">FI</span>  <span class="p">]]</span>  <span class="p">{</span> <span class="n">statevar</span> <span class="kt">:=</span> <span class="n">p1</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span><span class="o">+</span><span class="n">p2</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span> <span class="p">}</span>  <span class="ow">-&gt;</span>  <span class="n">calc</span>
-         <span class="n">idle</span>  <span class="ow">-&gt;</span>  <span class="kt">Act</span> <span class="o">?</span><span class="n">opn</span> <span class="p">[[</span> <span class="kt">IF</span> <span class="n">isMinus</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span> <span class="kt">THEN</span>   <span class="n">not</span> <span class="p">(</span><span class="n">overflow</span> <span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">opn</span><span class="p">)))</span>
-                                                   <span class="o">/\</span> <span class="n">not</span> <span class="p">(</span><span class="n">overflow</span> <span class="p">(</span><span class="n">m2</span><span class="p">(</span><span class="n">opn</span><span class="p">)))</span>
-                                                   <span class="o">/\</span> <span class="n">not</span> <span class="p">(</span><span class="n">overflow</span> <span class="p">(</span><span class="n">m1</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span><span class="o">-</span><span class="n">m2</span><span class="p">(</span><span class="n">opn</span><span class="p">)))</span>
-                                               <span class="kt">ELSE</span> <span class="kt">False</span> <span class="kt">FI</span> <span class="p">]]</span>  <span class="p">{</span> <span class="n">statevar</span> <span class="kt">:=</span> <span class="n">m1</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span><span class="o">-</span><span class="n">m2</span><span class="p">(</span><span class="n">opn</span><span class="p">)</span> <span class="p">}</span>  <span class="ow">-&gt;</span>  <span class="n">calc</span>
-         <span class="n">calc</span>  <span class="ow">-&gt;</span>  <span class="kt">Res</span> <span class="o">!</span> <span class="n">statevar</span>   <span class="p">{</span> <span class="p">}</span>                                                           <span class="ow">-&gt;</span>  <span class="n">idle</span>
+  TRANS  idle  -&gt;  Act ?opn [[ IF isPlus(opn) THEN    not (overflow (p1(opn)))
+                                                   /\ not (overflow (p2(opn)))
+                                                   /\ not (overflow (p1(opn)+p2(opn)))
+                                              ELSE False FI  ]]  { statevar := p1(opn)+p2(opn) }  -&gt;  calc
+         idle  -&gt;  Act ?opn [[ IF isMinus(opn) THEN   not (overflow (m1(opn)))
+                                                   /\ not (overflow (m2(opn)))
+                                                   /\ not (overflow (m1(opn)-m2(opn)))
+                                               ELSE False FI ]]  { statevar := m1(opn)-m2(opn) }  -&gt;  calc
+         calc  -&gt;  Res ! statevar   { }                                                           -&gt;  idle
 
-<span class="kt">ENDDEF</span>
+ENDDEF
 </pre></div>
 </div>
 <section id="id2">

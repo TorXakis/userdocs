@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-0eb28e6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-e33597b documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-0eb28e6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-0eb28e6.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-e33597b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-e33597b.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -586,8 +586,8 @@ folder</a>.</p>
 simplicity, let’s limit the inputs to only be integers. We can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define
 the channels</a>
 needed for modelling this behaviour as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHANDEF</span>  <span class="n">Chans</span> <span class="p">:</span><span class="o">:=</span>  <span class="n">In</span><span class="p">,</span> <span class="n">Out</span> <span class="p">::</span> <span class="n">Int</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CHANDEF  Chans ::=  In, Out :: Int
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -596,7 +596,7 @@ needed for modelling this behaviour as:</p>
 <p>We need to define the process of receiving the input and communicating
 it to the output channel. Here is our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">process
 definition</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF  proc  [ In, Out :: Int ]  ( ) ::=
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>PROCDEF  proc  [ In, Out :: Int ]  ( ) ::=
         In ? x
     &gt;-&gt; Out ! x
     &gt;-&gt; proc [ In, Out ] ()
@@ -612,12 +612,12 @@ output are communicated. The behaviour of the model should be the
 process that is defined above. The <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">Model
 Definition</a> of
 this system in TorXakis is as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODELDEF</span>  <span class="n">Model</span> <span class="p">:</span><span class="o">:=</span>
-        <span class="n">CHAN</span> <span class="n">IN</span>     <span class="n">In</span>
-        <span class="n">CHAN</span> <span class="n">OUT</span>    <span class="n">Out</span>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>MODELDEF  Model ::=
+        CHAN IN     In
+        CHAN OUT    Out
 
-        <span class="n">BEHAVIOUR</span>   <span class="n">proc</span> <span class="p">[</span> <span class="n">In</span><span class="p">,</span> <span class="n">Out</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
-<span class="n">ENDDEF</span>
+        BEHAVIOUR   proc [ In, Out ] ( )
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -664,7 +664,7 @@ TorXakis is capable of simulating the SUT based on the defined model. We
 just have to <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">define the
 connection</a> to
 be used by the Simulator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sim ::=
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sim ::=
         SERVERSOCK
 
         CHAN IN   In                        HOST &quot;localhost&quot;  PORT 9999
@@ -695,7 +695,7 @@ lines i.e. strings terminated by a line feed, over a socket at port
 9999. When TorXakis and the SUT run on the same machine (localhost) the
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">SUT connection</a>
 can be defined in TorXakis as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sut ::=
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Sut ::=
         CLIENTSOCK
 
         CHAN OUT  In                        HOST &quot;localhost&quot;  PORT 9999
@@ -814,7 +814,7 @@ steps are reached, TorXakis will conclude:</p>
 them as well. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">define another SUT
 connection</a> and
 a simulator, both of which use XML-based communication.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Xut ::=
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Xut ::=
         CLIENTSOCK
 
         CHAN OUT  In                        HOST &quot;localhost&quot;  PORT 9999
