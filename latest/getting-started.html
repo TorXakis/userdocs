@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-e33597b documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-af2022b documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-e33597b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-e33597b.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-af2022b<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-af2022b.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -758,20 +758,20 @@ install the <em>Notepad++</em>-plugin for <code class="docutils literal notransl
 </pre></div>
 </div>
 <p>The result is a <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> – a State Automaton Definition in the language <code class="docutils literal notranslate"><span class="pre">Txs</span></code>:</p>
-<div class="highlight-torxakis notranslate"><div class="highlight"><pre><span></span>STAUTDEF queueStaut [ Inp :: QueueOp; Outp :: Int ] ( )
-::=
-    STATE
-       qstate, qout
-    VAR
-       buf :: IntList
-    INIT
-        qstate { buf := Nil }
-    TRANS
-        qstate -&gt; Inp ? qop [[ isDeq(qop) /\ not(isNil(buf)) ]] -&gt; qout
-        qout -&gt; Outp ! hd(buf) { buf := tl(buf) } -&gt; qstate
-        qstate -&gt; Inp ? qop [[ isEnq(qop) ]] { buf := add(val(qop),buf) } -&gt; qstate
-        qstate -&gt; Inp ? qop [[ isDeq(qop) /\ isNil(buf) ]] -&gt; qstate
-ENDDEF
+<div class="highlight-torxakis notranslate"><div class="highlight"><pre><span></span><span class="k">STAUTDEF</span> <span class="nc">queueStaut</span> <span class="p">[</span> <span class="nv">Inp</span> <span class="s">::</span> <span class="nv">QueueOp</span><span class="p">;</span> <span class="nv">Outp</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
+<span class="s">::=</span>
+    <span class="k">STATE</span>
+       <span class="nc">qstate</span><span class="p">,</span> <span class="nc">qout</span>
+    <span class="k">VAR</span>
+       <span class="nc">buf</span> <span class="s">::</span> <span class="nv">IntList</span>
+    <span class="k">INIT</span>
+        <span class="nc">qstate</span> <span class="p">{</span> <span class="nc">buf</span> :<span class="o">=</span> <span class="nv">Nil</span> <span class="p">}</span>
+    <span class="k">TRANS</span>
+        <span class="nc">qstate</span> <span class="s">-&gt;</span> <span class="nv">Inp</span> <span class="p">?</span> <span class="nc">qop</span> <span class="s">[[</span> <span class="nc">isDeq</span><span class="p">(</span><span class="nc">qop</span><span class="p">)</span> <span class="o">/\</span> <span class="nc">not</span><span class="p">(</span><span class="nc">isNil</span><span class="p">(</span><span class="nc">buf</span><span class="p">))</span> <span class="s">]]</span> <span class="s">-&gt;</span> <span class="nc">qout</span>
+        <span class="nc">qout</span> <span class="s">-&gt;</span> <span class="nv">Outp</span> <span class="p">!</span> <span class="nc">hd</span><span class="p">(</span><span class="nc">buf</span><span class="p">)</span> <span class="p">{</span> <span class="nc">buf</span> :<span class="o">=</span> <span class="nc">tl</span><span class="p">(</span><span class="nc">buf</span><span class="p">)</span> <span class="p">}</span> <span class="s">-&gt;</span> <span class="nc">qstate</span>
+        <span class="nc">qstate</span> <span class="s">-&gt;</span> <span class="nv">Inp</span> <span class="p">?</span> <span class="nc">qop</span> <span class="s">[[</span> <span class="nc">isEnq</span><span class="p">(</span><span class="nc">qop</span><span class="p">)</span> <span class="s">]]</span> <span class="p">{</span> <span class="nc">buf</span> :<span class="o">=</span> <span class="nc">add</span><span class="p">(</span><span class="nc">val</span><span class="p">(</span><span class="nc">qop</span><span class="p">),</span><span class="nc">buf</span><span class="p">)</span> <span class="p">}</span> <span class="s">-&gt;</span> <span class="nc">qstate</span>
+        <span class="nc">qstate</span> <span class="s">-&gt;</span> <span class="nv">Inp</span> <span class="p">?</span> <span class="nc">qop</span> <span class="s">[[</span> <span class="nc">isDeq</span><span class="p">(</span><span class="nc">qop</span><span class="p">)</span> <span class="o">/\</span> <span class="nc">isNil</span><span class="p">(</span><span class="nc">buf</span><span class="p">)</span> <span class="s">]]</span> <span class="s">-&gt;</span> <span class="nc">qstate</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>A <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> can be included in a <code class="docutils literal notranslate"><span class="pre">.txs</span></code>-file, or the file can be used as additional input file for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>; <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
