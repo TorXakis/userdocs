@@ -66,7 +66,7 @@ and ``Stabilize`` , which read the file at node *N* , (over-)write
 the file at node *N* , and read all files including conflict files
 when the system is stable, i.e., fully synchronized, respectively.
 Initially, and after deletion, the file is represented by the special
-content value ” ``$`` ” (⊥ in [R40]_).
+content value ” ``$`` ” (perpendicular in [R40]_).
 
 Our test setup consists of three Linux-virtual machines with Dropbox
 clients implementing the three nodes, numbered 0, 1, and 2. The file
@@ -486,11 +486,11 @@ and ``clean`` . Moreover, this is the place where the
 channels ``Down0`` , *...* , ``Up2`` are hidden with the
 construct ``HIDE[`` *channels* ``]IN`` *...* ``NI`` . Actions that
 occur on hidden channels are *internal actions* (in process-algebra
-usually denoted by *τ* ). They are not visible to the system
+usually denoted by *tau* ). They are not visible to the system
 environment, but they do lead to state changes of which the consequences
 can be visible, e.g., when a transition that is enabled before the
-occurrence of *τ* is no longer enabled in the state after
-the *τ* -occurrence. Visible actions, that is inputs and outputs, are
+occurrence of *tau* is no longer enabled in the state after
+the *tua* -occurrence. Visible actions, that is inputs and outputs, are
 visible to the system environment. They lead to state changes both in
 the system and in its environment.
 
