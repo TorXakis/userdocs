@@ -52,9 +52,13 @@ extensions = [ 'sphinx.ext.autosectionlabel' ]
                # 'sphinx.ext.coverage', 'sphinx.ext.doctest',
                # 'pyspecific', 'c_annotations', 'escape4chm']
 
-# By default, highlight as Python 3.
+# By default  (for literal block (::) AND '.. code-block::'  AND  '.. literalinclude:: FILE'  (latter has :language: option to set specific language )
+# - highlight as Python 3.
 #highlight_language = 'python3'
-
+# - no highlighting
+highlight_language = 'none'
+# no implicit highlighting, it must be explicitly set!!
+# => use literal blocks only for none-highlighted text, and  'code-block' for explicitly highlighted text    ( never use  '.. highlight: LANGUAGE" directive)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

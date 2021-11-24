@@ -36,6 +36,7 @@ Advanced examples
     CustomersOrders <CustomersOrders/index.rst>
     LuckyPeople <luckypeople.rst>
     Wheel <Wheel/index.rst>
+    Dropbox <Dropbox/index.rst>
 
 
 

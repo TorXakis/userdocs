@@ -16,13 +16,13 @@ Get TorXakis running
 For model-based testing you first need the tool ``TorXakis``.
 Download and install ``TorXakis`` for your favourite operation system using the instructions at the  :ref:`Installation chapter <installationchapter>`. After installation you can run ``TorXakis`` in a terminal window, with
 
-.. code:: sh
+.. code-block:: sh
 
     $ torxakis
 
 You should get the ``TorXakis`` prompt:
 
-.. code:: sh
+.. code-block:: txscmd
 
     TXS >>
 
@@ -31,7 +31,7 @@ after which you can use various ``TorXakis`` commands; try
 possible commands, q(uit) to quit ``TorXakis``, and try evaluating an expression,
 to check whether everything was successfully installed:
 
-.. code:: sh
+.. code-block:: txscmd
 
     TXS >> eval 42-17
 
@@ -200,7 +200,7 @@ state-automaton. This will show a trace of possible of behaviour, i.e., a sequen
 as it is described in the model. The result looks like below; ’looks like’ because the sequence of actions
 and the integer values are randomly chosen, so your result might differ a bit.
 
-.. code:: sh
+.. code-block:: txscmd
 
     $ torxakis Queue.txs
 
@@ -236,7 +236,7 @@ to the ``SUT``, i.e., the ``CNECTDEF`` in the model file. Upon ``tester Queue Su
 so you do not need ``telnet``, etc. Then the command ``test 7`` specifies how many test steps will be taken; you can
 easily try bigger numbers, e.g., ``test 7777``. Now you have executed your first successful test with ``TorXakis``!
 
-.. code:: sh
+.. code-block:: txscmd
 
     $ torxakis Queue0.txs
 
@@ -245,7 +245,8 @@ easily try bigger numbers, e.g., ``test 7777``. Now you have executed your first
     TXS >> txsserver starting: "PC-21165.tsn.tno.nl" : 54890
     TXS >> Solver "z3" initialized : Z3 [4.8.5 - build hashcode b63a0e31d3e2]
     TXS >> TxsCore initialized
-    TXS >> LPEOps version 2019.07.05.02 TXS >> input files parsed:
+    TXS >> LPEOps version 2019.07.05.02
+    TXS >> input files parsed:
     TXS >> ["Queue0.txs"]
     TXS >> tester Queue Sut
     TXS >> Tester started
@@ -291,13 +292,13 @@ For the *Queue*-example, a graph representing its state-transition system, is av
 
 The graph edited in *yEd* shall be saved in *Trivial Graph Format* ``TGF`` (``*.tgf``). The application ``yed2stautdef`` transforms a file in ``TGF``-format to a ``Txs``-file:
 
-.. code:: sh
+.. code-block:: sh
 
     $ yed2stautdef QueueGraph.tgf
 
 The result is a ``STAUTDEF`` – a State Automaton Definition in the language ``Txs``:
 
-.. code:: torxakis
+.. code-block:: torxakis
 
     STAUTDEF queueStaut [ Inp :: QueueOp; Outp :: Int ] ( )
     ::=

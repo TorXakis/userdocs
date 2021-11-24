@@ -6,7 +6,7 @@ Torxakis help
 
 The output of the ``help`` command in the ``TorXakis`` command line interface:
 
-::
+.. code-block:: txscmd
 
     $ torxakis
     TXS >>  TorXakis :: Model-Based Testing

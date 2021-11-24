@@ -6,6 +6,7 @@ TorXakis Hello World Example
 
 ``code:``  https://github.com/TorXakis/examples/tree/main/HelloWorld
 
+
 Traditionally, the first program, in this case the first model, made in
 a new language is the famous *Hello World!* program. Since the original
 *Hello World!* program is rather easy to test, we take a slight
@@ -40,7 +41,7 @@ Our *Hello World!* ``SUT`` is a `C-program <https://raw.githubusercontent.com/To
 user interface that communicates via standard input/output.
 
 
-.. code:: sh
+.. code-block:: sh
 
     $ gcc -o HelloWorld HelloWorld.c $ ./HelloWorld
     Hello World!
@@ -59,7 +60,7 @@ have to convert standard input/output communication to socket
 communication. In a Linux-like environment this can be done using
 standard utilities like ``netcat nc`` or ``socat``:
 
-.. code:: sh
+.. code-block:: sh
 
     $ socat TCP4-LISTEN:7890 EXEC:"./HelloWorld"
 
@@ -200,13 +201,13 @@ Now we are ready to perform a test, by running
 the ``SUT`` with its adapter and ``TorXakis`` as two separate
 processes in two different windows. For the ``SUT`` we run:
 
-.. code:: sh
+.. code-block:: sh
 
     $ socat TCP4-LISTEN:7890 EXEC:"./HelloWorld"
 
 For ``TorXakis`` we have:
 
-.. code:: sh
+.. code-block:: sh
 
     $ torxakis HelloWorld.txs
     TXS >> TorXakis :: Model-Based Testing
