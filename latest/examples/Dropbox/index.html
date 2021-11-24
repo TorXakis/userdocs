@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-4c12a56 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-4c12a56<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-4c12a56.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -1174,54 +1174,116 @@ Constraint solving, nondeterminism, and dealing with internal (hidden)
 actions (exploring all possible ’explanations’ in terms of <a class="reference internal" href="../../bibliography.html#r40" id="id19"><span>[R40]</span></a>) can
 make that computation of the next action takes a minute.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ torxakis Dropbox.txs
-TXS &gt;&gt;  TorXakis :: Model-Based Testing
-TXS &gt;&gt;  txsserver starting: &quot;PC-31093.tsn.tno.nl&quot; : 60275
-TXS &gt;&gt;  Solver &quot;z3&quot; initialized : Z3 [4.6.0]
-TXS &gt;&gt;  TxsCore initialized
-TXS &gt;&gt;  input files parsed:
-TXS &gt;&gt;  [&quot;Dropbox.txs&quot;]
-TXS &gt;&gt;  tester DropboxModel DropboxSut
-TXS &gt;&gt;  tester started
-TXS &gt;&gt;  test 100
-TXS &gt;&gt;  .....1:IN: Act{{(In1,[Read])}}
-TXS &gt;&gt;  .....2: OUT: Act { { ( Out1, [ File(Value(&quot;$&quot;)) ] .....3:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  .....4: OUT: Act { { ( Out2, [ File(Value(&quot;$&quot;)) ]
-TXS &gt;&gt;  .....5: IN: Act { { ( In1, [ Write(Value(&quot;P&quot;)) ]
-TXS &gt;&gt;  .....6: OUT: Act { { ( Out1, [ File(Value(&quot;$&quot;)) ]
-TXS &gt;&gt;  .....7: IN: Act { { ( In0, [ Write(Value(&quot;SHK&quot;))
-TXS &gt;&gt;  .....8: OUT: Act { { ( Out0, [ File(Value(&quot;$&quot;)) ] .....9:IN: Act{{(In1,[Read])}}
-TXS &gt;&gt;  ....10: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ]
-TXS &gt;&gt;  ....11: IN: Act { { ( In0, [ Write(Value(&quot;X&quot;)) ]
-TXS &gt;&gt;  ....12: OUT: Act { { ( Out0, [ File(Value(&quot;SHK&quot;))
-TXS &gt;&gt;  ....13: IN: Act { { ( In2, [ Write(Value(&quot;A&quot;)) ]
-TXS &gt;&gt;  ....14: OUT: Act { { ( Out2, [ File(Value(&quot;$&quot;)) ]
-TXS &gt;&gt;  ....15: IN: Act { { ( In2, [ Write(Value(&quot;SP&quot;)) ] ) } } ....16: OUT: Act { { ( Out2, [ File(Value(&quot;A&quot;)) ] ) } } ....17: IN: Act { { ( In1, [ Write(Value(&quot;BH&quot;)) ] ) } } ....18: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ] ) } } ....19:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....20: OUT: Act { { ( Out2, [ File(Value(&quot;SP&quot;)) ] ) } } ....21:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....22: OUT: Act { { ( Out0, [ File(Value(&quot;X&quot;)) ] ) } } ....23: IN: Act { { ( In2, [ Write(Value(&quot;PXH&quot;)) ] ) } } ....24: OUT: Act { { ( Out2, [ File(Value(&quot;X&quot;)) ] ) } } ....25:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....26: OUT: Act { { ( Out2, [ File(Value(&quot;PXH&quot;)) ] ) } } ....27: IN: Act { { ( In0, [ Write(Value(&quot;AX&quot;)) ] ) } } ....28: OUT: Act { { ( Out0, [ File(Value(&quot;PXH&quot;)) ] ) } } ....29:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....30: OUT: Act { { ( Out2, [ File(Value(&quot;AX&quot;)) ] ) } } ....31:IN: Act{{(In1,[Read])}}
-TXS &gt;&gt;  ....32: OUT: Act { { ( Out1, [ File(Value(&quot;AX&quot;)) ] ) } } ....33:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....34: OUT: Act { { ( Out0, [ File(Value(&quot;AX&quot;)) ] ) } } ....35: IN: Act { { ( In2, [ Write(Value(&quot;TPH&quot;)) ] ) } } ....36: OUT: Act { { ( Out2, [ File(Value(&quot;AX&quot;)) ] ) } } ....37: IN: Act { { ( In0, [ Write(Value(&quot;X&quot;)) ] ) } } ....38: OUT: Act { { ( Out0, [ File(Value(&quot;AX&quot;)) ] ) } } ....39: IN: Act { { ( In2, [ Write(Value(&quot;CPH&quot;)) ] ) } } ....40: OUT: Act { { ( Out2, [ File(Value(&quot;TPH&quot;)) ] ) } } ....41: IN: Act { { ( In1, [ Write(Value(&quot;HX&quot;)) ] ) } } ....42: OUT: Act { { ( Out1, [ File(Value(&quot;CPH&quot;)) ] ) } } ....43:IN: Act{{(In1,[Read])}}
-TXS &gt;&gt;  ....44: OUT: Act { { ( Out1, [ File(Value(&quot;HX&quot;)) ] ) } } ....45:IN: Act{{(In1,[Read])}}
-TXS &gt;&gt;  ....46: OUT: Act { { ( Out1, [ File(Value(&quot;HX&quot;)) ] ) } } ....47: IN: Act { { ( In2, [ Write(Value(&quot;Q&quot;)) ] ) } } ....48: OUT: Act { { ( Out2, [ File(Value(&quot;HX&quot;)) ] ) } } ....49:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....50: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } } ....51:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....52: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } } ....53:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....54: OUT: Act { { ( Out2, [ File(Value(&quot;Q&quot;)) ] ) } } ....55: IN: Act { { ( In0, [ Write(Value(&quot;K&quot;)) ] ) } } ....56: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } } ....57:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....58: OUT: Act { { ( Out2, [ File(Value(&quot;K&quot;)) ] ) } } ....59:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....60: OUT: Act { { ( Out0, [ File(Value(&quot;K&quot;)) ] ) } } ....61: IN: Act { { ( In2, [ Write(Value(&quot;ABL&quot;)) ] ) } } ....62: OUT: Act { { ( Out2, [ File(Value(&quot;K&quot;)) ] ) } } ....63:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....64: OUT: Act { { ( Out2, [ File(Value(&quot;ABL&quot;)) ] ) } } ....65: IN: Act { { ( In2, [ Write(Value(&quot;P&quot;)) ] ) } } ....66: OUT: Act { { ( Out2, [ File(Value(&quot;ABL&quot;)) ] ) } } ....67:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....68: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ....69:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....70: OUT: Act { { ( Out2, [ File(Value(&quot;P&quot;)) ....71:IN: Act{{(In1,[Read])}}
-TXS &gt;&gt;  ....72: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ....73:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....74: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ....75:IN: Act{{(In0,[Stabilize])}}
-TXS &gt;&gt;  ....76: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;))
-TXS &gt;&gt;  ....77: OUT: Act { { ( Out0, [ File(Value(&quot;X&quot;))
-TXS &gt;&gt;  ....78: OUT: Act { { ( Out0, [ File(Value(&quot;BH&quot;)) ] ) } } ....79: OUT: Act { { ( Out0, [ File(Value(&quot;SP&quot;)) ] ) } } ....80:OUT:Act{{(Out0,[Ack])}}
-TXS &gt;&gt;  ....81: IN: Act { { ( In1, [ Write(Value(&quot;AB&quot;)) ] ) } } ....82: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ] ) } } ....83: IN: Act { { ( In1, [ Write(Value(&quot;X&quot;)) ] ) } } ....84: OUT: Act { { ( Out1, [ File(Value(&quot;AB&quot;)) ] ) } } ....85:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ....86: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ] ) } } ....87: IN: Act { { ( In2, [ Write(Value(&quot;PNB&quot;)) ] ) } } ....88: OUT: Act { { ( Out2, [ File(Value(&quot;P&quot;)) ] ) } } ....89: IN: Act { { ( In1, [ Write(Value(&quot;D&quot;)) ] ) } } ....90: OUT: Act { { ( Out1, [ File(Value(&quot;X&quot;)) ] ) } } ....91: IN: Act { { ( In1, [ Write(Value(&quot;L&quot;)) ] ) } } ....92: OUT: Act { { ( Out1, [ File(Value(&quot;D&quot;)) ] ) } } ....93:IN: Act{{(In2,[Read])}}
-TXS &gt;&gt;  ....94: OUT: Act { { ( Out2, [ File(Value(&quot;PNB&quot;)) ] ) } } ....95: IN: Act { { ( In1, [ Write(Value(&quot;KK&quot;)) ] ) } } ....96: OUT: Act { { ( Out1, [ File(Value(&quot;PNB&quot;)) ] ) } } ....97: IN: Act { { ( In2, [ Write(Value(&quot;P&quot;)) ] ) } } ....98: OUT: Act { { ( Out2, [ File(Value(&quot;PNB&quot;)) ] ) } } ....99:IN: Act{{(In0,[Read])}}
-TXS &gt;&gt;  ...100: OUT: Act { { ( Out0, [ File(Value(&quot;KK&quot;)) ] ) } }
-TXS &gt;&gt;  PASS
+TXS &gt;&gt; TorXakis :: Model-Based Testing
+TXS &gt;&gt; txsserver starting: &quot;PC-31093.tsn.tno.nl&quot; : 60275
+TXS &gt;&gt; Solver &quot;z3&quot; initialized : Z3 [4.6.0]
+TXS &gt;&gt; TxsCore initialized
+TXS &gt;&gt; input files parsed:
+TXS &gt;&gt; [&quot;Dropbox.txs&quot;]
+TXS &gt;&gt; tester DropboxModel DropboxSut
+TXS &gt;&gt; tester started
+TXS &gt;&gt; test 100
+TXS &gt;&gt; .....1: IN: Act{{(In1,[Read])}}
+TXS &gt;&gt; .....2: OUT: Act { { ( Out1, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt; .....3: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; .....4: OUT: Act { { ( Out2, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt; .....5: IN: Act { { ( In1, [ Write(Value(&quot;P&quot;)) ]
+TXS &gt;&gt; .....6: OUT: Act { { ( Out1, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt; .....7: IN: Act { { ( In0, [ Write(Value(&quot;SHK&quot;))
+TXS &gt;&gt; .....8: OUT: Act { { ( Out0, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt; .....9: IN: Act{{(In1,[Read])}}
+TXS &gt;&gt; ....10: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ]
+TXS &gt;&gt; ....11: IN: Act { { ( In0, [ Write(Value(&quot;X&quot;)) ]
+TXS &gt;&gt; ....12: OUT: Act { { ( Out0, [ File(Value(&quot;SHK&quot;))
+TXS &gt;&gt; ....13: IN: Act { { ( In2, [ Write(Value(&quot;A&quot;)) ]
+TXS &gt;&gt; ....14: OUT: Act { { ( Out2, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt; ....15: IN: Act { { ( In2, [ Write(Value(&quot;SP&quot;)) ] ) } }
+TXS &gt;&gt; ....16: OUT: Act { { ( Out2, [ File(Value(&quot;A&quot;)) ] ) } }
+TXS &gt;&gt; ....17: IN: Act { { ( In1, [ Write(Value(&quot;BH&quot;)) ] ) } }
+TXS &gt;&gt; ....18: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ] ) } }
+TXS &gt;&gt; ....19: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....20: OUT: Act { { ( Out2, [ File(Value(&quot;SP&quot;)) ] ) } }
+TXS &gt;&gt; ....21: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....22: OUT: Act { { ( Out0, [ File(Value(&quot;X&quot;)) ] ) } }
+TXS &gt;&gt; ....23: IN: Act { { ( In2, [ Write(Value(&quot;PXH&quot;)) ] ) } }
+TXS &gt;&gt; ....24: OUT: Act { { ( Out2, [ File(Value(&quot;X&quot;)) ] ) } }
+TXS &gt;&gt; ....25: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....26: OUT: Act { { ( Out2, [ File(Value(&quot;PXH&quot;)) ] ) } }
+TXS &gt;&gt; ....27: IN: Act { { ( In0, [ Write(Value(&quot;AX&quot;)) ] ) } }
+TXS &gt;&gt; ....28: OUT: Act { { ( Out0, [ File(Value(&quot;PXH&quot;)) ] ) } }
+TXS &gt;&gt; ....29: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....30: OUT: Act { { ( Out2, [ File(Value(&quot;AX&quot;)) ] ) } }
+TXS &gt;&gt; ....31: IN: Act{{(In1,[Read])}}
+TXS &gt;&gt; ....32: OUT: Act { { ( Out1, [ File(Value(&quot;AX&quot;)) ] ) } }
+TXS &gt;&gt; ....33: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....34: OUT: Act { { ( Out0, [ File(Value(&quot;AX&quot;)) ] ) } }
+TXS &gt;&gt; ....35: IN: Act { { ( In2, [ Write(Value(&quot;TPH&quot;)) ] ) } }
+TXS &gt;&gt; ....36: OUT: Act { { ( Out2, [ File(Value(&quot;AX&quot;)) ] ) } }
+TXS &gt;&gt; ....37: IN: Act { { ( In0, [ Write(Value(&quot;X&quot;)) ] ) } }
+TXS &gt;&gt; ....38: OUT: Act { { ( Out0, [ File(Value(&quot;AX&quot;)) ] ) } }
+TXS &gt;&gt; ....39: IN: Act { { ( In2, [ Write(Value(&quot;CPH&quot;)) ] ) } }
+TXS &gt;&gt; ....40: OUT: Act { { ( Out2, [ File(Value(&quot;TPH&quot;)) ] ) } }
+TXS &gt;&gt; ....41: IN: Act { { ( In1, [ Write(Value(&quot;HX&quot;)) ] ) } }
+TXS &gt;&gt; ....42: OUT: Act { { ( Out1, [ File(Value(&quot;CPH&quot;)) ] ) } }
+TXS &gt;&gt; ....43: IN: Act{{(In1,[Read])}}
+TXS &gt;&gt; ....44: OUT: Act { { ( Out1, [ File(Value(&quot;HX&quot;)) ] ) } }
+TXS &gt;&gt; ....45: IN: Act{{(In1,[Read])}}
+TXS &gt;&gt; ....46: OUT: Act { { ( Out1, [ File(Value(&quot;HX&quot;)) ] ) } }
+TXS &gt;&gt; ....47: IN: Act { { ( In2, [ Write(Value(&quot;Q&quot;)) ] ) } }
+TXS &gt;&gt; ....48: OUT: Act { { ( Out2, [ File(Value(&quot;HX&quot;)) ] ) } }
+TXS &gt;&gt; ....49: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....50: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } }
+TXS &gt;&gt; ....51: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....52: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } }
+TXS &gt;&gt; ....53: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....54: OUT: Act { { ( Out2, [ File(Value(&quot;Q&quot;)) ] ) } }
+TXS &gt;&gt; ....55: IN: Act { { ( In0, [ Write(Value(&quot;K&quot;)) ] ) } }
+TXS &gt;&gt; ....56: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } }
+TXS &gt;&gt; ....57: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....58: OUT: Act { { ( Out2, [ File(Value(&quot;K&quot;)) ] ) } }
+TXS &gt;&gt; ....59: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....60: OUT: Act { { ( Out0, [ File(Value(&quot;K&quot;)) ] ) } }
+TXS &gt;&gt; ....61: IN: Act { { ( In2, [ Write(Value(&quot;ABL&quot;)) ] ) } }
+TXS &gt;&gt; ....62: OUT: Act { { ( Out2, [ File(Value(&quot;K&quot;)) ] ) } }
+TXS &gt;&gt; ....63: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....64: OUT: Act { { ( Out2, [ File(Value(&quot;ABL&quot;)) ] ) } }
+TXS &gt;&gt; ....65: IN: Act { { ( In2, [ Write(Value(&quot;P&quot;)) ] ) } }
+TXS &gt;&gt; ....66: OUT: Act { { ( Out2, [ File(Value(&quot;ABL&quot;)) ] ) } }
+TXS &gt;&gt; ....67: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....68: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;))
+TXS &gt;&gt; ....69: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....70: OUT: Act { { ( Out2, [ File(Value(&quot;P&quot;))
+TXS &gt;&gt; ....71: IN: Act{{(In1,[Read])}}
+TXS &gt;&gt; ....72: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;))
+TXS &gt;&gt; ....73: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....74: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;))
+TXS &gt;&gt; ....75: IN: Act{{(In0,[Stabilize])}}
+TXS &gt;&gt; ....76: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;))
+TXS &gt;&gt; ....77: OUT: Act { { ( Out0, [ File(Value(&quot;X&quot;))
+TXS &gt;&gt; ....78: OUT: Act { { ( Out0, [ File(Value(&quot;BH&quot;)) ] ) } }
+TXS &gt;&gt; ....79: OUT: Act { { ( Out0, [ File(Value(&quot;SP&quot;)) ] ) } }
+TXS &gt;&gt; ....80: OUT:Act{{(Out0,[Ack])}}
+TXS &gt;&gt; ....81: IN: Act { { ( In1, [ Write(Value(&quot;AB&quot;)) ] ) } }
+TXS &gt;&gt; ....82: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ] ) } }
+TXS &gt;&gt; ....83: IN: Act { { ( In1, [ Write(Value(&quot;X&quot;)) ] ) } }
+TXS &gt;&gt; ....84: OUT: Act { { ( Out1, [ File(Value(&quot;AB&quot;)) ] ) } }
+TXS &gt;&gt; ....85: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ....86: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ] ) } }
+TXS &gt;&gt; ....87: IN: Act { { ( In2, [ Write(Value(&quot;PNB&quot;)) ] ) } }
+TXS &gt;&gt; ....88: OUT: Act { { ( Out2, [ File(Value(&quot;P&quot;)) ] ) } }
+TXS &gt;&gt; ....89: IN: Act { { ( In1, [ Write(Value(&quot;D&quot;)) ] ) } }
+TXS &gt;&gt; ....90: OUT: Act { { ( Out1, [ File(Value(&quot;X&quot;)) ] ) } }
+TXS &gt;&gt; ....91: IN: Act { { ( In1, [ Write(Value(&quot;L&quot;)) ] ) } }
+TXS &gt;&gt; ....92: OUT: Act { { ( Out1, [ File(Value(&quot;D&quot;)) ] ) } }
+TXS &gt;&gt; ....93: IN: Act{{(In2,[Read])}}
+TXS &gt;&gt; ....94: OUT: Act { { ( Out2, [ File(Value(&quot;PNB&quot;)) ] ) } }
+TXS &gt;&gt; ....95: IN: Act { { ( In1, [ Write(Value(&quot;KK&quot;)) ] ) } }
+TXS &gt;&gt; ....96: OUT: Act { { ( Out1, [ File(Value(&quot;PNB&quot;)) ] ) } }
+TXS &gt;&gt; ....97: IN: Act { { ( In2, [ Write(Value(&quot;P&quot;)) ] ) } }
+TXS &gt;&gt; ....98: OUT: Act { { ( Out2, [ File(Value(&quot;PNB&quot;)) ] ) } }
+TXS &gt;&gt; ....99: IN: Act{{(In0,[Read])}}
+TXS &gt;&gt; ...100: OUT: Act { { ( Out0, [ File(Value(&quot;KK&quot;)) ] ) } }
+TXS &gt;&gt; PASS
 TXS &gt;&gt;
 </pre></div>
 </div>
