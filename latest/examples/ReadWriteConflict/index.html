@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example - Shared Memory &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example - Shared Memory &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -592,7 +600,7 @@ process is instantiated with the current memory value. Since writing
 a value to memory changes its value, after writing, the <em>memory</em>
 process is instantiated with the new value.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF memory [ Read, Write :: Int ] ( value :: Int ) ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF memory [ Read, Write :: Int ] ( value :: Int ) ::=
         Read  ! value     &gt;-&gt;  memory [Read, Write]( value )
     ##
         Write ? newValue  &gt;-&gt;  memory [Read, Write]( newValue )
@@ -600,11 +608,11 @@ ENDDEF
 </pre></div>
 </div>
 <p>The <em>memory</em> process is used as follows, with initial value 0:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">usage</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
-        <span class="n">memory</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
-    <span class="o">|</span><span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span><span class="o">|</span>
-        <span class="n">someProcesses</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">()</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF usage [ Read, Write :: Int ] ( ) ::=
+        memory [ Read, Write ] ( 0 )
+    |[ Read, Write ]|
+        someProcesses [ Read, Write ] ()
+ENDDEF
 </pre></div>
 </div>
 <p>where someProcesses contains read statements like</p>
@@ -663,9 +671,9 @@ for more details.</p>
 communication channel: Memory. This communication channel has as <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">Data
 Type</a>
 MemoryAccess which is defined as follows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">MemoryAccess</span> <span class="p">:</span><span class="o">:=</span> <span class="n">Read</span>  <span class="p">{</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span>
-                       <span class="o">|</span> <span class="n">Write</span> <span class="p">{</span> <span class="n">newValue</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF MemoryAccess ::= Read  { value :: Int }
+                       | Write { newValue :: Int }
+ENDDEF
 </pre></div>
 </div>
 <p>The <em>memory</em> process is still a recursive process, with one parameter:
@@ -680,7 +688,7 @@ memory value. Since writing a value to memory changes its value,
 after writing, the <em>memory</em> process is instantiated with the new
 value.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF memory [ Memory :: MemoryAccess ] ( value :: Int ) ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF memory [ Memory :: MemoryAccess ] ( value :: Int ) ::=
         Memory ! Read ( value )     &gt;-&gt;  memory [Memory](value)
     ##
         Memory ? x [[ isWrite(x) ]] &gt;-&gt;  memory [Memory](newValue(x))
@@ -688,11 +696,11 @@ ENDDEF
 </pre></div>
 </div>
 <p>The <em>memory</em> process is used as follows, with initial value 0:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">usage</span> <span class="p">[</span> <span class="n">Memory</span> <span class="p">::</span> <span class="n">MemoryAccess</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
-        <span class="n">memory</span> <span class="p">[</span> <span class="n">Memory</span> <span class="p">]</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
-    <span class="o">|</span><span class="p">[</span> <span class="n">Memory</span> <span class="p">]</span><span class="o">|</span>
-        <span class="n">someProcesses</span> <span class="p">[</span> <span class="n">Memory</span> <span class="p">]</span> <span class="p">()</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF usage [ Memory :: MemoryAccess ] ( ) ::=
+        memory [ Memory ] ( 0 )
+    |[ Memory ]|
+        someProcesses [ Memory ] ()
+ENDDEF
 </pre></div>
 </div>
 <p>where someProcesses contains read statements like</p>
@@ -749,7 +757,7 @@ able to identify end states. If we add a way to identify who accesses a
 memory cell at a certain point, then we can also use it to signal an end
 state. Let’s define MemoryAccess and the cell that is accessed
 separately:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TYPEDEF MemoryAccess ::= MemoryAccess { identity :: String; value :: Int }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF MemoryAccess ::= MemoryAccess { identity :: String; value :: Int }
 ENDDEF
 
 PROCDEF cell [ Read, Write :: MemoryAccess ] ( value :: Int ) ::=
@@ -760,11 +768,11 @@ ENDDEF
 </pre></div>
 </div>
 <p>The <em>cell</em> process is used as follows, with initial value 0:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">usage</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">::</span> <span class="n">MemoryAccess</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
-        <span class="n">cell</span> <span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
-    <span class="o">|</span><span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span><span class="o">|</span>
-        <span class="n">someProcess</span><span class="p">[</span> <span class="n">Read</span><span class="p">,</span> <span class="n">Write</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF usage [ Read, Write :: MemoryAccess ] ( ) ::=
+        cell [ Read, Write ] ( 0 )
+    |[ Read, Write ]|
+        someProcess[ Read, Write ] ( )
+ENDDEF
 </pre></div>
 </div>
 <p>where someProcesses is similar to ones in previous examples but also
@@ -786,7 +794,7 @@ contains read statements that signals end states:</p>
 </tbody>
 </table>
 <p>Let’s create a Model for this <code class="docutils literal notranslate"><span class="pre">usage</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CHANDEF Channels ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CHANDEF Channels ::=
     Read, Write, Dummy :: MemoryAccess
 ENDDEF
 
@@ -826,7 +834,7 @@ need a simulator in order to run Test Purposes, and simulator needs an
 input channel in order to run properly. Hence, the <code class="docutils literal notranslate"><span class="pre">Dummy</span></code> channel.</p>
 <p>Now we can write a Test Purpose that manipulates the inputs and observes
 the outputs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF output [Read, Write :: MemoryAccess](n :: Int) HIT ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF output [Read, Write :: MemoryAccess](n :: Int) HIT ::=
         Read ! MemoryAccess (&quot;Final&quot;,n) &gt;-&gt; HIT
     ##
         Read ? ma [[ (identity(ma) &lt;&gt; &quot;Final&quot;) \/ (value(ma) &lt;&gt; n)]] &gt;-&gt; output [Read, Write](n)

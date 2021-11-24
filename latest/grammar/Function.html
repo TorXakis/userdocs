@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Function &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Function &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -690,11 +698,11 @@ data type to enhance readability.</p>
 <h3>Boute’s Euclidean Definition<a class="headerlink" href="#boute-s-euclidean-definition" title="Permalink to this headline">¶</a></h3>
 <p>The definitions of div <code class="docutils literal notranslate"><span class="pre">/</span></code> and mod <code class="docutils literal notranslate"><span class="pre">%</span></code> are according to Boute’s
 Euclidean definition [1], that is, so as to satisfy the formula</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">for</span> <span class="nb">all</span> <span class="p">((</span><span class="n">m</span> <span class="n">Int</span><span class="p">)</span> <span class="p">(</span><span class="n">n</span> <span class="n">Int</span><span class="p">))</span>
-  <span class="p">(</span><span class="o">=&gt;</span> <span class="p">(</span><span class="n">distinct</span> <span class="n">n</span> <span class="mi">0</span><span class="p">)</span>
-      <span class="p">(</span><span class="n">let</span> <span class="p">((</span><span class="n">q</span> <span class="p">(</span><span class="n">div</span> <span class="n">m</span> <span class="n">n</span><span class="p">))</span> <span class="p">(</span><span class="n">r</span> <span class="p">(</span><span class="n">mod</span> <span class="n">m</span> <span class="n">n</span><span class="p">)))</span>
-        <span class="p">(</span><span class="ow">and</span> <span class="p">(</span><span class="o">=</span> <span class="n">m</span> <span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="o">*</span> <span class="n">n</span> <span class="n">q</span><span class="p">)</span> <span class="n">r</span><span class="p">))</span>
-             <span class="p">(</span><span class="o">&lt;=</span> <span class="mi">0</span> <span class="n">r</span> <span class="p">(</span><span class="o">-</span> <span class="p">(</span><span class="nb">abs</span> <span class="n">n</span><span class="p">)</span> <span class="mi">1</span><span class="p">))))))</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(for all ((m Int) (n Int))
+  (=&gt; (distinct n 0)
+      (let ((q (div m n)) (r (mod m n)))
+        (and (= m (+ (* n q) r))
+             (&lt;= 0 r (- (abs n) 1))))))
 </pre></div>
 </div>
 <p>[1] Boute, Raymond T. (April 1992). The Euclidean definition of the
@@ -764,29 +772,29 @@ are only defined for instances of that constructor.</div>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>When the user defines</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">List_Int</span> <span class="p">:</span><span class="o">:=</span>
-      <span class="n">CNil_Int</span>
-    <span class="o">|</span> <span class="n">Cstr_Int</span> <span class="p">{</span> <span class="n">head</span> <span class="p">::</span> <span class="n">Int</span><span class="p">;</span> <span class="n">tail</span> <span class="p">::</span> <span class="n">List_Int</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF List_Int ::=
+      CNil_Int
+    | Cstr_Int { head :: Int; tail :: List_Int }
+ENDDEF
 </pre></div>
 </div>
 <p>TorXakis defines the equality operator</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">==</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="p">::</span> <span class="n">List_Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==(a,b :: List_Int) :: Bool
 </pre></div>
 </div>
 <p>the type checking functions (according to the pattern is)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">isCNil_Int</span><span class="p">(</span><span class="n">x</span> <span class="p">::</span> <span class="n">List_Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span>
-<span class="n">isCstr_Int</span><span class="p">(</span><span class="n">x</span> <span class="p">::</span> <span class="n">List_Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>isCNil_Int(x :: List_Int) :: Bool
+isCstr_Int(x :: List_Int) :: Bool
 </pre></div>
 </div>
 <p>and the accessor functions</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span><span class="p">(</span><span class="n">x</span> <span class="p">::</span> <span class="n">List_Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">Int</span>
-<span class="n">tail</span><span class="p">(</span><span class="n">x</span> <span class="p">::</span> <span class="n">List_Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">List_Int</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>head(x :: List_Int) :: Int
+tail(x :: List_Int) :: List_Int
 </pre></div>
 </div>
 <p>which satisfy</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span><span class="p">(</span><span class="n">Cstr_Int</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">t</span><span class="p">))</span> <span class="o">==</span> <span class="n">h</span>
-<span class="n">tail</span><span class="p">(</span><span class="n">Cstr_Int</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">t</span><span class="p">))</span> <span class="o">==</span> <span class="n">t</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>head(Cstr_Int(h,t)) == h
+tail(Cstr_Int(h,t)) == t
 </pre></div>
 </div>
 <div class="line-block">
@@ -797,7 +805,7 @@ head(CNil_Int) and tail(CNil_Int) are thus not defined.</div>
 </div>
 <p>One should guard the usage of accessor functions with the constructor
 check, using <a class="reference external" href="IteValExpr">IF THEN ELSE FI</a> .</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IF</span> <span class="n">isCstr_Int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">head</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span> <span class="n">ELSE</span> <span class="kc">False</span> <span class="n">FI</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IF isCstr_Int(x) THEN head(x) == 5 ELSE False FI
 </pre></div>
 </div>
 </section>

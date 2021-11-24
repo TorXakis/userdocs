@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="examples/Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -583,14 +591,14 @@ Download and install <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 <p>You should get the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> prompt:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;
+<div class="highlight-txscmd notranslate"><div class="highlight"><pre><span></span><span class="s">TXS &gt;&gt;</span>
 </pre></div>
 </div>
 <p>after which you can use various <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> commands; try
 <a class="reference internal" href="torxakis-help.html#torxakishelp"><span class="std std-ref">h(elp)</span></a>  to get an overview of
 possible commands, q(uit) to quit <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, and try evaluating an expression,
 to check whether everything was successfully installed:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt; <span class="nb">eval</span> <span class="m">42</span>-17
+<div class="highlight-txscmd notranslate"><div class="highlight"><pre><span></span><span class="s">TXS &gt;&gt;</span> <span class="k">eval</span> <span class="s">42</span><span class="o">-</span><span class="s">17</span>
 </pre></div>
 </div>
 </section>
@@ -673,27 +681,27 @@ followed by the <code class="docutils literal notranslate"><span class="pre">ste
 state-automaton. This will show a trace of possible of behaviour, i.e., a sequence of transitons,
 as it is described in the model. The result looks like below; ’looks like’ because the sequence of actions
 and the integer values are randomly chosen, so your result might differ a bit.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis Queue.txs
+<div class="highlight-txscmd notranslate"><div class="highlight"><pre><span></span>$ torxakis Queue.txs
 
-TXS &gt;&gt; TorXakis :: Model-Based Testing
+<span class="s">TXS &gt;&gt;</span> TorXakis :: Model<span class="o">-</span>Based Testing
 
-TXS &gt;&gt; txsserver starting: <span class="s2">&quot;PC-21165.tsn.tno.nl&quot;</span> : <span class="m">54888</span>
-TXS &gt;&gt; Solver <span class="s2">&quot;z3&quot;</span> initialized : Z3 <span class="o">[</span><span class="m">4</span>.8.5 - build hashcode b63a0e31d3e2<span class="o">]</span>
-TXS &gt;&gt; TxsCore initialized
-TXS &gt;&gt; LPEOps version <span class="m">2019</span>.07.05.02 TXS &gt;&gt; input files parsed:
-TXS &gt;&gt; <span class="o">[</span><span class="s2">&quot;Queue0.txs&quot;</span><span class="o">]</span>
-TXS &gt;&gt; stepper Queue
-TXS &gt;&gt; Stepper started
-TXS &gt;&gt; step <span class="m">7</span>
-TXS &gt;&gt; .....1:NoDir:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span>-1325<span class="o">)])}}</span>
-TXS &gt;&gt; .....2:NoDir:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span><span class="m">0</span><span class="o">)])}}</span>
-TXS &gt;&gt; .....3:NoDir:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span>-1782<span class="o">)])}}</span>
-TXS &gt;&gt; .....4:NoDir:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span>-90992<span class="o">)])}}</span>
-TXS &gt;&gt; .....5:NoDir:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span>-75<span class="o">)])}}</span>
-TXS &gt;&gt; .....6:NoDir:Act<span class="o">{{(</span>In,<span class="o">[</span>Deq<span class="o">])}}</span>
-TXS &gt;&gt; .....7:NoDir:Act<span class="o">{{(</span>Out,<span class="o">[</span>-1325<span class="o">])}}</span>
-TXS &gt;&gt; PASS
-TXS &gt;&gt;
+<span class="s">TXS &gt;&gt;</span> txsserver starting: <span class="s">&quot;PC-21165.tsn.tno.nl&quot;</span> : <span class="s">54888</span>
+<span class="s">TXS &gt;&gt;</span> Solver <span class="s">&quot;z3&quot;</span> initialized : Z3 [<span class="s">4</span>.<span class="s">8</span>.<span class="s">5</span> <span class="o">-</span> build hashcode b63a0e31d3e2]
+<span class="s">TXS &gt;&gt;</span> TxsCore initialized
+<span class="s">TXS &gt;&gt;</span> LPEOps version <span class="s">2019</span>.<span class="s">07</span>.<span class="s">05</span>.<span class="s">02</span> <span class="s">TXS &gt;&gt;</span> input files parsed:
+<span class="s">TXS &gt;&gt;</span> [<span class="s">&quot;Queue0.txs&quot;</span>]
+<span class="s">TXS &gt;&gt;</span> <span class="k">stepper</span> Queue
+<span class="s">TXS &gt;&gt;</span> Stepper started
+<span class="s">TXS &gt;&gt;</span> <span class="k">step</span> <span class="s">7</span>
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">1</span>:NoDir:Act{{(In,[Enq(<span class="o">-</span><span class="s">1325</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">2</span>:NoDir:Act{{(In,[Enq(<span class="s">0</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">3</span>:NoDir:Act{{(In,[Enq(<span class="o">-</span><span class="s">1782</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">4</span>:NoDir:Act{{(In,[Enq(<span class="o">-</span><span class="s">90992</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">5</span>:NoDir:Act{{(In,[Enq(<span class="o">-</span><span class="s">75</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">6</span>:NoDir:Act{{(In,[Deq])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">7</span>:NoDir:Act{{(Out,[<span class="o">-</span><span class="s">1325</span>])}}
+<span class="s">TXS &gt;&gt;</span> PASS
+<span class="s">TXS &gt;&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -706,27 +714,28 @@ that is, the tester-command with Queue as model, i.e., the <code class="docutils
 to the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, i.e., the <code class="docutils literal notranslate"><span class="pre">CNECTDEF</span></code> in the model file. Upon <code class="docutils literal notranslate"><span class="pre">tester</span> <span class="pre">Queue</span> <span class="pre">Sut</span></code> <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> will connect directly to the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>,
 so you do not need <code class="docutils literal notranslate"><span class="pre">telnet</span></code>, etc. Then the command <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">7</span></code> specifies how many test steps will be taken; you can
 easily try bigger numbers, e.g., <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">7777</span></code>. Now you have executed your first successful test with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>!</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis Queue0.txs
+<div class="highlight-txscmd notranslate"><div class="highlight"><pre><span></span>$ torxakis Queue0.txs
 
-TXS &gt;&gt; TorXakis :: Model-Based Testing
+<span class="s">TXS &gt;&gt;</span> TorXakis :: Model<span class="o">-</span>Based Testing
 
-TXS &gt;&gt; txsserver starting: <span class="s2">&quot;PC-21165.tsn.tno.nl&quot;</span> : <span class="m">54890</span>
-TXS &gt;&gt; Solver <span class="s2">&quot;z3&quot;</span> initialized : Z3 <span class="o">[</span><span class="m">4</span>.8.5 - build hashcode b63a0e31d3e2<span class="o">]</span>
-TXS &gt;&gt; TxsCore initialized
-TXS &gt;&gt; LPEOps version <span class="m">2019</span>.07.05.02 TXS &gt;&gt; input files parsed:
-TXS &gt;&gt; <span class="o">[</span><span class="s2">&quot;Queue0.txs&quot;</span><span class="o">]</span>
-TXS &gt;&gt; tester Queue Sut
-TXS &gt;&gt; Tester started
-TXS &gt;&gt; <span class="nb">test</span> <span class="m">7</span>
-TXS &gt;&gt; .....1:In:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span>-1953<span class="o">)])}}</span>
-TXS &gt;&gt; .....2:In:Act<span class="o">{{(</span>In,<span class="o">[</span>Deq<span class="o">])}}</span>
-TXS &gt;&gt; .....3:Out:Act<span class="o">{{(</span>Out,<span class="o">[</span>-1953<span class="o">])}}</span>
-TXS &gt;&gt; .....4:In:Act<span class="o">{{(</span>In,<span class="o">[</span>Deq<span class="o">])}}</span>
-TXS &gt;&gt; .....5:In:Act<span class="o">{{(</span>In,<span class="o">[</span>Enq<span class="o">(</span>-1<span class="o">)])}}</span>
-TXS &gt;&gt; .....6:In:Act<span class="o">{{(</span>In,<span class="o">[</span>Deq<span class="o">])}}</span>
-TXS &gt;&gt; .....7:Out:Act<span class="o">{{(</span>Out,<span class="o">[</span>-1<span class="o">])}}</span>
-TXS &gt;&gt; PASS
-TXS &gt;&gt;
+<span class="s">TXS &gt;&gt;</span> txsserver starting: <span class="s">&quot;PC-21165.tsn.tno.nl&quot;</span> : <span class="s">54890</span>
+<span class="s">TXS &gt;&gt;</span> Solver <span class="s">&quot;z3&quot;</span> initialized : Z3 [<span class="s">4</span>.<span class="s">8</span>.<span class="s">5</span> <span class="o">-</span> build hashcode b63a0e31d3e2]
+<span class="s">TXS &gt;&gt;</span> TxsCore initialized
+<span class="s">TXS &gt;&gt;</span> LPEOps version <span class="s">2019</span>.<span class="s">07</span>.<span class="s">05</span>.<span class="s">02</span>
+<span class="s">TXS &gt;&gt;</span> input files parsed:
+<span class="s">TXS &gt;&gt;</span> [<span class="s">&quot;Queue0.txs&quot;</span>]
+<span class="s">TXS &gt;&gt;</span> <span class="k">tester</span> Queue Sut
+<span class="s">TXS &gt;&gt;</span> Tester started
+<span class="s">TXS &gt;&gt;</span> <span class="k">test</span> <span class="s">7</span>
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">1</span>:In:Act{{(In,[Enq(<span class="o">-</span><span class="s">1953</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">2</span>:In:Act{{(In,[Deq])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">3</span>:Out:Act{{(Out,[<span class="o">-</span><span class="s">1953</span>])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">4</span>:In:Act{{(In,[Deq])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">5</span>:In:Act{{(In,[Enq(<span class="o">-</span><span class="s">1</span>)])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">6</span>:In:Act{{(In,[Deq])}}
+<span class="s">TXS &gt;&gt;</span> .....<span class="s">7</span>:Out:Act{{(Out,[<span class="o">-</span><span class="s">1</span>])}}
+<span class="s">TXS &gt;&gt;</span> PASS
+<span class="s">TXS &gt;&gt;</span>
 </pre></div>
 </div>
 </section>

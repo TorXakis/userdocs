@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example - Customers Orders &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example - Customers Orders &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -613,169 +621,169 @@ file</a>.</p>
 Orders</a>, it
 is straightforward to define not only the following <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TypeDefs">Type
 Definitions</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">RootType</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">C_RootType</span> <span class="p">{</span> <span class="n">customers</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">;</span> <span class="n">orders</span> <span class="p">::</span> <span class="n">List_OrderType</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF RootType ::=
+    C_RootType { customers :: List_CustomerType ; orders :: List_OrderType }
+ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">List_CustomerType</span> <span class="p">:</span><span class="o">:=</span>
-      <span class="n">CNil_CustomerType</span>
-    <span class="o">|</span> <span class="n">Cstr_CustomerType</span> <span class="p">{</span> <span class="n">head</span> <span class="p">::</span> <span class="n">CustomerType</span><span class="p">;</span> <span class="n">tail</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF List_CustomerType ::=
+      CNil_CustomerType
+    | Cstr_CustomerType { head :: CustomerType; tail :: List_CustomerType }
+ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">List_OrderType</span> <span class="p">:</span><span class="o">:=</span>
-      <span class="n">CNil_OrderType</span>
-    <span class="o">|</span> <span class="n">Cstr_OrderType</span> <span class="p">{</span> <span class="n">head</span> <span class="p">::</span> <span class="n">OrderType</span><span class="p">;</span> <span class="n">tail</span> <span class="p">::</span> <span class="n">List_OrderType</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF List_OrderType ::=
+      CNil_OrderType
+    | Cstr_OrderType { head :: OrderType; tail :: List_OrderType }
+ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">CustomerType</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">C_CustomerType</span> <span class="p">{</span> <span class="n">companyName</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">contactName</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">contactTitle</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">phone</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">fax</span> <span class="p">::</span> <span class="n">Conditional_string</span>
-                   <span class="p">;</span> <span class="n">fullAddress</span> <span class="p">::</span> <span class="n">AddressType</span>
-                   <span class="p">;</span> <span class="n">customerID</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF CustomerType ::=
+    C_CustomerType { companyName :: String
+                   ; contactName :: String
+                   ; contactTitle :: String
+                   ; phone :: String
+                   ; fax :: Conditional_string
+                   ; fullAddress :: AddressType
+                   ; customerID :: Int }
+ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">AddressType</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">C_AddressType</span> <span class="p">{</span> <span class="n">address</span> <span class="p">::</span> <span class="n">String</span>
-                  <span class="p">;</span> <span class="n">city</span> <span class="p">::</span> <span class="n">String</span>
-                  <span class="p">;</span> <span class="n">region</span> <span class="p">::</span> <span class="n">String</span>
-                  <span class="p">;</span> <span class="n">postalCode</span> <span class="p">::</span> <span class="n">String</span>
-                  <span class="p">;</span> <span class="n">country</span> <span class="p">::</span> <span class="n">String</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF AddressType ::=
+    C_AddressType { address :: String
+                  ; city :: String
+                  ; region :: String
+                  ; postalCode :: String
+                  ; country :: String }
+ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">OrderType</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">C_OrderType</span> <span class="p">{</span> <span class="n">customerID</span> <span class="p">::</span> <span class="n">Int</span>
-                <span class="p">;</span> <span class="n">employeeID</span> <span class="p">::</span> <span class="n">Int</span>
-                <span class="p">;</span> <span class="n">orderDate</span> <span class="p">::</span> <span class="n">Int</span>
-                <span class="p">;</span> <span class="n">requiredDate</span> <span class="p">::</span> <span class="n">Int</span>
-                <span class="p">;</span> <span class="n">shipInfo</span> <span class="p">::</span> <span class="n">ShipInfoType</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF OrderType ::=
+    C_OrderType { customerID :: Int
+                ; employeeID :: Int
+                ; orderDate :: Int
+                ; requiredDate :: Int
+                ; shipInfo :: ShipInfoType }
+ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">ShipInfoType</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">C_ShipInfoType</span> <span class="p">{</span> <span class="n">shipVia</span> <span class="p">::</span> <span class="n">Int</span>
-                   <span class="p">;</span> <span class="n">freight</span> <span class="p">::</span> <span class="n">Int</span>
-                   <span class="p">;</span> <span class="n">shipName</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">shipAddress</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">shipCity</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">shipRegion</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">shipPostalCode</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">shipCountry</span> <span class="p">::</span> <span class="n">String</span>
-                   <span class="p">;</span> <span class="n">shippedDate</span> <span class="p">::</span> <span class="n">Conditional_dateTime</span> <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF ShipInfoType ::=
+    C_ShipInfoType { shipVia :: Int
+                   ; freight :: Int
+                   ; shipName :: String
+                   ; shipAddress :: String
+                   ; shipCity :: String
+                   ; shipRegion :: String
+                   ; shipPostalCode :: String
+                   ; shipCountry :: String
+                   ; shippedDate :: Conditional_dateTime }
+ENDDEF
 </pre></div>
 </div>
 <p>but also the following <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">Function
 Definitions</a> to
 capture the constraints on these types:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isValid_RootType</span> <span class="p">(</span> <span class="n">t</span> <span class="p">::</span> <span class="n">RootType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValid_List_CustomerType</span><span class="p">(</span><span class="n">customers</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CAbsent_Int</span><span class="p">)</span>
-    <span class="o">/</span>\ <span class="n">isValid_List_OrderType</span><span class="p">(</span><span class="n">orders</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CAbsent_Int</span><span class="p">)</span>
-    <span class="o">/</span>\ <span class="n">uniqueCustomerIDs</span><span class="p">(</span><span class="n">customers</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">validCustomerIDsInOrders</span><span class="p">(</span><span class="n">orders</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">customers</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isValid_RootType ( t :: RootType ) :: Bool ::=
+       isValid_List_CustomerType(customers(t), 0, CAbsent_Int)
+    /\ isValid_List_OrderType(orders(t), 0, CAbsent_Int)
+    /\ uniqueCustomerIDs(customers(t))
+    /\ validCustomerIDsInOrders(orders(t),customers(t))
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">uniqueCustomerIDs</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="p">(</span><span class="n">isCNil_CustomerType</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">THEN</span> <span class="kc">True</span>
-        <span class="n">ELSE</span> <span class="ow">not</span><span class="p">(</span><span class="n">containsCustomerID</span><span class="p">(</span><span class="n">customerID</span><span class="p">(</span><span class="n">head</span> <span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="o">/</span>\ <span class="n">uniqueCustomerIDs</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF uniqueCustomerIDs ( x :: List_CustomerType ) :: Bool ::=
+    IF (isCNil_CustomerType (x))
+        THEN True
+        ELSE not(containsCustomerID(customerID(head (x)), tail(x))) /\ uniqueCustomerIDs(tail(x))
+    FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">containsCustomerID</span> <span class="p">(</span> <span class="n">cid</span> <span class="p">::</span> <span class="n">Int</span><span class="p">;</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="p">(</span><span class="n">isCNil_CustomerType</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">THEN</span> <span class="kc">False</span>
-        <span class="n">ELSE</span> <span class="n">IF</span> <span class="p">(</span> <span class="n">customerID</span><span class="p">(</span><span class="n">head</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="n">cid</span> <span class="p">)</span>
-                 <span class="n">THEN</span> <span class="kc">True</span>
-                 <span class="n">ELSE</span> <span class="n">containsCustomerID</span> <span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-             <span class="n">FI</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF containsCustomerID ( cid :: Int; x :: List_CustomerType ) :: Bool ::=
+    IF (isCNil_CustomerType (x))
+        THEN False
+        ELSE IF ( customerID(head (x)) == cid )
+                 THEN True
+                 ELSE containsCustomerID (cid, tail(x))
+             FI
+    FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">validCustomerIDsInOrders</span> <span class="p">(</span> <span class="n">o</span> <span class="p">::</span> <span class="n">List_OrderType</span><span class="p">;</span> <span class="n">c</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="p">(</span><span class="n">isCNil_OrderType</span> <span class="p">(</span><span class="n">o</span><span class="p">))</span>
-        <span class="n">THEN</span> <span class="kc">True</span>
-        <span class="n">ELSE</span> <span class="n">containsCustomerID</span><span class="p">(</span><span class="n">customerID</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">o</span><span class="p">)),</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span>\ <span class="n">validCustomerIDsInOrders</span> <span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">o</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF validCustomerIDsInOrders ( o :: List_OrderType; c :: List_CustomerType ) :: Bool ::=
+    IF (isCNil_OrderType (o))
+        THEN True
+        ELSE containsCustomerID(customerID(head(o)), c) /\ validCustomerIDsInOrders (tail(o), c)
+    FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValid_List_CustomerType</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_CustomerType</span><span class="p">;</span> <span class="nb">min</span> <span class="p">::</span> <span class="n">Int</span><span class="p">;</span> <span class="nb">max</span> <span class="p">::</span> <span class="n">Conditional_Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValidElementsList_CustomerType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="nb">min</span> <span class="o">&lt;=</span> <span class="n">lengthList_CustomerType</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="n">IF</span> <span class="n">isCPresent_Int</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">lengthList_CustomerType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">value</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span> <span class="n">ELSE</span> <span class="kc">True</span> <span class="n">FI</span><span class="p">)</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValid_List_CustomerType ( x :: List_CustomerType; min :: Int; max :: Conditional_Int ) :: Bool ::=
+       isValidElementsList_CustomerType(x)
+    /\ (min &lt;= lengthList_CustomerType(x))
+    /\ (IF isCPresent_Int(max) THEN lengthList_CustomerType(x) &lt;= value(max) ELSE True FI)
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValidElementsList_CustomerType</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">isCstr_CustomerType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">THEN</span> <span class="n">isValid_CustomerType</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span>\ <span class="n">isValidElementsList_CustomerType</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">ELSE</span> <span class="kc">True</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValidElementsList_CustomerType ( x :: List_CustomerType ) :: Bool ::=
+    IF isCstr_CustomerType(x)
+        THEN isValid_CustomerType(head(x)) /\ isValidElementsList_CustomerType(tail(x))
+        ELSE True
+    FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">lengthList_CustomerType</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_CustomerType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">isCNil_CustomerType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">THEN</span> <span class="mi">0</span> <span class="n">ELSE</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">lengthList_CustomerType</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF lengthList_CustomerType ( x :: List_CustomerType ) :: Int ::=
+    IF isCNil_CustomerType(x) THEN 0 ELSE 1 + lengthList_CustomerType(tail(x)) FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValid_CustomerType</span> <span class="p">(</span> <span class="n">t</span> <span class="p">::</span> <span class="n">CustomerType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValid_string</span><span class="p">(</span><span class="n">companyName</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">contactName</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">contactTitle</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">phone</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_Conditional_string</span><span class="p">(</span><span class="n">fax</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_AddressType</span><span class="p">(</span><span class="n">fullAddress</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_unsignedLong</span><span class="p">(</span><span class="n">customerID</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValid_CustomerType ( t :: CustomerType ) :: Bool ::=
+       isValid_string(companyName(t))
+    /\ isValid_string(contactName(t))
+    /\ isValid_string(contactTitle(t))
+    /\ isValid_string(phone(t))
+    /\ isValid_Conditional_string(fax(t))
+    /\ isValid_AddressType(fullAddress(t))
+    /\ isValid_unsignedLong(customerID(t))
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValid_AddressType</span> <span class="p">(</span> <span class="n">t</span> <span class="p">::</span> <span class="n">AddressType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValid_string</span><span class="p">(</span><span class="n">address</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">city</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">region</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">postalCode</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">country</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValid_AddressType ( t :: AddressType ) :: Bool ::=
+       isValid_string(address(t))
+    /\ isValid_string(city(t))
+    /\ isValid_string(region(t))
+    /\ isValid_string(postalCode(t))
+    /\ isValid_string(country(t))
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValid_List_OrderType</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_OrderType</span><span class="p">;</span> <span class="nb">min</span> <span class="p">::</span> <span class="n">Int</span><span class="p">;</span> <span class="nb">max</span> <span class="p">::</span> <span class="n">Conditional_Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValidElementsList_OrderType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="nb">min</span> <span class="o">&lt;=</span> <span class="n">lengthList_OrderType</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="n">IF</span> <span class="n">isCPresent_Int</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">lengthList_OrderType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">value</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span> <span class="n">ELSE</span> <span class="kc">True</span> <span class="n">FI</span><span class="p">)</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValid_List_OrderType ( x :: List_OrderType; min :: Int; max :: Conditional_Int ) :: Bool ::=
+       isValidElementsList_OrderType(x)
+    /\ (min &lt;= lengthList_OrderType(x))
+    /\ (IF isCPresent_Int(max) THEN lengthList_OrderType(x) &lt;= value(max) ELSE True FI)
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValidElementsList_OrderType</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_OrderType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">isCstr_OrderType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">isValid_OrderType</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span>\ <span class="n">isValidElementsList_OrderType</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="n">ELSE</span> <span class="kc">True</span> <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValidElementsList_OrderType ( x :: List_OrderType ) :: Bool ::=
+    IF isCstr_OrderType(x) THEN isValid_OrderType(head(x)) /\ isValidElementsList_OrderType(tail(x)) ELSE True FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">lengthList_OrderType</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_OrderType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">isCNil_OrderType</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">THEN</span> <span class="mi">0</span> <span class="n">ELSE</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">lengthList_OrderType</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF lengthList_OrderType ( x :: List_OrderType ) :: Int ::=
+    IF isCNil_OrderType(x) THEN 0 ELSE 1 + lengthList_OrderType(tail(x)) FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValid_OrderType</span> <span class="p">(</span> <span class="n">t</span> <span class="p">::</span> <span class="n">OrderType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValid_unsignedLong</span><span class="p">(</span><span class="n">customerID</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_unsignedInt</span><span class="p">(</span><span class="n">employeeID</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_dateTime</span><span class="p">(</span><span class="n">orderDate</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_dateTime</span><span class="p">(</span><span class="n">requiredDate</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_ShipInfoType</span><span class="p">(</span><span class="n">shipInfo</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="n">requiredDate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">orderDate</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="p">(</span> <span class="n">LET</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">shippedDate</span><span class="p">(</span><span class="n">shipInfo</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="n">IN</span> <span class="n">IF</span> <span class="n">isCPresent_dateTime</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">value</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">orderDate</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="n">ELSE</span> <span class="kc">True</span> <span class="n">FI</span> <span class="n">NI</span> <span class="p">)</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValid_OrderType ( t :: OrderType ) :: Bool ::=
+       isValid_unsignedLong(customerID(t))
+    /\ isValid_unsignedInt(employeeID(t))
+    /\ isValid_dateTime(orderDate(t))
+    /\ isValid_dateTime(requiredDate(t))
+    /\ isValid_ShipInfoType(shipInfo(t))
+    /\ (requiredDate(t) &gt; orderDate(t))
+    /\ ( LET sd = shippedDate(shipInfo(t)) IN IF isCPresent_dateTime(sd) THEN value(sd) &gt;= orderDate(t) ELSE True FI NI )
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">isValid_ShipInfoType</span> <span class="p">(</span> <span class="n">t</span> <span class="p">::</span> <span class="n">ShipInfoType</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isValid_integer</span><span class="p">(</span><span class="n">shipVia</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_decimal</span><span class="p">(</span><span class="n">freight</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">shipName</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">shipAddress</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">shipCity</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">shipRegion</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">shipPostalCode</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_string</span><span class="p">(</span><span class="n">shipCountry</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">isValid_Conditional_dateTime</span><span class="p">(</span><span class="n">shippedDate</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-<span class="n">ENDDEF</span>
+FUNCDEF isValid_ShipInfoType ( t :: ShipInfoType ) :: Bool ::=
+       isValid_integer(shipVia(t))
+    /\ isValid_decimal(freight(t))
+    /\ isValid_string(shipName(t))
+    /\ isValid_string(shipAddress(t))
+    /\ isValid_string(shipCity(t))
+    /\ isValid_string(shipRegion(t))
+    /\ isValid_string(shipPostalCode(t))
+    /\ isValid_string(shipCountry(t))
+    /\ isValid_Conditional_dateTime(shippedDate(t))
+ENDDEF
 </pre></div>
 </div>
 <p>Since TorXakis assumes synchronous communication, yet the system under
 test communicates asynchronously, we have to include the asynchronous
 communication channel as well.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TYPEDEF  StringList  ::= Nil
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF  StringList  ::= Nil
                        | Cons  { hd ::  String
                                ; tl ::  StringList
                                }
@@ -807,7 +815,7 @@ Definition</a>,
 Definition</a>, and
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">Connection
 Definition</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF handle [ Customer :: CustomerType; Order :: OrderType; Report :: String ] (cs :: List_CustomerType; os :: List_OrderType; changed :: Bool) EXIT ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF handle [ Customer :: CustomerType; Order :: OrderType; Report :: String ] (cs :: List_CustomerType; os :: List_OrderType; changed :: Bool) EXIT ::=
         [[ changed ]] =&gt;&gt;   (   Report ! toXml ( C_RootType ( cs, os ) )
                             &gt;-&gt; handle [Customer , Order , Report ] ( cs , os , False)
                             )
@@ -853,85 +861,85 @@ ENDDEF
 </pre></div>
 </div>
 <p>where the toXml functions are defined as follows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">r</span> <span class="p">::</span> <span class="n">RootType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="s2">&quot;&lt;Root&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;Customers&gt;&quot;</span> <span class="o">++</span>
-    <span class="n">toXml</span> <span class="p">(</span><span class="n">customers</span><span class="p">(</span><span class="n">r</span><span class="p">))</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/Customers&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;Orders&gt;&quot;</span> <span class="o">++</span>
-    <span class="n">toXml</span> <span class="p">(</span><span class="n">orders</span><span class="p">(</span><span class="n">r</span><span class="p">))</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/Orders&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/Root&gt;&quot;</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF toXml (r :: RootType) :: String ::=
+    &quot;&lt;Root&gt;&quot; ++
+    &quot;&lt;Customers&gt;&quot; ++
+    toXml (customers(r)) ++
+    &quot;&lt;/Customers&gt;&quot; ++
+    &quot;&lt;Orders&gt;&quot; ++
+    toXml (orders(r)) ++
+    &quot;&lt;/Orders&gt;&quot; ++
+    &quot;&lt;/Root&gt;&quot;
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">lc</span> <span class="p">::</span> <span class="n">List_CustomerType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">isCNil_CustomerType</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span>
-        <span class="n">THEN</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">ELSE</span> <span class="n">toXml</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">lc</span><span class="p">))</span> <span class="o">++</span> <span class="n">toXml</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">lc</span><span class="p">))</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF toXml (lc :: List_CustomerType) :: String ::=
+    IF isCNil_CustomerType(lc)
+        THEN &quot;&quot;
+        ELSE toXml(head(lc)) ++ toXml(tail(lc))
+    FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">lo</span> <span class="p">::</span> <span class="n">List_OrderType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">isCNil_OrderType</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span>
-        <span class="n">THEN</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">ELSE</span> <span class="n">toXml</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">lo</span><span class="p">))</span> <span class="o">++</span> <span class="n">toXml</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">lo</span><span class="p">))</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+FUNCDEF toXml (lo :: List_OrderType) :: String ::=
+    IF isCNil_OrderType(lo)
+        THEN &quot;&quot;
+        ELSE toXml(head(lo)) ++ toXml(tail(lo))
+    FI
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">c</span> <span class="p">::</span> <span class="n">CustomerType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="s2">&quot;&lt;Customer CustomerID=&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">customerID</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;CompanyName&gt;&quot;</span><span class="o">++</span> <span class="n">companyName</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/CompanyName&gt;&quot;</span><span class="o">++</span>
-    <span class="s2">&quot;&lt;ContactName&gt;&quot;</span> <span class="o">++</span> <span class="n">contactName</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ContactName&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;ContactTitle&gt;&quot;</span> <span class="o">++</span> <span class="n">contactTitle</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ContactTitle&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;Phone&gt;&quot;</span> <span class="o">++</span> <span class="n">phone</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/Phone&gt;&quot;</span> <span class="o">++</span>
-    <span class="p">(</span> <span class="n">IF</span> <span class="n">isCPresent_string</span><span class="p">(</span><span class="n">fax</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="n">THEN</span>
-        <span class="s2">&quot;&lt;Fax&gt;&quot;</span> <span class="o">++</span> <span class="n">value</span><span class="p">(</span><span class="n">fax</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/Fax&gt;&quot;</span>
-      <span class="n">ELSE</span>
-        <span class="s2">&quot;&quot;</span>
-      <span class="n">FI</span>
-    <span class="p">)</span> <span class="o">++</span>
-    <span class="n">toXml</span><span class="p">(</span><span class="n">fullAddress</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/Customer&gt;&quot;</span>
-<span class="n">ENDDEF</span>
+FUNCDEF toXml (c :: CustomerType) :: String ::=
+    &quot;&lt;Customer CustomerID=&quot; ++ toString(customerID(c)) ++ &quot;&gt;&quot; ++
+    &quot;&lt;CompanyName&gt;&quot;++ companyName(c) ++ &quot;&lt;/CompanyName&gt;&quot;++
+    &quot;&lt;ContactName&gt;&quot; ++ contactName(c) ++ &quot;&lt;/ContactName&gt;&quot; ++
+    &quot;&lt;ContactTitle&gt;&quot; ++ contactTitle(c) ++ &quot;&lt;/ContactTitle&gt;&quot; ++
+    &quot;&lt;Phone&gt;&quot; ++ phone(c) ++ &quot;&lt;/Phone&gt;&quot; ++
+    ( IF isCPresent_string(fax(c)) THEN
+        &quot;&lt;Fax&gt;&quot; ++ value(fax(c)) ++ &quot;&lt;/Fax&gt;&quot;
+      ELSE
+        &quot;&quot;
+      FI
+    ) ++
+    toXml(fullAddress(c)) ++
+    &quot;&lt;/Customer&gt;&quot;
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">o</span> <span class="p">::</span> <span class="n">OrderType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="s2">&quot;&lt;Order&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;CustomerID&gt;&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">customerID</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/CustomerID&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;EmployeeID&gt;&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">employeeID</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/EmployeeID&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;OrderDate&gt;&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">orderDate</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/OrderDate&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;RequiredDate&gt;&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">requiredDate</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/RequiredDate&gt;&quot;</span> <span class="o">++</span>
-        <span class="n">toXml</span><span class="p">(</span><span class="n">shipInfo</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/Order&gt;&quot;</span>
-<span class="n">ENDDEF</span>
+FUNCDEF toXml (o :: OrderType) :: String ::=
+    &quot;&lt;Order&gt;&quot; ++
+        &quot;&lt;CustomerID&gt;&quot; ++ toString(customerID(o)) ++ &quot;&lt;/CustomerID&gt;&quot; ++
+        &quot;&lt;EmployeeID&gt;&quot; ++ toString(employeeID(o)) ++ &quot;&lt;/EmployeeID&gt;&quot; ++
+        &quot;&lt;OrderDate&gt;&quot; ++ toString(orderDate(o)) ++ &quot;&lt;/OrderDate&gt;&quot; ++
+        &quot;&lt;RequiredDate&gt;&quot; ++ toString(requiredDate(o)) ++ &quot;&lt;/RequiredDate&gt;&quot; ++
+        toXml(shipInfo(o)) ++
+    &quot;&lt;/Order&gt;&quot;
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">a</span> <span class="p">::</span> <span class="n">AddressType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="s2">&quot;&lt;FullAddress&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;Address&gt;&quot;</span> <span class="o">++</span> <span class="n">address</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/Address&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;City&gt;&quot;</span> <span class="o">++</span> <span class="n">city</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/City&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;Region&gt;&quot;</span> <span class="o">++</span> <span class="n">region</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/Region&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;PostalCode&gt;&quot;</span> <span class="o">++</span> <span class="n">postalCode</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/PostalCode&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;Country&gt;&quot;</span> <span class="o">++</span> <span class="n">country</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/Country&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/FullAddress&gt;&quot;</span>
-<span class="n">ENDDEF</span>
+FUNCDEF toXml (a :: AddressType) :: String ::=
+    &quot;&lt;FullAddress&gt;&quot; ++
+        &quot;&lt;Address&gt;&quot; ++ address(a) ++ &quot;&lt;/Address&gt;&quot; ++
+        &quot;&lt;City&gt;&quot; ++ city(a) ++ &quot;&lt;/City&gt;&quot; ++
+        &quot;&lt;Region&gt;&quot; ++ region(a) ++ &quot;&lt;/Region&gt;&quot; ++
+        &quot;&lt;PostalCode&gt;&quot; ++ postalCode(a) ++ &quot;&lt;/PostalCode&gt;&quot; ++
+        &quot;&lt;Country&gt;&quot; ++ country(a) ++ &quot;&lt;/Country&gt;&quot; ++
+    &quot;&lt;/FullAddress&gt;&quot;
+ENDDEF
 
-<span class="n">FUNCDEF</span> <span class="n">toXml</span> <span class="p">(</span><span class="n">s</span> <span class="p">::</span> <span class="n">ShipInfoType</span><span class="p">)</span> <span class="p">::</span> <span class="n">String</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="s2">&quot;&lt;ShipInfo&quot;</span><span class="o">++</span>
-        <span class="p">(</span> <span class="n">IF</span> <span class="n">isCPresent_dateTime</span><span class="p">(</span><span class="n">shippedDate</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="n">THEN</span>
-            <span class="s2">&quot; ShippedDate=&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">value</span><span class="p">(</span><span class="n">shippedDate</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span> <span class="o">++</span> <span class="s2">&quot;&gt;&quot;</span>
-          <span class="n">ELSE</span>
-            <span class="s2">&quot;&gt;&quot;</span>
-          <span class="n">FI</span>
-        <span class="p">)</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipVia&gt;&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">shipVia</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipVia&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;Freight&gt;&quot;</span> <span class="o">++</span> <span class="n">toString</span><span class="p">(</span><span class="n">freight</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">++</span> <span class="s2">&quot;&lt;/Freight&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipName&gt;&quot;</span> <span class="o">++</span> <span class="n">shipName</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipName&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipAddress&gt;&quot;</span> <span class="o">++</span> <span class="n">shipAddress</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipAddress&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipCity&gt;&quot;</span> <span class="o">++</span> <span class="n">shipCity</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipCity&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipRegion&gt;&quot;</span> <span class="o">++</span> <span class="n">shipRegion</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipRegion&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipPostalCode&gt;&quot;</span> <span class="o">++</span> <span class="n">shipPostalCode</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipPostalCode&gt;&quot;</span> <span class="o">++</span>
-        <span class="s2">&quot;&lt;ShipCountry&gt;&quot;</span> <span class="o">++</span> <span class="n">shipCountry</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">++</span> <span class="s2">&quot;&lt;/ShipCountry&gt;&quot;</span> <span class="o">++</span>
-    <span class="s2">&quot;&lt;/ShipInfo&gt;&quot;</span>
-<span class="n">ENDDEF</span>
+FUNCDEF toXml (s :: ShipInfoType) :: String ::=
+    &quot;&lt;ShipInfo&quot;++
+        ( IF isCPresent_dateTime(shippedDate(s)) THEN
+            &quot; ShippedDate=&quot; ++ toString(value(shippedDate(s))) ++ &quot;&gt;&quot;
+          ELSE
+            &quot;&gt;&quot;
+          FI
+        ) ++
+        &quot;&lt;ShipVia&gt;&quot; ++ toString(shipVia(s)) ++ &quot;&lt;/ShipVia&gt;&quot; ++
+        &quot;&lt;Freight&gt;&quot; ++ toString(freight(s)) ++ &quot;&lt;/Freight&gt;&quot; ++
+        &quot;&lt;ShipName&gt;&quot; ++ shipName(s) ++ &quot;&lt;/ShipName&gt;&quot; ++
+        &quot;&lt;ShipAddress&gt;&quot; ++ shipAddress(s) ++ &quot;&lt;/ShipAddress&gt;&quot; ++
+        &quot;&lt;ShipCity&gt;&quot; ++ shipCity(s) ++ &quot;&lt;/ShipCity&gt;&quot; ++
+        &quot;&lt;ShipRegion&gt;&quot; ++ shipRegion(s) ++ &quot;&lt;/ShipRegion&gt;&quot; ++
+        &quot;&lt;ShipPostalCode&gt;&quot; ++ shipPostalCode(s) ++ &quot;&lt;/ShipPostalCode&gt;&quot; ++
+        &quot;&lt;ShipCountry&gt;&quot; ++ shipCountry(s) ++ &quot;&lt;/ShipCountry&gt;&quot; ++
+    &quot;&lt;/ShipInfo&gt;&quot;
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -962,17 +970,17 @@ commands:</p></li>
 <p>TorXakis will perform an Order, Report or Customer action with various
 parameters at each step, as long as the SUT responds as expected or the
 number of test steps are reached, then finally conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Report</span><span class="p">,</span> <span class="p">[</span> <span class="n">Report</span><span class="p">(</span><span class="n">Nil_Customer</span><span class="p">,</span><span class="n">Nil_Order</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Order</span><span class="p">,</span> <span class="p">[</span> <span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">52</span><span class="p">,</span><span class="o">-</span><span class="mi">41</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;PPAAA&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Report</span><span class="p">,</span> <span class="p">[</span> <span class="n">Report</span><span class="p">(</span><span class="n">Nil_Customer</span><span class="p">,</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">52</span><span class="p">,</span><span class="o">-</span><span class="mi">41</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;PPAAA&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">)),</span><span class="n">Nil_Order</span><span class="p">))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Order</span><span class="p">,</span> <span class="p">[</span> <span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="mi">46</span><span class="p">,</span><span class="o">-</span><span class="mi">55</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;AT&quot;</span><span class="p">,</span><span class="s2">&quot;PBY&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="n">Present_dateTime</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Report</span><span class="p">,</span> <span class="p">[</span> <span class="n">Report</span><span class="p">(</span><span class="n">Nil_Customer</span><span class="p">,</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="mi">46</span><span class="p">,</span><span class="o">-</span><span class="mi">55</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;AT&quot;</span><span class="p">,</span><span class="s2">&quot;PBY&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="n">Present_dateTime</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))),</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">52</span><span class="p">,</span><span class="o">-</span><span class="mi">41</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;PPAAA&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">)),</span><span class="n">Nil_Order</span><span class="p">)))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Order</span><span class="p">,</span> <span class="p">[</span> <span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="o">-</span><span class="mi">63</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Q&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Report</span><span class="p">,</span> <span class="p">[</span> <span class="n">Report</span><span class="p">(</span><span class="n">Nil_Customer</span><span class="p">,</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="o">-</span><span class="mi">63</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Q&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">)),</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="mi">46</span><span class="p">,</span><span class="o">-</span><span class="mi">55</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;AT&quot;</span><span class="p">,</span><span class="s2">&quot;PBY&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="n">Present_dateTime</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))),</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">52</span><span class="p">,</span><span class="o">-</span><span class="mi">41</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;PPAAA&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">)),</span><span class="n">Nil_Order</span><span class="p">))))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Order</span><span class="p">,</span> <span class="p">[</span> <span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="o">-</span><span class="mi">65</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span><span class="o">-</span><span class="mi">37</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Present_dateTime</span><span class="p">(</span><span class="o">-</span><span class="mi">58</span><span class="p">)))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Report</span><span class="p">,</span> <span class="p">[</span> <span class="n">Report</span><span class="p">(</span><span class="n">Nil_Customer</span><span class="p">,</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="o">-</span><span class="mi">65</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span><span class="o">-</span><span class="mi">37</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Present_dateTime</span><span class="p">(</span><span class="o">-</span><span class="mi">58</span><span class="p">))),</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">97</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span><span class="o">-</span><span class="mi">63</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Q&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">)),</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="mi">46</span><span class="p">,</span><span class="o">-</span><span class="mi">55</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;AT&quot;</span><span class="p">,</span><span class="s2">&quot;PBY&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="n">Present_dateTime</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))),</span><span class="n">Cstr_Order</span><span class="p">(</span><span class="n">Order</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span><span class="n">ShipInfo</span><span class="p">(</span><span class="o">-</span><span class="mi">52</span><span class="p">,</span><span class="o">-</span><span class="mi">41</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;PPAAA&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">Absent_dateTime</span><span class="p">)),</span><span class="n">Nil_Order</span><span class="p">)))))</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Customer</span><span class="p">,</span> <span class="p">[</span> <span class="n">Customer</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="n">Absent_string</span><span class="p">,</span><span class="n">Address</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="s2">&quot;P&quot;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;BAD&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">),</span><span class="mi">90</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: OUT: Act { { ( Report, [ Report(Nil_Customer,Nil_Order) ] ) } }
+TXS &gt;&gt;  .....2: IN: Act { { ( Order, [ Order(49,6,-99,-21,ShipInfo(-52,-41,&quot;A&quot;,&quot;P&quot;,&quot;PPAAA&quot;,&quot;U&quot;,&quot;K&quot;,&quot;&quot;,Absent_dateTime)) ] ) } }
+TXS &gt;&gt;  .....3: OUT: Act { { ( Report, [ Report(Nil_Customer,Cstr_Order(Order(49,6,-99,-21,ShipInfo(-52,-41,&quot;A&quot;,&quot;P&quot;,&quot;PPAAA&quot;,&quot;U&quot;,&quot;K&quot;,&quot;&quot;,Absent_dateTime)),Nil_Order)) ] ) } }
+TXS &gt;&gt;  .....4: IN: Act { { ( Order, [ Order(49,15,-75,35,ShipInfo(46,-55,&quot;A&quot;,&quot;&quot;,&quot;AT&quot;,&quot;PBY&quot;,&quot;&quot;,&quot;B&quot;,Present_dateTime(-4))) ] ) } }
+TXS &gt;&gt;  .....5: OUT: Act { { ( Report, [ Report(Nil_Customer,Cstr_Order(Order(49,15,-75,35,ShipInfo(46,-55,&quot;A&quot;,&quot;&quot;,&quot;AT&quot;,&quot;PBY&quot;,&quot;&quot;,&quot;B&quot;,Present_dateTime(-4))),Cstr_Order(Order(49,6,-99,-21,ShipInfo(-52,-41,&quot;A&quot;,&quot;P&quot;,&quot;PPAAA&quot;,&quot;U&quot;,&quot;K&quot;,&quot;&quot;,Absent_dateTime)),Nil_Order))) ] ) } }
+TXS &gt;&gt;  .....6: IN: Act { { ( Order, [ Order(49,16,-100,-97,ShipInfo(-98,-63,&quot;&quot;,&quot;&quot;,&quot;Q&quot;,&quot;P&quot;,&quot;D&quot;,&quot;X&quot;,Absent_dateTime)) ] ) } }
+TXS &gt;&gt;  .....7: OUT: Act { { ( Report, [ Report(Nil_Customer,Cstr_Order(Order(49,16,-100,-97,ShipInfo(-98,-63,&quot;&quot;,&quot;&quot;,&quot;Q&quot;,&quot;P&quot;,&quot;D&quot;,&quot;X&quot;,Absent_dateTime)),Cstr_Order(Order(49,15,-75,35,ShipInfo(46,-55,&quot;A&quot;,&quot;&quot;,&quot;AT&quot;,&quot;PBY&quot;,&quot;&quot;,&quot;B&quot;,Present_dateTime(-4))),Cstr_Order(Order(49,6,-99,-21,ShipInfo(-52,-41,&quot;A&quot;,&quot;P&quot;,&quot;PPAAA&quot;,&quot;U&quot;,&quot;K&quot;,&quot;&quot;,Absent_dateTime)),Nil_Order)))) ] ) } }
+TXS &gt;&gt;  .....8: IN: Act { { ( Order, [ Order(49,40,-65,77,ShipInfo(-28,-37,&quot;X&quot;,&quot;D&quot;,&quot;B&quot;,&quot;B&quot;,&quot;&quot;,&quot;&quot;,Present_dateTime(-58))) ] ) } }
+TXS &gt;&gt;  .....9: OUT: Act { { ( Report, [ Report(Nil_Customer,Cstr_Order(Order(49,40,-65,77,ShipInfo(-28,-37,&quot;X&quot;,&quot;D&quot;,&quot;B&quot;,&quot;B&quot;,&quot;&quot;,&quot;&quot;,Present_dateTime(-58))),Cstr_Order(Order(49,16,-100,-97,ShipInfo(-98,-63,&quot;&quot;,&quot;&quot;,&quot;Q&quot;,&quot;P&quot;,&quot;D&quot;,&quot;X&quot;,Absent_dateTime)),Cstr_Order(Order(49,15,-75,35,ShipInfo(46,-55,&quot;A&quot;,&quot;&quot;,&quot;AT&quot;,&quot;PBY&quot;,&quot;&quot;,&quot;B&quot;,Present_dateTime(-4))),Cstr_Order(Order(49,6,-99,-21,ShipInfo(-52,-41,&quot;A&quot;,&quot;P&quot;,&quot;PPAAA&quot;,&quot;U&quot;,&quot;K&quot;,&quot;&quot;,Absent_dateTime)),Nil_Order))))) ] ) } }
+TXS &gt;&gt;  ....10: IN: Act { { ( Customer, [ Customer(&quot;P&quot;,&quot;H&quot;,&quot;&quot;,&quot;C&quot;,Absent_string,Address(&quot;X&quot;,&quot;P&quot;,&quot;A&quot;,&quot;BAD&quot;,&quot;&quot;),90) ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>

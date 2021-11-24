@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Torxakis help &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Torxakis help &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="examples/Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples/Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -573,107 +581,107 @@
   <section id="torxakis-help">
 <span id="torxakishelp"></span><h1>Torxakis help<a class="headerlink" href="#torxakis-help" title="Permalink to this headline">¶</a></h1>
 <p>The output of the <code class="docutils literal notranslate"><span class="pre">help</span></code> command in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> command line interface:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ torxakis
-TXS &gt;&gt;  TorXakis :: Model-Based Testing
+<div class="highlight-txscmd notranslate"><div class="highlight"><pre><span></span>$ torxakis
+<span class="s">TXS &gt;&gt;</span>  TorXakis :: Model<span class="o">-</span>Based Testing
 
-TXS &gt;&gt;  txsserver starting: &quot;localhost&quot; : 63980
-TXS &gt;&gt;  Solver &quot;z3&quot; initialized : Z3 [4.8.10]
-TXS &gt;&gt;  TxsCore initialized
-TXS &gt;&gt;  LPEOps version 2019.07.05.02
-TXS &gt;&gt;  input files parsed:
-TXS &gt;&gt;  []
-TXS &gt;&gt; help
-TXS &gt;&gt;
---------------------------------
-TorXakis :: Model-Based Testing
---------------------------------
+<span class="s">TXS &gt;&gt;</span>  txsserver starting: <span class="s">&quot;localhost&quot;</span> : <span class="s">63980</span>
+<span class="s">TXS &gt;&gt;</span>  Solver <span class="s">&quot;z3&quot;</span> initialized : Z3 [<span class="s">4</span>.<span class="s">8</span>.<span class="s">10</span>]
+<span class="s">TXS &gt;&gt;</span>  TxsCore initialized
+<span class="s">TXS &gt;&gt;</span>  LPEOps version <span class="s">2019</span>.<span class="s">07</span>.<span class="s">05</span>.<span class="s">02</span>
+<span class="s">TXS &gt;&gt;</span>  input files parsed:
+<span class="s">TXS &gt;&gt;</span>  []
+<span class="s">TXS &gt;&gt;</span> <span class="k">help</span>
+<span class="s">TXS &gt;&gt;</span>
+<span class="o">--------------------------------</span>
+TorXakis :: Model<span class="o">-</span>Based Testing
+<span class="o">--------------------------------</span>
 
-quit, q                               : stop TorXakis completely
-exit, x                               : exit the current command run of TorXakis
-help, h, ?                            : show help
-info, i                               : show info on TorXakis
-param [&lt;parameter&gt;]                   : show value of &lt;parameter&gt;/[all parameters]
-param &lt;parameter&gt; &lt;value&gt;             : set &lt;parameter&gt; to &lt;value&gt;
-echo &lt;text&gt;                           : echo &lt;text&gt;
-# &lt;text&gt;                              : comment       : &lt;text&gt; is ignored
-seed &lt;n&gt;                              : set random seed to &lt;n&gt;
+<span class="k">quit</span>, <span class="k">q</span>                               : <span class="k">stop</span> TorXakis completely
+<span class="k">exit</span>, <span class="k">x</span>                               : <span class="k">exit</span> the current command <span class="k">run</span> of TorXakis
+<span class="k">help</span>, <span class="k">h</span>, ?                            : <span class="k">show</span> <span class="k">help</span>
+<span class="k">info</span>, <span class="k">i</span>                               : <span class="k">show</span> <span class="k">info</span> on TorXakis
+<span class="k">param</span> [<span class="o">&lt;</span>parameter<span class="o">&gt;</span>]                   : <span class="k">show</span> value of <span class="o">&lt;</span>parameter<span class="o">&gt;/</span>[all parameters]
+<span class="k">param</span> <span class="o">&lt;</span>parameter<span class="o">&gt;</span> <span class="o">&lt;</span>value<span class="o">&gt;</span>             : set <span class="o">&lt;</span>parameter<span class="o">&gt;</span> to <span class="o">&lt;</span>value<span class="o">&gt;</span>
+<span class="k">echo</span> <span class="o">&lt;</span>text<span class="o">&gt;</span>                           : <span class="k">echo</span> <span class="o">&lt;</span>text<span class="o">&gt;</span>
+<span class="c"># &lt;text&gt;                              : comment       : &lt;text&gt; is ignored</span>
+<span class="k">seed</span> <span class="o">&lt;</span>n<span class="o">&gt;</span>                              : set random <span class="k">seed</span> to <span class="o">&lt;</span>n<span class="o">&gt;</span>
 
---------------------------------
+<span class="o">--------------------------------</span>
 
-delay &lt;n&gt;                             : delay TorXakis for &lt;n&gt; seconds
-time                                  : give the current time
-timer &lt;name&gt;                          : set or read timer &lt;name&gt;
-run &lt;file&gt;                            : run the torxakis script from &lt;file&gt;
+<span class="k">delay</span> <span class="o">&lt;</span>n<span class="o">&gt;</span>                             : <span class="k">delay</span> TorXakis for <span class="o">&lt;</span>n<span class="o">&gt;</span> seconds
+<span class="k">time</span>                                  : give the current <span class="k">time</span>
+<span class="k">timer</span> <span class="o">&lt;</span>name<span class="o">&gt;</span>                          : set or read <span class="k">timer</span> <span class="o">&lt;</span>name<span class="o">&gt;</span>
+<span class="k">run</span> <span class="o">&lt;</span>file<span class="o">&gt;</span>                            : <span class="k">run</span> the torxakis script from <span class="o">&lt;</span>file<span class="o">&gt;</span>
 
---------------------------------
+<span class="o">--------------------------------</span>
 
-var &lt;variable-declarations&gt;           : declare variables
-val &lt;value-definitions&gt;               : define values
-eval &lt;value-expression&gt;               : evaluate the (closed) &lt;value-expression&gt;
-solve &lt;value-expression&gt;              : solve the (open, boolean) &lt;value-expression&gt;
-unisolve &lt;value-expression&gt;           : solve (uniquely) the (open, boolean) &lt;value-expression&gt;
-                                        &#39;unsat&#39;: 0, &#39;sat&#39;: 1, &#39;unknown&#39;: &gt;1 or unknown solution
+<span class="k">var</span> <span class="o">&lt;</span>variable<span class="o">-</span>declarations<span class="o">&gt;</span>           : declare variables
+<span class="k">val</span> <span class="o">&lt;</span>value<span class="o">-</span>definitions<span class="o">&gt;</span>               : define values
+<span class="k">eval</span> <span class="o">&lt;</span>value<span class="o">-</span>expression<span class="o">&gt;</span>               : evaluate the (closed) <span class="o">&lt;</span>value<span class="o">-</span>expression<span class="o">&gt;</span>
+<span class="k">solve</span> <span class="o">&lt;</span>value<span class="o">-</span>expression<span class="o">&gt;</span>              : <span class="k">solve</span> the (open, boolean) <span class="o">&lt;</span>value<span class="o">-</span>expression<span class="o">&gt;</span>
+<span class="k">unisolve</span> <span class="o">&lt;</span>value<span class="o">-</span>expression<span class="o">&gt;</span>           : <span class="k">solve</span> (uniquely) the (open, boolean) <span class="o">&lt;</span>value<span class="o">-</span>expression<span class="o">&gt;</span>
+                                        &#39;unsat&#39;: <span class="s">0</span>, &#39;sat&#39;: <span class="s">1</span>, &#39;unknown&#39;: <span class="o">&gt;</span><span class="s">1</span> or unknown solution
 
---------------------------------
+<span class="o">--------------------------------</span>
 
-tester &lt;mod&gt; [&lt;purp&gt;] [&lt;map&gt;] &lt;cnect&gt; : start testing with model &lt;mod&gt; and connection &lt;cnect&gt;
-                                        using possible test purpose &lt;purp&gt; and/or mapper &lt;map&gt;
-simulator &lt;mod&gt; &lt;cnect&gt;               : start simulating with model &lt;mod&gt; and connection &lt;cnect&gt;
-stepper &lt;mod&gt;                         : start stepping with model &lt;mod&gt;
-stop                                  : stop testing, simulation, or stepping
+<span class="k">tester</span> <span class="o">&lt;</span>mod<span class="o">&gt;</span> [<span class="o">&lt;</span>purp<span class="o">&gt;</span>] [<span class="o">&lt;</span>map<span class="o">&gt;</span>] <span class="o">&lt;</span>cnect<span class="o">&gt;</span> : start testing with model <span class="o">&lt;</span>mod<span class="o">&gt;</span> and connection <span class="o">&lt;</span>cnect<span class="o">&gt;</span>
+                                        using possible <span class="k">test</span> purpose <span class="o">&lt;</span>purp<span class="o">&gt;</span> and<span class="o">/</span>or mapper <span class="o">&lt;</span>map<span class="o">&gt;</span>
+<span class="k">simulator</span> <span class="o">&lt;</span>mod<span class="o">&gt;</span> <span class="o">&lt;</span>cnect<span class="o">&gt;</span>               : start simulating with model <span class="o">&lt;</span>mod<span class="o">&gt;</span> and connection <span class="o">&lt;</span>cnect<span class="o">&gt;</span>
+<span class="k">stepper</span> <span class="o">&lt;</span>mod<span class="o">&gt;</span>                         : start stepping with model <span class="o">&lt;</span>mod<span class="o">&gt;</span>
+<span class="k">stop</span>                                  : <span class="k">stop</span> testing, simulation, or stepping
 
---------------------------------
+<span class="o">--------------------------------</span>
 
-test &lt;action&gt;                         : make a test step identified by (visible) input &lt;action&gt;
-test                                  : make a test step by observing output/quiescence
-test &lt;n&gt;                              : make &lt;n&gt; random test steps
-sim [&lt;n&gt;]                             : make &lt;n&gt;/[unbounded] random simulation steps
-step &lt;action&gt;                         : make a step identified by &lt;action&gt;
-step [&lt;n&gt;]                            : make &lt;n&gt;/[one] random steps
+<span class="k">test</span> <span class="o">&lt;</span>action<span class="o">&gt;</span>                         : make a <span class="k">test</span> <span class="k">step</span> identified by (visible) input <span class="o">&lt;</span>action<span class="o">&gt;</span>
+<span class="k">test</span>                                  : make a <span class="k">test</span> <span class="k">step</span> by observing output<span class="o">/</span>quiescence
+<span class="k">test</span> <span class="o">&lt;</span>n<span class="o">&gt;</span>                              : make <span class="o">&lt;</span>n<span class="o">&gt;</span> random <span class="k">test</span> steps
+<span class="k">sim</span> [<span class="o">&lt;</span>n<span class="o">&gt;</span>]                             : make <span class="o">&lt;</span>n<span class="o">&gt;/</span>[unbounded] random simulation steps
+<span class="k">step</span> <span class="o">&lt;</span>action<span class="o">&gt;</span>                         : make a <span class="k">step</span> identified by <span class="o">&lt;</span>action<span class="o">&gt;</span>
+<span class="k">step</span> [<span class="o">&lt;</span>n<span class="o">&gt;</span>]                            : make <span class="o">&lt;</span>n<span class="o">&gt;/</span>[one] random steps
 
---------------------------------
+<span class="o">--------------------------------</span>
 
-show &lt;object&gt;                         : show &lt;object&gt;       :
-                                        tdefs, state, model, purp, mapper, cnect, var, or val
-state                                 : show current state number
-btree [&lt;state&gt;]                       : show &lt;state&gt;/[current] behaviour tree
-goto [&lt;state&gt;]                        : goto &lt;state&gt;/[current] state number in the model
-back [&lt;n&gt;]                            : go back &lt;n&gt;/[one] visible steps in the model state
-path                                  : show the visible path from the initial state
-trace [proc|purp]                     : show the current trace [in PROCDEF|PURPDEF] format]
-menu [in|out|purp] [&lt;state&gt;]          : give the [in|out] menu of actions of [current] &lt;state&gt;
+<span class="k">show</span> <span class="o">&lt;</span>object<span class="o">&gt;</span>                         : <span class="k">show</span> <span class="o">&lt;</span>object<span class="o">&gt;</span>       :
+                                        tdefs, <span class="k">state</span>, model, purp, mapper, cnect, <span class="k">var</span>, or <span class="k">val</span>
+<span class="k">state</span>                                 : <span class="k">show</span> current <span class="k">state</span> number
+<span class="k">btree</span> [<span class="o">&lt;</span><span class="k">state</span><span class="o">&gt;</span>]                       : <span class="k">show</span> <span class="o">&lt;</span><span class="k">state</span><span class="o">&gt;/</span>[current] behaviour tree
+<span class="k">goto</span> [<span class="o">&lt;</span><span class="k">state</span><span class="o">&gt;</span>]                        : <span class="k">goto</span> <span class="o">&lt;</span><span class="k">state</span><span class="o">&gt;/</span>[current] <span class="k">state</span> number in the model
+<span class="k">back</span> [<span class="o">&lt;</span>n<span class="o">&gt;</span>]                            : go <span class="k">back</span> <span class="o">&lt;</span>n<span class="o">&gt;/</span>[one] visible steps in the model <span class="k">state</span>
+<span class="k">path</span>                                  : <span class="k">show</span> the visible <span class="k">path</span> from the initial <span class="k">state</span>
+<span class="k">trace</span> [proc<span class="o">|</span>purp]                     : <span class="k">show</span> the current <span class="k">trace</span> [in PROCDEF<span class="o">|</span>PURPDEF] format]
+<span class="k">menu</span> [in<span class="o">|</span>out<span class="o">|</span>purp] [<span class="o">&lt;</span><span class="k">state</span><span class="o">&gt;</span>]          : give the [in<span class="o">|</span>out] <span class="k">menu</span> of actions of [current] <span class="o">&lt;</span><span class="k">state</span><span class="o">&gt;</span>
 
---------------------------------
-ncomp                                 : test purpose generation via `N-Complete&#39;-algorithm
+<span class="o">--------------------------------</span>
+<span class="k">ncomp</span>                                 : <span class="k">test</span> purpose generation via `N<span class="o">-</span>Complete&#39;<span class="o">-</span>algorithm
 lpe                                   : lpe transformation (Linear Process Equation)
-lpeop &lt;op&gt; &lt;lpe&gt; &lt;out&gt;                : apply lpe operation &lt;op&gt; to model &lt;lpe&gt; and produce output named &lt;out&gt;
-                                           stop       -&gt; do nothing
-                                           show       -&gt; print the lpe to console
-                                           export     -&gt; generate torxakis file (do not change identifiers)
-                                           export*    -&gt; generate compilable torxakis file
-                                           mcrl2      -&gt; translate to mCRL2 specification file
-                                           clean      -&gt; remove duplicate/unreachable summands
-                                           cstelm     -&gt; remove parameters that never change value
-                                           parelm     -&gt; remove behavior-independent parameters
-                                           istepelm   -&gt; remove ISTEP actions (preserve weak bisimulation)
-                                           datareset  -&gt; reset parameters based on control flow graphs
-                                           parreset   -&gt; reset parameters based on summand reachability
-                                           isdet      -&gt; determine if the lpe is deterministic
-                                           det        -&gt; make the lpe deterministic
-                                           uguard     -&gt; add guards for underspecified summands
-                                           angelic    -&gt; make the lpe input-enabled (angelic completion)
-                                           A-&gt;B       -&gt; do two lpe operations in succession
-                                           loop       -&gt; repeat lpe operations until a fixpoint is reached
-                                           loop*x     -&gt; loop lpe operations x times or until a fixpoint is reached
- merge &lt;mod1&gt; &lt;mod2&gt; &lt;out&gt;            : put two models in parallel and save it as a new model
---------------------------------
-systart &lt;name&gt; &lt;command&gt;              : start external system &lt;command&gt; with internal &lt;name&gt;
-systop  &lt;name&gt;                        : stop external command with internal &lt;name&gt;
-&lt;command&gt; &#39;$&lt;&#39; &lt;file&gt;                 : read command arguments from &lt;file&gt;
-&lt;command&gt; args &#39;$&gt;&#39; &lt;file&gt;            : write standard output of &lt;command&gt; to &lt;file&gt;
-&lt;command&gt; args &#39;$&gt;&gt;&#39; &lt;file&gt;           : append standard output of &lt;command&gt; to &lt;file&gt;
+<span class="k">lpeop</span> <span class="o">&lt;</span>op<span class="o">&gt;</span> <span class="o">&lt;</span>lpe<span class="o">&gt;</span> <span class="o">&lt;</span>out<span class="o">&gt;</span>                : apply lpe operation <span class="o">&lt;</span>op<span class="o">&gt;</span> to model <span class="o">&lt;</span>lpe<span class="o">&gt;</span> and produce output named <span class="o">&lt;</span>out<span class="o">&gt;</span>
+                                           <span class="k">stop</span>       <span class="o">-&gt;</span> do nothing
+                                           <span class="k">show</span>       <span class="o">-&gt;</span> print the lpe to console
+                                           export     <span class="o">-&gt;</span> generate torxakis file (do not change identifiers)
+                                           export<span class="o">*</span>    <span class="o">-&gt;</span> generate compilable torxakis file
+                                           mcrl2      <span class="o">-&gt;</span> translate to mCRL2 specification file
+                                           clean      <span class="o">-&gt;</span> remove duplicate<span class="o">/</span>unreachable summands
+                                           cstelm     <span class="o">-&gt;</span> remove parameters that never change value
+                                           parelm     <span class="o">-&gt;</span> remove behavior<span class="o">-</span>independent parameters
+                                           istepelm   <span class="o">-&gt;</span> remove ISTEP actions (preserve weak bisimulation)
+                                           datareset  <span class="o">-&gt;</span> reset parameters based on control flow graphs
+                                           parreset   <span class="o">-&gt;</span> reset parameters based on summand reachability
+                                           isdet      <span class="o">-&gt;</span> determine if the lpe is deterministic
+                                           det        <span class="o">-&gt;</span> make the lpe deterministic
+                                           uguard     <span class="o">-&gt;</span> add guards for underspecified summands
+                                           angelic    <span class="o">-&gt;</span> make the lpe input<span class="o">-</span>enabled (angelic completion)
+                                           <span class="k">A</span><span class="o">-&gt;</span>B       <span class="o">-&gt;</span> do two lpe operations in succession
+                                           loop       <span class="o">-&gt;</span> repeat lpe operations until a fixpoint is reached
+                                           loop<span class="o">*</span><span class="k">x</span>     <span class="o">-&gt;</span> loop lpe operations <span class="k">x</span> times or until a fixpoint is reached
+ <span class="k">merge</span> <span class="o">&lt;</span>mod1<span class="o">&gt;</span> <span class="o">&lt;</span>mod2<span class="o">&gt;</span> <span class="o">&lt;</span>out<span class="o">&gt;</span>            : put two models in parallel and save it as a new model
+<span class="o">--------------------------------</span>
+<span class="k">systart</span> <span class="o">&lt;</span>name<span class="o">&gt;</span> <span class="o">&lt;</span>command<span class="o">&gt;</span>              : start external system <span class="o">&lt;</span>command<span class="o">&gt;</span> with internal <span class="o">&lt;</span>name<span class="o">&gt;</span>
+<span class="k">systop</span>  <span class="o">&lt;</span>name<span class="o">&gt;</span>                        : <span class="k">stop</span> external command with internal <span class="o">&lt;</span>name<span class="o">&gt;</span>
+<span class="o">&lt;</span>command<span class="o">&gt;</span> &#39;$<span class="o">&lt;</span>&#39; <span class="o">&lt;</span>file<span class="o">&gt;</span>                 : read command arguments from <span class="o">&lt;</span>file<span class="o">&gt;</span>
+<span class="o">&lt;</span>command<span class="o">&gt;</span> args &#39;$<span class="o">&gt;</span>&#39; <span class="o">&lt;</span>file<span class="o">&gt;</span>            : write standard output of <span class="o">&lt;</span>command<span class="o">&gt;</span> to <span class="o">&lt;</span>file<span class="o">&gt;</span>
+<span class="o">&lt;</span>command<span class="o">&gt;</span> args &#39;$<span class="o">&gt;&gt;</span>&#39; <span class="o">&lt;</span>file<span class="o">&gt;</span>           : append standard output of <span class="o">&lt;</span>command<span class="o">&gt;</span> to <span class="o">&lt;</span>file<span class="o">&gt;</span>
 
---------------------------------
+<span class="o">--------------------------------</span>
 </pre></div>
 </div>
 </section>

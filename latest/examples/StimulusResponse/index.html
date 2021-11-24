@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -618,10 +626,10 @@ can be defined in TorXakis as follows:</p>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sut</span> <span class="s">::=</span>
     <span class="k">CLIENTSOCK</span>
 
-    <span class="k">CHAN</span>  <span class="k">OUT</span>  <span class="nv">Stimulus</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">CHAN</span>  <span class="k">OUT</span>  <span class="nv">Stimulus</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">7890</span>
     <span class="k">ENCODE</span>     <span class="nv">Stimulus</span>            <span class="s">-&gt;</span>  <span class="p">!</span> <span class="p">&quot;&quot;</span>
 
-    <span class="k">CHAN</span>  <span class="k">IN</span>   <span class="nv">Response</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">CHAN</span>  <span class="k">IN</span>   <span class="nv">Response</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">7890</span>
     <span class="k">DECODE</span>     <span class="nv">Response</span>            <span class="o">&lt;-</span>   <span class="p">?</span> <span class="nc">s</span>
 <span class="k">ENDDEF</span>
 </pre></div>
@@ -654,10 +662,10 @@ commands:</p></li>
 <p>TorXakis will perform the two communication actions, Stimulus and
 Response, observe that the system under test communicates no additional
 output until TorXakis times out (as expected), and finally conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Response</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  .....2: OUT: Act { { ( Response, [] ) } }
+TXS &gt;&gt;  .....3: OUT: No Output (Quiescence)
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 <section id="errorneous-sut">
@@ -688,11 +696,11 @@ commands</p></li>
 <p>TorXakis will perform the first communication action: Stimulus. TorXakis
 will observe that the expected second communication action (Response)
 doesn’t occur, causing the step to time out, so conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">Expected</span><span class="p">:</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="p">[</span> <span class="p">(</span> <span class="p">{</span> <span class="n">Response</span><span class="p">[]</span> <span class="p">},</span> <span class="p">[],</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">]</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">FAIL</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  .....2: OUT: No Output (Quiescence)
+TXS &gt;&gt;  Expected:
+TXS &gt;&gt;  [ ( { Response[] }, [], [] ) ]
+TXS &gt;&gt;  FAIL: No Output (Quiescence)
 </pre></div>
 </div>
 </section>
@@ -716,10 +724,10 @@ stays the same, too:</p>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sut</span> <span class="s">::=</span>
     <span class="k">CLIENTSOCK</span>
 
-    <span class="k">CHAN</span>  <span class="k">OUT</span>  <span class="nv">Stimulus</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">CHAN</span>  <span class="k">OUT</span>  <span class="nv">Stimulus</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">7890</span>
     <span class="k">ENCODE</span>     <span class="nv">Stimulus</span>            <span class="s">-&gt;</span>  <span class="p">!</span> <span class="p">&quot;&quot;</span>
 
-    <span class="k">CHAN</span>  <span class="k">IN</span>   <span class="nv">Response</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">7890</span>
+    <span class="k">CHAN</span>  <span class="k">IN</span>   <span class="nv">Response</span>            <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">7890</span>
     <span class="k">DECODE</span>     <span class="nv">Response</span>            <span class="o">&lt;-</span>   <span class="p">?</span> <span class="nc">s</span>
 <span class="k">ENDDEF</span>
 </pre></div>
@@ -775,17 +783,17 @@ commands:</p></li>
 Response, over and over again for as many test steps as we tell it to
 (in this example: 10). Observing that SUT communicates a Response for
 every Stimulus as expected, it will finally conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Response</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Response</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Response</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Response</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Stimulus</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Response</span><span class="p">,</span> <span class="p">[]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  .....2: OUT: Act { { ( Response, [] ) } }
+TXS &gt;&gt;  .....3: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Response, [] ) } }
+TXS &gt;&gt;  .....5: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  .....6: OUT: Act { { ( Response, [] ) } }
+TXS &gt;&gt;  .....7: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  .....8: OUT: Act { { ( Response, [] ) } }
+TXS &gt;&gt;  .....9: IN: Act { { ( Stimulus, [] ) } }
+TXS &gt;&gt;  ....10: OUT: Act { { ( Response, [] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>

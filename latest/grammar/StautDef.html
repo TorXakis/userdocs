@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>State Automaton Definition &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>State Automaton Definition &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -650,7 +658,7 @@ analogous to the header of <a class="reference external" href="ProcDefs">Process
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>STAUTDEF  check1000 [ Add :: Int;  Sum :: Int;  Success ]  ( start_value :: Int )
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>STAUTDEF  check1000 [ Add :: Int;  Sum :: Int;  Success ]  ( start_value :: Int )
  ::=
       STATE  state0, state1
       VAR    sum :: Int
@@ -668,7 +676,7 @@ transitions. The system adds positive integer inputs until the sum is at
 least 1000, upon which it outputs <code class="docutils literal notranslate"><span class="pre">success</span></code>. Then it restarts the
 process starting with <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">:=</span> <span class="pre">start_value</span></code>. Note the non-determinism
 when the <code class="docutils literal notranslate"><span class="pre">sum</span></code> is exactly equal to 1000.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>STAUTDEF m [C :: Int] () EXIT ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>STAUTDEF m [C :: Int] () EXIT ::=
     STATE   s0, s1, s2
     INIT    s0
     TRANS   s0 -&gt; C ! 1 -&gt; s1

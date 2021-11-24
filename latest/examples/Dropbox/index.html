@@ -1,0 +1,1324 @@
+   
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installation" href="../../Installation.html" />
+    <link rel="prev" title="Modelling Example: Wheel" href="../Wheel/index.html" />
+<link rel="stylesheet" type="text/css"
+     href="../../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> TorXakis
+          </a>
+              <div class="version">
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intro.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#get-torxakis-running">Get TorXakis running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#testing-a-queue">Testing a Queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#model-based-testing-of-the-queue">Model-Based Testing of the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#a-queue-mutant">A Queue Mutant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html#utilities">Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#notepad-and-txs">Notepad++ and Txs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started.html#yed-and-txs">yEd and Txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mbt/index.html">Model-Based Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../mbt/mbt.html">Introduction to Model-Based Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#software-testing">Software Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#benefits-of-model-based-testing">Benefits of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#sorts-of-model-based-testing">Sorts of model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#theory-for-model-based-testing">Theory for model-based testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#model-based-testing-challenges">Model-based testing challenges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#model-based-testing-tools">Model-based testing tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt.html#future-developments">Future developments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../mbt/mbt_with_lts.html">Model-Based Testing with Labelled Transition Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#labelled-transition-systems">Labelled transition systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#testing-equivalences">Testing equivalences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#test-generation">Test generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#inputs-and-outputs">Inputs and outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#implementation-relation-ioco">Implementation relation ioco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mbt/mbt_with_lts.html#torxakis">TorXakis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../torxakis_mbt.html">TorXakis: A Model-Based Testing Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../torxakis_mbt.html#basics">Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#modelling">Modelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#implementation">Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#innovation">Innovation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../torxakis_mbt.html#usage-overview">Usage overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#test-architecture">Test architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#system-under-test">System under test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#adapter">Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../torxakis_mbt.html#other-features">Other features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage/trace-replay.html">Trace and replay functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#starter-examples">Starter examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../HelloWorld/index.html">HelloWorld</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#sut">SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#adapter">Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../HelloWorld/index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StimulusResponse/index.html">StimulusResponse</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#model-based-testing">Model Based Testing</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../StimulusResponse/index.html#errorneous-sut">Errorneous SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../StimulusResponse/index.html#stimulus-response-loop">Stimulus Response - Loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Echo/index.html">Echo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#process">Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#model-based-testing-stepping-through-the-model">Model Based Testing: Stepping through the Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#simulator-definition">Simulator Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#model-based-testing-testing-the-simulated-sut">Model Based Testing: Testing the Simulated SUT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Echo/index.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Adder/index.html">Adder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#suts">SUTs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-java">Adder.java</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#models">Models</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adder-txs">Adder.txs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#adder-model-and-sut-connection">1. Adder Model and Sut Connection</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#observe-the-behaviour-of-model">Observe the behaviour of model</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-sut">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#adder3-model-and-sut3-connection">2. Adder3 Model and Sut3 Connection:</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#id1">Observe the behaviour of model</a></li>
+<li class="toctree-l7"><a class="reference internal" href="../Adder/index.html#execute-torxakis-against-the-actual-3-suts">Execute TorXakis against the actual 3 SUTs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adderstaut-txs">AdderStAut.txs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id2">Observe the behaviour of model</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../Adder/index.html#id3">Execute TorXakis against the actual SUT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Adder/index.html#test-purposes">Test Purposes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adderpurposes-txs">AdderPurposes.txs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../Adder/index.html#adderreplay-txs-and-replayproc-txs">AdderReplay.txs and ReplayProc.txs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced-examples">Advanced examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ReadWriteConflict/index.html">ReadWriteConflict</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ReadWriteConflict/index.html#basic-solution">Basic Solution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ReadWriteConflict/index.html#advanced-solution">Advanced Solution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ReadWriteConflict/index.html#using-test-purposes">Using Test Purposes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ControlLoop/index.html">ControlLoop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#data-types">Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#functions">Functions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#sgn">sgn</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#processes">Processes</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#correct">correct</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#measure">measure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#produce">produce</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../ControlLoop/index.html#control-loop">control loop</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ControlLoop/index.html#stepping-through-the-model">Stepping through the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../CustomersOrders/index.html">CustomersOrders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#system-under-test">System Under Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#torxakis-specification">TorXakis specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CustomersOrders/index.html#model-based-testing">Model Based Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../luckypeople.html">LuckyPeople</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html">Assignment</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#requirements">Requirements</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#examples">Examples</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-names">Lucky based on names</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-birthday">Lucky based on birthday</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#lucky-based-on-sequence">Lucky based on sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#deliverables">Deliverables</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__1_Assignment.html#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html">Solution</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#types">Types</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#channels">Channels</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#procedure">Procedure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model">Model</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#functions">Functions</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isvalid-person">isValid_Person</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckyperson">isLuckyPerson</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybygender">isLuckyByGender</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybyname">isLuckyByName</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#isluckybybirthday">isLuckyByBirthday</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#sut-connection">SUT Connection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#model-based-testing">Model Based Testing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__2_Solution.html#xml-based-communication">XML-Based communication</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__3_Testing-With-Predetermined-Input.html">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html">Gender</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-process">The process</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../LuckyPeople/Modelling-Example-Lucky-People__4_Lucky-Based-On-Gender.html#the-test-purpose">The Test Purpose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span class="caption-text">Appendices</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Installation.html#linux">Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#for-debian-based-systems">For debian based systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Installation.html#for-all-distributions-and-recent-releases">For all distributions and (recent) releases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../Installation.html#running-the-appimage-without-fuse-support">Running the AppImage without FUSE support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Installation.html#source-build">Source build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar/index.html">Grammar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/CapsId.html">CapsId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CapsId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ChanDefs.html">Channel Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ChanDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Choice_Operator.html">Choice Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Choice_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/CnectDefs.html">Connection Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/CnectDefs.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Comment.html">Comment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Comment.html#single-line-comment">Single line comment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Comment.html#multiple-lines-comment">Multiple lines comment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Communications.html">Communications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Communications.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-without-data">Communication without data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-fully-specified-data">Communication of fully specified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-underspecified-data">Communication of underspecified data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-constrained-data">Communication of constrained data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Communications.html#communication-of-multiple-data-items">Communication of multiple data items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Condition.html">Condition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Condition.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ConstDefs.html">Constant Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ConstDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Data_Type.html">Data Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Data_Type.html#predefined-data-types">Predefined Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Data_Type.html#user-defined-data-types">User Defined Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Disable_Operator.html">Disable Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/EXIT.html">EXIT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/EXIT.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/EXIT.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Enable_Operator.html">Enable Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Enable_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/FuncDefs.html">Function Defintions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/FuncDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Function.html">Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#predefined-functions">Predefined Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#bool">Bool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#int">Int</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#boute-s-euclidean-definition">Boute’s Euclidean Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#string">String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#regex">Regex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#implicitly-defined-typedef-functions">Implicitly Defined TYPEDEF Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Function.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Function.html#user-defined-functions">User Defined Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Guard_Operator.html">Guard Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Guard_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/HIDE.html">HIDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/HIDE.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Interrupt_Operator.html">Interrupt Operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/IteValExpr.html">IF THEN ELSE Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/IteValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/IteValExpr.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/LET.html">LET Process Behaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LET.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/LET.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Language_Definition.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Language_Definition.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Language_Definition.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/LetValExpr.html">LET Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/LetValExpr.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/LetValExpr.html#simultaneously-define-multiple-variables">Simultaneously define multiple variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ModelDefs.html">Model Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ModelDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Parallel_Operator.html">Parallel Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Parallel_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcCall.html">Process Call</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcCall.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcCall.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcDefs.html">Proccess Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ProcessBehaviour.html">ProcessBehaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ProcessBehaviour.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/PurpDefs.html">Test Purpose Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/PurpDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/STOP.html">STOP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/STOP.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/STOP.html#semantics">Semantics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Sequence_Operator.html">Sequence Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Sequence_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/SmallId.html">SmallId</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/SmallId.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/SmallId.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/StautDef.html">State Automaton Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/StautDef.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html">Synchronized Channels Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Channels_Operator.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronized_Operator.html">Synchronized Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#communication">Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#constrained-communication">Constrained communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/Synchronized_Operator.html#deadlock">Deadlock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/Synchronous_Operator.html">Synchronous Operator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/Synchronous_Operator.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/TypeDefs.html">Type Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/TypeDefs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/ValExpr.html">Value Expression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ValExpr.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/ValExpr.html#semantics">Semantics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../grammar/ValExpr.html#reference-to-function">Reference to Function.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/VarDecl.html">Variable Declaration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#semantics">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/VarDecl.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../grammar/specification.html">Language Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/specification.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../grammar/specification.html#semantics">Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../command-line.html">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#command-history">Command history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#configuration-file">Configuration file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../command-line.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../command-line.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar.html">Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammarv3.html">Grammarv3</a></li>
+</ul>
+<p><span class="caption-text">Backmatter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TorXakis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+      <li>TorXakis Dropbox Example</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/torxakis/userdocs/blob/main/source/examples/Dropbox/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../Wheel/index.html" class="btn btn-neutral float-left" title="Modelling Example: Wheel" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../Installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="torxakis-dropbox-example">
+<h1>TorXakis Dropbox Example<a class="headerlink" href="#torxakis-dropbox-example" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">code:</span></code>  <a class="reference external" href="https://github.com/TorXakis/examples/tree/main/Dropbox">https://github.com/TorXakis/examples/tree/main/Dropbox</a></p>
+<p>We apply model-based testing with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to test Dropbox. Our
+work closely follows the work in <a class="reference internal" href="../../bibliography.html#r40" id="id1"><span>[R40]</span></a>, where Dropbox was tested with the
+model-based testing tool Quviq QuickCheck. We first briefly introduce
+Dropbox, we then discuss some aspects of the testing approach, we
+present a model in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language, we run some
+tests, and end with discussion.</p>
+<section id="dropbox">
+<h2>Dropbox<a class="headerlink" href="#dropbox" title="Permalink to this headline">¶</a></h2>
+<p>Dropbox is a file-synchronization service <a class="reference internal" href="../../bibliography.html#r25" id="id2"><span>[R25]</span></a>, like Google-Drive and
+Microsoft-OneDrive. A file-synchronization service maintains consistency
+among multiple copies of files or a directory structure over different
+devices. A user can create, delete, read, or write a file on one device
+and Dropbox synchronizes this file with the other devices. One copy of
+the files on a device is called a <em>node</em> . A <em>conflict</em> arises when
+different nodes write to the same file: the content of the file cannot
+be uniquely determined anymore. Dropbox deals with conflicts by having
+the content that was written by one node in the original file, and
+adding an additional file, with a new name, with the conflicting
+content. Also this additional file will eventually be synchronized.</p>
+<p>Synchronization is performed by uploading and downloading files to a
+Dropbox server, i.e., a Dropbox system with <em>n</em> nodes conceptually
+consists of <em>n</em> +1 components. How synchronization is performed, i.e.,
+when and which (partial) files are up- and downloaded by the Dropbox
+clients and how this is administered is part of the Dropbox
+implementation, i.e., the Dropbox protocol. Since we concentrate on
+testing the delivered synchronization service, we abstract from the
+precise protocol implementation.</p>
+<p>A file synchronizer like Dropbox is a distributed, concurrent, and
+nondeterministic system. It has state (the synchronization status of
+files) and data (file contents), its modelling requires abstraction,
+leading to nondeterminism, because the precise protocol is not
+documented and the complete internal state is not observable, and
+partial modelling is needed because of its size. Altogether, file
+synchronizers are interesting and challenging systems to be tested,
+traditionally as well as model-based.</p>
+</section>
+<section id="testing-approach">
+<h2>Testing Approach<a class="headerlink" href="#testing-approach" title="Permalink to this headline">¶</a></h2>
+<p>We test the Dropbox synchronization service, that is, the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
+the Dropbox behaviour as observed by users of the synchronization
+service, as a black-box. We closely follow <a class="reference internal" href="../../bibliography.html#r40" id="id3"><span>[R40]</span></a>, where a formal model
+for a synchronization service was developed and used for model-based
+testing of Dropbox with the tool Quviq QuickCheck <a class="reference internal" href="../../bibliography.html#r2" id="id4"><span>[R2]</span></a>, a descendant of
+Haskell QuickCheck <a class="reference internal" href="../../bibliography.html#r19" id="id5"><span>[R19]</span></a>. This means that we use the same test setup,
+make the same assumptions, and transform their model for Quviq
+QuickCheck to the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language. It also means that
+we will not repeat the detailed discussion of Dropbox intricacies and
+model refinements leading to their final model, despite that their model
+rules out implementations that calculate <code class="docutils literal notranslate"><span class="pre">clean</span></code> and handle a
+reverting write action without any communication with the server.</p>
+<p>Like in <a class="reference internal" href="../../bibliography.html#r40" id="id6"><span>[R40]</span></a>, we restrict testing to one file and three nodes, and we
+use actions ( <code class="docutils literal notranslate"><span class="pre">sut</span></code> inputs) <code class="docutils literal notranslate"><span class="pre">Read</span></code> <em>N</em> , <code class="docutils literal notranslate"><span class="pre">Write</span></code> <em>N</em> ,
+and <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> , which read the file at node <em>N</em> , (over-)write
+the file at node <em>N</em> , and read all files including conflict files
+when the system is stable, i.e., fully synchronized, respectively.
+Initially, and after deletion, the file is represented by the special
+content value ” <code class="docutils literal notranslate"><span class="pre">$</span></code> ” (perpendicular in <a class="reference internal" href="../../bibliography.html#r40" id="id7"><span>[R40]</span></a>).</p>
+<p>Our test setup consists of three Linux-virtual machines with Dropbox
+clients implementing the three nodes, numbered 0, 1, and 2. The file
+manipulation on the nodes is performed by plain Linux shell commands.
+These commands are sent by <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , which runs on the host
+computer, via sockets; see Sect. 4. The adapters
+connecting <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to the <code class="docutils literal notranslate"><span class="pre">sut</span></code> consist of a one-line shell
+script connecting the sockets to the shell interpreter via the standard
+Linux utility <code class="docutils literal notranslate"><span class="pre">socat</span></code> .</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> we assume that the system has stabilized, i.e., all
+file synchronizations have taken place including distribution to all
+nodes of all conflict files. Like in <a class="reference internal" href="../../bibliography.html#r40" id="id8"><span>[R40]</span></a>, we implement this by simply
+waiting for at least 30 seconds. Since the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling
+language itself does not support realtime, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> sends a
+command to the adapter to wait for 30 seconds.</p>
+</section>
+<section id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
+<p>Our Dropbox model is a straightforward translation of “Section IV:
+Formalizing the specification” in <a class="reference internal" href="../../bibliography.html#r40" id="id9"><span>[R40]</span></a> into the modelling language
+of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> . Parts of the model are shown in Listings <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">Listing 2</span></a>,
+<a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>, <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>,
+<a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>, <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>,
+<a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>, and <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a></p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-channels-types">
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Dropbox model - channels and their types. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-channels-types" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">CHANDEF</span> <span class="nv">MyChans</span> <span class="s">::=</span>
+     <span class="nv">In0</span><span class="p">,</span> <span class="nv">In1</span><span class="p">,</span> <span class="nv">In2</span> <span class="s">::</span> <span class="nv">Cmd</span> <span class="p">;</span>
+     <span class="nv">Out0</span><span class="p">,</span> <span class="nv">Out1</span><span class="p">,</span> <span class="nv">Out2</span> <span class="s">::</span> <span class="nv">Rsp</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">TYPEDEF</span> <span class="nv">Cmd</span> <span class="s">::=</span>
+       <span class="nv">Read</span>
+     <span class="o">|</span> <span class="nv">Write</span>                       <span class="p">{</span> <span class="nc">value</span> <span class="s">::</span> <span class="nv">Value</span> <span class="p">}</span>
+     <span class="o">|</span> <span class="nv">Stabilize</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">TYPEDEF</span> <span class="nv">Rsp</span> <span class="s">::=</span>
+       <span class="nv">Ack</span>
+     <span class="o">|</span> <span class="nv">NAck</span>                         <span class="p">{</span> <span class="nc">error</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">}</span>
+     <span class="o">|</span> <span class="nv">File</span>                          <span class="p">{</span> <span class="nc">value</span> <span class="s">::</span> <span class="nv">Value</span> <span class="p">}</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">TYPEDEF</span> <span class="nv">Value</span> <span class="s">::=</span>
+     <span class="nv">Value</span> <span class="p">{</span> <span class="nc">value</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">}</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">FUNCDEF</span> <span class="nc">isValidValue</span> <span class="p">(</span> <span class="nc">val</span> <span class="s">::</span> <span class="nv">Value</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Bool</span> <span class="s">::=</span>
+     <span class="nc">strinre</span><span class="p">(</span> <span class="nc">value</span><span class="p">(</span><span class="nc">val</span><span class="p">),</span> <span class="nv">REGEX</span><span class="p">(</span>’<span class="p">[</span><span class="nv">A</span><span class="o">-</span><span class="nv">Z</span><span class="p">]{</span><span class="s">1</span><span class="p">,</span><span class="s">3</span><span class="p">}</span>’<span class="p">)</span> <span class="p">)</span>
+ <span class="k">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> model is a collection of different kinds of
+definitions.  The first one, <code class="docutils literal notranslate"><span class="pre">CHANDEF</span></code> , defines the
+channels with their typed messages; see  <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">Fig. 2</span></a>. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> assumes
+that an <code class="docutils literal notranslate"><span class="pre">sut</span></code> communicates by receiving and sending typed messages.
+A message received by the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is an input, and thus an action
+initiated by the tester. A message sent by the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
+an <code class="docutils literal notranslate"><span class="pre">sut</span></code> output, and is observed and checked by the tester. For
+Dropbox there are three input channels: <code class="docutils literal notranslate"><span class="pre">In0</span></code> , <code class="docutils literal notranslate"><span class="pre">In1</span></code> ,
+and <code class="docutils literal notranslate"><span class="pre">In2</span></code> , where commands of type <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> are sent to
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , for each node, respectively. There are also three output
+channels <code class="docutils literal notranslate"><span class="pre">Out0</span></code> , <code class="docutils literal notranslate"><span class="pre">Out1</span></code> , and <code class="docutils literal notranslate"><span class="pre">Out2</span></code> , where responses of
+type <code class="docutils literal notranslate"><span class="pre">Rsp</span></code> are received from the <code class="docutils literal notranslate"><span class="pre">sut</span></code> . The commands
+( <code class="docutils literal notranslate"><span class="pre">sut</span></code> inputs) with their corresponding responses
+( <code class="docutils literal notranslate"><span class="pre">sut</span></code> outputs) are:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Read</span></code></dt><dd><p>reads the file on the local node, which leads to a response
+consisting of the current file content <code class="docutils literal notranslate"><span class="pre">value</span></code></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Write(value)</span></code></dt><dd><p>writes the new value <code class="docutils literal notranslate"><span class="pre">value</span></code> to the file while the
+response gives the old value</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Stabilize</span></code></dt><dd><p>reads all file values, i.e., the original file and all
+conflict files, after stabilization, i.e., after all file
+synchronizations have taken place.</p>
+</dd>
+</dl>
+<figure class="align-center" id="id21">
+<span id="fig-dropbox-structure"></span><img alt="Dropbox structure" src="../../_images/dropbox_structure.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Dropbox structure.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In addition to these visible actions, there are hidden actions. If a
+user modifies a file, Dropbox will upload it to the Dropbox server, and
+then later download this file to the other nodes. But a Dropbox user,
+and thus also the (black-box) tester cannot observe these actions, and
+consequently, they do not occur in the <code class="docutils literal notranslate"><span class="pre">CHANDEF</span></code> definition. Yet,
+these actions do occur and they do change the state of the Dropbox
+system. We use six
+channels <code class="docutils literal notranslate"><span class="pre">Down0</span></code> , <code class="docutils literal notranslate"><span class="pre">Down1</span></code> , <code class="docutils literal notranslate"><span class="pre">Down2</span></code> , <code class="docutils literal notranslate"><span class="pre">Up0</span></code> , <code class="docutils literal notranslate"><span class="pre">Up1</span></code> ,
+and <code class="docutils literal notranslate"><span class="pre">Up2</span></code> to model these actions, and later it will be shown how we
+can explicitly <em>hide</em> these channels. The conceptual structure of
+Dropbox with nodes, server, and channels is given in Fig. 11. The outer
+box is our <code class="docutils literal notranslate"><span class="pre">sut</span></code> .</p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-main-process">
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Dropbox model - main process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> with transitions <code class="docutils literal notranslate"><span class="pre">Read</span></code> and <code class="docutils literal notranslate"><span class="pre">Write</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19_.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-process" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">PROCDEF</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span>  <span class="nv">In1</span><span class="p">,</span>  <span class="nv">In2</span>     <span class="s">::</span> <span class="nv">Cmd</span>
+                 <span class="p">;</span> <span class="nv">Out0</span><span class="p">,</span> <span class="nv">Out1</span><span class="p">,</span> <span class="nv">Out2</span>    <span class="s">::</span> <span class="nv">Rsp</span>
+                 <span class="p">;</span> <span class="nv">Down0</span><span class="p">,</span> <span class="nv">Down1</span><span class="p">,</span> <span class="nv">Down2</span>
+                 <span class="p">;</span> <span class="nv">Up0</span><span class="p">,</span> <span class="nv">Up1</span><span class="p">,</span> <span class="nv">Up2</span>
+                 <span class="p">]</span>
+                 <span class="p">(</span> <span class="nc">serverVal</span> <span class="s">::</span> <span class="nv">Value</span>
+                 <span class="p">;</span> <span class="nc">conflicts</span> <span class="s">::</span> <span class="nv">ValueList</span>
+                 <span class="p">;</span> <span class="nc">localVal</span>  <span class="s">::</span> <span class="nv">ValueList</span>
+                 <span class="p">;</span> <span class="nc">fresh</span>     <span class="s">::</span> <span class="nv">BoolList</span>
+                 <span class="p">;</span> <span class="nc">clean</span>     <span class="s">::</span> <span class="nv">BoolList</span>
+                 <span class="p">)</span>
+   <span class="s">::=</span>
+             <span class="nv">In0</span>     <span class="p">!</span><span class="nv">Read</span>
+         <span class="s">&gt;-&gt;</span> <span class="nv">Out0</span>    <span class="p">!</span><span class="nv">File</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)))</span>
+         <span class="s">&gt;-&gt;</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span><span class="nv">In1</span><span class="p">,</span><span class="nv">In2</span><span class="p">,</span><span class="nv">Out0</span><span class="p">,</span><span class="nv">Out1</span><span class="p">,</span><span class="nv">Out2</span>
+                     <span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span><span class="nv">Down1</span><span class="p">,</span><span class="nv">Down2</span><span class="p">,</span><span class="nv">Up0</span><span class="p">,</span><span class="nv">Up1</span><span class="p">,</span><span class="nv">Up2</span>
+                     <span class="p">]</span>
+                     <span class="p">(</span> <span class="nc">serverVal</span>
+                     <span class="p">,</span> <span class="nc">conflicts</span>
+                     <span class="p">,</span> <span class="nc">localVal</span>
+                     <span class="p">,</span> <span class="nc">fresh</span>
+                     <span class="p">,</span> <span class="nc">clean</span>
+                     <span class="p">)</span>
+     <span class="s">##</span>
+             <span class="nv">In0</span>     <span class="p">?</span><span class="nc">cmd</span> <span class="s">[[</span> <span class="k">IF</span>   <span class="nc">isWrite</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+                             <span class="k">THEN</span> <span class="nc">isValidValue</span><span class="p">(</span><span class="nc">value</span><span class="p">(</span><span class="nc">cmd</span><span class="p">))</span>
+                             <span class="k">ELSE</span> <span class="nv">False</span>
+                             <span class="k">FI</span> <span class="s">]]</span>
+         <span class="s">&gt;-&gt;</span> <span class="nv">Out0</span>    <span class="p">!</span><span class="nv">File</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)))</span>
+         <span class="s">&gt;-&gt;</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span><span class="nv">In1</span><span class="p">,</span><span class="nv">In2</span><span class="p">,</span><span class="nv">Out0</span><span class="p">,</span><span class="nv">Out1</span><span class="p">,</span><span class="nv">Out2</span>
+                     <span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span><span class="nv">Down1</span><span class="p">,</span><span class="nv">Down2</span><span class="p">,</span><span class="nv">Up0</span><span class="p">,</span><span class="nv">Up1</span><span class="p">,</span><span class="nv">Up2</span>
+                     <span class="p">]</span>
+                     <span class="p">(</span> <span class="nc">serverVal</span>
+                     <span class="p">,</span> <span class="nc">conflicts</span>
+                     <span class="p">,</span> <span class="nc">update</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">),</span><span class="nc">value</span><span class="p">(</span><span class="nc">cmd</span><span class="p">))</span>
+                     <span class="p">,</span> <span class="nc">fresh</span>
+                     <span class="p">,</span> <span class="nc">update</span><span class="p">(</span><span class="nc">clean</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">),</span><span class="nv">False</span><span class="p">)</span>
+                     <span class="p">)</span>
+     <span class="s">##</span>
+          .......
+</pre></div>
+</div>
+</div>
+<p>The next step is to define the processes that model state behaviour. The
+main process is <code class="docutils literal notranslate"><span class="pre">PROCDEF</span> <span class="pre">dropbox</span></code> which models the behaviour of
+Dropbox, combining the commands ( <code class="docutils literal notranslate"><span class="pre">sut</span></code> inputs), responses
+( <code class="docutils literal notranslate"><span class="pre">sut</span></code> outputs), and the checks on them in one state machine; see
+Figs. 12, 13, and 14. The state machine is defined as a recursive
+process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> with channel
+parameters <code class="docutils literal notranslate"><span class="pre">In0</span></code> , <em>…</em> , <code class="docutils literal notranslate"><span class="pre">Up2</span></code> , and with state variables
+exactly as in <a class="reference internal" href="../../bibliography.html#r40" id="id11"><span>[R40]</span></a>:</p>
+<ul class="simple">
+<li><p>a global stable value <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> represents the file value
+currently held on the server;</p></li>
+<li><p>a global set <code class="docutils literal notranslate"><span class="pre">conflicts</span></code> holds the conflicting file values,
+represented as a <code class="docutils literal notranslate"><span class="pre">ValueList</span></code> ;</p></li>
+<li><p>for each node <em>N</em> , there is a local file value <code class="docutils literal notranslate"><span class="pre">localVal</span></code> <em>N</em> ,
+where all local file values together are represented as a list of values
+with three elements, the first element
+representing <code class="docutils literal notranslate"><span class="pre">localVal</span></code> <sub>0</sub> , etc.;</p></li>
+<li><p>for each node <em>N</em> , there is a freshness value <code class="docutils literal notranslate"><span class="pre">fresh</span></code> <em>N</em> ,
+indicating whether node <em>N</em> has downloaded the latest value
+of <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> ; all freshness values together are represented as a
+list of Booleans with three elements, the second element
+representing <code class="docutils literal notranslate"><span class="pre">fresh</span></code> <sub>1</sub> , etc.;</p></li>
+<li><p>for each node <em>N</em> , there is a cleanliness value <code class="docutils literal notranslate"><span class="pre">clean</span></code> <em>N</em> ,
+indicating whether the latest local modification has been uploaded;
+together they are represented as a list of Booleans with three elements,
+the third element representing <code class="docutils literal notranslate"><span class="pre">clean</span></code> <sub>2</sub> , etc.</p></li>
+</ul>
+<p>The recursive process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> defines for each node transitions
+for reading, writing, uploading, and downloading the file, and one
+transition for <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> . The different transitions are separated
+by <code class="docutils literal notranslate"><span class="pre">’##’</span></code> , the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> <em>choice</em> operator. The transitions
+for reading and writing consist of two steps: first a command
+( <code class="docutils literal notranslate"><span class="pre">sut</span></code> input) followed by an <code class="docutils literal notranslate"><span class="pre">sut</span></code> output. ”Followed by” is
+expressed by the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> <em>action-prefix</em> operator <code class="docutils literal notranslate"><span class="pre">’&gt;-&gt;’</span></code> .
+After the response, <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> is recursively called with updated
+state variables.</p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-main-transitions-down-up">
+<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Dropbox model - transitions <code class="docutils literal notranslate"><span class="pre">Down</span></code> and <code class="docutils literal notranslate"><span class="pre">Up</span></code> in the main process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19__.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-transitions-down-up" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>       .....
+     <span class="s">##</span>
+         <span class="s">[[</span> <span class="nc">not</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)))</span>
+            <span class="o">/\</span>  <span class="nc">lookup</span><span class="p">(</span><span class="nc">clean</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span> <span class="s">]]</span>
+         <span class="s">=&gt;&gt;</span> <span class="nv">Down0</span>
+         <span class="s">&gt;-&gt;</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span><span class="nv">In1</span><span class="p">,</span><span class="nv">In2</span><span class="p">,</span><span class="nv">Out0</span><span class="p">,</span><span class="nv">Out1</span><span class="p">,</span><span class="nv">Out2</span>
+                     <span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span><span class="nv">Down1</span><span class="p">,</span><span class="nv">Down2</span><span class="p">,</span><span class="nv">Up0</span><span class="p">,</span><span class="nv">Up1</span><span class="p">,</span><span class="nv">Up2</span>
+                     <span class="p">]</span>
+                     <span class="p">(</span> <span class="nc">serverVal</span>
+                     <span class="p">,</span> <span class="nc">conflicts</span>
+                     <span class="p">,</span> <span class="nc">update</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">),</span><span class="nc">serverVal</span><span class="p">)</span>
+                     <span class="p">,</span> <span class="nc">update</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">),</span><span class="nv">True</span><span class="p">)</span>
+                     <span class="p">,</span> <span class="nc">clean</span>
+                     <span class="p">)</span>
+     <span class="s">##</span>
+         <span class="s">[[</span> <span class="nc">not</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">clean</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)))</span> <span class="s">]]</span>
+         <span class="s">=&gt;&gt;</span> <span class="nv">Up0</span>
+         <span class="s">&gt;-&gt;</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span><span class="nv">In1</span><span class="p">,</span><span class="nv">In2</span><span class="p">,</span><span class="nv">Out0</span><span class="p">,</span><span class="nv">Out1</span><span class="p">,</span><span class="nv">Out2</span>
+                     <span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span><span class="nv">Down1</span><span class="p">,</span><span class="nv">Down2</span><span class="p">,</span><span class="nv">Up0</span><span class="p">,</span><span class="nv">Up1</span><span class="p">,</span><span class="nv">Up2</span>
+                     <span class="p">]</span>
+                     <span class="p">(</span> <span class="k">IF</span>   <span class="nc">lookup</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span>
+                         <span class="o">/\</span> <span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span> <span class="o">&lt;&gt;</span> <span class="nc">serverVal</span><span class="p">)</span>
+                       <span class="k">THEN</span> <span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span>
+                       <span class="k">ELSE</span> <span class="nc">serverVal</span>
+                       <span class="k">FI</span>
+                     <span class="p">,</span> <span class="k">IF</span>   <span class="nc">not</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)))</span>
+                         <span class="o">/\</span> <span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span> <span class="o">&lt;&gt;</span> <span class="nc">serverVal</span><span class="p">)</span>
+                         <span class="o">/\</span> <span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span> <span class="o">&lt;&gt;</span> <span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;))</span>
+                       <span class="k">THEN</span> <span class="nv">Values</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)),</span><span class="nc">conflicts</span><span class="p">)</span>
+                       <span class="k">ELSE</span> <span class="nc">conflicts</span>
+                       <span class="k">FI</span>
+                     <span class="p">,</span> <span class="nc">localVal</span>
+                     <span class="p">,</span> <span class="k">IF</span>   <span class="nc">lookup</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span>
+                         <span class="o">/\</span> <span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">localVal</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">))</span> <span class="o">&lt;&gt;</span> <span class="nc">serverVal</span><span class="p">)</span>
+                       <span class="k">THEN</span> <span class="nc">othersUpdate</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">),</span><span class="nv">False</span><span class="p">)</span>
+                       <span class="k">ELSE</span> <span class="nc">fresh</span>
+                       <span class="k">FI</span>
+                     <span class="p">,</span> <span class="nc">update</span><span class="p">(</span><span class="nc">clean</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">),</span><span class="nv">True</span><span class="p">)</span>
+                     <span class="p">)</span>
+     <span class="s">##</span>
+       .....
+</pre></div>
+</div>
+</div>
+<p>Consider file-reading for node 0 (Fig. 12). The first action is
+input <code class="docutils literal notranslate"><span class="pre">Read</span></code> on channel <code class="docutils literal notranslate"><span class="pre">In0</span></code> . Then the <code class="docutils literal notranslate"><span class="pre">sut</span></code> will produce
+output <code class="docutils literal notranslate"><span class="pre">File(lookup(localVal,Node(0)))</span></code> , i.e., the <code class="docutils literal notranslate"><span class="pre">File</span></code> made
+by looking up the <code class="docutils literal notranslate"><span class="pre">localVal</span></code> value of <code class="docutils literal notranslate"><span class="pre">Node(0)</span></code> . This is an
+expression in the data specification language of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , which
+is based on algebraic data types (ADT) and functions like in functional
+languages. This data language is very powerful, but also very
+rudimentary. Data types such as <code class="docutils literal notranslate"><span class="pre">ValueList</span></code> have to be defined
+explicitly as recursive types (Fig. 15), consisting of either an empty
+list <code class="docutils literal notranslate"><span class="pre">NoValues</span></code> , or a non-empty list <code class="docutils literal notranslate"><span class="pre">Values</span></code> with as fields a
+head value <code class="docutils literal notranslate"><span class="pre">hd</span></code> and a tail <code class="docutils literal notranslate"><span class="pre">tl</span></code> , which is again
+a <code class="docutils literal notranslate"><span class="pre">ValueList</span></code> . Functions like <code class="docutils literal notranslate"><span class="pre">lookup</span></code> have to be defined
+explicitly, too, in a functional (recursive) style. Fig. 15 gives as
+examples the functions <code class="docutils literal notranslate"><span class="pre">lookup</span></code> and <code class="docutils literal notranslate"><span class="pre">update</span></code> ; other functions
+are included in the full model <a class="reference internal" href="../../bibliography.html#r58" id="id13"><span>[R58]</span></a>. After the output there is the
+recursive call of process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> , where state parameters are not
+modified in case of file-reading.</p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-main-transitions-stabilize">
+<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Dropbox model - transition <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> and and process <code class="docutils literal notranslate"><span class="pre">fileAndConflicts</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19___.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-transitions-stabilize" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> .....
+     <span class="s">##</span>
+         <span class="s">[[</span> <span class="nc">allTrue</span><span class="p">(</span><span class="nc">fresh</span><span class="p">)</span> <span class="o">/\</span> <span class="nc">allTrue</span><span class="p">(</span><span class="nc">clean</span><span class="p">)</span> <span class="s">]]</span>
+         <span class="s">=&gt;&gt;</span> <span class="p">(</span>         <span class="nv">In0</span>  <span class="p">!</span><span class="nv">Stabilize</span>
+                   <span class="s">&gt;-&gt;</span> <span class="nc">fileAndConflicts</span> <span class="p">[</span><span class="nv">Out0</span><span class="p">]</span> <span class="p">(</span><span class="nv">Values</span><span class="p">(</span><span class="nc">serverVal</span><span class="p">,</span><span class="nc">conflicts</span><span class="p">))</span>
+               <span class="s">&gt;&gt;&gt;</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span><span class="nv">In1</span><span class="p">,</span><span class="nv">In2</span><span class="p">,</span><span class="nv">Out0</span><span class="p">,</span><span class="nv">Out1</span><span class="p">,</span><span class="nv">Out2</span>
+                           <span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span><span class="nv">Down1</span><span class="p">,</span><span class="nv">Down2</span><span class="p">,</span><span class="nv">Up0</span><span class="p">,</span><span class="nv">Up1</span><span class="p">,</span><span class="nv">Up2</span>
+                           <span class="p">]</span>
+                           <span class="p">(</span> <span class="nc">serverVal</span>
+                           <span class="p">,</span> <span class="nc">conflicts</span>
+                           <span class="p">,</span> <span class="nc">localVal</span>
+                           <span class="p">,</span> <span class="nc">fresh</span>
+                           <span class="p">,</span> <span class="nc">clean</span>
+                           <span class="p">)</span>
+             <span class="p">)</span>
+ <span class="k">ENDDEF</span>   <span class="c">-- dropBox</span>
+
+ <span class="k">PROCDEF</span> <span class="nc">fileAndConflicts</span> <span class="p">[</span> <span class="nv">Out</span> <span class="s">::</span> <span class="nv">Rsp</span> <span class="p">]</span> <span class="p">(</span> <span class="nc">values</span> <span class="s">::</span> <span class="nv">ValueList</span> <span class="p">)</span> <span class="k">EXIT</span>
+  <span class="s">::=</span>
+             <span class="nv">Out</span> <span class="p">?</span><span class="nc">rsp</span> <span class="s">[[</span> <span class="k">IF</span>   <span class="nc">isFile</span><span class="p">(</span><span class="nc">rsp</span><span class="p">)</span>
+                         <span class="k">THEN</span> <span class="nc">isValueInList</span><span class="p">(</span><span class="nc">values</span><span class="p">,</span><span class="nc">value</span><span class="p">(</span><span class="nc">rsp</span><span class="p">))</span>
+                         <span class="k">ELSE</span> <span class="nv">False</span>
+                         <span class="k">FI</span> <span class="s">]]</span>
+         <span class="s">&gt;-&gt;</span> <span class="nc">fileAndConflicts</span> <span class="p">[</span><span class="nv">Out</span><span class="p">]</span> <span class="p">(</span><span class="nc">removeListValue</span><span class="p">(</span><span class="nc">values</span><span class="p">,</span><span class="nc">value</span><span class="p">(</span><span class="nc">rsp</span><span class="p">)))</span>
+     <span class="s">##</span>
+         <span class="s">[[</span> <span class="nc">isNoValues</span><span class="p">(</span><span class="nc">values</span><span class="p">)</span> <span class="s">]]</span>
+         <span class="s">=&gt;&gt;</span> <span class="nv">Out</span> <span class="p">!</span><span class="nv">Ack</span>
+         <span class="s">&gt;-&gt;</span> <span class="k">EXIT</span>
+ <span class="k">ENDDEF</span>   <span class="c">-- fileAndConflicts</span>
+</pre></div>
+</div>
+</div>
+<p>Writing a file for node 0 is analogous, but with two differences (Fig.
+12). First, the action of writing is not a unique action, but it is
+parameterized with the new file value. This is expressed by <code class="docutils literal notranslate"><span class="pre">?cmd</span></code> ,
+stating that on channel <code class="docutils literal notranslate"><span class="pre">In0</span></code> any value, represented by
+variable <code class="docutils literal notranslate"><span class="pre">cmd</span></code> , can be communicated, which satisfies the constraint
+between <code class="docutils literal notranslate"><span class="pre">’[[’</span></code> and <code class="docutils literal notranslate"><span class="pre">’]]’</span></code> . This constraint expresses
+that <code class="docutils literal notranslate"><span class="pre">cmd</span></code> must be a <code class="docutils literal notranslate"><span class="pre">Write</span></code> command, referring to the
+constructor <code class="docutils literal notranslate"><span class="pre">Write</span></code> in type <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> . Moreover, the <code class="docutils literal notranslate"><span class="pre">value</span></code> of
+the <code class="docutils literal notranslate"><span class="pre">write</span></code> -command must be a valid value, which means (see Fig.
+10) that it shall be a string contained in the regular
+expression <code class="docutils literal notranslate"><span class="pre">REGEX(’[A-Z]</span></code> { <code class="docutils literal notranslate"><span class="pre">1,3</span></code> } <code class="docutils literal notranslate"><span class="pre">’)</span></code> , i.e., a string of
+one to three capital letters. Using this constraint, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> will
+automatically generate valid input values, using an SMT solver.</p>
+<p>The second difference concerns the updates to the state parameters in
+the recursive call of <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> . We see
+that <code class="docutils literal notranslate"><span class="pre">localVal</span></code> for <code class="docutils literal notranslate"><span class="pre">node(0)</span></code> is updated with the new file value
+that was used as input in the communication on channel <code class="docutils literal notranslate"><span class="pre">In0</span></code> .
+Moreover, <code class="docutils literal notranslate"><span class="pre">node(0)</span></code> is not <code class="docutils literal notranslate"><span class="pre">clean</span></code> anymore.</p>
+<p>The transitions for uploading and downloading will be hidden, so they do
+not have communication with the <code class="docutils literal notranslate"><span class="pre">sut</span></code> . They just deal with
+constraints and updates on the state. Downloading to node 0 (Fig. 13)
+can occur if node 0 is not <code class="docutils literal notranslate"><span class="pre">fresh</span></code> yet <code class="docutils literal notranslate"><span class="pre">clean</span></code> , as is modelled
+in the guard (precondition) between <code class="docutils literal notranslate"><span class="pre">’[[’</span></code> and <code class="docutils literal notranslate"><span class="pre">’]]</span> <span class="pre">=&gt;&gt;’</span></code> ,
+before execution of action <code class="docutils literal notranslate"><span class="pre">Down0</span></code> . The effect of the action is an
+update of the <code class="docutils literal notranslate"><span class="pre">localVal</span></code> of <code class="docutils literal notranslate"><span class="pre">Node(0)</span></code> with <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> , and
+re-established freshness.</p>
+<p>Uploading can occur if a node is not <code class="docutils literal notranslate"><span class="pre">clean</span></code> . The state update is
+rather intricate, which has to do with conflicts that can occur when
+uploading, and with special cases if the upload is actually a delete
+(represented by file value <code class="docutils literal notranslate"><span class="pre">&quot;$&quot;</span></code> ) and if the upload is equal
+to <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> . The state update has been directly copied from <a class="reference internal" href="../../bibliography.html#r40" id="id15"><span>[R40]</span></a>
+where it is very well explained, so for more details we refer there.</p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-data-types-and-functions">
+<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Dropbox model - data types and functions. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19____.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-data-types-and-functions" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">TYPEDEF</span> <span class="nv">Node</span>
+  <span class="s">::=</span>
+       <span class="nv">Node</span> <span class="p">{</span> <span class="nc">node</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">}</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">TYPEDEF</span> <span class="nv">ValueList</span>
+  <span class="s">::=</span>
+       <span class="nv">NoValues</span>
+     <span class="o">|</span> <span class="nv">Values</span>   <span class="p">{</span> <span class="nc">hd</span> <span class="s">::</span> <span class="nv">Value</span>
+                <span class="p">;</span> <span class="nc">tl</span> <span class="s">::</span> <span class="nv">ValueList</span>
+                <span class="p">}</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">FUNCDEF</span> <span class="nc">lookup</span> <span class="p">(</span> <span class="nc">vals</span> <span class="s">::</span> <span class="nv">ValueList</span><span class="p">;</span> <span class="nc">n</span> <span class="s">::</span> <span class="nv">Node</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Value</span>
+  <span class="s">::=</span>
+     <span class="k">IF</span>   <span class="nc">isNoValues</span><span class="p">(</span><span class="nc">vals</span><span class="p">)</span>
+     <span class="k">THEN</span> <span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;)</span>
+     <span class="k">ELSE</span> <span class="k">IF</span>   <span class="nc">node</span><span class="p">(</span><span class="nc">n</span><span class="p">)</span> <span class="o">==</span> <span class="s">0</span>
+          <span class="k">THEN</span> <span class="nc">hd</span><span class="p">(</span><span class="nc">vals</span><span class="p">)</span>
+          <span class="k">ELSE</span> <span class="nc">lookup</span><span class="p">(</span><span class="nc">tl</span><span class="p">(</span><span class="nc">vals</span><span class="p">),</span><span class="nv">Node</span><span class="p">(</span><span class="nc">node</span><span class="p">(</span><span class="nc">n</span><span class="p">)</span><span class="o">-</span><span class="s">1</span><span class="p">))</span>
+          <span class="k">FI</span>
+     <span class="k">FI</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">FUNCDEF</span> <span class="nc">update</span> <span class="p">(</span> <span class="nc">vals</span> <span class="s">::</span> <span class="nv">ValueList</span><span class="p">;</span> <span class="nc">n</span> <span class="s">::</span> <span class="nv">Node</span><span class="p">;</span> <span class="nc">v</span> <span class="s">::</span> <span class="nv">Value</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">ValueList</span>
+  <span class="s">::=</span>
+     <span class="k">IF</span>   <span class="nc">isNoValues</span><span class="p">(</span><span class="nc">vals</span><span class="p">)</span>
+     <span class="k">THEN</span> <span class="nv">NoValues</span>
+     <span class="k">ELSE</span> <span class="k">IF</span>   <span class="nc">node</span><span class="p">(</span><span class="nc">n</span><span class="p">)</span> <span class="o">==</span> <span class="s">0</span>
+          <span class="k">THEN</span> <span class="nv">Values</span><span class="p">(</span><span class="nc">v</span><span class="p">,</span><span class="nc">tl</span><span class="p">(</span><span class="nc">vals</span><span class="p">))</span>
+          <span class="k">ELSE</span> <span class="nv">Values</span><span class="p">(</span><span class="nc">hd</span><span class="p">(</span><span class="nc">vals</span><span class="p">),</span><span class="nc">update</span><span class="p">(</span><span class="nc">tl</span><span class="p">(</span><span class="nc">vals</span><span class="p">),</span><span class="nv">Node</span><span class="p">(</span><span class="nc">node</span><span class="p">(</span><span class="nc">n</span><span class="p">)</span><span class="o">-</span><span class="s">1</span><span class="p">),</span><span class="nc">v</span><span class="p">))</span>
+          <span class="k">FI</span>
+     <span class="k">FI</span>
+ <span class="k">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<p>We have discussed reading, writing, uploading, and downloading for node
+0. Similar transitions are defined for nodes 1 and 2. Of course, in the
+final model, parameterized transitions are defined for node <em>N</em> ,
+which can then be instantiated. Since this parameterization is not
+completely trivial because of passing of state variable values, we do
+not discuss it here.</p>
+<p>The last action is <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> , which can occur if all nodes
+are <code class="docutils literal notranslate"><span class="pre">fresh</span></code> and <code class="docutils literal notranslate"><span class="pre">clean</span></code> ; see Fig. 14. Since all nodes are
+assumed to have synchronized it does not matter which node we use; we
+choose node 0. <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> produces all file content values that are
+currently available including the conflict files. These content values
+are produced one by one, in arbitrary order, as responses on
+channel <code class="docutils literal notranslate"><span class="pre">Out0</span></code> with an acknowledge <code class="docutils literal notranslate"><span class="pre">Ack</span></code> after the last one.
+Process <code class="docutils literal notranslate"><span class="pre">fileAndConflicts</span></code> models that all these content values
+indeed occur once in the list of <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> and <code class="docutils literal notranslate"><span class="pre">conflicts</span></code> .
+It removes from <code class="docutils literal notranslate"><span class="pre">Values</span></code> (which is of type <code class="docutils literal notranslate"><span class="pre">ValueList</span></code> ) each
+content value <code class="docutils literal notranslate"><span class="pre">value(rsp)</span></code> that has been observed on <code class="docutils literal notranslate"><span class="pre">Out0</span></code> ,
+until the list is empty, i.e., <code class="docutils literal notranslate"><span class="pre">isNoValues(values)</span></code> holds. Then the
+acknowledge <code class="docutils literal notranslate"><span class="pre">Ack</span></code> is sent, and the process <code class="docutils literal notranslate"><span class="pre">EXIT</span></code> s, which is
+the trigger for the recursive call
+of <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> after <code class="docutils literal notranslate"><span class="pre">fileAndConflicts</span></code> .</p>
+<p>The next step is to define the complete model in the <code class="docutils literal notranslate"><span class="pre">MODELDEF</span></code> ;
+see Fig. 16. The <code class="docutils literal notranslate"><span class="pre">MODELDEF</span></code> specifies which channels are inputs,
+which are outputs, and what the <code class="docutils literal notranslate"><span class="pre">BEHAVIOUR</span></code> of the model is using
+the previously defined processes. In our case it is a call of
+the <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> process with appropriate instantiation of the state
+variables <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> , <code class="docutils literal notranslate"><span class="pre">conflicts</span></code> , <code class="docutils literal notranslate"><span class="pre">localVal</span></code> , <code class="docutils literal notranslate"><span class="pre">fresh</span></code> ,
+and <code class="docutils literal notranslate"><span class="pre">clean</span></code> . Moreover, this is the place where the
+channels <code class="docutils literal notranslate"><span class="pre">Down0</span></code> , <em>…</em> , <code class="docutils literal notranslate"><span class="pre">Up2</span></code> are hidden with the
+construct <code class="docutils literal notranslate"><span class="pre">HIDE[</span></code> <em>channels</em> <code class="docutils literal notranslate"><span class="pre">]IN</span></code> <em>…</em> <code class="docutils literal notranslate"><span class="pre">NI</span></code> . Actions that
+occur on hidden channels are <em>internal actions</em> (in process-algebra
+usually denoted by <em>tau</em> ). They are not visible to the system
+environment, but they do lead to state changes of which the consequences
+can be visible, e.g., when a transition that is enabled before the
+occurrence of <em>tau</em> is no longer enabled in the state after
+the <em>tua</em> -occurrence. Visible actions, that is inputs and outputs, are
+visible to the system environment. They lead to state changes both in
+the system and in its environment.</p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-def-model">
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Dropbox model - definition of the model that specifies the behaviour over the observable channels. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19_____.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-def-model" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">MODELDEF</span> <span class="nv">Mod</span>
+  <span class="s">::=</span>
+     <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In0</span><span class="p">,</span>  <span class="nv">In1</span><span class="p">,</span>  <span class="nv">In2</span>
+     <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out0</span><span class="p">,</span> <span class="nv">Out1</span><span class="p">,</span> <span class="nv">Out2</span>
+
+     <span class="k">BEHAVIOUR</span>
+         <span class="nc">preAmble</span> <span class="p">[</span><span class="nv">In0</span><span class="p">,</span><span class="nv">In1</span><span class="p">,</span><span class="nv">In2</span><span class="p">,</span><span class="nv">Out0</span><span class="p">,</span><span class="nv">Out1</span><span class="p">,</span><span class="nv">Out2</span><span class="p">]</span> <span class="p">()</span>
+     <span class="s">&gt;&gt;&gt;</span>
+         <span class="k">HIDE</span>  <span class="p">[</span> <span class="nv">Up0</span><span class="p">,</span> <span class="nv">Up1</span><span class="p">,</span> <span class="nv">Up2</span><span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span> <span class="nv">Down1</span><span class="p">,</span> <span class="nv">Down2</span> <span class="p">]</span>
+         <span class="k">IN</span>
+             <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span>   <span class="nv">In1</span><span class="p">,</span>   <span class="nv">In2</span>
+                     <span class="p">,</span> <span class="nv">Out0</span><span class="p">,</span>  <span class="nv">Out1</span><span class="p">,</span>  <span class="nv">Out2</span>
+                     <span class="p">,</span> <span class="nv">Down0</span><span class="p">,</span> <span class="nv">Down1</span><span class="p">,</span> <span class="nv">Down2</span>
+                     <span class="p">,</span> <span class="nv">Up0</span><span class="p">,</span>   <span class="nv">Up1</span><span class="p">,</span>   <span class="nv">Up2</span>
+                     <span class="p">]</span>
+                     <span class="p">(</span> <span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;)</span>
+                     <span class="p">,</span> <span class="nv">NoValues</span>
+                     <span class="p">,</span> <span class="nv">Values</span><span class="p">(</span><span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;)</span>
+                             <span class="p">,</span><span class="nv">Values</span><span class="p">(</span><span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;)</span>
+                                    <span class="p">,</span><span class="nv">Values</span><span class="p">(</span><span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;),</span><span class="nv">NoValues</span><span class="p">)))</span>
+                     <span class="p">,</span> <span class="nv">Bools</span><span class="p">(</span><span class="nv">True</span><span class="p">,</span><span class="nv">Bools</span><span class="p">(</span><span class="nv">True</span><span class="p">,</span><span class="nv">Bools</span><span class="p">(</span><span class="nv">True</span><span class="p">,</span><span class="nv">NoBools</span><span class="p">)))</span>
+                     <span class="p">,</span> <span class="nv">Bools</span><span class="p">(</span><span class="nv">True</span><span class="p">,</span><span class="nv">Bools</span><span class="p">(</span><span class="nv">True</span><span class="p">,</span><span class="nv">Bools</span><span class="p">(</span><span class="nv">True</span><span class="p">,</span><span class="nv">NoBools</span><span class="p">)))</span>
+                     <span class="p">)</span>
+         <span class="k">NI</span>
+ <span class="k">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<p>The last definition <code class="docutils literal notranslate"><span class="pre">CNECTDEF</span></code> specifies how the tester connects to
+the external world via sockets; see Fig. 17. In the Dropbox
+case, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> connects as socket client, <code class="docutils literal notranslate"><span class="pre">CLIENTSOCK</span></code> , to
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , that shall act as the socket server.
+The <code class="docutils literal notranslate"><span class="pre">CNECTDEF</span></code> binds the abstract model channel <code class="docutils literal notranslate"><span class="pre">In0</span></code> , which is
+an input of the model and of the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , thus
+an <em>output</em> of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , to the socket on host <code class="docutils literal notranslate"><span class="pre">txs0-pc</span></code> ,
+one of the virtual machines running Dropbox, and port
+number <code class="docutils literal notranslate"><span class="pre">7890</span></code> . Moreover, the encoding of abstract messages of
+type <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> on channel <code class="docutils literal notranslate"><span class="pre">In0</span></code> to strings on the socket is
+elaborated with function <code class="docutils literal notranslate"><span class="pre">encodeCmd</span></code> : a command is encoded as a
+string of one or more Linux commands, which can then be sent to and
+executed by the appropriate virtual machine. Analogously, outputs from
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , i.e., inputs to <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , are read from socket
+h <code class="docutils literal notranslate"><span class="pre">txs0-pc</span></code> <em>,</em> <code class="docutils literal notranslate"><span class="pre">7890</span></code> i and decoded to responses of
+type <code class="docutils literal notranslate"><span class="pre">Rsp</span></code> on channel <code class="docutils literal notranslate"><span class="pre">Out0</span></code> using function <code class="docutils literal notranslate"><span class="pre">decodeRsp</span></code> .
+Analogous bindings of abstract channels to real-world socksets are
+specified for <code class="docutils literal notranslate"><span class="pre">In1</span></code> , <code class="docutils literal notranslate"><span class="pre">Out1</span></code> , <code class="docutils literal notranslate"><span class="pre">In2</span></code> , and <code class="docutils literal notranslate"><span class="pre">Out2</span></code> .</p>
+</section>
+<section id="model-based-testing">
+<h2>Model-Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have an <code class="docutils literal notranslate"><span class="pre">sut</span></code> and a model, we can start generating tests
+and executing them. First, we start the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , that is, the virtual
+machines, start the Dropbox client on these machines, and start the
+adapter scripts. Then we can start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> and run a test; see
+Fig. 18. User inputs to <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> are marked <code class="docutils literal notranslate"><span class="pre">TXS</span> <span class="pre">&lt;&lt;</span></code> ;
+responses from <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> are marked <code class="docutils literal notranslate"><span class="pre">TXS</span> <span class="pre">&gt;&gt;</span></code> .</p>
+<p>We start the tester with <code class="docutils literal notranslate"><span class="pre">tester</span> <span class="pre">DropboxModel</span> <span class="pre">DropboxSut</span></code> ,
+expressing that we wish to test
+with <code class="docutils literal notranslate"><span class="pre">MODELDEF</span> <span class="pre">DropboxModel</span></code> and <code class="docutils literal notranslate"><span class="pre">CNECTDEF</span> <span class="pre">DropboxSut</span></code> . Then we
+test for 100 test steps with <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">100</span></code> , and indeed, after 100 test
+steps it stops with verdict <code class="docutils literal notranslate"><span class="pre">PASS</span></code> .</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> generates inputs to the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , such as on line
+7: <code class="docutils literal notranslate"><span class="pre">In0,</span> <span class="pre">[</span> <span class="pre">Write(Value(&quot;SHK&quot;))</span> <span class="pre">]</span> <span class="pre">)</span></code> , indicating that on
+channel <code class="docutils literal notranslate"><span class="pre">In0</span></code> an input action <code class="docutils literal notranslate"><span class="pre">Write</span></code> with file
+value <code class="docutils literal notranslate"><span class="pre">&quot;SHK&quot;</span></code> has occurred. The input file value is generated
+by <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> from the <code class="docutils literal notranslate"><span class="pre">isValidValue</span></code> constraint, using the SMT
+solver. This action is followed, on line 8, by an output from
+the <code class="docutils literal notranslate"><span class="pre">sut</span></code> on channel <code class="docutils literal notranslate"><span class="pre">Out0</span></code> , which is the old file value of
+Node 0, which is <code class="docutils literal notranslate"><span class="pre">&quot;$&quot;</span></code> , representing the empty
+file. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> checks that this is indeed the correct response.</p>
+<p>Only visible input and output actions are shown in this trace. Hidden
+actions are not shown, but they do occur internally, as can be seen, for
+example, from line 24: the old file value on Node 2 was <code class="docutils literal notranslate"><span class="pre">&quot;X&quot;</span></code> , but
+this value was only written to node 0 (line 11), so node 0 and node 2
+must have synchronized the value <code class="docutils literal notranslate"><span class="pre">&quot;X&quot;</span></code> via
+internal <code class="docutils literal notranslate"><span class="pre">Up</span></code> and <code class="docutils literal notranslate"><span class="pre">Down</span></code> actions. Also just
+before <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> , lines 67–74, synchronization has obviously
+taken place, which can only happen using
+hidden <code class="docutils literal notranslate"><span class="pre">Up</span></code> and <code class="docutils literal notranslate"><span class="pre">Down</span></code> actions. Due to the distributed nature of
+Dropbox and its nondeterminism it
+is not so easy to check the response of the <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> command on
+line 75. It is left to the reader to check that the outputs on lines
+76–80 are indeed all conflict-file contents together with the server
+file, and that <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> correctly assigned the
+verdict <code class="docutils literal notranslate"><span class="pre">PASS</span></code> .</p>
+<div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-world">
+<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Dropbox model - connection to the external world. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19______.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-world" title="Permalink to this code">¶</a></div>
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">CNECTDEF</span> <span class="nv">Sut</span>
+  <span class="s">::=</span>
+      <span class="k">CLIENTSOCK</span>
+
+      <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In0</span>   <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">lubu0</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="s">7890</span>
+      <span class="k">ENCODE</span>    <span class="nv">In0</span>   <span class="p">?</span><span class="nc">cmd</span>            <span class="s">-&gt;</span>  <span class="p">!</span><span class="nc">encodeCmd</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+
+      <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out0</span>  <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">lubu0</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="s">7890</span>
+      <span class="k">DECODE</span>    <span class="nv">Out0</span>  <span class="p">!</span><span class="nc">decodeRsp</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>  <span class="o">&lt;-</span>  <span class="p">?</span><span class="nc">s</span>
+
+      <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In1</span>   <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">lubu1</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="s">7891</span>
+      <span class="k">ENCODE</span>    <span class="nv">In1</span>   <span class="p">?</span><span class="nc">cmd</span>            <span class="s">-&gt;</span>  <span class="p">!</span><span class="nc">encodeCmd</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+
+      <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out1</span>  <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">lubu1</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="s">7891</span>
+      <span class="k">DECODE</span>    <span class="nv">Out1</span>  <span class="p">!</span><span class="nc">decodeRsp</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>  <span class="o">&lt;-</span>  <span class="p">?</span><span class="nc">s</span>
+
+      <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In2</span>   <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">lubu2</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="s">7892</span>
+      <span class="k">ENCODE</span>    <span class="nv">In2</span>   <span class="p">?</span><span class="nc">cmd</span>            <span class="s">-&gt;</span>  <span class="p">!</span><span class="nc">encodeCmd</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+
+      <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out2</span>  <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">lubu2</span><span class="p">&quot;</span> <span class="k">PORT</span> <span class="s">7892</span>
+      <span class="k">DECODE</span>    <span class="nv">Out2</span>  <span class="p">!</span><span class="nc">decodeRsp</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>  <span class="o">&lt;-</span>  <span class="p">?</span><span class="nc">s</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">FUNCDEF</span> <span class="nc">encodeCmd</span> <span class="p">(</span> <span class="nc">cmd</span> <span class="s">::</span> <span class="nv">Cmd</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">String</span>
+  <span class="s">::=</span>
+     <span class="k">IF</span>   <span class="nc">isRead</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+     <span class="k">THEN</span> <span class="p">&quot;</span><span class="nc">cat</span> <span class="p">&quot;</span> <span class="o">++</span> <span class="nc">testfile</span>
+     <span class="k">ELSE</span>
+     <span class="k">IF</span>   <span class="nc">isWrite</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+     <span class="k">THEN</span> <span class="p">&quot;</span><span class="nc">cat</span> <span class="p">&quot;</span> <span class="o">++</span> <span class="nc">testfile</span> <span class="o">++</span> <span class="p">&quot;</span> <span class="p">;</span> <span class="p">&quot;</span>
+          <span class="o">++</span> <span class="p">&quot;</span><span class="nc">echo</span> <span class="o">\</span><span class="p">&quot;&quot;</span> <span class="o">++</span> <span class="nc">value</span><span class="p">(</span><span class="nc">value</span><span class="p">(</span><span class="nc">cmd</span><span class="p">))</span> <span class="o">++</span> <span class="p">&quot;</span><span class="o">\</span><span class="p">&quot;</span> <span class="o">&gt;</span> <span class="p">&quot;</span> <span class="o">++</span> <span class="nc">testfile</span>
+     <span class="k">ELSE</span>
+     <span class="k">IF</span>   <span class="nc">isStabilize</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+     <span class="k">THEN</span> <span class="p">&quot;</span><span class="nc">sleep</span> <span class="s">30</span> <span class="p">;</span> <span class="nc">cat</span> <span class="o">*</span> <span class="p">;</span> <span class="nc">echo</span> <span class="p">&quot;</span>
+     <span class="k">ELSE</span>
+     <span class="k">IF</span>   <span class="nc">isChangeDir</span><span class="p">(</span><span class="nc">cmd</span><span class="p">)</span>
+     <span class="k">THEN</span> <span class="p">&quot;</span><span class="nc">cd</span> <span class="p">&quot;</span> <span class="o">++</span> <span class="nc">testdir</span> <span class="o">++</span> <span class="p">&quot;</span> <span class="p">;</span> <span class="nc">echo</span> <span class="p">&quot;</span>
+     <span class="k">ELSE</span> <span class="p">&quot;&quot;</span>
+     <span class="k">FI</span> <span class="k">FI</span> <span class="k">FI</span> <span class="k">FI</span>
+ <span class="k">ENDDEF</span>
+
+ <span class="k">FUNCDEF</span> <span class="nc">decodeRsp</span> <span class="p">(</span> <span class="nc">s</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Rsp</span>
+  <span class="s">::=</span>
+     <span class="k">IF</span>   <span class="nc">s</span> <span class="o">==</span> <span class="p">&quot;&quot;</span>
+     <span class="k">THEN</span> <span class="nv">Ack</span>
+     <span class="k">ELSE</span> <span class="k">IF</span>   <span class="nc">s</span> <span class="o">==</span> <span class="p">&quot;</span>$<span class="p">&quot;</span>
+          <span class="k">THEN</span> <span class="nv">File</span><span class="p">(</span><span class="nv">Value</span><span class="p">(&quot;</span>$<span class="p">&quot;))</span>
+          <span class="k">ELSE</span> <span class="k">IF</span>   <span class="nc">strinre</span><span class="p">(</span><span class="nc">s</span><span class="p">,</span><span class="nv">REGEX</span><span class="p">(&#39;[</span><span class="nv">A</span><span class="o">-</span><span class="nv">Z</span><span class="p">]</span><span class="o">+</span><span class="p">&#39;))</span>
+               <span class="k">THEN</span> <span class="nv">File</span><span class="p">(</span><span class="nv">Value</span><span class="p">(</span><span class="nc">s</span><span class="p">))</span>
+               <span class="k">ELSE</span> <span class="nv">NAck</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>
+               <span class="k">FI</span>
+          <span class="k">FI</span>
+     <span class="k">FI</span>
+ <span class="k">ENDDEF</span>
+</pre></div>
+</div>
+</div>
+<p>Many more test cases can be generated and executed
+on-the-fly. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> generates random test cases, so each time
+another test case is generated, and appropriate responses are checked
+on-the-fly. It should be noted that <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is not very fast.
+Constraint solving, nondeterminism, and dealing with internal (hidden)
+actions (exploring all possible ’explanations’ in terms of <a class="reference internal" href="../../bibliography.html#r40" id="id19"><span>[R40]</span></a>) can
+make that computation of the next action takes a minute.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ torxakis Dropbox.txs
+TXS &gt;&gt;  TorXakis :: Model-Based Testing
+TXS &gt;&gt;  txsserver starting: &quot;PC-31093.tsn.tno.nl&quot; : 60275
+TXS &gt;&gt;  Solver &quot;z3&quot; initialized : Z3 [4.6.0]
+TXS &gt;&gt;  TxsCore initialized
+TXS &gt;&gt;  input files parsed:
+TXS &gt;&gt;  [&quot;Dropbox.txs&quot;]
+TXS &gt;&gt;  tester DropboxModel DropboxSut
+TXS &gt;&gt;  tester started
+TXS &gt;&gt;  test 100
+TXS &gt;&gt;  .....1:IN: Act{{(In1,[Read])}}
+TXS &gt;&gt;  .....2: OUT: Act { { ( Out1, [ File(Value(&quot;$&quot;)) ] .....3:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out2, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt;  .....5: IN: Act { { ( In1, [ Write(Value(&quot;P&quot;)) ]
+TXS &gt;&gt;  .....6: OUT: Act { { ( Out1, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt;  .....7: IN: Act { { ( In0, [ Write(Value(&quot;SHK&quot;))
+TXS &gt;&gt;  .....8: OUT: Act { { ( Out0, [ File(Value(&quot;$&quot;)) ] .....9:IN: Act{{(In1,[Read])}}
+TXS &gt;&gt;  ....10: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ]
+TXS &gt;&gt;  ....11: IN: Act { { ( In0, [ Write(Value(&quot;X&quot;)) ]
+TXS &gt;&gt;  ....12: OUT: Act { { ( Out0, [ File(Value(&quot;SHK&quot;))
+TXS &gt;&gt;  ....13: IN: Act { { ( In2, [ Write(Value(&quot;A&quot;)) ]
+TXS &gt;&gt;  ....14: OUT: Act { { ( Out2, [ File(Value(&quot;$&quot;)) ]
+TXS &gt;&gt;  ....15: IN: Act { { ( In2, [ Write(Value(&quot;SP&quot;)) ] ) } } ....16: OUT: Act { { ( Out2, [ File(Value(&quot;A&quot;)) ] ) } } ....17: IN: Act { { ( In1, [ Write(Value(&quot;BH&quot;)) ] ) } } ....18: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ] ) } } ....19:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....20: OUT: Act { { ( Out2, [ File(Value(&quot;SP&quot;)) ] ) } } ....21:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....22: OUT: Act { { ( Out0, [ File(Value(&quot;X&quot;)) ] ) } } ....23: IN: Act { { ( In2, [ Write(Value(&quot;PXH&quot;)) ] ) } } ....24: OUT: Act { { ( Out2, [ File(Value(&quot;X&quot;)) ] ) } } ....25:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....26: OUT: Act { { ( Out2, [ File(Value(&quot;PXH&quot;)) ] ) } } ....27: IN: Act { { ( In0, [ Write(Value(&quot;AX&quot;)) ] ) } } ....28: OUT: Act { { ( Out0, [ File(Value(&quot;PXH&quot;)) ] ) } } ....29:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....30: OUT: Act { { ( Out2, [ File(Value(&quot;AX&quot;)) ] ) } } ....31:IN: Act{{(In1,[Read])}}
+TXS &gt;&gt;  ....32: OUT: Act { { ( Out1, [ File(Value(&quot;AX&quot;)) ] ) } } ....33:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....34: OUT: Act { { ( Out0, [ File(Value(&quot;AX&quot;)) ] ) } } ....35: IN: Act { { ( In2, [ Write(Value(&quot;TPH&quot;)) ] ) } } ....36: OUT: Act { { ( Out2, [ File(Value(&quot;AX&quot;)) ] ) } } ....37: IN: Act { { ( In0, [ Write(Value(&quot;X&quot;)) ] ) } } ....38: OUT: Act { { ( Out0, [ File(Value(&quot;AX&quot;)) ] ) } } ....39: IN: Act { { ( In2, [ Write(Value(&quot;CPH&quot;)) ] ) } } ....40: OUT: Act { { ( Out2, [ File(Value(&quot;TPH&quot;)) ] ) } } ....41: IN: Act { { ( In1, [ Write(Value(&quot;HX&quot;)) ] ) } } ....42: OUT: Act { { ( Out1, [ File(Value(&quot;CPH&quot;)) ] ) } } ....43:IN: Act{{(In1,[Read])}}
+TXS &gt;&gt;  ....44: OUT: Act { { ( Out1, [ File(Value(&quot;HX&quot;)) ] ) } } ....45:IN: Act{{(In1,[Read])}}
+TXS &gt;&gt;  ....46: OUT: Act { { ( Out1, [ File(Value(&quot;HX&quot;)) ] ) } } ....47: IN: Act { { ( In2, [ Write(Value(&quot;Q&quot;)) ] ) } } ....48: OUT: Act { { ( Out2, [ File(Value(&quot;HX&quot;)) ] ) } } ....49:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....50: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } } ....51:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....52: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } } ....53:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....54: OUT: Act { { ( Out2, [ File(Value(&quot;Q&quot;)) ] ) } } ....55: IN: Act { { ( In0, [ Write(Value(&quot;K&quot;)) ] ) } } ....56: OUT: Act { { ( Out0, [ File(Value(&quot;Q&quot;)) ] ) } } ....57:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....58: OUT: Act { { ( Out2, [ File(Value(&quot;K&quot;)) ] ) } } ....59:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....60: OUT: Act { { ( Out0, [ File(Value(&quot;K&quot;)) ] ) } } ....61: IN: Act { { ( In2, [ Write(Value(&quot;ABL&quot;)) ] ) } } ....62: OUT: Act { { ( Out2, [ File(Value(&quot;K&quot;)) ] ) } } ....63:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....64: OUT: Act { { ( Out2, [ File(Value(&quot;ABL&quot;)) ] ) } } ....65: IN: Act { { ( In2, [ Write(Value(&quot;P&quot;)) ] ) } } ....66: OUT: Act { { ( Out2, [ File(Value(&quot;ABL&quot;)) ] ) } } ....67:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....68: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ....69:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....70: OUT: Act { { ( Out2, [ File(Value(&quot;P&quot;)) ....71:IN: Act{{(In1,[Read])}}
+TXS &gt;&gt;  ....72: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ....73:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....74: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ....75:IN: Act{{(In0,[Stabilize])}}
+TXS &gt;&gt;  ....76: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;))
+TXS &gt;&gt;  ....77: OUT: Act { { ( Out0, [ File(Value(&quot;X&quot;))
+TXS &gt;&gt;  ....78: OUT: Act { { ( Out0, [ File(Value(&quot;BH&quot;)) ] ) } } ....79: OUT: Act { { ( Out0, [ File(Value(&quot;SP&quot;)) ] ) } } ....80:OUT:Act{{(Out0,[Ack])}}
+TXS &gt;&gt;  ....81: IN: Act { { ( In1, [ Write(Value(&quot;AB&quot;)) ] ) } } ....82: OUT: Act { { ( Out1, [ File(Value(&quot;P&quot;)) ] ) } } ....83: IN: Act { { ( In1, [ Write(Value(&quot;X&quot;)) ] ) } } ....84: OUT: Act { { ( Out1, [ File(Value(&quot;AB&quot;)) ] ) } } ....85:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ....86: OUT: Act { { ( Out0, [ File(Value(&quot;P&quot;)) ] ) } } ....87: IN: Act { { ( In2, [ Write(Value(&quot;PNB&quot;)) ] ) } } ....88: OUT: Act { { ( Out2, [ File(Value(&quot;P&quot;)) ] ) } } ....89: IN: Act { { ( In1, [ Write(Value(&quot;D&quot;)) ] ) } } ....90: OUT: Act { { ( Out1, [ File(Value(&quot;X&quot;)) ] ) } } ....91: IN: Act { { ( In1, [ Write(Value(&quot;L&quot;)) ] ) } } ....92: OUT: Act { { ( Out1, [ File(Value(&quot;D&quot;)) ] ) } } ....93:IN: Act{{(In2,[Read])}}
+TXS &gt;&gt;  ....94: OUT: Act { { ( Out2, [ File(Value(&quot;PNB&quot;)) ] ) } } ....95: IN: Act { { ( In1, [ Write(Value(&quot;KK&quot;)) ] ) } } ....96: OUT: Act { { ( Out1, [ File(Value(&quot;PNB&quot;)) ] ) } } ....97: IN: Act { { ( In2, [ Write(Value(&quot;P&quot;)) ] ) } } ....98: OUT: Act { { ( Out2, [ File(Value(&quot;PNB&quot;)) ] ) } } ....99:IN: Act{{(In0,[Read])}}
+TXS &gt;&gt;  ...100: OUT: Act { { ( Out0, [ File(Value(&quot;KK&quot;)) ] ) } }
+TXS &gt;&gt;  PASS
+TXS &gt;&gt;
+</pre></div>
+</div>
+</section>
+<section id="discussion-and-comparison">
+<h2>Discussion and Comparison<a class="headerlink" href="#discussion-and-comparison" title="Permalink to this headline">¶</a></h2>
+<p>We showed that model-based testing of a file synchronizer that is
+distributed, concurrent, and nondeterministic, that combines state and
+data, and that has internal state transitions that cannot be observed by
+the tester, is possible with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , just as with Quviq
+QuickCheck. The model used for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a direct translation of
+the QuickCheck model.</p>
+<p>As opposed to the work with Quviq QuickCheck, we did not yet try to
+reproduce the detected ’surprises’, i.e., probably erroneous behaviours
+of Dropbox. More testing and analysis is needed, probably with steering
+the test generation into specific corners of behaviour. Moreover, some
+of these ’surprises’ require explicit deletion of files, which we
+currently do not do. For steering, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> has a feature
+called <em>test purposes</em> , and future work will include using test
+purposes to reproduce particular behaviours. But it might be that these
+Dropbox ’surprises’ have been repaired in the mean time, as was
+announced in <a class="reference internal" href="../../bibliography.html#r40" id="id20"><span>[R40]</span></a>.</p>
+<p>A difference between the Quviq QuickCheck approach and <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is
+the treatment of hidden actions. Whereas Quviq QuickCheck needs explicit
+reasoning about possible ’explanations’ on top of the state machine
+model using a specifically developed technique, the process-algebraic
+language of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> has <code class="docutils literal notranslate"><span class="pre">HIDE</span></code> as an abstraction operator
+built into the language, which allows to turn any action into an
+internal action. Together with the ioco-conformance relation, which
+takes such internal actions into consideration, it makes the
+construction of ’explanations’ completely automatic and an integral part
+of test generation and observation analysis. Although no real speed
+comparisons were made, it looks like the general solution of dealing
+with hidden actions and nondeterminism in <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> has a price to
+be paid in terms of computation speed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> has its own modelling language based on process algebra
+and algebraic data types and with symbolic transition system semantics.
+This allows to precisely define what a conforming <code class="docutils literal notranslate"><span class="pre">sut</span></code> is using the
+ioco-conformance relation, in a formal testing framework which enables
+to define soundness and exhaustiveness of generated test cases. Quviq
+QuickCheck is embedded in the Erlang programming language, that is,
+specifications are just Erlang programs that call libraries supplied by
+QuickCheck and the generated tests invoke the <code class="docutils literal notranslate"><span class="pre">sut</span></code> directly via
+Erlang function calls. A formal notion of ’conformance’ of
+a <code class="docutils literal notranslate"><span class="pre">sut</span></code> is missing.</p>
+<p>A powerful feature of Quviq QuickCheck for analysis and diagnosis is
+shrinking. It automatically reduces the length of a test after failure
+detection, which eases analysis. Currently, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> has no such
+feature.</p>
+<p>Several extensions of the presented work are possible. One of them is
+applying the same model to test other file synchronizers. Another is
+adding additional Dropbox behaviour to the model, such as working with
+multiple, named files and folders. This would complicate the model, but
+not necessarily fundamentally change the model: instead of keeping a
+single file value we would have to keep a (nested) map of file names to
+file values, and read and write would be parameterized with file or
+folder names.</p>
+<p>Another, more fundamental question concerns the quality of the generated
+test cases. How good are the test suites in detecting bugs, what is
+their coverage, and to what extent can we be confident that
+an <code class="docutils literal notranslate"><span class="pre">sut</span></code> that passes the tests is indeed correct? Can we compare
+different (model-based) test generation strategies, e.g., the one of
+Quviq QuickCheck with the one of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , and assign a measure
+of quality or coverage to the generated test suites, and thus,
+indirectly, a measure to the quality of the tested <code class="docutils literal notranslate"><span class="pre">sut</span></code> ?</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Wheel/index.html" class="btn btn-neutral float-left" title="Modelling Example: Wheel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../Installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, TorXakis.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

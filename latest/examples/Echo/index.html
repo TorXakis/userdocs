@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -642,17 +650,17 @@ with the Echo model described above.</p></li>
 <p>TorXakis will perform the two communication actions with random integer
 inputs and display behaviour of the model at every step. After required
 number of steps are reached, TorXakis will conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">59</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">59</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">50</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">50</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">7</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">7</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">77</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">77</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: Act { { ( In, [ -59 ] ) } }
+TXS &gt;&gt;  .....2: Act { { ( Out, [ -59 ] ) } }
+TXS &gt;&gt;  .....3: Act { { ( In, [ -50 ] ) } }
+TXS &gt;&gt;  .....4: Act { { ( Out, [ -50 ] ) } }
+TXS &gt;&gt;  .....5: Act { { ( In, [ -67 ] ) } }
+TXS &gt;&gt;  .....6: Act { { ( Out, [ -67 ] ) } }
+TXS &gt;&gt;  .....7: Act { { ( In, [ -7 ] ) } }
+TXS &gt;&gt;  .....8: Act { { ( Out, [ -7 ] ) } }
+TXS &gt;&gt;  .....9: Act { { ( In, [ -77 ] ) } }
+TXS &gt;&gt;  ....10: Act { { ( Out, [ -77 ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>
@@ -667,10 +675,10 @@ be used by the Simulator:</p>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sim</span> <span class="s">::=</span>
         <span class="k">SERVERSOCK</span>
 
-        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">DECODE</span>    <span class="nv">In</span> <span class="p">!</span> <span class="nc">fromString</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>        <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
 
-        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">ENCODE</span>    <span class="nv">Out</span> <span class="p">?</span> <span class="nc">i</span>                   <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toString</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
 <span class="k">ENDDEF</span>
 </pre></div>
@@ -698,10 +706,10 @@ can be defined in TorXakis as follows:</p>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Sut</span> <span class="s">::=</span>
         <span class="k">CLIENTSOCK</span>
 
-        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">ENCODE</span>    <span class="nv">In</span> <span class="p">?</span> <span class="nc">i</span>                    <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toString</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
 
-        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">DECODE</span>    <span class="nv">Out</span> <span class="p">!</span> <span class="nc">fromString</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>       <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
 <span class="k">ENDDEF</span>
 </pre></div>
@@ -754,8 +762,8 @@ delays to cause false negatives, we will increase delta times of
 tester. In the command window of the tester, input following
 commands:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">param</span> <span class="n">param_Sim_deltaTime</span> <span class="mi">5000</span>
-<span class="n">param</span> <span class="n">param_Sut_deltaTime</span> <span class="mi">5000</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>param param_Sim_deltaTime 5000
+param param_Sut_deltaTime 5000
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
@@ -770,41 +778,41 @@ of steps before testing is finished:</p></li>
 <p>TorXakis will test the (simulated) SUT with random integer inputs and
 display behaviour of the SUT at every step. After required number of
 steps are reached, TorXakis will conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">82</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">82</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">4</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">4</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( In, [ 1 ] ) } }
+TXS &gt;&gt;  .....2: OUT: Act { { ( Out, [ 1 ] ) } }
+TXS &gt;&gt;  .....3: IN: Act { { ( In, [ 14 ] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out, [ 14 ] ) } }
+TXS &gt;&gt;  .....5: IN: Act { { ( In, [ -82 ] ) } }
+TXS &gt;&gt;  .....6: OUT: Act { { ( Out, [ -82 ] ) } }
+TXS &gt;&gt;  .....7: IN: Act { { ( In, [ -67 ] ) } }
+TXS &gt;&gt;  .....8: OUT: Act { { ( Out, [ -67 ] ) } }
+TXS &gt;&gt;  .....9: IN: Act { { ( In, [ -4 ] ) } }
+TXS &gt;&gt;  ....10: OUT: Act { { ( Out, [ -4 ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 <p>And simulator TorXakis instance will be acting as the SUT:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="mi">14</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">82</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">82</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.11</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.12</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.13</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">4</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.14</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">4</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.15</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.16</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.17</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.18</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.19</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.20</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....2: IN: Act { { ( In, [ 1 ] ) } }
+TXS &gt;&gt;  .....3: OUT: Act { { ( Out, [ 1 ] ) } }
+TXS &gt;&gt;  .....4: IN: Act { { ( In, [ 14 ] ) } }
+TXS &gt;&gt;  .....5: OUT: Act { { ( Out, [ 14 ] ) } }
+TXS &gt;&gt;  .....6: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....7: IN: Act { { ( In, [ -82 ] ) } }
+TXS &gt;&gt;  .....8: OUT: Act { { ( Out, [ -82 ] ) } }
+TXS &gt;&gt;  .....9: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....10: IN: Act { { ( In, [ -67 ] ) } }
+TXS &gt;&gt;  ....11: OUT: Act { { ( Out, [ -67 ] ) } }
+TXS &gt;&gt;  ....12: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....13: IN: Act { { ( In, [ -4 ] ) } }
+TXS &gt;&gt;  ....14: OUT: Act { { ( Out, [ -4 ] ) } }
+TXS &gt;&gt;  ....15: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....16: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....17: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....18: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....19: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....20: OUT: No Output (Quiescence)
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>
@@ -817,20 +825,20 @@ a simulator, both of which use XML-based communication.</p>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">CNECTDEF</span>  <span class="nv">Xut</span> <span class="s">::=</span>
         <span class="k">CLIENTSOCK</span>
 
-        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">ENCODE</span>    <span class="nv">In</span> <span class="p">?</span> <span class="nc">i</span>                    <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toXml</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
 
-        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">DECODE</span>    <span class="nv">Out</span> <span class="p">!</span> <span class="nc">fromXml</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>          <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
 <span class="k">ENDDEF</span>
 
 <span class="k">CNECTDEF</span>  <span class="nv">Xim</span> <span class="s">::=</span>
         <span class="k">SERVERSOCK</span>
 
-        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In</span>                        <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">DECODE</span>    <span class="nv">In</span> <span class="p">!</span> <span class="nc">fromXml</span><span class="p">(</span><span class="nc">s</span><span class="p">)</span>           <span class="o">&lt;-</span>  <span class="p">?</span> <span class="nc">s</span>
 
-        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="m">9999</span>
+        <span class="k">CHAN</span> <span class="k">OUT</span>  <span class="nv">Out</span>                       <span class="k">HOST</span> <span class="p">&quot;</span><span class="nc">localhost</span><span class="p">&quot;</span>  <span class="k">PORT</span> <span class="s">9999</span>
         <span class="k">ENCODE</span>    <span class="nv">Out</span> <span class="p">?</span> <span class="nc">i</span>                   <span class="s">-&gt;</span>  <span class="p">!</span> <span class="nc">toXml</span><span class="p">(</span><span class="nc">i</span><span class="p">)</span>
 <span class="k">ENDDEF</span>
 </pre></div>
@@ -863,8 +871,8 @@ SUT for testing:</p></li>
 <li><p>Remember to increase delta times of tester. In the command window of
 the tester, input following commands:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">param</span> <span class="n">param_Sim_deltaTime</span> <span class="mi">5000</span>
-<span class="n">param</span> <span class="n">param_Sut_deltaTime</span> <span class="mi">5000</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>param param_Sim_deltaTime 5000
+param param_Sut_deltaTime 5000
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
@@ -878,43 +886,43 @@ the tester, input following commands:</p></li>
 <p>Output of Tester
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TorXakis">TorXakis</a>
 instance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">78</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">78</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">62</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">62</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">52</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">52</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">86</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">86</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( In, [ -78 ] ) } }
+TXS &gt;&gt;  .....2: OUT: Act { { ( Out, [ -78 ] ) } }
+TXS &gt;&gt;  .....3: IN: Act { { ( In, [ -67 ] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out, [ -67 ] ) } }
+TXS &gt;&gt;  .....5: IN: Act { { ( In, [ -62 ] ) } }
+TXS &gt;&gt;  .....6: OUT: Act { { ( Out, [ -62 ] ) } }
+TXS &gt;&gt;  .....7: IN: Act { { ( In, [ -52 ] ) } }
+TXS &gt;&gt;  .....8: OUT: Act { { ( Out, [ -52 ] ) } }
+TXS &gt;&gt;  .....9: IN: Act { { ( In, [ -86 ] ) } }
+TXS &gt;&gt;  ....10: OUT: Act { { ( Out, [ -86 ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 <p>Output of Simulator
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TorXakis">TorXakis</a>
 instance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">78</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">78</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">67</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">62</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">62</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.11</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">52</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.12</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">52</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.13</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">86</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.14</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">86</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.15</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.16</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.17</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.18</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.19</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.20</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....2: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....3: IN: Act { { ( In, [ -78 ] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out, [ -78 ] ) } }
+TXS &gt;&gt;  .....5: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....6: IN: Act { { ( In, [ -67 ] ) } }
+TXS &gt;&gt;  .....7: OUT: Act { { ( Out, [ -67 ] ) } }
+TXS &gt;&gt;  .....8: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....9: IN: Act { { ( In, [ -62 ] ) } }
+TXS &gt;&gt;  ....10: OUT: Act { { ( Out, [ -62 ] ) } }
+TXS &gt;&gt;  ....11: IN: Act { { ( In, [ -52 ] ) } }
+TXS &gt;&gt;  ....12: OUT: Act { { ( Out, [ -52 ] ) } }
+TXS &gt;&gt;  ....13: IN: Act { { ( In, [ -86 ] ) } }
+TXS &gt;&gt;  ....14: OUT: Act { { ( Out, [ -86 ] ) } }
+TXS &gt;&gt;  ....15: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....16: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....17: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....18: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....19: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....20: OUT: No Output (Quiescence)
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>

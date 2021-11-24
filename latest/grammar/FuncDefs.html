@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Function Defintions &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Function Defintions &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -615,42 +623,42 @@
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Function to determine whether a integer is an int32; a 32-bits integer.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isValid_int32</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span>\ <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2147483647</span><span class="p">)</span> <span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isValid_int32 ( x :: Int ) :: Bool ::= (-2147483648 &lt;= x) /\ (x &lt;= 2147483647) ENDDEF
 </pre></div>
 </div>
 <p>Function to determine the validity of a password. In this example, a
 valid password is a string whose length is larger than 8, and that
 contains a capital, a small letter, and a digit.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">validPassword</span> <span class="p">(</span> <span class="n">pw</span> <span class="p">::</span> <span class="n">String</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-      <span class="nb">len</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8</span>
-   <span class="o">/</span>\ <span class="n">strinre</span><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="n">REGEX</span><span class="p">(</span><span class="s1">&#39;.*[A-Z].*&#39;</span><span class="p">))</span>
-   <span class="o">/</span>\ <span class="n">strinre</span><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="n">REGEX</span><span class="p">(</span><span class="s1">&#39;.*[a-z].*&#39;</span><span class="p">))</span>
-   <span class="o">/</span>\ <span class="n">strinre</span><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="n">REGEX</span><span class="p">(</span><span class="s1">&#39;.*[0-9].*&#39;</span><span class="p">))</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF validPassword ( pw :: String ) :: Bool ::=
+      len(pw) &gt; 8
+   /\ strinre(pw, REGEX(&#39;.*[A-Z].*&#39;))
+   /\ strinre(pw, REGEX(&#39;.*[a-z].*&#39;))
+   /\ strinre(pw, REGEX(&#39;.*[0-9].*&#39;))
+ENDDEF
 </pre></div>
 </div>
 <p>Recursive function to determine the length of an instance of the
 recursive data type List_Int:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">lengthList_Int</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">List_Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span>
-   <span class="n">IF</span> <span class="n">isCNil_Int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">THEN</span>
-      <span class="mi">0</span>
-   <span class="n">ELSE</span>
-      <span class="mi">1</span> <span class="o">+</span> <span class="n">lengthList_Int</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-   <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF lengthList_Int ( x :: List_Int ) :: Int ::=
+   IF isCNil_Int(x) THEN
+      0
+   ELSE
+      1 + lengthList_Int(tail(x))
+   FI
+ENDDEF
 </pre></div>
 </div>
 <p>Function with multiple variables that checks for equality.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">allEqual</span> <span class="p">(</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="p">::</span> <span class="n">Int</span><span class="p">;</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="p">::</span> <span class="n">String</span><span class="p">;</span> <span class="n">xl</span><span class="p">,</span> <span class="n">yl</span> <span class="p">::</span> <span class="n">List_Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-   <span class="p">(</span><span class="n">xi</span> <span class="o">==</span> <span class="n">yi</span><span class="p">)</span> <span class="o">/</span>\ <span class="p">(</span><span class="n">xs</span> <span class="o">==</span> <span class="n">ys</span><span class="p">)</span> <span class="o">/</span>\ <span class="p">(</span><span class="n">xl</span> <span class="o">==</span> <span class="n">yl</span><span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF allEqual ( xi, yi :: Int; xs, ys :: String; xl, yl :: List_Int ) :: Bool ::=
+   (xi == yi) /\ (xs == ys) /\ (xl == yl)
+ENDDEF
 </pre></div>
 </div>
 <p>Definition of multiple functions in a single FUNCDEF block.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span>
-   <span class="nb">max</span> <span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span> <span class="n">IF</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">x</span> <span class="n">ELSE</span> <span class="n">y</span> <span class="n">FI</span> <span class="p">;</span>
-   <span class="nb">min</span> <span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span> <span class="n">IF</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">THEN</span> <span class="n">x</span> <span class="n">ELSE</span> <span class="n">y</span> <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF
+   max ( x, y :: Int ) :: Int ::= IF (x &gt; y) THEN x ELSE y FI ;
+   min ( x, y :: Int ) :: Int ::= IF (x &lt; y) THEN x ELSE y FI
+ENDDEF
 </pre></div>
 </div>
 </section>

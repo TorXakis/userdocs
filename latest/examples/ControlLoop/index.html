@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -592,9 +600,9 @@ folder</a>.</p>
 <h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p>All <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data types</a>
 are Cartesian Products of two integers: id and value.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">ProduceReport</span> <span class="p">:</span><span class="o">:=</span> <span class="n">ProduceReport</span> <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
-<span class="n">TYPEDEF</span> <span class="n">MeasureReport</span> <span class="p">:</span><span class="o">:=</span> <span class="n">MeasureReport</span> <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
-<span class="n">TYPEDEF</span> <span class="n">Correction</span>    <span class="p">:</span><span class="o">:=</span> <span class="n">Correction</span>    <span class="p">{</span> <span class="nb">id</span><span class="p">,</span> <span class="n">value</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">}</span> <span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF ProduceReport ::= ProduceReport { id, value :: Int } ENDDEF
+TYPEDEF MeasureReport ::= MeasureReport { id, value :: Int } ENDDEF
+TYPEDEF Correction    ::= Correction    { id, value :: Int } ENDDEF
 </pre></div>
 </div>
 </section>
@@ -604,13 +612,13 @@ are Cartesian Products of two integers: id and value.</p>
 types</a>,
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">channels</a> needed
 for modelling this flow can be defined as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHANDEF</span> <span class="n">Chans</span> <span class="p">:</span><span class="o">:=</span>    <span class="n">In_Material</span>     <span class="p">::</span> <span class="n">Int</span>
-                   <span class="p">;</span> <span class="n">Correction</span>      <span class="p">::</span> <span class="n">Correction</span>
-                   <span class="p">;</span> <span class="n">ProduceReport</span>   <span class="p">::</span> <span class="n">ProduceReport</span>
-                   <span class="p">;</span> <span class="n">Material</span>        <span class="p">::</span> <span class="n">Int</span>
-                   <span class="p">;</span> <span class="n">MeasureReport</span>   <span class="p">::</span> <span class="n">MeasureReport</span>
-                   <span class="p">;</span> <span class="n">Out_Material</span>    <span class="p">::</span> <span class="n">Int</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CHANDEF Chans ::=    In_Material     :: Int
+                   ; Correction      :: Correction
+                   ; ProduceReport   :: ProduceReport
+                   ; Material        :: Int
+                   ; MeasureReport   :: MeasureReport
+                   ; Out_Material    :: Int
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -621,15 +629,15 @@ for modelling this flow can be defined as:</p>
 <p>The sign
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function</a>: zero
 for zero, +1 for all positive numbers, and -1 for all negative numbers.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">sgn</span> <span class="p">(</span> <span class="n">x</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">)</span> <span class="p">::</span> <span class="n">Int</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">IF</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
-        <span class="n">THEN</span> <span class="mi">1</span>
-        <span class="n">ELSE</span> <span class="n">IF</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
-                <span class="n">THEN</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="n">ELSE</span> <span class="mi">0</span>
-             <span class="n">FI</span>
-    <span class="n">FI</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF sgn ( x :: Int ) :: Int ::=
+    IF x &gt; 0
+        THEN 1
+        ELSE IF x &lt; 0
+                THEN -1
+                ELSE 0
+             FI
+    FI
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -654,7 +662,7 @@ between the correction, intended, and measured values.</p>
 <p>The behaviour of the correct process is captured in the following
 recursive TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
 Definition</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF correct [ In_ProduceReport      :: ProduceReport
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF correct [ In_ProduceReport      :: ProduceReport
                 ; In_MeasureReport      :: MeasureReport
                 ; Out_Correction        :: Correction
                 ] ( ) ::=
@@ -672,13 +680,13 @@ ENDDEF
 one input: the material to measure. All measurements result in two
 outputs: the measured material and a report containing the measurement
 results. The order of these two outputs is not constrained, i.e.,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Out_Material ||| Out_Report
 </pre></div>
 </div>
 <p>Measure is modelled without buffers for material. So the behaviour of
 measure with respect to material is the alternating sequence of material
 coming in and material going out, i.e.,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="o">...</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In_Material &gt;-&gt; Out_Material &gt;-&gt; In_Material &gt;-&gt; Out_Material &gt;-&gt; In_Material &gt;-&gt; ...
 </pre></div>
 </div>
 <p>Incoming material is associated with an identifier. This indentifier not
@@ -687,7 +695,7 @@ in the generated report.</p>
 <p>The behaviour of the measure process is captured in the following
 recursive TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
 Definition</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF measure [ In_Material   :: Int
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF measure [ In_Material   :: Int
                 ; Out_Report    :: MeasureReport
                 ; Out_Material  :: Int
                 ]( ) ::=
@@ -710,24 +718,24 @@ ENDDEF
 <p>Produce is a repeating process of production steps. All production steps
 results in two outputs: material and report. The order of these two
 outputs is not constrained, i.e.,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Out_Material ||| Out_Report
 </pre></div>
 </div>
 <p>In the first production step, only material is needed as input. In all
 other production steps, both material and correction are needed as
 inputs. The order of these two inputs is not constrained, i.e.,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In_Material</span> <span class="o">|||</span> <span class="n">In_Correction</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In_Material ||| In_Correction
 </pre></div>
 </div>
 <p>All inputs are required to produce the output. So for all, but the first
 production step holds</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">In_Material</span> <span class="o">|||</span> <span class="n">In_Correction</span> <span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span> <span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span> <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>( In_Material ||| In_Correction ) &gt;&gt;&gt; ( Out_Material ||| Out_Report )
 </pre></div>
 </div>
 <p>Produce is modelled without buffers for material. So the behaviour of
 produce with respect to material is the alternating sequence of material
 coming in and material going out, i.e.,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">Out_Material</span> <span class="o">&gt;-&gt;</span> <span class="n">In_Material</span> <span class="o">&gt;-&gt;</span> <span class="o">...</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In_Material &gt;-&gt; Out_Material &gt;-&gt; In_Material &gt;-&gt; Out_Material &gt;-&gt; In_Material &gt;-&gt; ...
 </pre></div>
 </div>
 <p>A correction is only obtained after both the production report and the
@@ -735,7 +743,7 @@ outgoing material are used. To be precise, to obtain a correction both a
 production report and a measure report are needed. The latter is
 obtained when the material is measured. This requirement on order can be
 express as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">Out_Material</span> <span class="o">|||</span> <span class="n">Out_Report</span> <span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="n">In_Correction</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>( Out_Material ||| Out_Report ) &gt;&gt;&gt; In_Correction
 </pre></div>
 </div>
 <p>Incoming material is associated with an identifier. This indentifier not
@@ -746,7 +754,7 @@ TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXaki
 Definitions</a>.
 These two processes were needed to capture the difference between the
 first and all other production steps.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF produce [ In_Material           :: Int
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF produce [ In_Material           :: Int
                 ; In_Correction         :: Correction
                 ; Out_Material          :: Int
                 ; Out_ProduceReport     :: ProduceReport
@@ -789,21 +797,21 @@ TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXaki
 Definitions</a>. The
 three earlier described processes are linked together using their
 communication channels.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCDEF</span> <span class="n">model</span> <span class="p">[</span> <span class="n">In_Material</span>                 <span class="p">::</span> <span class="n">Int</span>
-              <span class="p">;</span> <span class="n">Correction</span>                  <span class="p">::</span> <span class="n">Correction</span>
-              <span class="p">;</span> <span class="n">ProduceReport</span>               <span class="p">::</span> <span class="n">ProduceReport</span>
-              <span class="p">;</span> <span class="n">Material</span>                    <span class="p">::</span> <span class="n">Int</span>
-              <span class="p">;</span> <span class="n">MeasureReport</span>               <span class="p">::</span> <span class="n">MeasureReport</span>
-              <span class="p">;</span> <span class="n">Out_Material</span>                <span class="p">::</span> <span class="n">Int</span>
-              <span class="p">](</span> <span class="p">)</span> <span class="p">:</span><span class="o">:=</span>
-        <span class="p">(</span>
-                <span class="n">produce</span> <span class="p">[</span> <span class="n">In_Material</span><span class="p">,</span> <span class="n">Correction</span><span class="p">,</span> <span class="n">Material</span><span class="p">,</span> <span class="n">ProduceReport</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
-            <span class="o">|</span><span class="p">[</span> <span class="n">Material</span><span class="p">]</span><span class="o">|</span>
-                <span class="n">measure</span> <span class="p">[</span> <span class="n">Material</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Out_Material</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
-        <span class="p">)</span>
-    <span class="o">|</span><span class="p">[</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Correction</span> <span class="p">]</span><span class="o">|</span>
-        <span class="n">correct</span> <span class="p">[</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Correction</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF model [ In_Material                 :: Int
+              ; Correction                  :: Correction
+              ; ProduceReport               :: ProduceReport
+              ; Material                    :: Int
+              ; MeasureReport               :: MeasureReport
+              ; Out_Material                :: Int
+              ]( ) ::=
+        (
+                produce [ In_Material, Correction, Material, ProduceReport ] ( )
+            |[ Material]|
+                measure [ Material, MeasureReport, Out_Material ] ( )
+        )
+    |[ ProduceReport, MeasureReport, Correction ]|
+        correct [ ProduceReport, MeasureReport, Correction ] ( )
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -814,26 +822,26 @@ communication channels.</p>
 now we can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">define our
 model</a> as
 follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODELDEF</span> <span class="n">Model</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">CHAN</span> <span class="n">IN</span>
-    <span class="n">CHAN</span> <span class="n">OUT</span>    <span class="n">In_Material</span>
-    <span class="p">,</span>           <span class="n">Correction</span>
-    <span class="p">,</span>           <span class="n">ProduceReport</span>
-    <span class="p">,</span>           <span class="n">Material</span>
-    <span class="p">,</span>           <span class="n">MeasureReport</span>
-    <span class="p">,</span>           <span class="n">Out_Material</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MODELDEF Model ::=
+    CHAN IN
+    CHAN OUT    In_Material
+    ,           Correction
+    ,           ProduceReport
+    ,           Material
+    ,           MeasureReport
+    ,           Out_Material
 
-    <span class="n">SYNC</span>        <span class="p">{</span><span class="n">In_Material</span><span class="p">}</span>
-    <span class="p">,</span>           <span class="p">{</span><span class="n">Correction</span><span class="p">}</span>
-    <span class="p">,</span>           <span class="p">{</span><span class="n">ProduceReport</span><span class="p">}</span>
-    <span class="p">,</span>           <span class="p">{</span><span class="n">Material</span><span class="p">}</span>
-    <span class="p">,</span>           <span class="p">{</span><span class="n">MeasureReport</span><span class="p">}</span>
-    <span class="p">,</span>           <span class="p">{</span><span class="n">Out_Material</span><span class="p">}</span>
-    <span class="p">,</span>           <span class="p">{</span><span class="n">ProduceReport</span> <span class="o">|</span> <span class="n">MeasureReport</span><span class="p">}</span>
+    SYNC        {In_Material}
+    ,           {Correction}
+    ,           {ProduceReport}
+    ,           {Material}
+    ,           {MeasureReport}
+    ,           {Out_Material}
+    ,           {ProduceReport | MeasureReport}
 
-    <span class="n">BEHAVIOUR</span>
-        <span class="n">model</span> <span class="p">[</span><span class="n">In_Material</span><span class="p">,</span> <span class="n">Correction</span><span class="p">,</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="n">Material</span><span class="p">,</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="n">Out_Material</span><span class="p">]()</span>
-<span class="n">ENDDEF</span>
+    BEHAVIOUR
+        model [In_Material, Correction, ProduceReport, Material, MeasureReport, Out_Material]()
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -856,17 +864,17 @@ with the Control Loop model describe above in a command window.</p></li>
 <p>TorXakis will perform the actions at each step, as long as the Model
 behaves as expected or the number of steps are reached, then finally
 conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In_Material</span><span class="p">,</span> <span class="p">[</span> <span class="mi">18</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Material</span><span class="p">,</span> <span class="p">[</span> <span class="mi">18</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In_Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">79</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out_Material</span><span class="p">,</span> <span class="p">[</span> <span class="mi">18</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">MeasureReport</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mi">37</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">(</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">ProduceReport</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mi">73</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Correction</span><span class="p">,</span> <span class="p">[</span> <span class="n">Correction</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="o">-</span><span class="mi">80</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">79</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In_Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">41</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">MeasureReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">MeasureReport</span><span class="p">(</span><span class="o">-</span><span class="mi">79</span><span class="p">,</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">(</span> <span class="n">ProduceReport</span><span class="p">,</span> <span class="p">[</span> <span class="n">ProduceReport</span><span class="p">(</span><span class="o">-</span><span class="mi">79</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out_Material</span><span class="p">,</span> <span class="p">[</span> <span class="o">-</span><span class="mi">79</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: Act { { ( In_Material, [ 18 ] ) } }
+TXS &gt;&gt;  .....2: Act { { ( Material, [ 18 ] ) } }
+TXS &gt;&gt;  .....3: Act { { ( In_Material, [ -79 ] ) } }
+TXS &gt;&gt;  .....4: Act { { ( Out_Material, [ 18 ] ) } }
+TXS &gt;&gt;  .....5: Act { { ( MeasureReport, [ MeasureReport(18,-37) ] ) ( ProduceReport, [ ProduceReport(18,-73) ] ) } }
+TXS &gt;&gt;  .....6: Act { { ( Correction, [ Correction(18,-80) ] ) } }
+TXS &gt;&gt;  .....7: Act { { ( Material, [ -79 ] ) } }
+TXS &gt;&gt;  .....8: Act { { ( In_Material, [ -41 ] ) } }
+TXS &gt;&gt;  .....9: Act { { ( MeasureReport, [ MeasureReport(-79,-32) ] ) ( ProduceReport, [ ProduceReport(-79,-25) ] ) } }
+TXS &gt;&gt;  ....10: Act { { ( Out_Material, [ -79 ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>

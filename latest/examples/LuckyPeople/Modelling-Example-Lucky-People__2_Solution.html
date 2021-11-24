@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example - Lucky People &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example - Lucky People &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -589,14 +597,14 @@ folder</a>.</p>
 persons with first name, last name, sex, day of birth and month of
 birth. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TypeDefs">define the
 types</a> needed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TYPEDEF</span> <span class="n">Sex</span> <span class="p">:</span><span class="o">:=</span> <span class="n">Male</span> <span class="o">|</span> <span class="n">Female</span> <span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF Sex ::= Male | Female ENDDEF
 
-<span class="n">TYPEDEF</span> <span class="n">Person</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">Person</span> <span class="p">{</span> <span class="n">sex</span> <span class="p">::</span> <span class="n">Sex</span>
-           <span class="p">;</span> <span class="n">firstName</span><span class="p">,</span> <span class="n">lastName</span> <span class="p">::</span> <span class="n">String</span>
-           <span class="p">;</span> <span class="n">dayOfBirth</span><span class="p">,</span> <span class="n">monthOfBirth</span> <span class="p">::</span> <span class="n">Int</span>
-           <span class="p">}</span>
-<span class="n">ENDDEF</span>
+TYPEDEF Person ::=
+    Person { sex :: Sex
+           ; firstName, lastName :: String
+           ; dayOfBirth, monthOfBirth :: Int
+           }
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -606,9 +614,9 @@ types</a> needed:</p>
 are lucky. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define the
 channels</a> needed
 for modelling this behaviour:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CHANDEF</span> <span class="n">Channels</span> <span class="p">:</span><span class="o">:=</span>  <span class="n">In</span>   <span class="p">::</span> <span class="n">Person</span>
-                    <span class="p">;</span> <span class="n">Out</span>  <span class="p">::</span> <span class="n">Bool</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CHANDEF Channels ::=  In   :: Person
+                    ; Out  :: Bool
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -643,11 +651,11 @@ described process behaviour on the right is exposed.</p>
 back and wait for next input. There’s one catch, though: As we said
 above, we should keep track of how many people with the current sex have
 been processed so far.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;-&gt;</span><span class="p">(</span>
-            <span class="p">(</span> <span class="p">[[</span> <span class="n">sex</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="n">last</span> <span class="p">]]</span> <span class="o">=&gt;&gt;</span> <span class="n">luckyPeople</span><span class="p">[</span><span class="n">In</span><span class="p">,</span><span class="n">Out</span><span class="p">]</span> <span class="p">(</span> <span class="n">sex</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="c1">##</span>
-            <span class="p">(</span> <span class="p">[[</span> <span class="n">sex</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="n">last</span> <span class="p">]]</span> <span class="o">=&gt;&gt;</span> <span class="n">luckyPeople</span><span class="p">[</span><span class="n">In</span><span class="p">,</span><span class="n">Out</span><span class="p">]</span> <span class="p">(</span> <span class="n">sex</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
-    <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;-&gt;(
+            ( [[ sex(p) == last ]] =&gt;&gt; luckyPeople[In,Out] ( sex(p), n+1 ) )
+        ##
+            ( [[ sex(p) &lt;&gt; last ]] =&gt;&gt; luckyPeople[In,Out] ( sex(p), 1 ) )
+    )
 </pre></div>
 </div>
 <p>“<strong>##</strong>” is the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Choice_Operator">Choice
@@ -661,7 +669,7 @@ the left of it is <em>true</em>.</p>
 <p>So the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">process
 definition</a> of
 Lucky People looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROCDEF luckyPeople [ In :: Person; Out :: Bool ] ( last :: Sex; n :: Int ) ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROCDEF luckyPeople [ In :: Person; Out :: Bool ] ( last :: Sex; n :: Int ) ::=
         In ? p [[ isValid_Person(p) ]]
     &gt;-&gt; Out ! isLuckyPerson (p, last, n)
     &gt;-&gt;(
@@ -683,13 +691,13 @@ for the Person and one outgoing for the result. It should also specify
 that “<em>luckyPeople</em>” process is executed with the input and this
 process’s output is communicated to the out channel as this model’s
 behaviour.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODELDEF</span> <span class="n">Model</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">CHAN</span> <span class="n">IN</span>    <span class="n">In</span>
-    <span class="n">CHAN</span> <span class="n">OUT</span>   <span class="n">Out</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MODELDEF Model ::=
+    CHAN IN    In
+    CHAN OUT   Out
 
-    <span class="n">BEHAVIOUR</span>
-        <span class="n">luckyPeople</span><span class="p">[</span><span class="n">In</span><span class="p">,</span> <span class="n">Out</span><span class="p">](</span><span class="n">Male</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>   <span class="o">--</span> <span class="n">first</span> <span class="n">sex</span> <span class="n">choice</span> <span class="ow">is</span> <span class="n">arbitrary</span>
-<span class="n">ENDDEF</span>
+    BEHAVIOUR
+        luckyPeople[In, Out](Male,0)   -- first sex choice is arbitrary
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -702,12 +710,12 @@ our “<em>luckyPeople</em>” process uses.</p>
 <h3>isValid_Person<a class="headerlink" href="#isvalid-person" title="Permalink to this headline">¶</a></h3>
 <p>We want to validate the input in order to make sure that it represents
 data of a person that can actually exist.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isValid_Person</span> <span class="p">(</span><span class="n">p</span> <span class="p">::</span> <span class="n">Person</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">strinre</span> <span class="p">(</span><span class="n">firstName</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">REGEX</span> <span class="p">(</span><span class="s1">&#39;[A-Z][a-z]*&#39;</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="n">strinre</span> <span class="p">(</span><span class="n">lastName</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">REGEX</span> <span class="p">(</span><span class="s1">&#39;[A-Z][a-z]*&#39;</span><span class="p">))</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">dayOfBirth</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="o">/</span>\ <span class="p">(</span><span class="n">dayOfBirth</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">31</span><span class="p">)</span>
-    <span class="o">/</span>\ <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">monthOfBirth</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="o">/</span>\ <span class="p">(</span><span class="n">monthOfBirth</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isValid_Person (p :: Person) :: Bool ::=
+       strinre (firstName(p), REGEX (&#39;[A-Z][a-z]*&#39;))
+    /\ strinre (lastName(p), REGEX (&#39;[A-Z][a-z]*&#39;))
+    /\ (1 &lt;= dayOfBirth(p)) /\ (dayOfBirth(p) &lt;= 31)
+    /\ (1 &lt;= monthOfBirth(p)) /\ (monthOfBirth(p) &lt;= 12)
+ENDDEF
 </pre></div>
 </div>
 <p>“<em>strinre</em>” function checks whether the given string matches the given
@@ -723,11 +731,11 @@ page</a>, a person can be lucky based
 on 3 criteria: gender, name or birthday. So our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function
 definition</a>
 should be something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isLuckyPerson</span> <span class="p">(</span><span class="n">p</span> <span class="p">::</span> <span class="n">Person</span><span class="p">;</span> <span class="n">last</span> <span class="p">::</span> <span class="n">Sex</span><span class="p">;</span> <span class="n">n</span> <span class="p">::</span> <span class="n">Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-       <span class="n">isLuckyByGender</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    \<span class="o">/</span> <span class="n">isLuckyByName</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-    \<span class="o">/</span> <span class="n">isLuckyByBirthday</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isLuckyPerson (p :: Person; last :: Sex; n :: Int) :: Bool ::=
+       isLuckyByGender(p, last, n)
+    \/ isLuckyByName(p)
+    \/ isLuckyByBirthday(p)
+ENDDEF
 </pre></div>
 </div>
 <p>Now let’s define each of these criteria as separate <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function
@@ -737,9 +745,9 @@ definitions</a>.</p>
 <h3>isLuckyByGender<a class="headerlink" href="#isluckybygender" title="Permalink to this headline">¶</a></h3>
 <p>A person is lucky by gender if previous 5 people were all from the
 opposite sex.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isLuckyByGender</span> <span class="p">(</span><span class="n">p</span> <span class="p">::</span> <span class="n">Person</span><span class="p">;</span> <span class="n">last</span> <span class="p">::</span> <span class="n">Sex</span><span class="p">;</span> <span class="n">n</span> <span class="p">::</span> <span class="n">Int</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="p">(</span> <span class="n">sex</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;&gt;</span> <span class="n">last</span> <span class="p">)</span> <span class="o">/</span>\ <span class="p">(</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isLuckyByGender (p :: Person; last :: Sex; n :: Int) :: Bool ::=
+    ( sex(p) &lt;&gt; last ) /\ ( n &gt;= 5 )
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -747,9 +755,9 @@ opposite sex.</p>
 <h3>isLuckyByName<a class="headerlink" href="#isluckybyname" title="Permalink to this headline">¶</a></h3>
 <p>A person is lucky by name if both it’s name and surname start with the
 same letter.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isLuckyByName</span> <span class="p">(</span><span class="n">p</span> <span class="p">::</span> <span class="n">Person</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">at</span><span class="p">(</span><span class="n">firstName</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">==</span> <span class="n">at</span><span class="p">(</span><span class="n">lastName</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isLuckyByName (p :: Person) :: Bool ::=
+    at(firstName(p), 0 ) == at(lastName(p), 0 )
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -757,9 +765,9 @@ same letter.</p>
 <h3>isLuckyByBirthday<a class="headerlink" href="#isluckybybirthday" title="Permalink to this headline">¶</a></h3>
 <p>A person is lucky by birthday if both day and month of it’s birthday are
 the same.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCDEF</span> <span class="n">isLuckyByBirthday</span> <span class="p">(</span><span class="n">p</span> <span class="p">::</span> <span class="n">Person</span><span class="p">)</span> <span class="p">::</span> <span class="n">Bool</span> <span class="p">:</span><span class="o">:=</span>
-    <span class="n">dayOfBirth</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="n">monthOfBirth</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">ENDDEF</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isLuckyByBirthday (p :: Person) :: Bool ::=
+    dayOfBirth(p) == monthOfBirth(p)
+ENDDEF
 </pre></div>
 </div>
 </section>
@@ -776,7 +784,7 @@ structure (Bool). Assuming that TorXakis and the SUT run on the same
 machine (localhost) the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">SUT
 connection</a> can
 be defined in TorXakis as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CONSTDEF separator :: String ::= &quot;@&quot; ENDDEF
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONSTDEF separator :: String ::= &quot;@&quot; ENDDEF
 
 CNECTDEF  Sut ::=
     CLIENTSOCK
@@ -820,16 +828,16 @@ commands:</p></li>
 <p>TorXakis will create <em>valid</em> random Person data, pass it to SUT and
 receive the output at each step, as long as the SUT responds as expected
 or the number of test steps are reached, then finally conclude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;W&quot;</span><span class="p">,</span><span class="s2">&quot;Phz&quot;</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;Pa&quot;</span><span class="p">,</span><span class="s2">&quot;Hrd&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">True</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="o">...</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.47</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Female</span><span class="p">,</span><span class="s2">&quot;Pk&quot;</span><span class="p">,</span><span class="s2">&quot;Pq&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.48</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">True</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.49</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Female</span><span class="p">,</span><span class="s2">&quot;Pp&quot;</span><span class="p">,</span><span class="s2">&quot;La&quot;</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.50</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( In, [ Person(Male,&quot;W&quot;,&quot;Phz&quot;,22,9) ] ) } }
+TXS &gt;&gt;  .....2: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....3: IN: Act { { ( In, [ Person(Male,&quot;Pa&quot;,&quot;Hrd&quot;,2,2) ] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out, [ True ] ) } }
+...
+TXS &gt;&gt;  ....47: IN: Act { { ( In, [ Person(Female,&quot;Pk&quot;,&quot;Pq&quot;,3,11) ] ) } }
+TXS &gt;&gt;  ....48: OUT: Act { { ( Out, [ True ] ) } }
+TXS &gt;&gt;  ....49: IN: Act { { ( In, [ Person(Female,&quot;Pp&quot;,&quot;La&quot;,31,1) ] ) } }
+TXS &gt;&gt;  ....50: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 </section>
@@ -841,7 +849,7 @@ also act as a simulator which behaves based on a model. Let’s <a class="refere
 another
 connection</a> and
 a simulator, both of which use XML-based communication.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Xut ::=
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CNECTDEF  Xut ::=
     CLIENTSOCK
 
     CHAN  OUT  In                   HOST &quot;localhost&quot;  PORT 7777
@@ -896,8 +904,8 @@ To prevent unexpected delays to cause false negatives, increase delta
 times of tester. In the command window of the tester, input following
 commands:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">param</span> <span class="n">param_Sim_deltaTime</span> <span class="mi">4000</span>
-<span class="n">param</span> <span class="n">param_Sut_deltaTime</span> <span class="mi">4000</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>param param_Sim_deltaTime 4000
+param param_Sut_deltaTime 4000
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
@@ -911,38 +919,38 @@ of steps before testing is finished:</p></li>
 <p><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">10</span></code></p>
 <p>Now you’ll see the tester TorXakis instance happily testing the
 simulator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;L&quot;</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;Phdppab&quot;</span><span class="p">,</span><span class="s2">&quot;S&quot;</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;Addp&quot;</span><span class="p">,</span><span class="s2">&quot;Pz&quot;</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Female</span><span class="p">,</span><span class="s2">&quot;Hfhnad&quot;</span><span class="p">,</span><span class="s2">&quot;Ln&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">True</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: IN: Act { { ( In, [ Person(Male,&quot;K&quot;,&quot;D&quot;,2,1) ] ) } }
+TXS &gt;&gt;  .....2: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....3: IN: Act { { ( In, [ Person(Male,&quot;B&quot;,&quot;L&quot;,8,12) ] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....5: IN: Act { { ( In, [ Person(Male,&quot;Phdppab&quot;,&quot;S&quot;,19,2) ] ) } }
+TXS &gt;&gt;  .....6: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....7: IN: Act { { ( In, [ Person(Male,&quot;Addp&quot;,&quot;Pz&quot;,17,8) ] ) } }
+TXS &gt;&gt;  .....8: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....9: IN: Act { { ( In, [ Person(Female,&quot;Hfhnad&quot;,&quot;Ln&quot;,4,8) ] ) } }
+TXS &gt;&gt;  ....10: OUT: Act { { ( Out, [ True ] ) } }
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 <p>And simulator TorXakis instance acting as the SUT:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.1</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.2</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.3</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.4</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.5</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.6</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;L&quot;</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.7</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.8</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;Phdppab&quot;</span><span class="p">,</span><span class="s2">&quot;S&quot;</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">....</span><span class="mf">.9</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.10</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.11</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Male</span><span class="p">,</span><span class="s2">&quot;Addp&quot;</span><span class="p">,</span><span class="s2">&quot;Pz&quot;</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.12</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">False</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.13</span><span class="p">:</span> <span class="n">IN</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">In</span><span class="p">,</span> <span class="p">[</span> <span class="n">Person</span><span class="p">(</span><span class="n">Female</span><span class="p">,</span><span class="s2">&quot;Hfhnad&quot;</span><span class="p">,</span><span class="s2">&quot;Ln&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.14</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">Act</span> <span class="p">{</span> <span class="p">{</span> <span class="p">(</span> <span class="n">Out</span><span class="p">,</span> <span class="p">[</span> <span class="kc">True</span> <span class="p">]</span> <span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.15</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="o">...</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="o">...</span><span class="mf">.30</span><span class="p">:</span> <span class="n">OUT</span><span class="p">:</span> <span class="n">No</span> <span class="n">Output</span> <span class="p">(</span><span class="n">Quiescence</span><span class="p">)</span>
-<span class="n">TXS</span> <span class="o">&gt;&gt;</span>  <span class="n">PASS</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TXS &gt;&gt;  .....1: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....2: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....3: IN: Act { { ( In, [ Person(Male,&quot;K&quot;,&quot;D&quot;,2,1) ] ) } }
+TXS &gt;&gt;  .....4: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....5: OUT: No Output (Quiescence)
+TXS &gt;&gt;  .....6: IN: Act { { ( In, [ Person(Male,&quot;B&quot;,&quot;L&quot;,8,12) ] ) } }
+TXS &gt;&gt;  .....7: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  .....8: IN: Act { { ( In, [ Person(Male,&quot;Phdppab&quot;,&quot;S&quot;,19,2) ] ) } }
+TXS &gt;&gt;  .....9: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  ....10: OUT: No Output (Quiescence)
+TXS &gt;&gt;  ....11: IN: Act { { ( In, [ Person(Male,&quot;Addp&quot;,&quot;Pz&quot;,17,8) ] ) } }
+TXS &gt;&gt;  ....12: OUT: Act { { ( Out, [ False ] ) } }
+TXS &gt;&gt;  ....13: IN: Act { { ( In, [ Person(Female,&quot;Hfhnad&quot;,&quot;Ln&quot;,4,8) ] ) } }
+TXS &gt;&gt;  ....14: OUT: Act { { ( Out, [ True ] ) } }
+TXS &gt;&gt;  ....15: OUT: No Output (Quiescence)
+...
+TXS &gt;&gt;  ....30: OUT: No Output (Quiescence)
+TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 <p>Next: <a class="reference external" href="Modelling-Example-Lucky-People-(Testing-With-Predetermined-Input).md">Testing with predetermined input</a></p>

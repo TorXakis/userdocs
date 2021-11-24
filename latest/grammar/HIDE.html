@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HIDE &mdash; TorXakis v0.9.0, Document version git-sha1-10ebd4e documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>HIDE &mdash; TorXakis v0.9.0, Document version git-sha1-7d10ae6 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-10ebd4e<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-10ebd4e.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-7d10ae6<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-7d10ae6.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -256,6 +256,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/Wheel/index.html">Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/Dropbox/index.html">Dropbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#dropbox">Dropbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#testing-approach">Testing Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#modelling">Modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#model-based-testing">Model-Based Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/Dropbox/index.html#discussion-and-comparison">Discussion and Comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -615,24 +623,24 @@
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>The statement</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HIDE</span> <span class="p">[</span> <span class="n">Channel</span> <span class="p">]</span> <span class="n">IN</span>
-    <span class="n">A</span> <span class="o">&gt;-&gt;</span> <span class="n">Channel</span> <span class="o">&gt;-&gt;</span> <span class="n">C</span>
-<span class="o">|</span><span class="p">[</span> <span class="n">Channel</span> <span class="p">]</span><span class="o">|</span>
-    <span class="n">B</span> <span class="o">&gt;-&gt;</span> <span class="n">Channel</span> <span class="o">&gt;-&gt;</span> <span class="n">D</span>
-<span class="n">NI</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HIDE [ Channel ] IN
+    A &gt;-&gt; Channel &gt;-&gt; C
+|[ Channel ]|
+    B &gt;-&gt; Channel &gt;-&gt; D
+NI
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line">synchronizes the two processes on an internal Channel.</div>
 <div class="line">The externally observable communication behaviour is equal to</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">|||</span> <span class="n">B</span><span class="p">)</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">C</span> <span class="o">|||</span> <span class="n">D</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(A ||| B) &gt;&gt;&gt; (C ||| D)
 </pre></div>
 </div>
 <p>or in words, communications on channels A and B occur before
 communications on channels C and D.</p>
 <p>The statement</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>HIDE [ Channel :: Int ] IN
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HIDE [ Channel :: Int ] IN
     A ? x  &gt;-&gt; Channel ! (x + 10)
 |[ Channel ]|
     Channel ? y &gt;-&gt; B ! (y + 20)
@@ -643,7 +651,7 @@ NI
 <div class="line">synchronizes the two processes on an internal Channel of type Int.</div>
 <div class="line">The externally observable communication behaviour is equal to</div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A ? x &gt;-&gt; B ! (x + 30)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A ? x &gt;-&gt; B ! (x + 30)
 </pre></div>
 </div>
 </section>
@@ -651,7 +659,7 @@ NI
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <p>TorXakis currently requires that hidden variables have a unique
 solution. For example,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>HIDE [ A :: Int ] IN
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HIDE [ A :: Int ] IN
     A ? x &gt;-&gt; B ! x
 NI
 </pre></div>
@@ -662,7 +670,7 @@ NI
 whether TorXakis can determine before or after executing the action that
 the hidden variables will be / are unique.</p>
 <p>This limitiation can often be circumvented, e.g. by</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>HIDE [ A :: Int ] IN
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HIDE [ A :: Int ] IN
     A ? x | B ? y [[ y == x ]]
 NI
 </pre></div>
