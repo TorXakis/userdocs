@@ -14,7 +14,7 @@ from sphinx.util.docutils import SphinxDirective
 import pprint
 
 from sphinx.util.nodes import set_source_info
-from sphinx.util.typing import OptionSpec
+#from sphinx.util.typing import OptionSpec
 
 from sphinxcontrib.igrammar.rewriter import parse_into_docutils_nodes
 from sphinx.locale import __
@@ -155,7 +155,8 @@ class Grammar(SphinxDirective):
     has_content = True
     required_arguments = 1
 
-    option_spec: OptionSpec = {
+    #option_spec: OptionSpec = {
+    option_spec = {
         'linenos': directives.flag,
         'lineno-start': int,
         'emphasize-lines': directives.unchanged_required,
@@ -240,8 +241,9 @@ class Grammar(SphinxDirective):
 
 
         ## wrap in container using selfmade container_wrapper with selfmade caption
-        caption = self.options.get('caption')
+        caption =  self.options.get('caption')
         if caption:
+            caption = "Grammar: " + caption
             try:
                 # we use our own container_wrapper with our own implementation of caption and target reference
                 #
