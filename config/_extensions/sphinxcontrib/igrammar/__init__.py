@@ -306,7 +306,8 @@ class Grammar(SphinxDirective):
             #    to register this reference label with its optional default reference_text.
             #    note: also tried to use  note_explicit_target and note_implicit_target functions instead
             #          but I only got note_explicit_target to work, but not note_implicit_target
-            self.env.domains['std'].note_hyperlink_target(anchor, self.env.docname, anchor, reference_text)
+            stddomain=self.env.domains['std']
+            stddomain.note_hyperlink_target(anchor, self.env.docname, anchor, reference_text)
             # does both anonlabels and labels
 
             # create target node
