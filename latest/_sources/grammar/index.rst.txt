@@ -3,7 +3,13 @@ Grammar
 
 .. toctree::
     :maxdepth: 1
-    :caption: Contents:
+    :caption: Full Grammar:
+
+    torxakis_grammar
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Parts of Grammar :
 
     Bugs
     CapsId

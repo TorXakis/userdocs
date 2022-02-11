@@ -4,16 +4,21 @@ Function Defintions
 Syntax
 -----------------------
 
-===================== ==============================================================================
-funcDefs              "FUNCDEF" funcDef (";" funcDef)\* "ENDDEF"
-funcDef               funcName "(" neVarsDeclarationList? ")" "::" typeName "::=" :ref:`valExpr`
-neVarsDeclarationList varsDeclaration (";" varsDeclaration )\*
-varsDeclaration       neVarNameList "::" typeName
-neVarNameList         varName ("," varName )\*
-funcName              :ref:`SmallId`
-varName               :ref:`SmallId`
-typeName              :ref:`CapsId`
-===================== ==============================================================================
+.. grammar:: torxakis
+
+    funcDefs              :  'FUNCDEF' funcDef (';' funcDef)* 'ENDDEF';
+    funcDef               :  funcName '(' neVarsDeclarationList ')' '::' typeName '::=' valExpr;
+
+    neVarsDeclarationList :  varsDeclaration (';' varsDeclaration )*;
+    varsDeclaration       :  neVarNameList '::' typeName;
+    neVarDeclList         :  varsDecl (';' varsDecl)*;
+    varsDecl              :  neVarNameList '::' typeName;
+    neVarNameList         :  varName (',' varName)*;
+
+    funcName              :  SMALLID;
+    varName               :  SMALLID;
+    typeName              :  CAPSID;
+
 
 Semantics
 -----------------------------
@@ -25,7 +30,7 @@ Examples
 
 Function to determine whether a integer is an int32; a 32-bits integer.
 
-::
+.. code-block:: txs
 
    FUNCDEF isValid_int32 ( x :: Int ) :: Bool ::= (-2147483648 <= x) /\ (x <= 2147483647) ENDDEF
 
@@ -33,7 +38,7 @@ Function to determine the validity of a password. In this example, a
 valid password is a string whose length is larger than 8, and that
 contains a capital, a small letter, and a digit.
 
-::
+.. code-block:: txs
 
    FUNCDEF validPassword ( pw :: String ) :: Bool ::=
          len(pw) > 8
@@ -45,7 +50,7 @@ contains a capital, a small letter, and a digit.
 Recursive function to determine the length of an instance of the
 recursive data type List_Int:
 
-::
+.. code-block:: txs
 
    FUNCDEF lengthList_Int ( x :: List_Int ) :: Int ::=
       IF isCNil_Int(x) THEN
@@ -57,7 +62,7 @@ recursive data type List_Int:
 
 Function with multiple variables that checks for equality.
 
-::
+.. code-block:: txs
 
    FUNCDEF allEqual ( xi, yi :: Int; xs, ys :: String; xl, yl :: List_Int ) :: Bool ::=
       (xi == yi) /\ (xs == ys) /\ (xl == yl)
@@ -65,7 +70,7 @@ Function with multiple variables that checks for equality.
 
 Definition of multiple functions in a single FUNCDEF block.
 
-::
+.. code-block:: txs
 
    FUNCDEF 
       max ( x, y :: Int ) :: Int ::= IF (x > y) THEN x ELSE y FI ;

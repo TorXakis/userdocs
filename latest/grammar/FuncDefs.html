@@ -1,12 +1,12 @@
-   
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Function Defintions &mdash; TorXakis v0.9.0, Document version git-sha1-4c12a56 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /><link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <title>Function Defintions &mdash; TorXakis v0.9.0, Document version git-sha1-3eb6025 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,11 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Function" href="Function.html" />
-    <link rel="prev" title="Enable Operator" href="Enable_Operator.html" />
-<link rel="stylesheet" type="text/css"
-     href="../_static/custom.css" />
-
-
+    <link rel="prev" title="Enable Operator" href="Enable_Operator.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -35,7 +31,7 @@
             <a href="../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-4c12a56<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-4c12a56.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-3eb6025<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-3eb6025.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -289,6 +285,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Grammar</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="torxakis_grammar.html">TorXakis Grammar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CapsId.html">CapsId</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="CapsId.html#semantics">Semantics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CapsId.html#examples">Examples</a></li>
@@ -541,8 +538,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../torxakis-help.html">Torxakis help</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grammar.html">Grammar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grammarv3.html">Grammarv3</a></li>
 </ul>
 <p><span class="caption-text">Backmatter</span></p>
 <ul>
@@ -583,38 +578,19 @@
 <h1>Function Defintions<a class="headerlink" href="#function-defintions" title="Permalink to this headline">¶</a></h1>
 <section id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>funcDefs</p></td>
-<td><p>“FUNCDEF” funcDef (“;” funcDef)* “ENDDEF”</p></td>
-</tr>
-<tr class="row-even"><td><p>funcDef</p></td>
-<td><p>funcName “(” neVarsDeclarationList? “)” “::” typeName “::=” <span class="xref std std-ref">valExpr</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>neVarsDeclarationList</p></td>
-<td><p>varsDeclaration (“;” varsDeclaration )*</p></td>
-</tr>
-<tr class="row-even"><td><p>varsDeclaration</p></td>
-<td><p>neVarNameList “::” typeName</p></td>
-</tr>
-<tr class="row-odd"><td><p>neVarNameList</p></td>
-<td><p>varName (“,” varName )*</p></td>
-</tr>
-<tr class="row-even"><td><p>funcName</p></td>
-<td><p><a class="reference internal" href="SmallId.html#smallid"><span class="std std-ref">SmallId</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>varName</p></td>
-<td><p><a class="reference internal" href="SmallId.html#smallid"><span class="std std-ref">SmallId</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>typeName</p></td>
-<td><p><a class="reference internal" href="CapsId.html#capsid"><span class="std std-ref">CapsId</span></a></p></td>
-</tr>
-</tbody>
-</table>
+<pre class="highlight literal-block"><span><span class="target" id="g-torxakis-part-funcDefs"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-funcDefs"><span class="blue">funcDefs</span></a>              :  <span class="brown">'FUNCDEF'</span> <a class="reference external" href="#g-torxakis-part-funcDef"><span class="green">funcDef</span></a> (<span class="brown">';'</span> <a class="reference external" href="#g-torxakis-part-funcDef"><span class="green">funcDef</span></a>)* <span class="brown">'ENDDEF'</span>;</span>
+<span><span class="target" id="g-torxakis-part-funcDef"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-funcDef"><span class="blue">funcDef</span></a>               :  <a class="reference external" href="#g-torxakis-part-funcName"><span class="green">funcName</span></a> <span class="brown">'('</span> <a class="reference external" href="#g-torxakis-part-neVarsDeclarationList"><span class="green">neVarsDeclarationList</span></a> <span class="brown">')'</span> <span class="brown">'::'</span> <a class="reference external" href="#g-torxakis-part-typeName"><span class="green">typeName</span></a> <span class="brown">'::='</span> <a class="reference external" href="torxakis_grammar.html#g-torxakis-full-valExpr"><span class="green">valExpr</span></a>;</span>
+<span></span>
+<span><span class="target" id="g-torxakis-part-neVarsDeclarationList"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-neVarsDeclarationList"><span class="blue">neVarsDeclarationList</span></a> :  <a class="reference external" href="#g-torxakis-part-varsDeclaration"><span class="green">varsDeclaration</span></a> (<span class="brown">';'</span> <a class="reference external" href="#g-torxakis-part-varsDeclaration"><span class="green">varsDeclaration</span></a> )*;</span>
+<span><span class="target" id="g-torxakis-part-varsDeclaration"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-varsDeclaration"><span class="blue">varsDeclaration</span></a>       :  <a class="reference external" href="#g-torxakis-part-neVarNameList"><span class="green">neVarNameList</span></a> <span class="brown">'::'</span> <a class="reference external" href="#g-torxakis-part-typeName"><span class="green">typeName</span></a>;</span>
+<span><span class="target" id="g-torxakis-part-neVarDeclList"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-neVarDeclList"><span class="blue">neVarDeclList</span></a>         :  <a class="reference external" href="#g-torxakis-part-varsDecl"><span class="green">varsDecl</span></a> (<span class="brown">';'</span> <a class="reference external" href="#g-torxakis-part-varsDecl"><span class="green">varsDecl</span></a>)*;</span>
+<span><span class="target" id="g-torxakis-part-varsDecl"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-varsDecl"><span class="blue">varsDecl</span></a>              :  <a class="reference external" href="#g-torxakis-part-neVarNameList"><span class="green">neVarNameList</span></a> <span class="brown">'::'</span> <a class="reference external" href="#g-torxakis-part-typeName"><span class="green">typeName</span></a>;</span>
+<span><span class="target" id="g-torxakis-part-neVarNameList"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-neVarNameList"><span class="blue">neVarNameList</span></a>         :  <a class="reference external" href="#g-torxakis-part-varName"><span class="green">varName</span></a> (<span class="brown">','</span> <a class="reference external" href="#g-torxakis-part-varName"><span class="green">varName</span></a>)*;</span>
+<span></span>
+<span><span class="target" id="g-torxakis-part-funcName"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-funcName"><span class="blue">funcName</span></a>              :  <a class="reference external" href="torxakis_grammar.html#g-torxakis-full-SMALLID"><span class="olive">SMALLID</span></a>;</span>
+<span><span class="target" id="g-torxakis-part-varName"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-varName"><span class="blue">varName</span></a>               :  <a class="reference external" href="torxakis_grammar.html#g-torxakis-full-SMALLID"><span class="olive">SMALLID</span></a>;</span>
+<span><span class="target" id="g-torxakis-part-typeName"></span><a class="reference external" href="torxakis_grammar.html#g-torxakis-full-typeName"><span class="blue">typeName</span></a>              :  <a class="reference external" href="torxakis_grammar.html#g-torxakis-full-CAPSID"><span class="olive">CAPSID</span></a>;</span>
+</pre>
 </section>
 <section id="semantics">
 <h2>Semantics<a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h2>
@@ -623,42 +599,42 @@
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Function to determine whether a integer is an int32; a 32-bits integer.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF isValid_int32 ( x :: Int ) :: Bool ::= (-2147483648 &lt;= x) /\ (x &lt;= 2147483647) ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">FUNCDEF</span> <span class="nc">isValid_int32</span> <span class="p">(</span> <span class="nc">x</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Bool</span> <span class="s">::=</span> <span class="p">(</span><span class="o">-</span><span class="s">2147483648</span> <span class="o">&lt;=</span> <span class="nc">x</span><span class="p">)</span> <span class="o">/\</span> <span class="p">(</span><span class="nc">x</span> <span class="o">&lt;=</span> <span class="s">2147483647</span><span class="p">)</span> <span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Function to determine the validity of a password. In this example, a
 valid password is a string whose length is larger than 8, and that
 contains a capital, a small letter, and a digit.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF validPassword ( pw :: String ) :: Bool ::=
-      len(pw) &gt; 8
-   /\ strinre(pw, REGEX(&#39;.*[A-Z].*&#39;))
-   /\ strinre(pw, REGEX(&#39;.*[a-z].*&#39;))
-   /\ strinre(pw, REGEX(&#39;.*[0-9].*&#39;))
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">FUNCDEF</span> <span class="nc">validPassword</span> <span class="p">(</span> <span class="nc">pw</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Bool</span> <span class="s">::=</span>
+      <span class="nc">len</span><span class="p">(</span><span class="nc">pw</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">8</span>
+   <span class="o">/\</span> <span class="nc">strinre</span><span class="p">(</span><span class="nc">pw</span><span class="p">,</span> <span class="nv">REGEX</span><span class="p">(&#39;</span>.<span class="o">*</span><span class="p">[</span><span class="nv">A</span><span class="o">-</span><span class="nv">Z</span><span class="p">]</span>.<span class="o">*</span><span class="p">&#39;))</span>
+   <span class="o">/\</span> <span class="nc">strinre</span><span class="p">(</span><span class="nc">pw</span><span class="p">,</span> <span class="nv">REGEX</span><span class="p">(&#39;</span>.<span class="o">*</span><span class="p">[</span><span class="nc">a</span><span class="o">-</span><span class="nc">z</span><span class="p">]</span>.<span class="o">*</span><span class="p">&#39;))</span>
+   <span class="o">/\</span> <span class="nc">strinre</span><span class="p">(</span><span class="nc">pw</span><span class="p">,</span> <span class="nv">REGEX</span><span class="p">(&#39;</span>.<span class="o">*</span><span class="p">[</span><span class="s">0</span><span class="o">-</span><span class="s">9</span><span class="p">]</span>.<span class="o">*</span><span class="p">&#39;))</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Recursive function to determine the length of an instance of the
 recursive data type List_Int:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF lengthList_Int ( x :: List_Int ) :: Int ::=
-   IF isCNil_Int(x) THEN
-      0
-   ELSE
-      1 + lengthList_Int(tail(x))
-   FI
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">FUNCDEF</span> <span class="nc">lengthList_Int</span> <span class="p">(</span> <span class="nc">x</span> <span class="s">::</span> <span class="nv">List_Int</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Int</span> <span class="s">::=</span>
+   <span class="k">IF</span> <span class="nc">isCNil_Int</span><span class="p">(</span><span class="nc">x</span><span class="p">)</span> <span class="k">THEN</span>
+      <span class="s">0</span>
+   <span class="k">ELSE</span>
+      <span class="s">1</span> <span class="o">+</span> <span class="nc">lengthList_Int</span><span class="p">(</span><span class="nc">tail</span><span class="p">(</span><span class="nc">x</span><span class="p">))</span>
+   <span class="k">FI</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Function with multiple variables that checks for equality.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF allEqual ( xi, yi :: Int; xs, ys :: String; xl, yl :: List_Int ) :: Bool ::=
-   (xi == yi) /\ (xs == ys) /\ (xl == yl)
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">FUNCDEF</span> <span class="nc">allEqual</span> <span class="p">(</span> <span class="nc">xi</span><span class="p">,</span> <span class="nc">yi</span> <span class="s">::</span> <span class="nv">Int</span><span class="p">;</span> <span class="nc">xs</span><span class="p">,</span> <span class="nc">ys</span> <span class="s">::</span> <span class="nv">String</span><span class="p">;</span> <span class="nc">xl</span><span class="p">,</span> <span class="nc">yl</span> <span class="s">::</span> <span class="nv">List_Int</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Bool</span> <span class="s">::=</span>
+   <span class="p">(</span><span class="nc">xi</span> <span class="o">==</span> <span class="nc">yi</span><span class="p">)</span> <span class="o">/\</span> <span class="p">(</span><span class="nc">xs</span> <span class="o">==</span> <span class="nc">ys</span><span class="p">)</span> <span class="o">/\</span> <span class="p">(</span><span class="nc">xl</span> <span class="o">==</span> <span class="nc">yl</span><span class="p">)</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 <p>Definition of multiple functions in a single FUNCDEF block.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FUNCDEF
-   max ( x, y :: Int ) :: Int ::= IF (x &gt; y) THEN x ELSE y FI ;
-   min ( x, y :: Int ) :: Int ::= IF (x &lt; y) THEN x ELSE y FI
-ENDDEF
+<div class="highlight-txs notranslate"><div class="highlight"><pre><span></span><span class="k">FUNCDEF</span>
+   <span class="nc">max</span> <span class="p">(</span> <span class="nc">x</span><span class="p">,</span> <span class="nc">y</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Int</span> <span class="s">::=</span> <span class="k">IF</span> <span class="p">(</span><span class="nc">x</span> <span class="o">&gt;</span> <span class="nc">y</span><span class="p">)</span> <span class="k">THEN</span> <span class="nc">x</span> <span class="k">ELSE</span> <span class="nc">y</span> <span class="k">FI</span> <span class="p">;</span>
+   <span class="nc">min</span> <span class="p">(</span> <span class="nc">x</span><span class="p">,</span> <span class="nc">y</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">)</span> <span class="s">::</span> <span class="nv">Int</span> <span class="s">::=</span> <span class="k">IF</span> <span class="p">(</span><span class="nc">x</span> <span class="o">&lt;</span> <span class="nc">y</span><span class="p">)</span> <span class="k">THEN</span> <span class="nc">x</span> <span class="k">ELSE</span> <span class="nc">y</span> <span class="k">FI</span>
+<span class="k">ENDDEF</span>
 </pre></div>
 </div>
 </section>
@@ -667,7 +643,8 @@ ENDDEF
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Enable_Operator.html" class="btn btn-neutral float-left" title="Enable Operator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Function.html" class="btn btn-neutral float-right" title="Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -682,6 +659,42 @@ ENDDEF
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
+
+<!--  https://stackoverflow.com/questions/5585250/how-can-i-add-a-custom-footer-to-sphinx-documentation-restructuredtext -->
+<!-- your html code here --> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
 </footer>
         </div>
