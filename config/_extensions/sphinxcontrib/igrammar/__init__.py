@@ -287,9 +287,9 @@ class Grammar(SphinxDirective):
             # # register in standard domain so that we can use sphinx :ref:
             # # src: https://stackoverflow.com/questions/64146870/generating-labels-for-nodes-of-a-custom-directive
             # # for Explicit labeled reference  :ref:`custom reference text <anchor>` => shows "custom reference text" for reference in document
-            # self.env.domaindata["std"]["anonlabels"][anchor] = self.env.docname, anchor
+            self.env.domaindata["std"]["anonlabels"][anchor] = self.env.docname, anchor
             # # for Automatic labeled reference :ref:`anchor`   => shows reference_text for reference in document
-            # self.env.domaindata["std"]["labels"][anchor] = self.env.docname, anchor, reference_text
+            self.env.domaindata["std"]["labels"][anchor] = self.env.docname, anchor, reference_text
             #
             # below function does same as above code!
             # note: comment in note_hyperlink_target says
@@ -306,8 +306,8 @@ class Grammar(SphinxDirective):
             #    to register this reference label with its optional default reference_text.
             #    note: also tried to use  note_explicit_target and note_implicit_target functions instead
             #          but I only got note_explicit_target to work, but not note_implicit_target
-            stddomain=self.env.domains['std']
-            stddomain.note_hyperlink_target(anchor, self.env.docname, anchor, reference_text)
+            #stddomain=self.env.domains['std']
+            #stddomain.note_hyperlink_target(anchor, self.env.docname, anchor, reference_text)
             # does both anonlabels and labels
 
             # create target node
@@ -373,7 +373,11 @@ def process_ruledefs(app, env):
             anchor = ruledef['namespace'] + "-part-" + ruledef['rulename']
         #env.domaindata["std"]["anonlabels"][anchor.lower()] = ruledef['docname'], anchor
         reference_text=ruledef['rulename']
-        env.domains['std'].note_hyperlink_target(anchor.lower(), ruledef['docname'], anchor, reference_text)
+
+        #env.domains['std'].note_hyperlink_target(anchor.lower(), ruledef['docname'], anchor, reference_text)
+
+        env.domaindata["std"]["anonlabels"][anchor.lower()] = ruledef['docname'], anchor
+        env.domaindata["std"]["labels"][anchor.lower()] = ruledef['docname'], anchor, reference_text
 
 
 
