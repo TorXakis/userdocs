@@ -355,6 +355,8 @@ def process_ruledefs(app, env):
         Note: we store a simple list of ruledef info in env per file, so that it can easily be 
               merged and purged in parallel. 
     """
+    if not hasattr(env, 'ruledefs'):
+        return
     env.grammar_rule2docname={}
     for ruledef in env.ruledefs:
         key=(ruledef['namespace'],ruledef['in_full_grammar'],ruledef['rulename'])
@@ -616,12 +618,17 @@ class rule_def_node(nodes.General, nodes.Element):
 
 def resolve_special_grammar_nodes(app, doctree, fromdocname):
 
-    pprint.pprint("-----------")
-    pprint.pprint(fromdocname)
-    pprint.pprint("-----------")
+
+
+    # pprint.pprint("-----------")
+    # pprint.pprint(fromdocname)
+    # pprint.pprint("-----------")
 
 
     env = app.builder.env
+
+    if not hasattr(env, 'ruledefs'):
+        return
 
     color_nodes = list(doctree.traverse(line_node))
     for node in color_nodes:
