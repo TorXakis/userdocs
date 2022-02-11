@@ -30,7 +30,7 @@ Examples
 
 The definition
 
-::
+.. code-block:: txs
 
    CHANDEF Channels
        ::=

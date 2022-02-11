@@ -1,0 +1,90 @@
+%% for adding color roles in html
+%% -------------------------------
+
+%%https://en.wikibooks.org/wiki/LaTeX/Colors
+%% \usepackage{xcolor}
+
+%% src: https://tex.stackexchange.com/questions/136742/changing-background-color-of-text-in-latex
+%% experiment to add bg colorbox to grammar in latex
+%%\usepackage[most]{tcolorbox}
+\usepackage{framed}
+
+\definecolor{shadecolor}{RGB}{253,246,227}
+
+%%\definecolor{framecolor}{RGB}{200,200,200}
+\definecolor{framecolor}{gray}{0.8}
+\setlength\FrameRule{0.2mm}
+\definecolor{green}{RGB}{0,150,0}
+
+%%\definecolor{TFFrameColor}{RGB}{0,0,227}
+
+%% \tcbset{
+%%     check odd page=false,
+%%     toggle left and right=none,
+%%     breakable=unlimited,
+%%     frame code={}
+%%     center title,
+%%     left=0pt,
+%%     right=0pt,
+%%     top=0pt,
+%%     bottom=0pt,
+%%     colback=shadecolor,
+%%     colframe=lightgray,
+%%     width=\dimexpr\textwidth\relax,
+%%     enlarge left by=0mm,
+%%     boxsep=5pt,
+%%     arc=0pt,outer arc=0pt,
+%%     boxrule=0.2mm
+%%     }
+
+%%\fboxrule=0.2mm
+
+%%\colorlet{shadecolor}{LavenderBlush2}
+%%\colorlet{framecolor}{Red1}
+    
+\newenvironment{frshaded}{%
+\def\FrameCommand{\fboxrule=\FrameRule\fboxsep=\FrameSep \fcolorbox{framecolor}{shadecolor}}%
+\MakeFramed {\FrameRestore}}%
+{\endMakeFramed}
+    
+
+
+%%\setlength{\fboxrule}{50pt}
+
+
+%% https://docutils.sourceforge.io/docs/user/latex.html#custom-interpreted-text-roles
+%% https://en.wikibooks.org/wiki/LaTeX/Colors#Predefined_colors
+%%      black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow
+
+%% DocUtils (DU) -> DUroleX is used in latex output for  :X:`text`   (apply role X to 'text')
+
+% \newcommand{\DUrolered}{\textcolor{red}}
+% \newcommand{\DUrolered}[1]{\textcolor{red}{#1}}   => similar to previous line, \DUrole macro does some magic, Prefer this line, because clearer what happens!
+
+% defines a new latex command DUroleblack with 1 argument with as output \textcolor{black}{#1} where #1 is the place where the argument is filled in!
+% everytime you use the black role then in latex this Duroleblack command is used:
+%   This is a :black:`black text` test.   => This is a \textcolor{black}{black text}  test.
+\newcommand{\DUroleblack}[1]{\textcolor{black}{#1}}
+\newcommand{\DUroleblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\DUrolebrown}[1]{\textcolor{brown}{#1}}
+\newcommand{\DUrolecyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\DUroledarkgray}[1]{\textcolor{darkgray}{#1}}
+\newcommand{\DUrolegray}[1]{\textcolor{gray}{#1}}
+\newcommand{\DUrolegreen}[1]{\textcolor{green}{#1}}
+\newcommand{\DUrolelightgray}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\DUrolelime}[1]{\textcolor{lime}{#1}}
+\newcommand{\DUrolemagenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\DUroleolive}[1]{\textcolor{olive}{#1}}
+\newcommand{\DUroleorange}[1]{\textcolor{orange}{#1}}
+\newcommand{\DUrolepink}[1]{\textcolor{pink}{#1}}
+\newcommand{\DUrolepurple}[1]{\textcolor{purple}{#1}}
+\newcommand{\DUrolered}[1]{\textcolor{red}{#1}}
+\newcommand{\DUroleteal}[1]{\textcolor{teal}{#1}}
+\newcommand{\DUroleviolet}[1]{\textcolor{violet}{#1}}
+\newcommand{\DUrolewhite}[1]{\textcolor{white}{#1}}
+\newcommand{\DUroleyellow}[1]{\textcolor{yellow}{#1}}
+
+\newcommand{\DUrolek}[1]{\PYG{k}{#1}}
+
+\newcommand{\DUrolebgblue}[1]{{\setlength{\fboxsep}{0pt}\colorbox{yellow}{\makebox[\linewidth][l]{#1}}}}
+
