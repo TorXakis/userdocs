@@ -13,10 +13,9 @@
 #                     => REASON why SPHINXOPTS placed at end of command in below make rules
 #                        which contradicts manpage who says that the SPHINXOPTS should be directly behind SPHINXBUILD
 
-# You can set these variables from the command line, and also
-# from the environment for the first two.
-SPHINXOPTS    ?= -c config/
-SPHINXBUILD   ?= sphinx-build
+# You can set these variables from the command line
+SPHINXOPTS    = -c config/
+SPHINXBUILD   = sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = build
 
