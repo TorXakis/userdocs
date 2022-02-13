@@ -1,4 +1,4 @@
-Function Defintions
+Function Definitions
 =================================================
 
 Syntax
