@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synchronized Operator &mdash; TorXakis v0.9.0, Document version git-sha1-fe76e30 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Synchronized Operator &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -31,7 +30,7 @@
             <a href="../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-fe76e30<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-fe76e30.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-94dd9f4<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-94dd9f4.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
@@ -574,23 +573,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="synchronized-operator">
+  <div class="section" id="synchronized-operator">
 <h1>Synchronized Operator<a class="headerlink" href="#synchronized-operator" title="Permalink to this headline">¶</a></h1>
-<section id="syntax">
+<div class="section" id="syntax">
 <h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="ProcessBehaviour">processBehaviour</a> “||”
 <a class="reference external" href="ProcessBehaviour">processBehaviour</a></p>
-</section>
-<section id="semantics">
+</div>
+<div class="section" id="semantics">
 <h2>Semantics<a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h2>
 <p>process1 || process2</p>
 <p>process1 and process2 are executed while synchronized over all channels,
 including <a class="reference external" href="EXIT">EXIT</a>.</p>
 <p>When both processes have exited then the synchronized composition exits.</p>
-</section>
-<section id="examples">
+</div>
+<div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<section id="communication">
+<div class="section" id="communication">
 <h3>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h3>
 <p>The statement</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Channel1_Int ? x
@@ -608,8 +607,8 @@ and</div>
 <div class="line">since both communications have exited, the synchronized composition
 exits.</div>
 </div>
-</section>
-<section id="constrained-communication">
+</div>
+<div class="section" id="constrained-communication">
 <h3>Constrained communication<a class="headerlink" href="#constrained-communication" title="Permalink to this headline">¶</a></h3>
 <p>The statement</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Channel1_Int ? x [[ x &gt;= 10 ]]
@@ -628,8 +627,8 @@ in the range [10,20]</div>
 <div class="line">and, since both communications have exited, the synchronized
 composition exits.</div>
 </div>
-</section>
-<section id="deadlock">
+</div>
+<div class="section" id="deadlock">
 <h3>Deadlock<a class="headerlink" href="#deadlock" title="Permalink to this headline">¶</a></h3>
 <p>The statement</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Channel1_Int ? x
@@ -648,9 +647,9 @@ channel, Channel2_Int,</div>
 i.e., the process is in
 <a class="reference external" href="https://en.wikipedia.org/wiki/Deadlock">deadlock</a>.</div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

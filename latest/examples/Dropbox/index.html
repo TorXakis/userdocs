@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-fe76e30 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +30,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-fe76e30<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-fe76e30.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-94dd9f4<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-94dd9f4.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -574,7 +573,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="torxakis-dropbox-example">
+  <div class="section" id="torxakis-dropbox-example">
 <h1>TorXakis Dropbox Example<a class="headerlink" href="#torxakis-dropbox-example" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">code:</span></code>  <a class="reference external" href="https://github.com/TorXakis/examples/tree/main/Dropbox">https://github.com/TorXakis/examples/tree/main/Dropbox</a></p>
 <p>We apply model-based testing with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to test Dropbox. Our
@@ -583,7 +582,7 @@ model-based testing tool Quviq QuickCheck. We first briefly introduce
 Dropbox, we then discuss some aspects of the testing approach, we
 present a model in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language, we run some
 tests, and end with discussion.</p>
-<section id="dropbox">
+<div class="section" id="dropbox">
 <h2>Dropbox<a class="headerlink" href="#dropbox" title="Permalink to this headline">¶</a></h2>
 <p>Dropbox is a file-synchronization service <a class="reference internal" href="../../bibliography.html#r25" id="id2"><span>[R25]</span></a>, like Google-Drive and
 Microsoft-OneDrive. A file-synchronization service maintains consistency
@@ -612,8 +611,8 @@ documented and the complete internal state is not observable, and
 partial modelling is needed because of its size. Altogether, file
 synchronizers are interesting and challenging systems to be tested,
 traditionally as well as model-based.</p>
-</section>
-<section id="testing-approach">
+</div>
+<div class="section" id="testing-approach">
 <h2>Testing Approach<a class="headerlink" href="#testing-approach" title="Permalink to this headline">¶</a></h2>
 <p>We test the Dropbox synchronization service, that is, the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
 the Dropbox behaviour as observed by users of the synchronization
@@ -648,8 +647,8 @@ nodes of all conflict files. Like in <a class="reference internal" href="../../b
 waiting for at least 30 seconds. Since the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling
 language itself does not support realtime, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> sends a
 command to the adapter to wait for 30 seconds.</p>
-</section>
-<section id="modelling">
+</div>
+<div class="section" id="modelling">
 <h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
 <p>Our Dropbox model is a straightforward translation of “Section IV:
 Formalizing the specification” in <a class="reference internal" href="../../bibliography.html#r40" id="id9"><span>[R40]</span></a> into the modelling language
@@ -712,11 +711,9 @@ conflict files, after stabilization, i.e., after all file
 synchronizations have taken place.</p>
 </dd>
 </dl>
-<figure class="align-center" id="id21">
-<span id="fig-dropbox-structure"></span><img alt="Dropbox structure" src="../../_images/dropbox_structure.svg" /><figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Dropbox structure.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<div class="figure align-center" id="id21">
+<span id="fig-dropbox-structure"></span><img alt="Dropbox structure" src="../../_images/dropbox_structure.svg" /><p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Dropbox structure.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
 <p>In addition to these visible actions, there are hidden actions. If a
 user modifies a file, Dropbox will upload it to the Dropbox server, and
 then later download this file to the other nodes. But a Dropbox user,
@@ -1064,8 +1061,8 @@ h <code class="docutils literal notranslate"><span class="pre">txs0-pc</span></c
 type <code class="docutils literal notranslate"><span class="pre">Rsp</span></code> on channel <code class="docutils literal notranslate"><span class="pre">Out0</span></code> using function <code class="docutils literal notranslate"><span class="pre">decodeRsp</span></code> .
 Analogous bindings of abstract channels to real-world socksets are
 specified for <code class="docutils literal notranslate"><span class="pre">In1</span></code> , <code class="docutils literal notranslate"><span class="pre">Out1</span></code> , <code class="docutils literal notranslate"><span class="pre">In2</span></code> , and <code class="docutils literal notranslate"><span class="pre">Out2</span></code> .</p>
-</section>
-<section id="model-based-testing">
+</div>
+<div class="section" id="model-based-testing">
 <h2>Model-Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have an <code class="docutils literal notranslate"><span class="pre">sut</span></code> and a model, we can start generating tests
 and executing them. First, we start the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , that is, the virtual
@@ -1282,8 +1279,8 @@ TXS &gt;&gt; PASS
 TXS &gt;&gt;
 </pre></div>
 </div>
-</section>
-<section id="discussion-and-comparison">
+</div>
+<div class="section" id="discussion-and-comparison">
 <h2>Discussion and Comparison<a class="headerlink" href="#discussion-and-comparison" title="Permalink to this headline">¶</a></h2>
 <p>We showed that model-based testing of a file synchronizer that is
 distributed, concurrent, and nondeterministic, that combines state and
@@ -1344,8 +1341,8 @@ different (model-based) test generation strategies, e.g., the one of
 Quviq QuickCheck with the one of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , and assign a measure
 of quality or coverage to the generated test suites, and thus,
 indirectly, a measure to the quality of the tested <code class="docutils literal notranslate"><span class="pre">sut</span></code> ?</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

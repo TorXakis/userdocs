@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example - Lucky People &mdash; TorXakis v0.9.0, Document version git-sha1-fe76e30 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example - Lucky People &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +30,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-fe76e30<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-fe76e30.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-94dd9f4<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-94dd9f4.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -575,7 +574,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="modelling-example-lucky-people">
+  <div class="section" id="modelling-example-lucky-people">
 <h1>Modelling Example - Lucky People<a class="headerlink" href="#modelling-example-lucky-people" title="Permalink to this headline">¶</a></h1>
 <p>We want to test our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Java_program">java
 program</a>
@@ -585,7 +584,7 @@ detailed behaviour of this program can be found at the <a class="reference exter
 page</a>. All the files used in this
 example can be found at <a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/LuckyPeople">the example
 folder</a>.</p>
-<section id="types">
+<div class="section" id="types">
 <h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
 <p>We start with defining the types that are needed to model This program’s
 (our System Under Test - SUT) behaviour. The input of our SUT are
@@ -602,8 +601,8 @@ TYPEDEF Person ::=
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="channels">
+</div>
+<div class="section" id="channels">
 <h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
 <p>Our SUT receives a sequence of persons and determines if those people
 are lucky. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define the
@@ -614,8 +613,8 @@ for modelling this behaviour:</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="procedure">
+</div>
+<div class="section" id="procedure">
 <h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h2>
 <p>In our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">model
 definition</a>, we
@@ -678,8 +677,8 @@ ENDDEF
 <p>Now we can use this <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">procedure
 definition</a> in
 our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">Model</a>.</p>
-</section>
-<section id="model">
+</div>
+<div class="section" id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>The model should specify that the system uses two channels, one incoming
 for the Person and one outgoing for the result. It should also specify
@@ -695,13 +694,13 @@ behaviour.</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>We’re not done yet. We need to implement the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function
 definitions</a> that
 our “<em>luckyPeople</em>” process uses.</p>
-<section id="isvalid-person">
+<div class="section" id="isvalid-person">
 <h3>isValid_Person<a class="headerlink" href="#isvalid-person" title="Permalink to this headline">¶</a></h3>
 <p>We want to validate the input in order to make sure that it represents
 data of a person that can actually exist.</p>
@@ -716,8 +715,8 @@ ENDDEF
 <p>“<em>strinre</em>” function checks whether the given string matches the given
 Regular Expression. First two lines ensure that only the inputs with
 Capital case first name and surname are valid.</p>
-</section>
-<section id="isluckyperson">
+</div>
+<div class="section" id="isluckyperson">
 <h3>isLuckyPerson<a class="headerlink" href="#isluckyperson" title="Permalink to this headline">¶</a></h3>
 <p>To make the “<em>luckyPerson</em>” process cleaner, we decided to extract the
 logic of determining the person’s luckiness into a separate function. As
@@ -735,8 +734,8 @@ ENDDEF
 </div>
 <p>Now let’s define each of these criteria as separate <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function
 definitions</a>.</p>
-</section>
-<section id="isluckybygender">
+</div>
+<div class="section" id="isluckybygender">
 <h3>isLuckyByGender<a class="headerlink" href="#isluckybygender" title="Permalink to this headline">¶</a></h3>
 <p>A person is lucky by gender if previous 5 people were all from the
 opposite sex.</p>
@@ -745,8 +744,8 @@ opposite sex.</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="isluckybyname">
+</div>
+<div class="section" id="isluckybyname">
 <h3>isLuckyByName<a class="headerlink" href="#isluckybyname" title="Permalink to this headline">¶</a></h3>
 <p>A person is lucky by name if both it’s name and surname start with the
 same letter.</p>
@@ -755,8 +754,8 @@ same letter.</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="isluckybybirthday">
+</div>
+<div class="section" id="isluckybybirthday">
 <h3>isLuckyByBirthday<a class="headerlink" href="#isluckybybirthday" title="Permalink to this headline">¶</a></h3>
 <p>A person is lucky by birthday if both day and month of it’s birthday are
 the same.</p>
@@ -765,9 +764,9 @@ the same.</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-</section>
-<section id="sut-connection">
+</div>
+</div>
+<div class="section" id="sut-connection">
 <h2>SUT Connection<a class="headerlink" href="#sut-connection" title="Permalink to this headline">¶</a></h2>
 <p>Our SUT communicates with the outside world by sending and receiving
 lines i.e. strings terminated by a line feed, over a socket at port
@@ -796,8 +795,8 @@ CNECTDEF  Sut ::=
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="model-based-testing">
+</div>
+<div class="section" id="model-based-testing">
 <h2>Model Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Start the SUT: run the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Java_program">Java
@@ -835,8 +834,8 @@ TXS &gt;&gt;  ....50: OUT: Act { { ( Out, [ False ] ) } }
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-</section>
-<section id="xml-based-communication">
+</div>
+<div class="section" id="xml-based-communication">
 <h2>XML-Based communication<a class="headerlink" href="#xml-based-communication" title="Permalink to this headline">¶</a></h2>
 <p>TorXakis is capable of XML-based communication with SUT’s. We don’t have
 an SUT which does that but TorXakis can help us there, too: TorXakis can
@@ -949,8 +948,8 @@ TXS &gt;&gt;  PASS
 </pre></div>
 </div>
 <p>Next: <a class="reference external" href="Modelling-Example-Lucky-People-(Testing-With-Predetermined-Input).md">Testing with predetermined input</a></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

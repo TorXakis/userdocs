@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-fe76e30 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example: Echo &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +30,7 @@
             <a href="../../index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-fe76e30<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-fe76e30.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-94dd9f4<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-94dd9f4.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -574,7 +573,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="modelling-example-echo">
+  <div class="section" id="modelling-example-echo">
 <h1>Modelling Example: Echo<a class="headerlink" href="#modelling-example-echo" title="Permalink to this headline">¶</a></h1>
 <p>Let’s say we want to build a simple system that that receives an input
 and repeats it as is (AKA echoes it). Before writing any code for it,
@@ -583,7 +582,7 @@ we’re going to model the solution and test it with
 <p>The complete model file used in this example can be found at <a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/Echo">the
 example
 folder</a>.</p>
-<section id="channels">
+<div class="section" id="channels">
 <h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
 <p>This system is going to receive an input and echo it via the output. For
 simplicity, let’s limit the inputs to only be integers. We can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define
@@ -593,8 +592,8 @@ needed for modelling this behaviour as:</p>
 <span class="k">ENDDEF</span>
 </pre></div>
 </div>
-</section>
-<section id="process">
+</div>
+<div class="section" id="process">
 <h2>Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
 <p>We need to define the process of receiving the input and communicating
 it to the output channel. Here is our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">process
@@ -606,8 +605,8 @@ definition</a>:</p>
 <span class="k">ENDDEF</span>
 </pre></div>
 </div>
-</section>
-<section id="model">
+</div>
+<div class="section" id="model">
 <h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>The model should specify that the system uses two channels, one incoming
 and one outgoing. It should also specify that first an input and then an
@@ -623,8 +622,8 @@ this system in TorXakis is as follows:</p>
 <span class="k">ENDDEF</span>
 </pre></div>
 </div>
-</section>
-<section id="model-based-testing-stepping-through-the-model">
+</div>
+<div class="section" id="model-based-testing-stepping-through-the-model">
 <h2>Model Based Testing: Stepping through the Model<a class="headerlink" href="#model-based-testing-stepping-through-the-model" title="Permalink to this headline">¶</a></h2>
 <p>We don’t have any SUT yet, but with TorXakis we can already step through
 the model to verify it.</p>
@@ -658,8 +657,8 @@ TXS &gt;&gt;  ....10: Act { { ( Out, [ -77 ] ) } }
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-</section>
-<section id="simulator-definition">
+</div>
+<div class="section" id="simulator-definition">
 <h2>Simulator Definition<a class="headerlink" href="#simulator-definition" title="Permalink to this headline">¶</a></h2>
 <p>We still don’t have the real implementation of the system, but with
 TorXakis we don’t need it to mimic an actual test with an existing SUT.
@@ -690,8 +689,8 @@ the simulator.</p></li>
 </ul>
 <p>Now we have a (simulated) SUT, so we can connect to it and execute Model
 Based Testing!</p>
-</section>
-<section id="sut-connection">
+</div>
+<div class="section" id="sut-connection">
 <h2>SUT Connection<a class="headerlink" href="#sut-connection" title="Permalink to this headline">¶</a></h2>
 <p>TorXakis is going to communicate with the SUT by sending and receiving
 lines i.e. strings terminated by a line feed, over a socket at port
@@ -721,8 +720,8 @@ the SUT.</p></li>
 <li><p>Line 6: <strong>“Out”</strong> channel of the model becomes the <em>input</em> of
 TorXakis.</p></li>
 </ul>
-</section>
-<section id="model-based-testing-testing-the-simulated-sut">
+</div>
+<div class="section" id="model-based-testing-testing-the-simulated-sut">
 <h2>Model Based Testing: Testing the Simulated SUT<a class="headerlink" href="#model-based-testing-testing-the-simulated-sut" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Start TorXakis: run
@@ -810,8 +809,8 @@ TXS &gt;&gt;  ....20: OUT: No Output (Quiescence)
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-</section>
-<section id="xml-based-communication">
+</div>
+<div class="section" id="xml-based-communication">
 <h2>XML-Based communication<a class="headerlink" href="#xml-based-communication" title="Permalink to this headline">¶</a></h2>
 <p>TorXakis is capable of XML-based communication with SUT’s and simulating
 them as well. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/CnectDefs">define another SUT
@@ -920,8 +919,8 @@ TXS &gt;&gt;  ....20: OUT: No Output (Quiescence)
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
