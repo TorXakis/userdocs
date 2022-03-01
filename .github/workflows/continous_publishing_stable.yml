@@ -18,9 +18,8 @@ jobs:
 #     * DOCUMENT_NAME: official name for the documention configured in the sphinx configuration file conf.py
 #   NOTE: all user configaration is done in the sphinx config so that this file can left unchanged
     - name: build documentation pdf and html
-      uses: ammaraskar/sphinx-action@0.4
+      uses: harcokuppens/sphinx-action@master  
       with:
-        pre-build-command: "apt-get update -y && apt-get install -y graphviz git latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended"
         build-command: "make html latexpdf BUILDDIR=build"
         docs-folder: "."
 # Publish website on github pages      

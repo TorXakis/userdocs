@@ -1,8 +1,4 @@
 sphinx-rtd-theme
 
-docutils
-Sphinx
-Pygments
-
 dist/pygments_torxakis-0.0.1-py3-none-any.whl
 antlr4-python3-runtime
