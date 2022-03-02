@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>Modelling Example - Control Loop &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -574,8 +573,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="modelling-example-control-loop">
-<h1>Modelling Example - Control Loop<a class="headerlink" href="#modelling-example-control-loop" title="Permalink to this headline"></a></h1>
+  <div class="section" id="modelling-example-control-loop">
+<h1>Modelling Example - Control Loop<a class="headerlink" href="#modelling-example-control-loop" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we model a control loop. The control loop consists out
 of three processes: produce, measure, and correct. Between these
 processes material and reports are exchanged. The three processes repeat
@@ -591,8 +590,8 @@ this model, we will discuss these three processes in order of
 simplicity. We will end with the complete control loop model.</p>
 <p>All the files used in this example can be found at <a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/ControlLoop">the example
 folder</a>.</p>
-<section id="data-types">
-<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline"></a></h2>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <p>All <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data types</a>
 are Cartesian Products of two integers: id and value.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TYPEDEF ProduceReport ::= ProduceReport { id, value :: Int } ENDDEF
@@ -600,9 +599,9 @@ TYPEDEF MeasureReport ::= MeasureReport { id, value :: Int } ENDDEF
 TYPEDEF Correction    ::= Correction    { id, value :: Int } ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="channels">
-<h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="channels">
+<h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
 <p>Once we have the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Data_Type">data
 types</a>,
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">channels</a> needed
@@ -616,11 +615,11 @@ for modelling this flow can be defined as:</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
-<section id="sgn">
-<h3>sgn<a class="headerlink" href="#sgn" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sgn">
+<h3>sgn<a class="headerlink" href="#sgn" title="Permalink to this headline">¶</a></h3>
 <p>The sign
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/FuncDefs">function</a>: zero
 for zero, +1 for all positive numbers, and -1 for all negative numbers.</p>
@@ -635,12 +634,12 @@ for zero, +1 for all positive numbers, and -1 for all negative numbers.</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-</section>
-<section id="processes">
-<h2>Processes<a class="headerlink" href="#processes" title="Permalink to this headline"></a></h2>
-<section id="correct">
-<h3>correct<a class="headerlink" href="#correct" title="Permalink to this headline"></a></h3>
+</div>
+</div>
+<div class="section" id="processes">
+<h2>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correct">
+<h3>correct<a class="headerlink" href="#correct" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Correction process" src="../../_images/correct.jpg" /></p>
 <p>Correct is a repeating process of corrections. All corrections need two
 inputs: a production report and a measurement report. These reports must
@@ -667,9 +666,9 @@ Definition</a>:</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="measure">
-<h3>measure<a class="headerlink" href="#measure" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="measure">
+<h3>measure<a class="headerlink" href="#measure" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Measuring process" src="../../_images/measure.jpg" /></p>
 <p>Measure is a repeating process of measurements. All measurements need
 one input: the material to measure. All measurements result in two
@@ -706,9 +705,9 @@ Definition</a>:</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="produce">
-<h3>produce<a class="headerlink" href="#produce" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="produce">
+<h3>produce<a class="headerlink" href="#produce" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Production process" src="../../_images/produce.jpg" /></p>
 <p>Produce is a repeating process of production steps. All production steps
 results in two outputs: material and report. The order of these two
@@ -783,9 +782,9 @@ PROCDEF produceLoop [ In_Material           :: Int
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="control-loop">
-<h3>control loop<a class="headerlink" href="#control-loop" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="control-loop">
+<h3>control loop<a class="headerlink" href="#control-loop" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Control loop" src="../../_images/controlloop.jpg" /></p>
 <p>The behaviour of the control loop process is captured in the following
 TorXakis <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ProcDefs">Process
@@ -809,10 +808,10 @@ communication channels.</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-</section>
-<section id="model">
-<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline"></a></h2>
+</div>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>Since the above Control Loop process (model) puts everything together,
 now we can <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ModelDefs">define our
 model</a> as
@@ -839,9 +838,9 @@ follows:</p>
 ENDDEF
 </pre></div>
 </div>
-</section>
-<section id="stepping-through-the-model">
-<h2>Stepping through the Model<a class="headerlink" href="#stepping-through-the-model" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="stepping-through-the-model">
+<h2>Stepping through the Model<a class="headerlink" href="#stepping-through-the-model" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Start TorXakis: run
 <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/TorXakis">TorXakis</a>
@@ -872,8 +871,8 @@ TXS &gt;&gt;  ....10: Act { { ( Out_Material, [ -79 ] ) } }
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
