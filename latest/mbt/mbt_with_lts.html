@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Model-Based Testing with Labelled Transition Systems &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <title>Model-Based Testing with Labelled Transition Systems &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,7 +41,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -264,7 +265,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Appendices</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Installation.html#binary-install">Binary Install</a><ul>
@@ -538,7 +539,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Backmatter</span></p>
+<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
@@ -573,10 +574,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="model-based-testing-with-labelled-transition-systems">
-<h1>Model-Based Testing with Labelled Transition Systems<a class="headerlink" href="#model-based-testing-with-labelled-transition-systems" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="labelled-transition-systems">
-<h2>Labelled transition systems<a class="headerlink" href="#labelled-transition-systems" title="Permalink to this headline">¶</a></h2>
+  <section id="model-based-testing-with-labelled-transition-systems">
+<h1>Model-Based Testing with Labelled Transition Systems<a class="headerlink" href="#model-based-testing-with-labelled-transition-systems" title="Permalink to this headline"></a></h1>
+<section id="labelled-transition-systems">
+<h2>Labelled transition systems<a class="headerlink" href="#labelled-transition-systems" title="Permalink to this headline"></a></h2>
 <p>Labelled transition systems (LTS) and
 its variants constitute a powerful semantic model for describing and
 reasoning about dynamic, reactive systems. An LTS is a structure
@@ -589,9 +590,9 @@ defining LTS equivalences to a theory that forms a sound basis for real
 testing and industrially viable testing tools. In this section we first
 sketch the evolution of LTS-based testing theory and then describe to
 what extent <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> uses this theory.</p>
-</div>
-<div class="section" id="testing-equivalences">
-<h2>Testing equivalences<a class="headerlink" href="#testing-equivalences" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="testing-equivalences">
+<h2>Testing equivalences<a class="headerlink" href="#testing-equivalences" title="Permalink to this headline"></a></h2>
 <p>Testing theory for LTS started with using
 testing to formalize the notion of behavioural equivalence for LTS. Two
 LTSs show equivalent behaviour if there is no test that can observe the
@@ -610,9 +611,9 @@ compares these and other equivalences and preorders defined over LTS [R1,
 <em>non-determinism</em>, i.e., that after doing an action in an LTS the
 subsequent state is not uniquely determined. For deterministic systems
 almost all equivalences coincide  <a class="reference internal" href="../bibliography.html#r28" id="id2"><span>[R28]</span></a>.</p>
-</div>
-<div class="section" id="test-generation">
-<h2>Test generation<a class="headerlink" href="#test-generation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="test-generation">
+<h2>Test generation<a class="headerlink" href="#test-generation" title="Permalink to this headline"></a></h2>
 <p>Whereas the theory of testing equivalences and
 preorders is used to define semantic relations over LTS using all
 possible tests, actual testing turns this around: given an LTS <em>s</em> (the
@@ -631,9 +632,9 @@ introduces <em>under-specification</em>, in two ways. First, after traces that
 are not in the specification LTS, anything is allowed in the
 implementation. Second, the implementation may refuse less than the
 specification.</p>
-</div>
-<div class="section" id="inputs-and-outputs">
-<h2>Inputs and outputs<a class="headerlink" href="#inputs-and-outputs" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="inputs-and-outputs">
+<h2>Inputs and outputs<a class="headerlink" href="#inputs-and-outputs" title="Permalink to this headline"></a></h2>
 <p>The canonical tester theory and its variants
 make an important assumption about the communication between the
 <code class="docutils literal notranslate"><span class="pre">sut</span></code> and the tester, viz. that this communication is synchronous and
@@ -664,9 +665,9 @@ outputs by the <code class="docutils literal notranslate"><span class="pre">sut<
 quiescence corresponds to observing that there is no output of the
 <code class="docutils literal notranslate"><span class="pre">sut</span></code>, which is an important observation in testing theory as well as
 in practical testing.</p>
-</div>
-<div class="section" id="implementation-relation-ioco">
-<h2>Implementation relation ioco<a class="headerlink" href="#implementation-relation-ioco" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="implementation-relation-ioco">
+<h2>Implementation relation ioco<a class="headerlink" href="#implementation-relation-ioco" title="Permalink to this headline"></a></h2>
 <p>In <strong>ioconf</strong> the test will stop after
 observing quiescence, i.e., during each test run quiescence occurs at
 most once, as the last observation. Phalippou noticed that in practical
@@ -724,9 +725,9 @@ such as <strong>mioco</strong> for multiple input and output channels  <a class=
 that diminishes the requirements on input enabledness  <a class="reference internal" href="../bibliography.html#r66" id="id23"><span>[R66]</span></a>, various
 variants of timed-<strong>ioco</strong> <a class="reference internal" href="../bibliography.html#r15" id="id24"><span>[R15]</span></a> <a class="reference internal" href="../bibliography.html#r38" id="id25"><span>[R38]</span></a> <a class="reference internal" href="../bibliography.html#r45" id="id26"><span>[R45]</span></a>, <strong>qioco</strong> for quantitative
 testing  <a class="reference internal" href="../bibliography.html#r10" id="id27"><span>[R10]</span></a>, and <strong>sioco</strong> for LTS with data <a class="reference internal" href="../bibliography.html#r29" id="id28"><span>[R29]</span></a> <a class="reference internal" href="../bibliography.html#r30" id="id29"><span>[R30]</span></a>.</p>
-</div>
-<div class="section" id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline"></a></h2>
 <p>The <strong>ioco</strong>/<strong>uioco</strong>-testing theory for labelled transition
 systems mainly deals with the dynamic aspects of system behaviour, i.e.,
 with state-based control flow. The static aspects, such as data
@@ -739,9 +740,9 @@ semantics of STS and <strong>sioco</strong> is given directly in terms of LTS; S
 and <strong>sioco</strong> do not add expressiveness but they provide a way of
 representing and manipulating large and infinite transition systems
 symbolically.</p>
-</div>
-<div class="section" id="torxakis">
-<h2>TorXakis<a class="headerlink" href="#torxakis" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="torxakis">
+<h2>TorXakis<a class="headerlink" href="#torxakis" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is rooted in the <strong>ioco</strong>-testing theory for
 labelled transition systems. Its implementation relation is <strong>ioco</strong> and
 the testability hypothesis is that an <code class="docutils literal notranslate"><span class="pre">sut</span></code> is assumed to be modelled
@@ -752,8 +753,8 @@ generation algorithm for symbolic transition systems, and it uses a
 process-algebraic modelling language <code class="docutils literal notranslate"><span class="pre">Txs</span></code> inspired by the language
 LOTOS <a class="reference internal" href="../bibliography.html#r11" id="id32"><span>[R11]</span></a> <a class="reference internal" href="../bibliography.html#r42" id="id33"><span>[R42]</span></a>, which is supplemented with an algebraic data-type
 specification formalism.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

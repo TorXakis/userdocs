@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <title>Modelling Example: Stimulus Response &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -40,7 +41,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -264,7 +265,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Appendices</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -538,7 +539,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Backmatter</span></p>
+<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -573,16 +574,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="modelling-example-stimulus-response">
-<h1>Modelling Example: Stimulus Response<a class="headerlink" href="#modelling-example-stimulus-response" title="Permalink to this headline">¶</a></h1>
+  <section id="modelling-example-stimulus-response">
+<h1>Modelling Example: Stimulus Response<a class="headerlink" href="#modelling-example-stimulus-response" title="Permalink to this headline"></a></h1>
 <p>We want to test our <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Java_program">java
 program</a>
 <a class="reference external" href="StimulusResponse.java">StimulusResponse.java</a>. This is a simple
 program that receives an input (Stimulus) and responds to it (Response).
 All the files used in this example can be found at <a class="reference external" href="https://github.com/TorXakis/TorXakis/tree/develop/examps/StimulusResponse">the example
 folder</a>.</p>
-<div class="section" id="channels">
-<h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
+<section id="channels">
+<h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline"></a></h2>
 <p>This program (our System Under Test - SUT) receives a stimulus and
 responds to it. Let’s <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/ChanDefs">define the
 channels</a> needed
@@ -591,9 +592,9 @@ for modelling this behaviour:</p>
 <span class="k">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="model">
-<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline"></a></h2>
 <p>The model should specify that the system uses two channels, one incoming
 for the stimulus and one outgoing for the response. It should also
 specify that first a stimulus and then a response are communicated. The
@@ -609,9 +610,9 @@ this system in TorXakis is as follows:</p>
 <span class="k">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sut-connection">
-<h2>SUT Connection<a class="headerlink" href="#sut-connection" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sut-connection">
+<h2>SUT Connection<a class="headerlink" href="#sut-connection" title="Permalink to this headline"></a></h2>
 <p>Our SUT communicates with the outside world by sending and receiving
 lines i.e. strings terminated by a line feed, over a socket at port
 7890. When TorXakis and the SUT run on the same machine (localhost) the
@@ -628,9 +629,9 @@ can be defined in TorXakis as follows:</p>
 <span class="k">ENDDEF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="model-based-testing">
-<h2>Model Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="model-based-testing">
+<h2>Model Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>Start the SUT: run the <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Java_program">Java
 program</a>
@@ -662,8 +663,8 @@ TXS &gt;&gt;  .....3: OUT: No Output (Quiescence)
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-<div class="section" id="errorneous-sut">
-<h3>Errorneous SUT<a class="headerlink" href="#errorneous-sut" title="Permalink to this headline">¶</a></h3>
+<section id="errorneous-sut">
+<h3>Errorneous SUT<a class="headerlink" href="#errorneous-sut" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Start the errorneous SUT: run the errorneous <a class="reference external" href="https://github.com/TorXakis/TorXakis/wiki/Java_program">Java
 program</a>
@@ -697,10 +698,10 @@ TXS &gt;&gt;  [ ( { Response[] }, [], [] ) ]
 TXS &gt;&gt;  FAIL: No Output (Quiescence)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="stimulus-response-loop">
-<h2>Stimulus Response - Loop<a class="headerlink" href="#stimulus-response-loop" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="stimulus-response-loop">
+<h2>Stimulus Response - Loop<a class="headerlink" href="#stimulus-response-loop" title="Permalink to this headline"></a></h2>
 <p>Let’s change our system to run in a loop of waiting for next Stimulus,
 instead of exiting after the first one. See
 <a class="reference external" href="StimulusResponseLoop.java">StimulusResponseLoop.java</a> for the
@@ -790,8 +791,8 @@ TXS &gt;&gt;  ....10: OUT: Act { { ( Response, [] ) } }
 TXS &gt;&gt;  PASS
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
