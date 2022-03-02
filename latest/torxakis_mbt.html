@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis: A Model-Based Testing Tool &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>TorXakis: A Model-Based Testing Tool &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -573,16 +572,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="torxakis-a-model-based-testing-tool">
-<h1>TorXakis: A Model-Based Testing Tool<a class="headerlink" href="#torxakis-a-model-based-testing-tool" title="Permalink to this headline"></a></h1>
+  <div class="section" id="torxakis-a-model-based-testing-tool">
+<h1>TorXakis: A Model-Based Testing Tool<a class="headerlink" href="#torxakis-a-model-based-testing-tool" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a tool for model-based testing. This section gives a
 high-level overview of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>. The next sections will illustrate
 <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> with a couple of examples. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is open source
 software and is freely available under a BSD3 license  <a class="reference internal" href="bibliography.html#r58" id="id1"><span>[R58]</span></a>.</p>
-<section id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h2>
-<section id="features">
-<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline"></a></h3>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> implements the <strong>ioco</strong>-testing theory for
 labelled transition systems. More specifically, it implements test
 generation for symbolic transition systems (STS) following the
@@ -620,9 +619,9 @@ always match the requirements of complex systems, and test selection is
 still mainly random, but more sophisticated selection strategies are
 being investigated <a class="reference internal" href="bibliography.html#r12" id="id5"><span>[R12]</span></a> <a class="reference internal" href="bibliography.html#r13" id="id6"><span>[R13]</span></a>. <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> does not support
 probabilities, real-time, or hybrid properties in system models.</p>
-</section>
-<section id="modelling">
-<h3>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="modelling">
+<h3>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h3>
 <p>Labelled transition systems or symbolic transition
 systems form a well-defined semantic basis for modelling and model-based
 testing, but they are not directly suitable for writing down models
@@ -652,9 +651,9 @@ process-algebraic part is complemented with a data specification
 language based on algebraic data types (ADT) and functions like in
 functional languages. In addition to user-defined ADTs, predefined data
 types such as booleans, unbounded integers, and strings are provided.</p>
-</section>
-<section id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is based on the model-based testing
 tools <code class="docutils literal notranslate"><span class="pre">TorX</span></code>  <a class="reference internal" href="bibliography.html#r6" id="id15"><span>[R6]</span></a> and <code class="docutils literal notranslate"><span class="pre">JTorX</span></code>  <a class="reference internal" href="bibliography.html#r5" id="id16"><span>[R5]</span></a>. The main additions are data
 specification and manipulation with algebraic data types, and its own,
@@ -676,9 +675,9 @@ reasoning with testing equivalence, which implies <strong>ioco</strong>-semantic
 <p>The core of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is implemented in the functional language
 Haskell  <a class="reference internal" href="bibliography.html#r36" id="id24"><span>[R36]</span></a>, while parts of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> itself have been tested with
 the Haskell MBT tool QuickCheck  <a class="reference internal" href="bibliography.html#r19" id="id25"><span>[R19]</span></a>.</p>
-</section>
-<section id="innovation">
-<h3>Innovation<a class="headerlink" href="#innovation" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="innovation">
+<h3>Innovation<a class="headerlink" href="#innovation" title="Permalink to this headline">¶</a></h3>
 <p>Compared to other model-based testing tools
 <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> deals with some of the important challenges posed in Sect.
 2: it offers support for test generation from non-deterministic models,
@@ -687,28 +686,26 @@ supports concurrency and parallelism, it enables composition of complex
 models from simpler models, and it combines constructive modelling in
 transition systems with property-oriented specification via data
 constraints.</p>
-</section>
-</section>
-<section id="usage-overview">
-<h2>Usage overview<a class="headerlink" href="#usage-overview" title="Permalink to this headline"></a></h2>
+</div>
+</div>
+<div class="section" id="usage-overview">
+<h2>Usage overview<a class="headerlink" href="#usage-overview" title="Permalink to this headline">¶</a></h2>
 <p>In this section we give  an overview of the general usage of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>.
 In later chapters we discuss its usage in more details, and in the Examples
 chapter we discuss the usage of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to learn a specific example in detail.</p>
-<section id="test-architecture">
-<h3>Test architecture<a class="headerlink" href="#test-architecture" title="Permalink to this headline"></a></h3>
+<div class="section" id="test-architecture">
+<h3>Test architecture<a class="headerlink" href="#test-architecture" title="Permalink to this headline">¶</a></h3>
 <p>In order to use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, we need a <em>System Under Test</em> (<code class="docutils literal notranslate"><span class="pre">sut</span></code>), a
 <em>model</em> specifying the required and allowed behaviour of the <code class="docutils literal notranslate"><span class="pre">sut</span></code>,
 and an <em>adapter</em> (also called test harness, wrapper, testing glue, or
 test scaffolding) to connect the actual <code class="docutils literal notranslate"><span class="pre">sut</span></code> to the test tool
 <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>; see in <a class="reference internal" href="#fig-usage-testarchitecture"><span class="std std-numref">Image of Test architecture (Fig. 4)</span></a>.</p>
-<figure class="align-center" id="id28">
-<span id="fig-usage-testarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture1.svg" /><figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id28" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="system-under-test">
-<h3>System under test<a class="headerlink" href="#system-under-test" title="Permalink to this headline"></a></h3>
+<div class="figure align-center" id="id28">
+<span id="fig-usage-testarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture1.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="system-under-test">
+<h3>System under test<a class="headerlink" href="#system-under-test" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sut</span></code> is the actual program, compoenent,
 or system that we wish to test. The <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> view of an <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
 a black-box communicating with messages on its interfaces. Interfaces
@@ -731,9 +728,9 @@ model.</p>
 messages are line-based strings, or string-encodings of some typed data.
 So, technically, the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> view of an <code class="docutils literal notranslate"><span class="pre">sut</span></code> is a black-box
 communicating with strings on a couple of sockets.</p>
-</section>
-<section id="model">
-<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
 <p>The model is written in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language
 <code class="docutils literal notranslate"><span class="pre">Txs</span></code>. A model consists of a collection of definitions. There are
 channel, data-type, function, constant, process, and state-automaton
@@ -758,9 +755,9 @@ communication, interrupt, disable, and abstraction (hiding of actions).</p>
 standard data types such as integer, boolean, or string, or they are
 user-defined algebraic data-type definitions. Also functions and
 constants over data can be defined.</p>
-</section>
-<section id="adapter">
-<h3>Adapter<a class="headerlink" href="#adapter" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="adapter">
+<h3>Adapter<a class="headerlink" href="#adapter" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> communicates with the <code class="docutils literal notranslate"><span class="pre">sut</span></code> via sockets,
 so either the <code class="docutils literal notranslate"><span class="pre">sut</span></code> must offer a socket interface – which a lot of
 real-life <code class="docutils literal notranslate"><span class="pre">sut</span></code> s don’t do – or the <code class="docutils literal notranslate"><span class="pre">sut</span></code> must be connected via an
@@ -782,9 +779,9 @@ generation assume synchronous communication. This may lead to race
 conditions if a model offers the choice between an input and an output.
 If this occurs the asynchronous communication of the sockets must be
 explicitly modelled, e.g., as queues in the model.</p>
-</section>
-<section id="testing">
-<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
 <p>Once we have an <code class="docutils literal notranslate"><span class="pre">sut</span></code>, a model, and an adapter, we can
 use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to run tests. The tool performs on-the-fly testing of
 the <code class="docutils literal notranslate"><span class="pre">sut</span></code> by automatically generating test steps from the model and
@@ -793,17 +790,17 @@ and checking the responses from the <code class="docutils literal notranslate"><
 thousands of such test steps, which makes it also suitable for
 reliability testing, and it will eventually lead to a verdict for the
 test case.</p>
-</section>
-<section id="other-features">
-<h3>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="other-features">
+<h3>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h3>
 <p>Other functionality of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> includes
 calculation of data values, constraint solving for data variables,
 exploration of a model without connecting to an <code class="docutils literal notranslate"><span class="pre">sut</span></code> (closed
 simulation), and simulation of a model in an environment, i.e.,
 simulation while connected to the outside world (open simulation).</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

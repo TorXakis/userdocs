@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>TorXakis Dropbox Example &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -574,8 +573,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="torxakis-dropbox-example">
-<h1>TorXakis Dropbox Example<a class="headerlink" href="#torxakis-dropbox-example" title="Permalink to this headline"></a></h1>
+  <div class="section" id="torxakis-dropbox-example">
+<h1>TorXakis Dropbox Example<a class="headerlink" href="#torxakis-dropbox-example" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">code:</span></code>  <a class="reference external" href="https://github.com/TorXakis/examples/tree/main/Dropbox">https://github.com/TorXakis/examples/tree/main/Dropbox</a></p>
 <p>We apply model-based testing with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to test Dropbox. Our
 work closely follows the work in <a class="reference internal" href="../../bibliography.html#r40" id="id1"><span>[R40]</span></a>, where Dropbox was tested with the
@@ -583,8 +582,8 @@ model-based testing tool Quviq QuickCheck. We first briefly introduce
 Dropbox, we then discuss some aspects of the testing approach, we
 present a model in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language, we run some
 tests, and end with discussion.</p>
-<section id="dropbox">
-<h2>Dropbox<a class="headerlink" href="#dropbox" title="Permalink to this headline"></a></h2>
+<div class="section" id="dropbox">
+<h2>Dropbox<a class="headerlink" href="#dropbox" title="Permalink to this headline">¶</a></h2>
 <p>Dropbox is a file-synchronization service <a class="reference internal" href="../../bibliography.html#r25" id="id2"><span>[R25]</span></a>, like Google-Drive and
 Microsoft-OneDrive. A file-synchronization service maintains consistency
 among multiple copies of files or a directory structure over different
@@ -612,9 +611,9 @@ documented and the complete internal state is not observable, and
 partial modelling is needed because of its size. Altogether, file
 synchronizers are interesting and challenging systems to be tested,
 traditionally as well as model-based.</p>
-</section>
-<section id="testing-approach">
-<h2>Testing Approach<a class="headerlink" href="#testing-approach" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="testing-approach">
+<h2>Testing Approach<a class="headerlink" href="#testing-approach" title="Permalink to this headline">¶</a></h2>
 <p>We test the Dropbox synchronization service, that is, the <code class="docutils literal notranslate"><span class="pre">sut</span></code> is
 the Dropbox behaviour as observed by users of the synchronization
 service, as a black-box. We closely follow <a class="reference internal" href="../../bibliography.html#r40" id="id3"><span>[R40]</span></a>, where a formal model
@@ -648,9 +647,9 @@ nodes of all conflict files. Like in <a class="reference internal" href="../../b
 waiting for at least 30 seconds. Since the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling
 language itself does not support realtime, <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> sends a
 command to the adapter to wait for 30 seconds.</p>
-</section>
-<section id="modelling">
-<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
 <p>Our Dropbox model is a straightforward translation of “Section IV:
 Formalizing the specification” in <a class="reference internal" href="../../bibliography.html#r40" id="id9"><span>[R40]</span></a> into the modelling language
 of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> . Parts of the model are shown in Listings <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">Listing 2</span></a>,
@@ -658,7 +657,7 @@ of <code class="docutils literal notranslate"><span class="pre">TorXakis</span><
 <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>, <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>,
 <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a>, and <a class="reference internal" href="#fig-txs-dropbox-channels-types"><span class="std std-numref">2</span></a></p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-channels-types">
-<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Dropbox model - channels and their types. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-channels-types" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Dropbox model - channels and their types. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-channels-types" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">CHANDEF</span> <span class="nv">MyChans</span> <span class="s">::=</span>
      <span class="nv">In0</span><span class="p">,</span> <span class="nv">In1</span><span class="p">,</span> <span class="nv">In2</span> <span class="s">::</span> <span class="nv">Cmd</span> <span class="p">;</span>
      <span class="nv">Out0</span><span class="p">,</span> <span class="nv">Out1</span><span class="p">,</span> <span class="nv">Out2</span> <span class="s">::</span> <span class="nv">Rsp</span>
@@ -712,11 +711,9 @@ conflict files, after stabilization, i.e., after all file
 synchronizations have taken place.</p>
 </dd>
 </dl>
-<figure class="align-center" id="id21">
-<span id="fig-dropbox-structure"></span><img alt="Dropbox structure" src="../../_images/dropbox_structure.svg" /><figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Dropbox structure.</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<div class="figure align-center" id="id21">
+<span id="fig-dropbox-structure"></span><img alt="Dropbox structure" src="../../_images/dropbox_structure.svg" /><p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Dropbox structure.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
 <p>In addition to these visible actions, there are hidden actions. If a
 user modifies a file, Dropbox will upload it to the Dropbox server, and
 then later download this file to the other nodes. But a Dropbox user,
@@ -730,7 +727,7 @@ can explicitly <em>hide</em> these channels. The conceptual structure of
 Dropbox with nodes, server, and channels is given in Fig. 11. The outer
 box is our <code class="docutils literal notranslate"><span class="pre">sut</span></code> .</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-main-process">
-<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Dropbox model - main process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> with transitions <code class="docutils literal notranslate"><span class="pre">Read</span></code> and <code class="docutils literal notranslate"><span class="pre">Write</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19_.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-process" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Dropbox model - main process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> with transitions <code class="docutils literal notranslate"><span class="pre">Read</span></code> and <code class="docutils literal notranslate"><span class="pre">Write</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19_.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-process" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">PROCDEF</span> <span class="nc">dropBox</span> <span class="p">[</span> <span class="nv">In0</span><span class="p">,</span>  <span class="nv">In1</span><span class="p">,</span>  <span class="nv">In2</span>     <span class="s">::</span> <span class="nv">Cmd</span>
                  <span class="p">;</span> <span class="nv">Out0</span><span class="p">,</span> <span class="nv">Out1</span><span class="p">,</span> <span class="nv">Out2</span>    <span class="s">::</span> <span class="nv">Rsp</span>
                  <span class="p">;</span> <span class="nv">Down0</span><span class="p">,</span> <span class="nv">Down1</span><span class="p">,</span> <span class="nv">Down2</span>
@@ -811,7 +808,7 @@ expressed by the <code class="docutils literal notranslate"><span class="pre">To
 After the response, <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> is recursively called with updated
 state variables.</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-main-transitions-down-up">
-<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Dropbox model - transitions <code class="docutils literal notranslate"><span class="pre">Down</span></code> and <code class="docutils literal notranslate"><span class="pre">Up</span></code> in the main process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19__.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-transitions-down-up" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Dropbox model - transitions <code class="docutils literal notranslate"><span class="pre">Down</span></code> and <code class="docutils literal notranslate"><span class="pre">Up</span></code> in the main process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19__.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-transitions-down-up" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span>       .....
      <span class="s">##</span>
          <span class="s">[[</span> <span class="nc">not</span><span class="p">(</span><span class="nc">lookup</span><span class="p">(</span><span class="nc">fresh</span><span class="p">,</span><span class="nv">Node</span><span class="p">(</span><span class="s">0</span><span class="p">)))</span>
@@ -874,7 +871,7 @@ are included in the full model <a class="reference internal" href="../../bibliog
 recursive call of process <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> , where state parameters are not
 modified in case of file-reading.</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-main-transitions-stabilize">
-<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Dropbox model - transition <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> and and process <code class="docutils literal notranslate"><span class="pre">fileAndConflicts</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19___.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-transitions-stabilize" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Dropbox model - transition <code class="docutils literal notranslate"><span class="pre">Stabilize</span></code> and and process <code class="docutils literal notranslate"><span class="pre">fileAndConflicts</span></code>. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19___.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-main-transitions-stabilize" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> .....
      <span class="s">##</span>
          <span class="s">[[</span> <span class="nc">allTrue</span><span class="p">(</span><span class="nc">fresh</span><span class="p">)</span> <span class="o">/\</span> <span class="nc">allTrue</span><span class="p">(</span><span class="nc">clean</span><span class="p">)</span> <span class="s">]]</span>
@@ -940,7 +937,7 @@ uploading, and with special cases if the upload is actually a delete
 to <code class="docutils literal notranslate"><span class="pre">serverVal</span></code> . The state update has been directly copied from <a class="reference internal" href="../../bibliography.html#r40" id="id15"><span>[R40]</span></a>
 where it is very well explained, so for more details we refer there.</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-data-types-and-functions">
-<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Dropbox model - data types and functions. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19____.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-data-types-and-functions" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Dropbox model - data types and functions. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19____.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-data-types-and-functions" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">TYPEDEF</span> <span class="nv">Node</span>
   <span class="s">::=</span>
        <span class="nv">Node</span> <span class="p">{</span> <span class="nc">node</span> <span class="s">::</span> <span class="nv">Int</span> <span class="p">}</span>
@@ -1017,7 +1014,7 @@ the <em>tua</em> -occurrence. Visible actions, that is inputs and outputs, are
 visible to the system environment. They lead to state changes both in
 the system and in its environment.</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-def-model">
-<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Dropbox model - definition of the model that specifies the behaviour over the observable channels. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19_____.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-def-model" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Dropbox model - definition of the model that specifies the behaviour over the observable channels. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19_____.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-def-model" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">MODELDEF</span> <span class="nv">Mod</span>
   <span class="s">::=</span>
      <span class="k">CHAN</span> <span class="k">IN</span>   <span class="nv">In0</span><span class="p">,</span>  <span class="nv">In1</span><span class="p">,</span>  <span class="nv">In2</span>
@@ -1064,9 +1061,9 @@ h <code class="docutils literal notranslate"><span class="pre">txs0-pc</span></c
 type <code class="docutils literal notranslate"><span class="pre">Rsp</span></code> on channel <code class="docutils literal notranslate"><span class="pre">Out0</span></code> using function <code class="docutils literal notranslate"><span class="pre">decodeRsp</span></code> .
 Analogous bindings of abstract channels to real-world socksets are
 specified for <code class="docutils literal notranslate"><span class="pre">In1</span></code> , <code class="docutils literal notranslate"><span class="pre">Out1</span></code> , <code class="docutils literal notranslate"><span class="pre">In2</span></code> , and <code class="docutils literal notranslate"><span class="pre">Out2</span></code> .</p>
-</section>
-<section id="model-based-testing">
-<h2>Model-Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="model-based-testing">
+<h2>Model-Based Testing<a class="headerlink" href="#model-based-testing" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have an <code class="docutils literal notranslate"><span class="pre">sut</span></code> and a model, we can start generating tests
 and executing them. First, we start the <code class="docutils literal notranslate"><span class="pre">sut</span></code> , that is, the virtual
 machines, start the Dropbox client on these machines, and start the
@@ -1103,7 +1100,7 @@ line 75. It is left to the reader to check that the outputs on lines
 file, and that <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> correctly assigned the
 verdict <code class="docutils literal notranslate"><span class="pre">PASS</span></code> .</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-dropbox-world">
-<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Dropbox model - connection to the external world. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19______.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-world" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Dropbox model - connection to the external world. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Dropbox/dropbox-ceciis19.txs">dropbox-ceciis19______.txs</a>)</span><a class="headerlink" href="#fig-txs-dropbox-world" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">CNECTDEF</span> <span class="nv">Sut</span>
   <span class="s">::=</span>
       <span class="k">CLIENTSOCK</span>
@@ -1282,9 +1279,9 @@ TXS &gt;&gt; PASS
 TXS &gt;&gt;
 </pre></div>
 </div>
-</section>
-<section id="discussion-and-comparison">
-<h2>Discussion and Comparison<a class="headerlink" href="#discussion-and-comparison" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="discussion-and-comparison">
+<h2>Discussion and Comparison<a class="headerlink" href="#discussion-and-comparison" title="Permalink to this headline">¶</a></h2>
 <p>We showed that model-based testing of a file synchronizer that is
 distributed, concurrent, and nondeterministic, that combines state and
 data, and that has internal state transitions that cannot be observed by
@@ -1344,8 +1341,8 @@ different (model-based) test generation strategies, e.g., the one of
 Quviq QuickCheck with the one of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> , and assign a measure
 of quality or coverage to the generated test suites, and thus,
 indirectly, a measure to the quality of the tested <code class="docutils literal notranslate"><span class="pre">sut</span></code> ?</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

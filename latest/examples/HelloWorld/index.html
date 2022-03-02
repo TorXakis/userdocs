@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TorXakis Hello World Example &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <title>TorXakis Hello World Example &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+              <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../intro.html#why-torxakis">Why TorXakis</a></li>
@@ -265,7 +264,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<p class="caption"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Installation.html#binary-install">Binary Install</a><ul>
@@ -539,7 +538,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
+<p class="caption"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
@@ -574,8 +573,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="torxakis-hello-world-example">
-<span id="helloworld-example"></span><h1>TorXakis Hello World Example<a class="headerlink" href="#torxakis-hello-world-example" title="Permalink to this headline"></a></h1>
+  <div class="section" id="torxakis-hello-world-example">
+<span id="helloworld-example"></span><h1>TorXakis Hello World Example<a class="headerlink" href="#torxakis-hello-world-example" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">code:</span></code>  <a class="reference external" href="https://github.com/TorXakis/examples/tree/main/HelloWorld">https://github.com/TorXakis/examples/tree/main/HelloWorld</a></p>
 <p>Traditionally, the first program, in this case the first model, made in
 a new language is the famous <em>Hello World!</em> program. Since the original
@@ -590,13 +589,11 @@ specifying the allowed behaviour of the <em>Hello World!</em> system, and a
 test <em>adapter</em> to connect the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> to <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>; see <a class="reference internal" href="#fig-testarchitecture-helloworld"><span class="std std-numref">Fig. 5</span></a>.
 We can then use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to test whether the behaviour of the
 <code class="docutils literal notranslate"><span class="pre">SUT</span></code> complies with the behaviour specified in the model.</p>
-<figure class="align-center" id="id1">
-<span id="fig-testarchitecture-helloworld"></span><img alt="Test architecture" src="../../_images/testarchitecture.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<section id="sut">
-<h2>SUT<a class="headerlink" href="#sut" title="Permalink to this headline"></a></h2>
+<div class="figure align-center" id="id1">
+<span id="fig-testarchitecture-helloworld"></span><img alt="Test architecture" src="../../_images/testarchitecture.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="sut">
+<h2>SUT<a class="headerlink" href="#sut" title="Permalink to this headline">¶</a></h2>
 <p>Our <code class="docutils literal notranslate"><span class="pre">SUT</span></code> is an executable program that is
 claimed to behave according the <em>Hello World!</em> description given above.
 Our task is to test whether this <code class="docutils literal notranslate"><span class="pre">SUT</span></code> indeed behaves as prescribed.
@@ -611,9 +608,9 @@ Hello Jan! Pierre
 Hello Pierre! ...
 </pre></div>
 </div>
-</section>
-<section id="adapter">
-<h2>Adapter<a class="headerlink" href="#adapter" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="adapter">
+<h2>Adapter<a class="headerlink" href="#adapter" title="Permalink to this headline">¶</a></h2>
 <p>We now consider a test adapter for <em>Hello
 World!</em>. Since the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> commmunicates via standard input/output and
 <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> communicates via plain old sockets, this means that we
@@ -630,20 +627,18 @@ for <em>Hello World!</em>. The <code class="docutils literal notranslate"><span 
 is a black box receiving names, i.e, strings of characters, on socket
 with port number 7890, and sending responses, being also strings, on the
 same socket.</p>
-</section>
-<section id="model">
-<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
 <p>Now it is time to construct a model in the
 <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language <code class="docutils literal notranslate"><span class="pre">Txs</span></code>. The description above says
 that, after an initial <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World!</span></code>, the system shall repeatedly
 receive names and then output <code class="docutils literal notranslate"><span class="pre">Hello</span></code> with that name. The behaviour
 is represented in the state automaton <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span> <span class="pre">helloWorld</span></code> in <a class="reference internal" href="#fig-yed-helloworld"><span class="std std-numref">Fig. 6</span></a>;
 the complete model including all additional definitions is shown in <a class="reference internal" href="#fig-txs-helloworld"><span class="std std-numref">Listing 1</span></a>.</p>
-<figure class="align-center" id="id2" style="width: 70%">
-<span id="fig-yed-helloworld"></span><img alt="State automaton for Hello World!" src="../../_images/yed_model_helloworld.svg" /><figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">State automaton for Hello World! (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/HelloWorld/modelH/Hstaut.graphml">Hstaut.graphml</a>)</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<div class="figure align-center" id="id2" style="width: 70%">
+<span id="fig-yed-helloworld"></span><img alt="State automaton for Hello World!" src="../../_images/yed_model_helloworld.svg" /><p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">State automaton for Hello World! (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/HelloWorld/modelH/Hstaut.graphml">Hstaut.graphml</a>)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p>In <a class="reference internal" href="#fig-yed-helloworld"><span class="std std-numref">Fig. 6</span></a>, there are three states: the initial state <code class="docutils literal notranslate"><span class="pre">init</span></code>, the state
 <code class="docutils literal notranslate"><span class="pre">noname</span></code> when no name has been entered yet, and state
 <code class="docutils literal notranslate"><span class="pre">named</span></code> after a name has been entered. The transition from <em>init</em> to
@@ -679,7 +674,7 @@ name of the state automaton, its channels with message types,
 parameters, states, state variables, initial state, and the initial
 values of the state variables,</p>
 <div class="literal-block-wrapper docutils container" id="fig-txs-helloworld">
-<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Txs model of <em>Hello World!</em> (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/HelloWorld/modelH/HelloWorld.txs">HelloWorld.txs</a>)</span><a class="headerlink" href="#fig-txs-helloworld" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Txs model of <em>Hello World!</em> (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/HelloWorld/modelH/HelloWorld.txs">HelloWorld.txs</a>)</span><a class="headerlink" href="#fig-txs-helloworld" title="Permalink to this code">¶</a></div>
 <div class="highlight-txs notranslate"><div class="highlight"><pre><span></span> <span class="k">STAUTDEF</span> <span class="nc">helloWorld</span> <span class="p">[</span> <span class="nv">Inp</span><span class="p">,</span> <span class="nv">Outp</span> <span class="s">::</span> <span class="nv">String</span> <span class="p">]</span> <span class="p">(</span> <span class="p">)</span>
  <span class="s">::=</span>
      <span class="k">STATE</span>
@@ -737,9 +732,9 @@ to the <code class="docutils literal notranslate"><span class="pre">SUT</span></
 Moreover, an encoding of actions to strings on the socket can be
 defined, but in this case, the encoding is trivial. Analogously, outputs
 from the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, i.e., inputs to <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, are read from socket <code class="docutils literal notranslate"><span class="pre">localhost:7890</span></code> and decoded.</p>
-</section>
-<section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>Now we are ready to perform a test, by running
 the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> with its adapter and <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> as two separate
 processes in two different windows. For the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> we run:</p>
@@ -782,8 +777,8 @@ functionality has been added in <code class="docutils literal notranslate"><span
 quasi-random inputs, which is not normally provided by an SMT solver.
 Moreover, it is checked that the outputs,
 such as <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">Output,</span> <span class="pre">[</span> <span class="pre">&quot;Hello</span> <span class="pre">Busvccc!&quot;</span> <span class="pre">]</span> <span class="pre">)</span></code> , are correct.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
