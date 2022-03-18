@@ -49,7 +49,7 @@ jobs:
 #     * DOCUMENT_NAME: official name for the documention configured in the sphinx configuration file conf.py
 #    NOTE: all user configaration is done in the sphinx config so that this file can left unchanged
     - name: build documentation pdf and html (sets env.SPHINX_BUILD_PDF env.DOCUMENT_NAME)
-      uses: docker://harcokuppens/sphinx-action:4.4.0  
+      uses: docker://ghcr.io/harcokuppens/sphinx-action:4.4.0  
       with:
         build-command: "make html latexpdf BUILDDIR=build"
         docs-folder: "."
