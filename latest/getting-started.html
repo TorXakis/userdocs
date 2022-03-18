@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-94dd9f4 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Getting started &mdash; TorXakis v0.9.0, Document version git-sha1-964eb0f documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/textcolor_styles.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,7 +31,7 @@
             <a href="index.html" class="icon icon-home"> TorXakis
           </a>
               <div class="version">
-                version: v0.9.0<br/>latest docs: git-sha1-94dd9f4<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-94dd9f4.pdf">pdf</a>
+                version: v0.9.0<br/>latest docs: git-sha1-964eb0f<br/><a style="color:white" href="https://github.com/torxakis/userdocs/releases/download/develop/TorXakis-v0.9.0_Userguide-git-sha1-964eb0f.pdf">pdf</a>
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -40,7 +41,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="intro.html#why-torxakis">Why TorXakis</a></li>
@@ -264,7 +265,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Appendices</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Installation.html#binary-install">Binary Install</a><ul>
@@ -538,7 +539,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="torxakis-help.html">Torxakis help</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Backmatter</span></p>
+<p class="caption" role="heading"><span class="caption-text">Backmatter</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -572,13 +573,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="getting-started">
-<span id="chp-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+  <section id="getting-started">
+<span id="chp-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> is a tool for Model-Based Testing (MBT). This section gives step-by-step instructions
 for installation, for executing your first model-based test, and for detecting your first bug
 with <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>. As an example, we use an <em>integer queue</em>.</p>
-<div class="section" id="get-torxakis-running">
-<h2>Get TorXakis running<a class="headerlink" href="#get-torxakis-running" title="Permalink to this headline">¶</a></h2>
+<section id="get-torxakis-running">
+<h2>Get TorXakis running<a class="headerlink" href="#get-torxakis-running" title="Permalink to this headline"></a></h2>
 <p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>.
 Download and install <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> for your favourite operation system using the instructions at the  <a class="reference internal" href="Installation.html#installationchapter"><span class="std std-ref">Installation chapter</span></a>. After installation you can run <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> in a terminal window, with</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ torxakis
@@ -595,29 +596,31 @@ to check whether everything was successfully installed:</p>
 <div class="highlight-txscmd notranslate"><div class="highlight"><pre><span></span><span class="s">TXS &gt;&gt;</span> <span class="k">eval</span> <span class="s">42</span><span class="o">-</span><span class="s">17</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="testing-a-queue">
-<span id="sec-testing-a-queue"></span><h2>Testing a Queue<a class="headerlink" href="#testing-a-queue" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="testing-a-queue">
+<span id="sec-testing-a-queue"></span><h2>Testing a Queue<a class="headerlink" href="#testing-a-queue" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">code:</span></code>  <a class="reference external" href="https://github.com/TorXakis/examples/tree/main/Queue">https://github.com/TorXakis/examples/tree/main/Queue</a></p>
 <p>A couple of examples for <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> usage
 can be found on the <a class="reference internal" href="examples/index.html#exampleschapter"><span class="std std-ref">Examples chapter</span></a>.</p>
 <p>One of the examples is the <em>Queue</em>, which we will now use to demonstrate the usage of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> in this <em>getting
 started</em> chapter.</p>
-<div class="section" id="test-architecture">
-<h3>Test architecture<a class="headerlink" href="#test-architecture" title="Permalink to this headline">¶</a></h3>
-<p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, second, a <a class="reference internal" href="glossary.html#term-system-under-test-sut"><span class="xref std std-term">System under Test (SUT)</span></a>
+<section id="test-architecture">
+<h3>Test architecture<a class="headerlink" href="#test-architecture" title="Permalink to this headline"></a></h3>
+<p>For model-based testing you first need the tool <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>, second, a <a class="reference internal" href="glossary.html#term-System-under-Test-SUT"><span class="xref std std-term">System under Test (SUT)</span></a>
 that is a Java program implementing the <em>queue</em>, third, a model specifying the behaviour
 of the queue, fourth, a connection between the test tool and the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>.
 When having all these ingredients, depicted
 in <a class="reference internal" href="#figtestarchitecture"><span class="std std-numref">Image of Test architecture (Fig. 1)</span></a>  , then you can start running model-based tests.</p>
-<div class="figure align-center" id="id2">
-<span id="figtestarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture1.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-center" id="id2">
+<span id="figtestarchitecture"></span><img alt="Test architecture" src="_images/testarchitecture1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Test architecture</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>The first thing needed for MBT is a  Model-Based Testing Tool, which in our case is <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>.
 The second thing you need for MBT is an <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, and third thing  a <code class="docutils literal notranslate"><span class="pre">Model</span></code>.</p>
-</div>
-<div class="section" id="system-under-test">
-<h3>System Under Test<a class="headerlink" href="#system-under-test" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="system-under-test">
+<h3>System Under Test<a class="headerlink" href="#system-under-test" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">SUT</span></code> is an abbreviation for <em>System under Test</em>, which
 refers to a system that is being tested for correct operation</p>
 <p>The <em>Queue</em> example has various models and <code class="docutils literal notranslate"><span class="pre">SUTs</span></code>.
@@ -627,9 +630,11 @@ The program is a <em>Queue</em>-implementation that offers its service via a pla
 It accepts input <code class="docutils literal notranslate"><span class="pre">Enq(x)</span></code> (Enqueue) to put integer value <code class="docutils literal notranslate"><span class="pre">x</span></code> in the queue, and it
 accepts input <code class="docutils literal notranslate"><span class="pre">Deq</span></code> (Dequeue) and then provides the first value from the queue as output.
 See <a class="reference internal" href="#figqueueofints"><span class="std std-numref">Fig. 2</span></a>.</p>
-<div class="figure align-center" id="id3">
-<span id="figqueueofints"></span><img alt="A Queue of integers" src="_images/queue.svg" /><p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">A Queue of integers</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-center" id="id3">
+<span id="figqueueofints"></span><img alt="A Queue of integers" src="_images/queue.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">A Queue of integers</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>To experiment with the <code class="docutils literal notranslate"><span class="pre">SUT</span></code>, compile it and run it, or use the precompiled version, and use the portnumber <code class="docutils literal notranslate"><span class="pre">7890</span></code>.
 To use the <em>Queue</em> we need to connect to it via the plain old socket interface using an application that
 can communicate via sockets, e.g., <code class="docutils literal notranslate"><span class="pre">telnet</span></code>, <code class="docutils literal notranslate"><span class="pre">nc</span></code> (<code class="docutils literal notranslate"><span class="pre">netcat</span></code>), or <code class="docutils literal notranslate"><span class="pre">putty</span></code>. Start the Java-<em>Queue</em> in one window and
@@ -647,9 +652,9 @@ Enq(-17)                            [ 42, -17 ]
 Deq                                 [ -17 ]
 42</pre>
 </div></blockquote>
-</div>
-<div class="section" id="model">
-<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline"></a></h3>
 <p>In the <em>Queue</em>-example, there are also a couple of <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> models, written in the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> modelling language <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.
 One of them is <a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Queue.txs">Queue.txs</a>.</p>
 <p>You can view and edit the model in your favourite plain editor.
@@ -659,9 +664,11 @@ after <code class="docutils literal notranslate"><span class="pre">--</span></co
 <p>The state-transition system of the <em>queue</em> model is graphically represented as a <code class="docutils literal notranslate"><span class="pre">Txs</span></code> state automaton,
 called <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code>, in <a class="reference internal" href="#figqstaut"><span class="std std-numref">Fig. 3</span></a>. In such a representation, the <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> declaration
 is textually described and the transitions are visualized as a graph.</p>
-<div class="figure align-center" id="id4" style="width: 70%">
-<span id="figqstaut"></span><img alt="State automaton for the Queue." src="_images/qstaut.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">State automaton for the Queue. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Qstaut.graphml">Qstaut.graphml</a>)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-center" id="id4" style="width: 70%">
+<span id="figqstaut"></span><img alt="State automaton for the Queue." src="_images/qstaut.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">State automaton for the Queue. (<a class="reference external" href="https://raw.githubusercontent.com/TorXakis/examples/main/Queue/modelQ/Qstaut.graphml">Qstaut.graphml</a>)</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p>You can copy the file <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code> to a new directory; also copy the file <code class="docutils literal notranslate"><span class="pre">.torxakis.yaml</span></code> that contains some <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
 configuration information, to be modified later.
 Now you can use <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> to step through the model, i.e., use the stepper-command on the <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>-prompt,
@@ -692,9 +699,9 @@ and the integer values are randomly chosen, so your result might differ a bit.</
 <span class="s">TXS &gt;&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="model-based-testing-of-the-queue">
-<h3>Model-Based Testing of the Queue<a class="headerlink" href="#model-based-testing-of-the-queue" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="model-based-testing-of-the-queue">
+<h3>Model-Based Testing of the Queue<a class="headerlink" href="#model-based-testing-of-the-queue" title="Permalink to this headline"></a></h3>
 <p>Now that we have a <code class="docutils literal notranslate"><span class="pre">SUT</span></code> - <code class="docutils literal notranslate"><span class="pre">QueueServer0.java</span></code> – and a model specifying the required behaviour of the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> – <code class="docutils literal notranslate"><span class="pre">Queue.txs</span></code> –,
 we can start testing the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> against its model. To test the Queue, run the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> in one window and start <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code>
 with the model as input, in another window. When <code class="docutils literal notranslate"><span class="pre">TorXakis</span></code> gives its prompt, start testing with <code class="docutils literal notranslate"><span class="pre">tester</span> <span class="pre">Queue</span> <span class="pre">Sut</span></code>,
@@ -726,28 +733,28 @@ easily try bigger numbers, e.g., <code class="docutils literal notranslate"><spa
 <span class="s">TXS &gt;&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="a-queue-mutant">
-<h3>A Queue Mutant<a class="headerlink" href="#a-queue-mutant" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="a-queue-mutant">
+<h3>A Queue Mutant<a class="headerlink" href="#a-queue-mutant" title="Permalink to this headline"></a></h3>
 <p>You have now tested the <code class="docutils literal notranslate"><span class="pre">sutQueueServer0.java</span></code> against its model, but <code class="docutils literal notranslate"><span class="pre">QueueServer0.java</span></code> does not
 contain bugs (at least, as far as we know, but … “testing can only show the presence of errors,
 never their absence” <a class="reference internal" href="bibliography.html#r24" id="id1"><span>[R24]</span></a>). Detecting bugs is probably more rewarding for testers, so we added in the
 <em>Queue</em>-example three Queue mutants, small modifications in the Java program that may make the <code class="docutils literal notranslate"><span class="pre">SUT</span></code> buggy.
 These mutants are <code class="docutils literal notranslate"><span class="pre">sut1</span></code>, <code class="docutils literal notranslate"><span class="pre">sut2</span></code>, and <code class="docutils literal notranslate"><span class="pre">sut3</span></code>. You can test these <code class="docutils literal notranslate"><span class="pre">SUT</span></code>’s with the same model to see whether
 you can detect (and explain?) the bugs.</p>
-</div>
-</div>
-<div class="section" id="utilities">
-<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="notepad-and-txs">
-<h3>Notepad++ and Txs<a class="headerlink" href="#notepad-and-txs" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline"></a></h2>
+<section id="notepad-and-txs">
+<h3>Notepad++ and Txs<a class="headerlink" href="#notepad-and-txs" title="Permalink to this headline"></a></h3>
 <p><em>Notepad++</em> is a free editor running in the MS Windows environment: <a class="reference external" href="https://notepad-plus-plus.org">https://notepad-plus-plus.org</a>.
 Syntax high-lighting for <code class="docutils literal notranslate"><span class="pre">Txs</span></code> is available for <em>Notepad++</em>.
 Follow the installation instructions on: <a class="reference external" href="https://github.com/TorXakis/SupportNotepadPlusPlus">https://github.com/TorXakis/SupportNotepadPlusPlus</a> to
 install the <em>Notepad++</em>-plugin for <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.</p>
-</div>
-<div class="section" id="yed-and-txs">
-<h3>yEd and Txs<a class="headerlink" href="#yed-and-txs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="yed-and-txs">
+<h3>yEd and Txs<a class="headerlink" href="#yed-and-txs" title="Permalink to this headline"></a></h3>
 <p>Models represent state-transition systems, which can intuitively be visualized as graphs. <a class="reference external" href="https://www.yworks.com/products/yed">yEd</a> is a powerfull, freely available graph editor that can be used to edit and (automatically) layout graphs, and that runs on Windows, Unix/Linux, and macOS. A translation from <em>yEd</em> to <code class="docutils literal notranslate"><span class="pre">Txs</span></code> is available. Follow the installation instructions on: <a class="reference external" href="https://github.com/TorXakis/yed2stautdef">https://github.com/TorXakis/yed2stautdef</a> to install the application <code class="docutils literal notranslate"><span class="pre">yed2stautdef</span></code> that translates <em>yEd</em>-output to a state-automaton definition <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code> in <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.</p>
 <p>For the <em>Queue</em>-example, a graph representing its state-transition system, is available in <code class="docutils literal notranslate"><span class="pre">Qstaut.graphml</span></code>; actually, it is the graph of Fig. 2. This graph has three nodes and four edges. The edges represent the transitions in the state-transition system. Two nodes represent states and one node gives the declaration of the <code class="docutils literal notranslate"><span class="pre">STAUTDEF</span></code>. The labels in the nodes representing states are the state names; the labels on the transitions specify actions in <code class="docutils literal notranslate"><span class="pre">Txs</span></code> syntax. The declaration node gives the name of the state automaton, its channels message types between <code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code>, and optionally some parameters between <code class="docutils literal notranslate"><span class="pre">(</span></code> and <code class="docutils literal notranslate"><span class="pre">)</span></code>. Moreover, there is the list of all states, the local variables with their types, and the initial state with initial values for the local variables. Nodes and edges can be formatted (colour, shape, lining, shadow, …) as wished; it does not matter for the transformation to <code class="docutils literal notranslate"><span class="pre">Txs</span></code>.</p>
 <p>The graph edited in <em>yEd</em> shall be saved in <em>Trivial Graph Format</em> <code class="docutils literal notranslate"><span class="pre">TGF</span></code> (<code class="docutils literal notranslate"><span class="pre">*.tgf</span></code>). The application <code class="docutils literal notranslate"><span class="pre">yed2stautdef</span></code> transforms a file in <code class="docutils literal notranslate"><span class="pre">TGF</span></code>-format to a <code class="docutils literal notranslate"><span class="pre">Txs</span></code>-file:</p>
@@ -779,9 +786,9 @@ So, next time when you continue editing with <em>yEd</em> use the <code class="d
 <p>The application <code class="docutils literal notranslate"><span class="pre">yed2stautdef</span></code> just transforms the <code class="docutils literal notranslate"><span class="pre">.tgf</span></code>-file and does not check any syntax or static semantics.
 Checking is only done on the <code class="docutils literal notranslate"><span class="pre">.txs</span></code>-file, where error messages might appear. Finding the corresponding error spot in
 the <code class="docutils literal notranslate"><span class="pre">.graphml</span></code>-file is, for the moment, left to the user.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
