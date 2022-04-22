@@ -23,6 +23,10 @@ run:
    brew tap torxakis/torxakis
    brew install torxakis
 
+Now you can launch ``TorXakis`` from the commandline with the command ``torxakis``.
+
+The ``TorXakis`` package also installs the specific versions of `cvc4` and `z3` tools which `TorXakis` requires when running.
+
 For more detailed instructions see the `Homebrew tap for TorXakis`_.
 
 
